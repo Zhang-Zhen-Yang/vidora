@@ -183,7 +183,7 @@
                   timeline.off('change', mySaveListener);
                   var frompath = window.path.join(filePaths[0], 'img%d.png').replace(/\\/mig,'/');
                   var distpath = window.path.join(filePaths[0], 'video.mp4').replace(/\\/mig,'/');
-                  var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 60 -f image2 -i '+ frompath +' -vcodec mpeg4  -q:v 4 ' + distpath;
+                  var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 10 -f image2 -i '+ frompath +' -t 5 -i ./audio/1.mp3 -vcodec mpeg4  -q:v 4 ' + distpath;
 		
                   // var commandStr = '"D://Program Files (x86)/UCBrowser/Application/UCBrowser.exe" ww.baidu.com';
                   var time = new Date();
@@ -198,7 +198,7 @@
                 }
               }
               var time = 5000;
-              var fps = 60;
+              var fps = 10;
               var current = 0;
               var index = 0;
 
