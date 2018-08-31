@@ -59,3 +59,14 @@ typings/
 
 # next.js build output
 .next
+app/ffmpeg/bin/ffmpeg.exe
+app/ffmpeg/bin/ffplay.exe
+app/ffmpeg/bin/ffprobe.exe
+app/ffmpeg/presets/ffprobe.xsd
+app/ffmpeg/presets/libvpx-1080p.ffpreset
+app/ffmpeg/presets/libvpx-360p.ffpreset
+app/ffmpeg/presets/libvpx-720p.ffpreset
+app/ffmpeg/presets/libvpx-720p50_60.ffpreset
+app/ffmpeg/LICENSE.txt
+app/ffmpeg/README.txt
+app/ffmpeg/presets/libvpx-1080p50_60.ffpreset

@@ -1,0 +1,25 @@
+{
+  "name": "vidora",
+  "version": "1.0.0",
+  "description": "vidora",
+  "main": "./app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "packager": "electron-packager ./app vidora --all --out ./OutApp --version 1.4.3 --overwrite --icon=./app/src/img/lapin.ico",
+    "packageWin": "electron-packager ./app vidora --platform=win32 --arch=x64  --out ./OutApp --overwrite --icon=./app/src/img/lapin.ico"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhang-Zhen-Yang/vidora.git"
+  },
+  "author": "张真扬",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zhang-Zhen-Yang/vidora/issues"
+  },
+  "homepage": "https://github.com/Zhang-Zhen-Yang/vidora#readme",
+  "devDependencies": {
+    "electron": "^1.7.8"
+  }
+}
