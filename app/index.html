@@ -42,6 +42,7 @@
         canvas = document.getElementById('canvas');
         timeline=new createjs.Timeline();
         stage = new createjs.Stage("canvas");
+        createjs.Touch.enable(stage);
         //创建一个形状的显示对象
         rect = new createjs.Shape();
         rect.graphics.beginFill("white").drawRect(0, 0, 800, 800);
@@ -50,22 +51,32 @@
         //添加形状实例到舞台显示列表
         stage.addChild(rect);
     
-        var txt = new createjs.Text("CANVAS", "bold 30px Arial");
+        /* var txt = new createjs.Text("CANVAS", "bold 30px Arial");
         txt.textAlign = "center";
         txt.x = 400;
         txt.y = 30;
         txt.color = 'orange';
         console.log(txt);
-        stage.addChild(txt);
+        stage.addChild(txt);*/
 
         var queue = new createjs.LoadQueue();
         queue.on('complete', function(){
           console.log('complete');
-          var img1 = queue.getResult('img1');
-          var img2 = queue.getResult('img2');
+          
+          // bg
+          var bg = queue.getResult('bg');
+          console.log(stage.canvas.height);
+          var bgBitmap = new createjs.Bitmap(bg);
+          bgBitmap.set({
+            height: stage.canvas.height,
+            scaleY: 1.1,
+          });
+
+          stage.addChild(bgBitmap);
 
 
-          // bitmap1 
+          // bitmap1 -----------------------------------------------------------------------------
+          /* var img1 = queue.getResult('img1');
           var bitmap1 = new createjs.Bitmap(img1);
           
           var bitmapMask = new createjs.Shape();
@@ -83,10 +94,31 @@
           container.set({
             x: 250,
             y: 250,
-          })
+          })*/
+          var img1 = queue.getResult('img1');
+            var bitmap1 = new createjs.Bitmap(img1);
+            stage.addChild(bitmap1);
+            bitmap1.set({
+              regX: img1.width / 2,
+              regY: img1.height / 2,
+              x: canvas.width + img1.width / 2,
+              y: canvas.height / 2,
+              rotation: 10,
+              shadow: new createjs.Shadow("rgba(0,0,0,0.5)", 5, 5, 10),
+            });
+            var tween1 = createjs.Tween.get(bitmap1, {})
+              .to({
+                x: canvas.width / 2,
+                y: canvas.height / 2,
+              }, 1000,createjs.Ease.backInOut)
+              .wait(1000)
+              .to({
+                x: -canvas.width / 2
+              }, 700)
 
           
-          // bitmap2
+          // bitmap2 -------------------------------------------------------------------------------
+          /* var img2 = queue.getResult('img2');
           var width = img2.width;
           var height = img2.height;
           console.log([width, height]);
@@ -105,7 +137,7 @@
           stage.addChild(container);
           // tween
 
-          var tween1 = createjs.Tween.get(bitmap2, {loop: -1, bounce: true})
+          var tween2 = createjs.Tween.get(bitmap2, {loop: -1, bounce: true})
             // .wait(500)
             .to({
               // alpha:1,
@@ -131,12 +163,231 @@
 
 
             createjs.MotionGuidePlugin.install();
-            var tween2 = createjs.Tween.get(container, {loop: -1 }).to({guide:{ path:[250,250, 0,0, 200,200, 200,600, 0,0, 100,100, 250, 250] }},5000);
+            var tween1 = createjs.Tween.get(container, {loop: -1 }).to({guide:{ path:[250,250, 0,0, 200,200, 200,600, 0,0, 100,100, 250, 250] }},5000);*/
+
+            var img2 = queue.getResult('img2');
+            var bitmap2 = new createjs.Bitmap(img2);
+            stage.addChild(bitmap2);
+            bitmap2.set({
+              regX: img2.width / 2,
+              regY: img2.height / 2,
+              x: canvas.width + img2.width * 0.7,
+              y: canvas.height / 2,
+              rotation: -10,
+              shadow: new createjs.Shadow("rgba(0,0,0,0.5)", 5, 5, 10),
+            });
+            var tween2 = createjs.Tween.get(bitmap2, {})
+              .wait(2000)
+              .to({
+                x: canvas.width / 2
+              }, 1000, createjs.Ease.backInOut)
+              .wait(1000)
+              .to({
+                x: -canvas.width / 2
+              }, 700)
+
+
+
+
+
+
+            // bitmap3 -----------------------------------------------------------------------------------------
+            var img3 = queue.getResult('img3');
+            var bitmap3 = new createjs.Bitmap(img3);
+            stage.addChild(bitmap3);
+            bitmap3.set({
+              regX: img3.width / 2,
+              regY: img3.height / 2,
+              x: canvas.width + img3.width * 0.7,
+              y: canvas.height / 2,
+              rotation: 10,
+              shadow: new createjs.Shadow("rgba(0,0,0,0.5)", 5, 5, 10),
+            });
+            var tween3 = createjs.Tween.get(bitmap3, {})
+              .wait(4000)
+              .to({
+                x: canvas.width / 2
+              }, 1000, createjs.Ease.backInOut)
+              .wait(1000)
+              .to({
+                x: -canvas.width / 2
+              }, 700)
+
+            // bitmap4 -----------------------------------------------------------------------------------------
+            var img4 = queue.getResult('img4');
+            var bitmap4 = new createjs.Bitmap(img4);
+            stage.addChild(bitmap4);
+            bitmap4.set({
+              regX: img4.width / 2,
+              regY: img4.height / 2,
+              x: canvas.width + img4.width * 0.7,
+              y: canvas.height / 2,
+              rotation: -10,
+              shadow: new createjs.Shadow("rgba(0,0,0,0.5)", 5, 5, 10),
+            });
+            var tween4 = createjs.Tween.get(bitmap4, {})
+              .wait(6000)
+              .to({
+                x: canvas.width / 2
+              }, 1000, createjs.Ease.backInOut)
+              .wait(1000)
+              .to({
+                x: -canvas.width / 2
+              }, 700)
+
+            // bitmap5 -----------------------------------------------------------------------------------------
+            var img5 = queue.getResult('img5');
+            var bitmap5 = new createjs.Bitmap(img5);
+            stage.addChild(bitmap5);
+            bitmap5.set({
+              regX: img5.width / 2,
+              regY: img5.height / 2,
+              x: canvas.width + img5.width * 0.7,
+              y: canvas.height / 2,
+              rotation: 10,
+              shadow: new createjs.Shadow("rgba(0,0,0,0.5)", 5, 5, 10),
+            });
+            var tween5 = createjs.Tween.get(bitmap5, {})
+              .wait(8000)
+              .to({
+                x: canvas.width / 2
+              }, 1000, createjs.Ease.backInOut)
+              .wait(1000)
+              .to({
+                x: canvas.width / 2 - 1
+              }, 1000)
+              
+              // price
+              
+              var priceContainer = new createjs.Container();
+              stage.addChild(priceContainer);
+              priceContainer.set({
+                y: 100,
+              });
+              
+              var rect1 = new createjs.Shape();
+              rect1.graphics.beginFill('#c31311').drawRect(0, 0, 200, 40);
+              rect1.set({
+                x: -200,
+                y: 0,
+                opacity: 0,
+              });
+              var rect2 = new createjs.Shape();
+              rect2.graphics.beginFill('white').drawRect(0, 40, 300, 50);
+              rect2.set({
+                x: -300,
+                y: 0,
+                opacity: 0,
+              });
+              var rect3 = new createjs.Shape();
+              rect3.graphics.beginFill('gray').drawRect(0, 90, 250, 40);
+              rect3.set({
+                x: -250,
+                y: 0,
+                opacity: 0,
+              });
+
+              priceContainer.addChild(rect1);
+              priceContainer.addChild(rect2);
+              priceContainer.addChild(rect3);
+
+              var rectTween1 = createjs.Tween.get(rect1)
+              .wait(2000)
+              .to({
+                x: -100,
+                opacity: 1,
+              }, 1500, createjs.Ease.backInOut)
+
+              var rectTween2 = createjs.Tween.get(rect2)
+              .wait(2000)
+              .to({
+                x: -150,
+                opacity: 1,
+              }, 1000, createjs.Ease.backInOut)
+
+              var rectTween3 = createjs.Tween.get(rect3)
+              .wait(2000)
+              .to({
+                x: -130,
+                opacity: 1,
+              }, 1200, createjs.Ease.backInOut)
+
+
+              // price 1
+              var price1 = new createjs.Text('促销价', 'bold 25px Impact');
+              price1.set({
+                color: 'white',
+                x: 10,
+                y: 5,
+                alpha: 0,
+              })
+              priceContainer.addChild(price1);
+              var priceTween1 = createjs.Tween.get(price1)
+              .wait(3000)
+              .to({
+                alpha: 1,
+              }, 500);
+              
+              // price 2
+              var price2 = new createjs.Text('¥ 200', 'bold 35px Impact');
+              price2.set({
+                color: '#c31311',
+                x: 10,
+                y: 45,
+                alpha: 0,
+              })
+              priceContainer.addChild(price2);
+              var priceTween2 = createjs.Tween.get(price2)
+              .wait(3000)
+              .to({
+                alpha: 1,
+              }, 500);
+
+              // price 3
+              var price3 = new createjs.Text('原价 267', 'normal 25px Impact');
+              price3.set({
+                color: 'white',
+                x: 10,
+                y: 95,
+                alpha: 0,
+              })
+              priceContainer.addChild(price3);
+              var priceTween3 = createjs.Tween.get(price3)
+              .wait(3000)
+              .to({
+                alpha: 1,
+              }, 500);
+
+              // bar 
+              var bar = new createjs.Shape();
+              bar.graphics.beginFill('#eeeeee').drawRect(0, 0, 100, 3);
+              bar.set({
+                x: -50,
+                y: 110,
+                alpha: 0,
+              })
+              var barTween = createjs.Tween.get(bar)
+              .wait(3000)
+              .to({
+                x: 10,
+                alpha: 1,
+              }, 500)
+              priceContainer.addChild(bar);
 
             // timeline
             timeline.addTween(
               tween1,
               tween2,
+              tween3,
+              tween4,
+              tween5,
+              rectTween1,
+              rectTween2,
+              rectTween3,
+              priceTween1,
+              priceTween2,
+              priceTween3,
+              barTween,
             );
             
             timeline.setPaused(true);
@@ -145,12 +396,28 @@
         });
         queue.loadManifest([
           {
+            id: 'bg',
+            src: 'http://file06.16sucai.com/2016/0329/c2761608b0aa52d7404e460978c08a2d.jpg',
+          },
+          {
             id: 'img1',
-            src:'http://cdn.duitang.com/uploads/item/201511/11/20151111162757_BU58a.thumb.700_0.jpeg',
+            src:'http://img5.duitang.com/uploads/item/201510/04/20151004095236_fFeZX.thumb.700_0.jpeg',
           },
           {
             id: 'img2',
             src:'http://img5.duitang.com/uploads/item/201509/02/20150902213319_wNPYn.thumb.700_0.jpeg',
+          },
+          {
+            id: 'img3',
+            src: 'http://img5.duitang.com/uploads/item/201510/04/20151004095106_KZRmG.thumb.700_0.jpeg',
+          },
+          {
+            id: 'img4',
+            src: 'http://cdn.duitang.com/uploads/item/201509/02/20150902220621_NZTMf.thumb.700_0.jpeg',
+          },
+          {
+            id: 'img5',
+            src: 'http://cdn.duitang.com/uploads/item/201509/02/20150902220128_TC35w.thumb.700_0.jpeg',
           }
         ])
 
@@ -257,9 +524,9 @@
 
               //-----------------------------------
 
-              var frompath = window.path.join(filePaths[0], 'img%d.png').replace(/\\/mig,'/');
-              var distpath = window.path.join(filePaths[0], 'video.mp4').replace(/\\/mig,'/');
-              var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i '+ frompath +' -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 ' + distpath;
+              /* var frompath = window.path.join(filePaths[0], 'img%d.png').replace(/\\/mig,'/');
+              var distpath = window.path.join(filePaths[0], 'videoeight.mp4').replace(/\\/mig,'/');
+              var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i '+ frompath +' -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s 800*800 ' + distpath;
               // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i '+ frompath +' -t 10 -i ./audio/1.mp3 -vcodec mpeg4 -q:v 4 ' + distpath;
 		
               // var commandStr = '"D://Program Files (x86)/UCBrowser/Application/UCBrowser.exe" ww.baidu.com';
@@ -272,7 +539,7 @@
                 console.log(new Date() - time);
                 console.log('生成成功');
               })
-              return;
+              return;*/
               // -------------------------------------------------------------------------------
               var mySaveListener;
               function action() {
@@ -293,13 +560,14 @@
                   timeline.setPosition(current);
                 } else {
                   timeline.off('change', mySaveListener);
+                  console.log('d');
                   var frompath = window.path.join(filePaths[0], 'img%d.png').replace(/\\/mig,'/');
-                  var distpath = window.path.join(filePaths[0], 'video.mp4').replace(/\\/mig,'/');
+                  var distpath = window.path.join(filePaths[0], 'videoN.mp4').replace(/\\/mig,'/');
                   // libx264 本地不行
                   // mpeg4 本地行 网页不行
                   // mpeg1video
                   // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i '+ frompath +' -t 10 -i ./audio/1.mp3 -vcodec mpeg4  -q:v 4 ' + distpath;
-                  var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i '+ frompath +' -t 10 -i ./audio/1.mp3  -q:v 4 ' + distpath;
+                  var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i '+ frompath +' -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 ' + distpath;
 		
                   // var commandStr = '"D://Program Files (x86)/UCBrowser/Application/UCBrowser.exe" ww.baidu.com';
                   var time = new Date();
