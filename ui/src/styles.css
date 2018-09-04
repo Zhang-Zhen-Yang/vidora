@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+	padding:0;	
+	font-family: 微软雅黑;
+	font-size:14px;
+	color:#2C3E50;
+	margin: 0;
+}
+body div{
+	box-sizing: border-box;
+}
+
+.absolute{
+	position: absolute;
+}
+.relative{
+	position: relative;
+}
+.fixed{
+	position: fixed;
+}
+.pointer{
+	cursor:pointer;
+}
+.scrollbar-override::-webkit-scrollbar {
+	width: 13px;
+	height: 10px;
+	overflow: hidden;
+	transition:all 3s linear;
+}
+.scrollbar-override::-webkit-scrollbar-thumb{
+	transition:all 3s linear;
+}
+.scrollbar-override:hover::-webkit-scrollbar-thumb:hover{
+	background-color: #bbb;
+	transition:all 3s linear;
+}
+.scrollbar-override:hover::-webkit-scrollbar-thumb{
+	background-color: #ccc;
+	transition:all 3s linear;
+}
