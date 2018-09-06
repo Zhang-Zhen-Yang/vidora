@@ -1,3 +1,22 @@
-<canvas id="workcanvas" width="800" height="800">
+<div id="canvas-wrap" class="scrollbar-override">
+	<!--<canvas id="canvas" width="800" height="800">
+	</canvas>-->
+	<app-canvas-space></app-canvas-space>
+</div>
+<div id="canvas-btn-wrap">
+	{{ isPaused() }}
+	<button (click)="play()">
+		play
+	</button>
+	<button (click)="pause()">
+		pause
+	</button>
+	<button (click)="reset()">
+		reset
+	</button>
+	<button (click)="exFile()">
+		导出
+	</button>
+</div>
 
-</canvas>
+
