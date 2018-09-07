@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
-import { DynamicFormsBootstrapUIModule } from "@ng-dynamic-forms/ui-bootstrap";
+// import { DynamicFormsBootstrapUIModule } from "@ng-dynamic-forms/ui-bootstrap";
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { DynamicFormModule } from './dynamic-form2/dynamic-form.module';
 
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
@@ -39,7 +41,9 @@ import { AnimateTemplateItemComponent } from './animate-template-item/animate-te
     MatButtonModule,
     ReactiveFormsModule,
     DynamicFormsCoreModule,
-    DynamicFormsBootstrapUIModule,
+    // DynamicFormsBootstrapUIModule,
+
+    DynamicFormModule
   ],
   entryComponents: [
     AnimateTemplateComponent

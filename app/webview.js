@@ -5,13 +5,13 @@ function checkedInited() {
 			checkedInited();
 		} else {
 			// console.log(lib);
-			const {fps, width, height, color} = lib.properties;
+			// const {fps, width, height, color} = lib.properties;
 			const props = {
 				duration: exportRoot.timeline.duration,
-				fps,
-				width,
-				height,
-				color,
+				fps: createjs.Ticker.getFPS(),
+				// width,
+				// height,
+				// color,
 				paused: window.exportRoot.paused,
 			}
 			ipcRenderer.sendToHost('inited', JSON.stringify(props));

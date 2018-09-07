@@ -1,3 +1,15 @@
 <p>
   actionpanel works!
 </p>
+<form novalidate [formGroup]="myGroup" #f="ngForm" (ngSubmit)="onSubmit(f)" >
+    {{ myGroup.controls.name?.errors | json }}
+  <label for="">
+    Name: <input type="text" formControlName="name">
+  </label>
+  <br>
+  <label for="">
+    Location: <input type="text" formControlName="location">
+  </label>
+  <button type="submit">Sign up</button>
+</form>
+<dynamic-form [config]="config" #form="dynamicForm" (submit)="submit($event)"></dynamic-form>

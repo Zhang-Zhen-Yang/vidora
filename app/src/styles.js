@@ -48,7 +48,7 @@ module.exports = ".mat-elevation-z0{box-shadow:0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rg
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n\nbody{\n\tpadding:0;\t\n\tfont-family: 微软雅黑!important;\n\tfont-size:14px;\n\tcolor:#2C3E50;\n\tmargin: 0;\n}\n\nbody div{\n\tbox-sizing: border-box;\n}\n\n.absolute{\n\tposition: absolute;\n}\n\n.relative{\n\tposition: relative;\n}\n\n.fixed{\n\tposition: fixed;\n}\n\n.pointer{\n\tcursor:pointer;\n}\n\n.scrollbar-override::-webkit-scrollbar {\n\twidth: 13px;\n\theight: 10px;\n\toverflow: hidden;\n\ttransition:all 3s linear;\n}\n\n.scrollbar-override::-webkit-scrollbar-thumb{\n\ttransition:all 3s linear;\n}\n\n.scrollbar-override:hover::-webkit-scrollbar-thumb:hover{\n\tbackground-color: #bbb;\n\ttransition:all 3s linear;\n}\n\n.scrollbar-override:hover::-webkit-scrollbar-thumb{\n\tbackground-color: #ccc;\n\ttransition:all 3s linear;\n}\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\r\n\r\nbody{\r\n\tpadding:0;\t\r\n\tfont-family: 微软雅黑!important;\r\n\tfont-size:14px;\r\n\tcolor:#2C3E50;\r\n\tmargin: 0;\r\n}\r\n\r\nbody *{\r\n\tfont-family: 微软雅黑!important;\r\n}\r\n\r\nbody div{\r\n\tbox-sizing: border-box;\r\n\t\r\n}\r\n\r\n.absolute{\r\n\tposition: absolute;\r\n}\r\n\r\n.relative{\r\n\tposition: relative;\r\n}\r\n\r\n.fixed{\r\n\tposition: fixed;\r\n}\r\n\r\n.pointer{\r\n\tcursor:pointer;\r\n}\r\n\r\n.scrollbar-override::-webkit-scrollbar {\r\n\twidth: 13px;\r\n\theight: 10px;\r\n\toverflow: hidden;\r\n\ttransition:all 3s linear;\r\n}\r\n\r\n.scrollbar-override::-webkit-scrollbar-thumb{\r\n\ttransition:all 3s linear;\r\n}\r\n\r\n.scrollbar-override:hover::-webkit-scrollbar-thumb:hover{\r\n\tbackground-color: #bbb;\r\n\ttransition:all 3s linear;\r\n}\r\n\r\n.scrollbar-override:hover::-webkit-scrollbar-thumb{\r\n\tbackground-color: #ccc;\r\n\ttransition:all 3s linear;\r\n}\r\n"
 
 /***/ }),
 
@@ -580,8 +580,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\code\vidora\ui\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
-module.exports = __webpack_require__(/*! F:\code\vidora\ui\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! D:\code\vidora\ui\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
+module.exports = __webpack_require__(/*! D:\code\vidora\ui\src\styles.css */"./src/styles.css");
 
 
 /***/ })

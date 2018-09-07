@@ -96,10 +96,19 @@ export class CanvasSpaceComponent implements OnInit {
       flex: 1;
       align-items: center;
       justify-content: center;
-      background-color: red;
+      background-color: #eeeeee;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right:0;
+      bottom: 0;
+      overflow: auto;
+    }
+    #animation_container{
+      
     }
     canvas {
-      margin-top: 20px;
+      /*margin-top: 20px;*/
     }
   `);
   }
