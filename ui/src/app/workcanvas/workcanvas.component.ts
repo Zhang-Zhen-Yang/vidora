@@ -21,6 +21,13 @@ export class WorkcanvasComponent implements OnInit, AfterViewInit {
     let canvas =this.elementRef.nativeElement.querySelector('#canvas');//获取第一个p
     // this.canvasService.init(canvas);
   }
+  togglePlay() {
+    if (this.canvasService.paused) {
+      this.canvasService.play();
+    } else {
+      this.canvasService.pause();
+    }
+  }
   play() {
     this.canvasService.play();
   }
@@ -35,6 +42,12 @@ export class WorkcanvasComponent implements OnInit, AfterViewInit {
   }
   isPaused() {
     return this.canvasService.paused;
+  }
+  fps() {
+    return this.canvasService.fps;
+  }
+  duration() {
+    return this.canvasService.duration;
   }
 
 }

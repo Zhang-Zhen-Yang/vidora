@@ -100,5 +100,16 @@ export class CanvasService {
   observables={
     actions: new Subject(),
     exportImg: new Subject(),
+    template: new Subject(),
+  }
+  loadTemplate(url) {
+    if (!url) {
+      alert('无效的模板地址');
+      return;
+    }
+    this.observables.template.next({
+      action: 'loadTemplate',
+      url,
+    })
   }
 }

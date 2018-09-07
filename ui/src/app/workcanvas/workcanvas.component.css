@@ -21,3 +21,6 @@
 	align-items: center;
 	justify-content: center;
 }
+#canvas-btn-wrap button{
+	margin: 0 2px;
+}

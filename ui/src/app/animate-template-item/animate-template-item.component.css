@@ -1,0 +1,15 @@
+:host{
+	
+}
+#template-item{
+	display: inline-block;
+	width:200px;
+	height: 100px;
+	background-color:orange;
+	cursor: pointer;
+	margin-top: 10px;
+}
+#template-item-placeholder {
+	width: 200px;
+	height: 0;
+}

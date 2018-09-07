@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicFormsCoreModule } from "@ng-dynamic-forms/core";
+import { DynamicFormsBootstrapUIModule } from "@ng-dynamic-forms/ui-bootstrap";
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
@@ -9,6 +13,11 @@ import { LeftbarComponent } from './leftbar/leftbar.component';
 import { BottombarComponent } from './bottombar/bottombar.component';
 import { ActionpanelComponent } from './actionpanel/actionpanel.component';
 import { CanvasSpaceComponent } from './canvas-space/canvas-space.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { AnimateTemplateComponent } from './animate-template/animate-template.component';
+import { AnimateTemplateItemComponent } from './animate-template-item/animate-template-item.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +29,20 @@ import { CanvasSpaceComponent } from './canvas-space/canvas-space.component';
     BottombarComponent,
     ActionpanelComponent,
     CanvasSpaceComponent,
+    AnimateTemplateComponent,
+    AnimateTemplateItemComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    DynamicFormsCoreModule,
+    DynamicFormsBootstrapUIModule,
+  ],
+  entryComponents: [
+    AnimateTemplateComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

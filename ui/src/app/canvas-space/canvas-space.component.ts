@@ -12,13 +12,21 @@ export class CanvasSpaceComponent implements OnInit {
 
   ngOnInit() {
     // 订阅
+    // 播放 暂停
     this.canvasService.observables.actions.subscribe((e)=>{
       console.log(e['type']);
       this.webview.nativeElement.send(e['type'],'');
     })
+    // 导出图片
     this.canvasService.observables.exportImg.subscribe((e)=>{
       console.log(e['path']);
       this.webview.nativeElement.send('exportImg', e['path']);
+    })
+    // 加载模板
+    this.canvasService.observables.template.subscribe((e)=>{
+      console.log(e['action']);
+      // this.webview.nativeElement.send('template', e['action']);
+      this.webview.nativeElement.loadURL(e['url']);
     })
   }
   ngOnChanges(e){

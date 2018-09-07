@@ -5,18 +5,13 @@
 </div>
 <div id="canvas-btn-wrap">
 	{{ isPaused() }}
-	<button (click)="play()">
-		play
-	</button>
-	<button (click)="pause()">
-		pause
-	</button>
-	<button (click)="reset()">
-		reset
-	</button>
-	<button (click)="exFile()">
-		导出
-	</button>
+	<div class="button-row">
+		<button mat-flat-button color="primary" (click)="togglePlay()">
+			{{ isPaused() ? '播放' : '暂停' }}
+		</button>
+		<button mat-flat-button color="accent" (click)="reset()">reset</button>
+		<button mat-flat-button color="warn" (click)="exFile()">导出</button>
+	</div>
 </div>
 
 

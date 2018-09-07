@@ -86,6 +86,364 @@ var ActionpanelComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/animate-template-item/animate-template-item.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/animate-template-item/animate-template-item.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-block;\r\n\twidth:200px;\r\n\theight: 100px;\r\n\tbackground-color:orange;\r\n\tcursor: pointer;\r\n\tmargin-top: 10px;\r\n}\r\n#template-item-placeholder {\r\n\twidth: 200px;\r\n\theight: 0;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/animate-template-item/animate-template-item.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/animate-template-item/animate-template-item.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\">\n  animate-template-item works!\n  {{data.name}}\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/animate-template-item/animate-template-item.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/animate-template-item/animate-template-item.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: AnimateTemplateItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateItemComponent", function() { return AnimateTemplateItemComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AnimateTemplateItemComponent = /** @class */ (function () {
+    function AnimateTemplateItemComponent(canvasService) {
+        this.canvasService = canvasService;
+    }
+    AnimateTemplateItemComponent.prototype.ngOnInit = function () {
+    };
+    AnimateTemplateItemComponent.prototype.loadTemplate = function (url) {
+        // alert(url);
+        this.canvasService.loadTemplate(url);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AnimateTemplateItemComponent.prototype, "data", void 0);
+    AnimateTemplateItemComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-animate-template-item',
+            template: __webpack_require__(/*! ./animate-template-item.component.html */ "./src/app/animate-template-item/animate-template-item.component.html"),
+            styles: [__webpack_require__(/*! ./animate-template-item.component.css */ "./src/app/animate-template-item/animate-template-item.component.css")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
+    ], AnimateTemplateItemComponent);
+    return AnimateTemplateItemComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/animate-template/animate-template.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/animate-template/animate-template.component.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n\tjustify-content: space-around;\r\n\tflex-wrap: wrap;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/animate-template/animate-template.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/animate-template/animate-template.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>Delete all</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of templates\" [data]=\"item\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>No</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button [mat-dialog-close]=\"true\">Yes</button>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "./src/app/animate-template/animate-template.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/animate-template/animate-template.component.ts ***!
+  \****************************************************************/
+/*! exports provided: AnimateTemplateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateComponent", function() { return AnimateTemplateComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AnimateTemplateComponent = /** @class */ (function () {
+    function AnimateTemplateComponent() {
+        this.templates = [
+            {
+                name: '无标题2',
+                url: 'http://localhost:8080/%E6%97%A0%E6%A0%87%E9%A2%98-2.html'
+            },
+            {
+                name: 'c',
+                url: 'http://localhost:8080/c.html'
+            },
+            {
+                name: 'c2',
+                url: 'http://localhost:8080/c2.html'
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'aaaaa',
+            },
+            {
+                name: 'bbb',
+            },
+            {
+                name: 'ccc',
+            },
+            {
+                name: 'ddd',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: 'eee',
+            },
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+            {
+                name: '',
+            },
+        ];
+    }
+    AnimateTemplateComponent.prototype.ngOnInit = function () {
+    };
+    AnimateTemplateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-animate-template',
+            template: __webpack_require__(/*! ./animate-template.component.html */ "./src/app/animate-template/animate-template.component.html"),
+            styles: [__webpack_require__(/*! ./animate-template.component.css */ "./src/app/animate-template/animate-template.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AnimateTemplateComponent);
+    return AnimateTemplateComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -156,14 +514,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./topbar/topbar.component */ "./src/app/topbar/topbar.component.ts");
-/* harmony import */ var _workspace_workspace_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./workspace/workspace.component */ "./src/app/workspace/workspace.component.ts");
-/* harmony import */ var _workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./workcanvas/workcanvas.component */ "./src/app/workcanvas/workcanvas.component.ts");
-/* harmony import */ var _leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./leftbar/leftbar.component */ "./src/app/leftbar/leftbar.component.ts");
-/* harmony import */ var _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./bottombar/bottombar.component */ "./src/app/bottombar/bottombar.component.ts");
-/* harmony import */ var _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./actionpanel/actionpanel.component */ "./src/app/actionpanel/actionpanel.component.ts");
-/* harmony import */ var _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./canvas-space/canvas-space.component */ "./src/app/canvas-space/canvas-space.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./topbar/topbar.component */ "./src/app/topbar/topbar.component.ts");
+/* harmony import */ var _workspace_workspace_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./workspace/workspace.component */ "./src/app/workspace/workspace.component.ts");
+/* harmony import */ var _workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./workcanvas/workcanvas.component */ "./src/app/workcanvas/workcanvas.component.ts");
+/* harmony import */ var _leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./leftbar/leftbar.component */ "./src/app/leftbar/leftbar.component.ts");
+/* harmony import */ var _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./bottombar/bottombar.component */ "./src/app/bottombar/bottombar.component.ts");
+/* harmony import */ var _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./actionpanel/actionpanel.component */ "./src/app/actionpanel/actionpanel.component.ts");
+/* harmony import */ var _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./canvas-space/canvas-space.component */ "./src/app/canvas-space/canvas-space.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
+/* harmony import */ var _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./animate-template-item/animate-template-item.component */ "./src/app/animate-template-item/animate-template-item.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -180,26 +543,39 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_3__["TopbarComponent"],
-                _workspace_workspace_component__WEBPACK_IMPORTED_MODULE_4__["WorkspaceComponent"],
-                _workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_5__["WorkcanvasComponent"],
-                _leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_6__["LeftbarComponent"],
-                _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_7__["BottombarComponent"],
-                _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_8__["ActionpanelComponent"],
-                _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_9__["CanvasSpaceComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+                _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_4__["TopbarComponent"],
+                _workspace_workspace_component__WEBPACK_IMPORTED_MODULE_5__["WorkspaceComponent"],
+                _workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_6__["WorkcanvasComponent"],
+                _leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_7__["LeftbarComponent"],
+                _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_8__["BottombarComponent"],
+                _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_9__["ActionpanelComponent"],
+                _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_10__["CanvasSpaceComponent"],
+                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_13__["AnimateTemplateComponent"],
+                _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_14__["AnimateTemplateItemComponent"],
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_11__["MatDialogModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+            ],
+            entryComponents: [
+                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_13__["AnimateTemplateComponent"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]]
         })
     ], AppModule);
@@ -228,7 +604,7 @@ module.exports = ":host {\r\n\tbackground-color:#1ABC9C;\r\n\theight: 25px;\r\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\">\n      <div class=\"row-index edit-message\">\n        12行\n      </div>\n      <div class=\"column-index edit-message\">\n        15列\n      </div>\n      <div class=\"charset edit-message\">\n        UTF-8\n      </div>\n      <div class=\"language edit-message\" >\n        language\n      </div>\n    </div>\n  \n    <div class=\"edit-message-wrap\">\n      <div class=\"edit-message\">\n        图片等\n      </div>    \n    </div>\n    \n  </div>\n  "
+module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\">\n      <div class=\"row-index edit-message\">\n        时长 {{ duration() }} s\n      </div>\n      <div class=\"column-index edit-message\">\n        帧频 {{ fps() }}\n      </div>\n      <!--\n      <div class=\"charset edit-message\">\n        UTF-8\n      </div>\n      <div class=\"language edit-message\" >\n        language\n      </div>\n      -->\n    </div>\n    <!--\n    <div class=\"edit-message-wrap\">\n      <div class=\"edit-message\">\n        图片等\n      </div>    \n    </div>\n    -->\n  </div>\n  "
 
 /***/ }),
 
@@ -243,6 +619,7 @@ module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BottombarComponent", function() { return BottombarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -253,10 +630,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var BottombarComponent = /** @class */ (function () {
-    function BottombarComponent() {
+    function BottombarComponent(canvasService) {
+        this.canvasService = canvasService;
     }
     BottombarComponent.prototype.ngOnInit = function () {
+    };
+    BottombarComponent.prototype.fps = function () {
+        return this.canvasService.fps;
+    };
+    BottombarComponent.prototype.duration = function () {
+        if (this.canvasService.fps && this.canvasService.duration) {
+            return (this.canvasService.duration / this.canvasService.fps).toFixed(2);
+        }
+        return '-';
     };
     BottombarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -264,7 +652,7 @@ var BottombarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./bottombar.component.html */ "./src/app/bottombar/bottombar.component.html"),
             styles: [__webpack_require__(/*! ./bottombar.component.css */ "./src/app/bottombar/bottombar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
     ], BottombarComponent);
     return BottombarComponent;
 }());
@@ -291,7 +679,7 @@ module.exports = "\r\n:host{\r\n\tposition: relative;\r\n\twidth: 100%;\r\n\thei
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\n  <webview \n    #webview\n    src=\"http://localhost:8080/c2.html\"\n    class=\"image-space-webview\"\n    minwidth=\"0\"\n    preload=\"./src/webview.js\"\n  >\n  </webview>\n</div>\n"
+module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\n  <webview \n    #webview\n    src=\"http://localhost:8080/c2.html\"\n    class=\"image-space-webview\"\n    minwidth=\"0\"\n    preload=\"./webview.js\"\n  >\n  </webview>\n</div>\n"
 
 /***/ }),
 
@@ -326,13 +714,21 @@ var CanvasSpaceComponent = /** @class */ (function () {
     CanvasSpaceComponent.prototype.ngOnInit = function () {
         var _this = this;
         // 订阅
+        // 播放 暂停
         this.canvasService.observables.actions.subscribe(function (e) {
             console.log(e['type']);
             _this.webview.nativeElement.send(e['type'], '');
         });
+        // 导出图片
         this.canvasService.observables.exportImg.subscribe(function (e) {
             console.log(e['path']);
             _this.webview.nativeElement.send('exportImg', e['path']);
+        });
+        // 加载模板
+        this.canvasService.observables.template.subscribe(function (e) {
+            console.log(e['action']);
+            // this.webview.nativeElement.send('template', e['action']);
+            _this.webview.nativeElement.loadURL(e['url']);
         });
     };
     CanvasSpaceComponent.prototype.ngOnChanges = function (e) {
@@ -434,7 +830,7 @@ module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"left-bar\">\n  left bar\n</div>\n"
+module.exports = "<div id=\"left-bar\">\n  left bar\n  <div (click)=\"showTemplateDialog()\">\n    template\n    模板\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -449,6 +845,8 @@ module.exports = "<div id=\"left-bar\">\n  left bar\n</div>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeftbarComponent", function() { return LeftbarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -459,10 +857,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var LeftbarComponent = /** @class */ (function () {
-    function LeftbarComponent() {
+    function LeftbarComponent(dialog) {
+        this.dialog = dialog;
     }
     LeftbarComponent.prototype.ngOnInit = function () {
+    };
+    LeftbarComponent.prototype.showTemplateDialog = function () {
+        var dialogRef = this.dialog.open(_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__["AnimateTemplateComponent"]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log("Dialog result: " + result);
+        });
     };
     LeftbarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -470,7 +877,7 @@ var LeftbarComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./leftbar.component.html */ "./src/app/leftbar/leftbar.component.html"),
             styles: [__webpack_require__(/*! ./leftbar.component.css */ "./src/app/leftbar/leftbar.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], LeftbarComponent);
     return LeftbarComponent;
 }());
@@ -518,6 +925,7 @@ var CanvasService = /** @class */ (function () {
         this.observables = {
             actions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             exportImg: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
+            template: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
         };
     }
     CanvasService.prototype.setInstance = function () {
@@ -596,6 +1004,16 @@ var CanvasService = /** @class */ (function () {
     CanvasService.prototype.generateMp4 = function () {
         console.log('mp4');
         this.ffmpegService.generateMp4({ savePath: this.savePath, duration: this.duration, fps: this.fps });
+    };
+    CanvasService.prototype.loadTemplate = function (url) {
+        if (!url) {
+            alert('无效的模板地址');
+            return;
+        }
+        this.observables.template.next({
+            action: 'loadTemplate',
+            url: url,
+        });
     };
     CanvasService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -848,7 +1266,7 @@ var TopbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n#canvas-wrap {\r\n\tflex: 1;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\toverflow: auto;\r\n}\r\n\r\n#canvas-wrap canvas {\r\n\tbackground-color: aliceblue;\r\n}\r\n\r\n#canvas-btn-wrap {\r\n\theight:50px;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}"
+module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n#canvas-wrap {\r\n\tflex: 1;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\toverflow: auto;\r\n}\r\n\r\n#canvas-wrap canvas {\r\n\tbackground-color: aliceblue;\r\n}\r\n\r\n#canvas-btn-wrap {\r\n\theight:50px;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}\r\n\r\n#canvas-btn-wrap button{\r\n\tmargin: 0 2px;\r\n}"
 
 /***/ }),
 
@@ -859,7 +1277,7 @@ module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\n\t</canvas>-->\n\t<app-canvas-space></app-canvas-space>\n</div>\n<div id=\"canvas-btn-wrap\">\n\t{{ isPaused() }}\n\t<button (click)=\"play()\">\n\t\tplay\n\t</button>\n\t<button (click)=\"pause()\">\n\t\tpause\n\t</button>\n\t<button (click)=\"reset()\">\n\t\treset\n\t</button>\n\t<button (click)=\"exFile()\">\n\t\t导出\n\t</button>\n</div>\n\n\n"
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\n\t</canvas>-->\n\t<app-canvas-space></app-canvas-space>\n</div>\n<div id=\"canvas-btn-wrap\">\n\t{{ isPaused() }}\n\t<div class=\"button-row\">\n\t\t<button mat-flat-button color=\"primary\" (click)=\"togglePlay()\">\n\t\t\t{{ isPaused() ? '播放' : '暂停' }}\n\t\t</button>\n\t\t<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>\n\t</div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -899,6 +1317,14 @@ var WorkcanvasComponent = /** @class */ (function () {
         var canvas = this.elementRef.nativeElement.querySelector('#canvas'); //获取第一个p
         // this.canvasService.init(canvas);
     };
+    WorkcanvasComponent.prototype.togglePlay = function () {
+        if (this.canvasService.paused) {
+            this.canvasService.play();
+        }
+        else {
+            this.canvasService.pause();
+        }
+    };
     WorkcanvasComponent.prototype.play = function () {
         this.canvasService.play();
     };
@@ -913,6 +1339,12 @@ var WorkcanvasComponent = /** @class */ (function () {
     };
     WorkcanvasComponent.prototype.isPaused = function () {
         return this.canvasService.paused;
+    };
+    WorkcanvasComponent.prototype.fps = function () {
+        return this.canvasService.fps;
+    };
+    WorkcanvasComponent.prototype.duration = function () {
+        return this.canvasService.duration;
     };
     WorkcanvasComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

@@ -1,0 +1,6 @@
+<div id="template-item" *ngIf="data.name" (click)="loadTemplate(data.url)">
+  animate-template-item works!
+  {{data.name}}
+</div>
+<div id="template-item-placeholder" *ngIf="!data.name">
+</div>
