@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { DynamicFormComponent } from '../dynamic-form2/containers/dynamic-form/dynamic-form.component';
+import { CanvasService } from '../service/canvas.service';
+
 interface FormItemOption {
   type: string;
   label: string;
@@ -16,7 +18,7 @@ interface FormItemOption {
 })
 export class ActionpanelComponent implements OnInit, AfterViewInit  {
   @ViewChild(DynamicFormComponent) form: DynamicFormComponent
-  config: FormItemOption[] = [
+  /* config: FormItemOption[] = [
     {
       type: 'input',
       label: 'Full name',
@@ -34,16 +36,34 @@ export class ActionpanelComponent implements OnInit, AfterViewInit  {
       type: 'button',
       label: 'Submit',
       name: 'submit'
+    },
+    {
+      type: 'image',
+      label: 'image',
+      name: 'image'
     }
+  ];*/
+  config: FormItemOption[] = [
+    {
+      type: 'input',
+      label: 'Full name',
+      name: 'name',
+      placeholder: 'Enter your name'
+    },
   ];
-   
-  myGroup
-  constructor(private fb: FormBuilder) { }
+  
+  constructor(private fb: FormBuilder, private canvasService: CanvasService) { }
 
   ngOnInit() {
-    this.myGroup = this.fb.group({
-      name: ['Semlinker', [Validators.required, Validators.minLength(2)]],
-      location: ['China, CN']
+    console.log(this.canvasService.options);
+    this.canvasService.observables.options.subscribe((e)=>{
+      this.config = e['options'];
+      console.log(e['options']);
+      setTimeout(()=>{
+        this.config.forEach((item) => {
+          this.form.setValue(item.name, item['value'] || '');
+        })
+      }, 0)
     });
   }
   onSubmit(data) {
@@ -54,15 +74,19 @@ export class ActionpanelComponent implements OnInit, AfterViewInit  {
     let previousValid = this.form.valid; 
     this.form.changes.subscribe((e) => { 
       console.log(e);
+      this.canvasService.setOptions(e);
       if (this.form.valid !== previousValid) { 
         previousValid = this.form.valid;
         console.log(this.form.valid);
-        this.form.setDisabled('submit', !previousValid); 
+        // this.form.setDisabled('submit', !previousValid); 
       } 
     });
-    // this.form.setDisabled('submit', true); 
-    this.form.setValue('name', 'Todd Motto');
-    this.form.setValue('food', 'Hot Dogs');
+    setTimeout(()=>{
+      // this.form.setDisabled('submit', true);
+      // this.form.setValue('name', 'Todd Motto');
+      // this.form.setValue('food', 'Hot Dogs');
+      // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
+    }, 0) 
   } 
   submit(value: {[name: string]: any}) { 
     console.log(value); 

@@ -15,17 +15,24 @@ export class CanvasService {
   fps: 24
   width: 800
   height: 800
+  // 表单配置
+  options = [];
   constructor(private fileservice: FileService, private ffmpegService: FfmpegService, private dialogService: DialogService) {
 
   }
   setInstance() {
    
   }
-  init(e) {
+  init(e, e2) {
     console.log(e);
     const  props = e;
     this.duration = props['duration'];
     this.fps = props['fps'];
+    this.options = this.options;
+    console.log(e2);
+    this.observables.options.next({
+      options: e2,
+    });
     // "duration":121,"fps":40,"width":800,"height":800,"color":"#FFFFFF","paused":false
   }
   setIsPaused(paused) {
@@ -101,6 +108,8 @@ export class CanvasService {
     actions: new Subject(),
     exportImg: new Subject(),
     template: new Subject(),
+    options: new Subject(),// 用于actionpanel
+    optionsSet: new Subject(),
   }
   loadTemplate(url) {
     if (!url) {
@@ -110,6 +119,13 @@ export class CanvasService {
     this.observables.template.next({
       action: 'loadTemplate',
       url,
+    })
+  }
+
+  setOptions(options) {
+    console.log('setOptions');
+    this.observables.optionsSet.next({
+      options
     })
   }
 }

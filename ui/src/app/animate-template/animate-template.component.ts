@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-animate-template',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AnimateTemplateComponent implements OnInit {
   
   templates: Array<any>
-  constructor() { 
+  constructor(public dialog: MatDialog) { 
     this.templates = [
       {
         name: '无标题2',
@@ -23,13 +24,16 @@ export class AnimateTemplateComponent implements OnInit {
         url: 'http://localhost:8080/c2.html'
       },
       {
-        name: 'ddd',
+        name: 'v2a',
+        url: 'F:/code/animate cc/c1.html',
       },
       {
-        name: 'eee',
+        name: 'c2',
+        url: 'F:/code/animate cc/c2.html'
       },
       {
-        name: 'aaaaa',
+        name: 'd',
+        url: 'F:/code/animate cc/d.html'
       },
       {
         name: 'bbb',
@@ -235,6 +239,12 @@ export class AnimateTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
+    /* setTimeout(()=>{
+      this.dialog.closeAll();
+    }, 5000)*/
+  }
+  closedialog() {
+    this.dialog.closeAll();
   }
 
 }

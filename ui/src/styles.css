@@ -44,3 +44,46 @@ body div{
 	background-color: #ccc;
 	transition:all 3s linear;
 }
+button {
+	letter-spacing: -0.5px;
+	cursor: pointer;
+	background-color: #9d62c8;
+	outline: 0;
+	line-height: 1;
+	text-align: center;
+	padding: 12px 30px;
+	font-size: 15px;
+	font-weight: 600;
+	border-radius: 2px;
+	display: inline-block;
+	border: none;
+	color: #fff;
+	transition: background-color .3s, box-shadow .3s;
+}
+button:hover {
+	background-color: #a46dcc;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+	background: rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.4);
+	cursor: not-allowed;
+	box-shadow: none;
+}
+@font-face {
+	font-family: 'iconfont';  /* project id 105016 */
+	src: url('//at.alicdn.com/t/font_105016_pj47aypgdgd.eot');
+	src: url('//at.alicdn.com/t/font_105016_pj47aypgdgd.eot?#iefix') format('embedded-opentype'),
+	url('//at.alicdn.com/t/font_105016_pj47aypgdgd.woff') format('woff'),
+	url('//at.alicdn.com/t/font_105016_pj47aypgdgd.ttf') format('truetype'),
+	url('//at.alicdn.com/t/font_105016_pj47aypgdgd.svg#iconfont2') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+	font-size:16px;
+	font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}

@@ -16,18 +16,24 @@ export class CanvasSpaceComponent implements OnInit {
     this.canvasService.observables.actions.subscribe((e)=>{
       console.log(e['type']);
       this.webview.nativeElement.send(e['type'],'');
-    })
+    });
     // 导出图片
     this.canvasService.observables.exportImg.subscribe((e)=>{
       console.log(e['path']);
       this.webview.nativeElement.send('exportImg', e['path']);
-    })
+    });
     // 加载模板
     this.canvasService.observables.template.subscribe((e)=>{
       console.log(e['action']);
       // this.webview.nativeElement.send('template', e['action']);
       this.webview.nativeElement.loadURL(e['url']);
-    })
+    });
+    // 对模板内容进行设置
+    this.canvasService.observables.optionsSet.subscribe((e)=>{
+      console.log('对模板内容进行设置');
+      console.log(JSON.stringify(e['options']));
+      this.webview.nativeElement.send('setOptions', JSON.stringify(e['options']));
+    });
   }
   ngOnChanges(e){
     //console.log(e);
@@ -54,7 +60,7 @@ export class CanvasSpaceComponent implements OnInit {
       switch (e.channel) {
         case 'inited':
           console.log(e);
-          this.canvasService.init(JSON.parse(e.args[0]));
+          this.canvasService.init(JSON.parse(e.args[0]),JSON.parse(e.args[1]));
           break;
         case 'base64':
           console.log(e);

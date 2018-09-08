@@ -127,3 +127,34 @@ an.getComposition = function(id) {
 
 })(createjs = createjs||{}, AdobeAn = AdobeAn||{});
 var createjs, AdobeAn;
+
+
+function setOptions() {
+	window.options = [
+	];
+	var img1 = exportRoot.children[0].children[0].image;
+	options.push({
+		name: 'img1',
+		label: 'lable img1',
+		type: 'image',
+		value: img1.src,
+		callback: function(src) {
+			const nImg = new Image();
+			nImg.src = src;
+			nImg.onload = function() {
+				exportRoot.children[0].children[0].image = nImg;
+			}
+		}
+	})
+	/* setTimeout(function(){
+		const nImg = new Image();
+		nImg.src = 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png';
+		nImg.onload = function() {
+			exportRoot.children[0].children[0].image = nImg;
+			console.log(exportRoot);
+		}
+		nImg.onerror = function() {
+			alert('imgloadError');
+		}
+	}, 5000);*/
+}

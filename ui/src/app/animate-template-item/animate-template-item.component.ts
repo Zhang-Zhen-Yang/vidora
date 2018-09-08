@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CanvasService } from '../service/canvas.service';
 
 @Component({
@@ -9,13 +9,19 @@ import { CanvasService } from '../service/canvas.service';
 export class AnimateTemplateItemComponent implements OnInit {
 
   @Input() data;
+  @Output() closedialog = new EventEmitter();
   constructor(private canvasService: CanvasService) { }
 
   ngOnInit() {
   }
   loadTemplate(url) {
     // alert(url);
+    if(!url) {
+      alert('无效的模板地址');
+      return;
+    }
     this.canvasService.loadTemplate(url);
+    this.closedialog.emit();
   }
 
 }

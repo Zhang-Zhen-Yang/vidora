@@ -4,17 +4,30 @@ function checkedInited() {
 		if(!window.exportRoot) {
 			checkedInited();
 		} else {
+			/* const bg = new createjs.Shape();
+			bg.graphics.beginFill('rgba(0,0,0,0.1)').drawRect(0, 0, canvas.width, canvas.height);
+			exportRoot.addChildAt(bg, 1)
+			console.log(exportRoot.getChildAt(1))*/
+			try{
+				setOptions();
+			}catch(e){
+				console.error(e);
+			}
+				console.log(exportRoot);
+			// console.log(JSON.stringify(options));
 			// console.log(lib);
 			// const {fps, width, height, color} = lib.properties;
 			const props = {
 				duration: exportRoot.timeline.duration,
 				fps: createjs.Ticker.getFPS(),
-				// width,
-				// height,
+				width: window.canvas.width,
+				height: window.canvas.height,
 				// color,
 				paused: window.exportRoot.paused,
 			}
-			ipcRenderer.sendToHost('inited', JSON.stringify(props));
+			ipcRenderer.sendToHost('inited', JSON.stringify(props), JSON.stringify(window.options || []));
+			// ipcRenderer.sendToHost('setOptions', JSON.stringify(props));
+			
 		}
 	}, 1000)
 }
@@ -53,6 +66,19 @@ ipcRenderer.on('checkedInited', (e, message) => {
 })
 ipcRenderer.on('getBase64', (e, message) => {
 	ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
+})
+ipcRenderer.on('setOptions', (e, message) => {
+	console.log(message);
+	const toSetOptions = JSON.parse(message);
+	options.forEach((item) => {
+		if(item.name && (toSetOptions[item.name] != undefined)) {
+			if (toSetOptions[item.name] != item.value) {
+				item.callback(toSetOptions[item.name]);
+			}
+		}
+	})
+
+	//ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
 })
 ipcRenderer.on('exportImg', (e, message)=>{
 	window.exportRoot.timeline.removeAllEventListeners();

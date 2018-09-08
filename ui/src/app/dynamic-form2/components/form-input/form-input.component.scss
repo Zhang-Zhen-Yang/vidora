@@ -7,6 +7,11 @@ input {
   outline: none;
   padding: 10px 15px;
   color: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
   &:focus {
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
