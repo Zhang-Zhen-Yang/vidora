@@ -1927,7 +1927,7 @@ module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\n\t</canvas>-->\n\t<app-canvas-space></app-canvas-space>\n</div>\n<div id=\"canvas-btn-wrap\">\n\t{{ isPaused() }}\n\t<div class=\"button-row\">\n\t\t<button class=\"iconfont\" (click)=\"togglePlay()\">\n\t\t\t&#xe61d; {{ isPaused() ? '播放' : '暂停' }}\n\t\t</button>\n\t\t<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>\n\t</div>\n</div>\n\n\n"
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\n\t</canvas>-->\n\t<app-canvas-space></app-canvas-space>\n</div>\n<div id=\"canvas-btn-wrap\">\n\t{{ isPaused() }}\n\t<div class=\"button-row\">\n\t\t<button class=\"iconfont\" (click)=\"togglePlay()\">\n\t\t\t&#xe61d; {{ isPaused() ? '播放' : '暂停' }}\n\t\t</button>\n\t\t<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>\n\t</div>\n</div>\n\n\ny"
 
 /***/ }),
 
