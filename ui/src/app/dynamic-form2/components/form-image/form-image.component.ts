@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 import { Field } from '../../models/field.interface';
 import { FieldConfig } from '../../models/field-config.interface';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'form-image',
@@ -13,12 +14,13 @@ import { FieldConfig } from '../../models/field-config.interface';
       [formGroup]="group"
     >
       <label class="image-input-lable" >
-        <div
+        <!--<div
           class="form-image-wrap" 
           [ngStyle]="{'background-image': 'url('+ (src?.value || '') + ')'}"
           (click)="openFile()"
         >
-        </div>
+        </div>-->
+        <img class="form-image-image" style="width:100px;height:100px;" [src]="this.url(src?.value || '')" (click)="openFile()">
         <div (click)="openFile()" style="flex: 1;">
           {{ config.label }}
         </div>
@@ -37,8 +39,15 @@ export class FormImageComponent implements Field, OnInit {
   config: FieldConfig;
   group: FormGroup;
   @ViewChild('input') input;
+
+  constructor(private sanitizer: DomSanitizer) {
+
+  }
   ngOnInit() {
 
+  }
+  url(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   // 打开文件
   openFile() {

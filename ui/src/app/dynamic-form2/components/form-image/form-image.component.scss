@@ -3,7 +3,7 @@ input {
   font-family: inherit;
   font-size: 14px;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0);
   outline: none;
   padding: 10px 15px;
   color: rgba(0, 0, 0, 0.7);
@@ -36,10 +36,17 @@ label {
 .image-input {
   // display: flex;
   background-color: white;
+  border:1px solid rgba(0,0,0,0.1)
 }
 .image-input-input {
   /* display: none; */
   width:0;
   height: 0;
   padding:0;
+}
+.form-image-image{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  object-position: center;
 }
