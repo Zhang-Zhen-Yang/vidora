@@ -15,7 +15,7 @@ import { FieldConfig } from '../../models/field-config.interface';
       <label class="image-input-lable" >
         <div
           class="form-image-wrap" 
-          [ngStyle]="{'background-image': 'url('+ src?.value || ''+')'}"
+          [ngStyle]="{'background-image': 'url('+ (src?.value || '') + ')'}"
           (click)="openFile()"
         >
         </div>
@@ -56,7 +56,7 @@ export class FormImageComponent implements Field, OnInit {
         if(!filePaths){
           return;
         }
-        // console.log(filePaths[0]);
+        console.log(filePaths[0]);
         // console.log(this.group.controls[this.config.name]);
         this.group.controls[this.config.name].setValue(filePaths[0].replace(/\\/g, '/'), {emitEvent: true});
         this.input.nativeElement.blur();

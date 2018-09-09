@@ -6,8 +6,8 @@
 <div id="canvas-btn-wrap">
 	{{ isPaused() }}
 	<div class="button-row">
-		<button class="iconfont" (click)="togglePlay()">
-			&#xe61d; {{ isPaused() ? '播放' : '暂停' }}
+		<button  (click)="togglePlay()">
+			<span class="iconfont">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}
 		</button>
 		<button mat-flat-button color="accent" (click)="reset()">reset</button>
 		<button mat-flat-button color="warn" (click)="exFile()">导出</button>

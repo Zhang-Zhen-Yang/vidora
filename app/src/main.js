@@ -212,7 +212,7 @@ module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-bloc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\">\n  animate-template-item works!\n  {{data.name}}\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
+module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\">\r\n  animate-template-item works!\r\n  {{data.name}}\r\n</div>\r\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\r\n</div>\r\n"
 
 /***/ }),
 
@@ -296,7 +296,7 @@ module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>Delete all</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of templates\" [data]=\"item\" (closedialog)=\"closedialog();\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\n</mat-dialog-actions>"
+module.exports = "<h2 mat-dialog-title>Delete all</h2>\r\n<mat-dialog-content>\r\n  <div id=\"template-wrap\">\r\n    <app-animate-template-item *ngFor=\"let item of templates\" [data]=\"item\" (closedialog)=\"closedialog();\">\r\n    </app-animate-template-item>\r\n  </div>\r\n  \r\n</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button mat-button mat-dialog-close>取消</button>\r\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\r\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\r\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -329,11 +329,11 @@ var AnimateTemplateComponent = /** @class */ (function () {
         this.templates = [
             {
                 name: '无标题2',
-                url: 'C:/Users/Asus/Desktop/animate/b.html'
+                url: 'C:/Users/Asus/Desktop/animate/d.html'
             },
             {
-                name: 'c',
-                url: 'C:/Users/Asus/Desktop/animate/c.html'
+                name: 'e',
+                url: 'C:/Users/Asus/Desktop/animate/e.html'
             },
             {
                 name: 'c2',
@@ -592,7 +592,7 @@ module.exports = ":host {\r\n\t\r\n}\r\n#root {\r\n\talign-items: stretch;\r\n\t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div id=\"root\">\n  <div id=\"top-half\">\n    <app-leftbar></app-leftbar>\n    <app-workspace></app-workspace>\n  </div>\n  <app-bottombar></app-bottombar>\n</div>\n\n\n\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"root\">\r\n  <div id=\"top-half\">\r\n    <app-leftbar></app-leftbar>\r\n    <app-workspace></app-workspace>\r\n  </div>\r\n  <app-bottombar></app-bottombar>\r\n</div>\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -745,7 +745,7 @@ module.exports = ":host {\r\n\tbackground-color:#1ABC9C;\r\n\theight: 25px;\r\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\">\n      <div class=\"row-index edit-message\">\n        时长 {{ duration() }} s\n      </div>\n      <div class=\"column-index edit-message\">\n        帧频 {{ fps() }}\n      </div>\n      <!--\n      <div class=\"charset edit-message\">\n        UTF-8\n      </div>\n      <div class=\"language edit-message\" >\n        language\n      </div>\n      -->\n    </div>\n    <!--\n    <div class=\"edit-message-wrap\">\n      <div class=\"edit-message\">\n        图片等\n      </div>    \n    </div>\n    -->\n  </div>\n  "
+module.exports = "<div id=\"bottom-bar\">\r\n\r\n    <div class=\"edit-message-wrap\">\r\n      <div class=\"row-index edit-message\">\r\n        时长 {{ duration() }} s\r\n      </div>\r\n      <div class=\"column-index edit-message\">\r\n        帧频 {{ fps() }}\r\n      </div>\r\n      <!--\r\n      <div class=\"charset edit-message\">\r\n        UTF-8\r\n      </div>\r\n      <div class=\"language edit-message\" >\r\n        language\r\n      </div>\r\n      -->\r\n    </div>\r\n    <!--\r\n    <div class=\"edit-message-wrap\">\r\n      <div class=\"edit-message\">\r\n        图片等\r\n      </div>    \r\n    </div>\r\n    -->\r\n  </div>\r\n  "
 
 /***/ }),
 
@@ -1136,7 +1136,7 @@ var FormImageComponent = /** @class */ (function () {
             if (!filePaths) {
                 return;
             }
-            // console.log(filePaths[0]);
+            console.log(filePaths[0]);
             // console.log(this.group.controls[this.config.name]);
             _this.group.controls[_this.config.name].setValue(filePaths[0].replace(/\\/g, '/'), { emitEvent: true });
             _this.input.nativeElement.blur();
@@ -1150,7 +1150,7 @@ var FormImageComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-image',
             styles: [__webpack_require__(/*! ./form-image.component.scss */ "./src/app/dynamic-form2/components/form-image/form-image.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <div\n          class=\"form-image-wrap\" \n          [ngStyle]=\"{'background-image': 'url('+ src?.value || ''+')'}\"\n          (click)=\"openFile()\"\n        >\n        </div>\n        <div (click)=\"openFile()\" style=\"flex: 1;\">\n          {{ config.label }}\n        </div>\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <div\n          class=\"form-image-wrap\" \n          [ngStyle]=\"{'background-image': 'url('+ (src?.value || '') + ')'}\"\n          (click)=\"openFile()\"\n        >\n        </div>\n        <div (click)=\"openFile()\" style=\"flex: 1;\">\n          {{ config.label }}\n        </div>\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n    </div>\n  "
         })
     ], FormImageComponent);
     return FormImageComponent;
@@ -1465,7 +1465,7 @@ module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"left-bar\">\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\">\n  </div>\n</div>\n\n\n"
+module.exports = "<div id=\"left-bar\">\r\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\">\r\n  </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1654,6 +1654,10 @@ var CanvasService = /** @class */ (function () {
             alert('无效的模板地址');
             return;
         }
+        this.options = [];
+        this.observables.options.next({
+            options: [],
+        });
         this.observables.template.next({
             action: 'loadTemplate',
             url: url,
@@ -1864,7 +1868,7 @@ module.exports = "#app-topbar {\r\n\tbackground-color: black;\r\n\theight: 3rem;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-topbar\">\n  topbar works!\n</div>\n"
+module.exports = "<div id=\"app-topbar\">\r\n  topbar works!\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1927,7 +1931,7 @@ module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\n\t</canvas>-->\n\t<app-canvas-space></app-canvas-space>\n</div>\n<div id=\"canvas-btn-wrap\">\n\t{{ isPaused() }}\n\t<div class=\"button-row\">\n\t\t<button class=\"iconfont\" (click)=\"togglePlay()\">\n\t\t\t&#xe61d; {{ isPaused() ? '播放' : '暂停' }}\n\t\t</button>\n\t\t<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>\n\t</div>\n</div>\n\n\ny"
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t{{ isPaused() }}\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>\r\n\t</div>\r\n</div>\r\n\r\n\r\ny"
 
 /***/ }),
 
@@ -2029,7 +2033,7 @@ module.exports = ":host{\r\n\tflex: 1;\r\n\tbackground-color: #eeeeee;\r\n\tflex
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-workcanvas></app-workcanvas>\n<app-actionpanel></app-actionpanel>\n\n"
+module.exports = "\r\n<app-workcanvas></app-workcanvas>\r\n<app-actionpanel></app-actionpanel>\r\n\r\n"
 
 /***/ }),
 
@@ -2134,7 +2138,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\code\vidora\ui\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\code\vidora\ui\src\main.ts */"./src/main.ts");
 
 
 /***/ })

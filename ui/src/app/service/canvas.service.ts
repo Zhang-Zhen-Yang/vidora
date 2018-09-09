@@ -116,6 +116,10 @@ export class CanvasService {
       alert('无效的模板地址');
       return;
     }
+    this.options = [];
+    this.observables.options.next({
+      options: [],
+    });
     this.observables.template.next({
       action: 'loadTemplate',
       url,

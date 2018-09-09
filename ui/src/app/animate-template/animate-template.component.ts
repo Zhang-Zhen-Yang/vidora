@@ -13,11 +13,11 @@ export class AnimateTemplateComponent implements OnInit {
     this.templates = [
       {
         name: '无标题2',
-        url: 'C:/Users/Asus/Desktop/animate/b.html'
+        url: 'C:/Users/Asus/Desktop/animate/d.html'
       },
       {
-        name: 'c',
-        url: 'C:/Users/Asus/Desktop/animate/c.html'
+        name: 'e',
+        url: 'C:/Users/Asus/Desktop/animate/e.html'
       },
       {
         name: 'c2',

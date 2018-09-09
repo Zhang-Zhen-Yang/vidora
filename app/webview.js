@@ -73,6 +73,7 @@ ipcRenderer.on('setOptions', (e, message) => {
 	options.forEach((item) => {
 		if(item.name && (toSetOptions[item.name] != undefined)) {
 			if (toSetOptions[item.name] != item.value) {
+				item.value = toSetOptions[item.name];
 				item.callback(toSetOptions[item.name]);
 			}
 		}
