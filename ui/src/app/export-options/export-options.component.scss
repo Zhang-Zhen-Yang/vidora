@@ -1,0 +1,29 @@
+input {
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	outline: none;
+	padding: 10px 15px;
+	color: rgba(0, 0, 0, 0.7);
+	box-sizing: border-box;
+	overflow: hidden;
+	white-space: nowrap;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	&:focus {
+	  border: 1px solid rgba(0, 0, 0, 0.4);
+	  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+	}
+  }
+  .input-wrap{
+	display: flex;
+	align-items: center;
+  }
+  .input-wrap label{
+	  width: 100px;
+  }
+  

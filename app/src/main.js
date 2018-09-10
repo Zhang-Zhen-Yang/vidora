@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r\n\tborder-left:1px solid #cccccc;\r\n\tpadding: 20px;\r\n}"
+module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r\n\tborder-left:1px solid #cccccc;\r\n\tpadding: 20px 0 0 20px;;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n.panel-form-wrap{\r\n\tflex: 1;\r\n\toverflow: auto;\r\n\tpadding: 0 20px 20px 0;\r\n}"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  actionpanel works!\r\n</p>\r\n\r\n<dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>\r\n"
+module.exports = "<h3>\r\n  控制面板\r\n</h3>\r\n<div class=\"panel-form-wrap scrollbar-override\">\r\n  <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -212,7 +212,7 @@ module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-bloc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\">\r\n  animate-template-item works!\r\n  {{data.name}}\r\n</div>\r\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\r\n</div>\r\n"
+module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\">\n  animate-template-item works!\n  {{data.name}}\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
 
 /***/ }),
 
@@ -296,7 +296,7 @@ module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>Delete all</h2>\r\n<mat-dialog-content>\r\n  <div id=\"template-wrap\">\r\n    <app-animate-template-item *ngFor=\"let item of templates\" [data]=\"item\" (closedialog)=\"closedialog();\">\r\n    </app-animate-template-item>\r\n  </div>\r\n  \r\n</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button mat-button mat-dialog-close>取消</button>\r\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\r\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\r\n</mat-dialog-actions>"
+module.exports = "<h2 mat-dialog-title>模板选择</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of templates\" [data]=\"item\" (closedialog)=\"closedialog();\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -352,10 +352,12 @@ var AnimateTemplateComponent = /** @class */ (function () {
                 url: 'F:/code/animate cc/d.html'
             },
             {
-                name: 'bbb',
+                name: 'f',
+                url: 'F:/code/animate cc/f.html'
             },
             {
-                name: 'ccc',
+                name: 'g',
+                url: 'F:/code/animate cc/g.html'
             },
             {
                 name: 'ddd',
@@ -592,7 +594,7 @@ module.exports = ":host {\r\n\t\r\n}\r\n#root {\r\n\talign-items: stretch;\r\n\t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div id=\"root\">\r\n  <div id=\"top-half\">\r\n    <app-leftbar></app-leftbar>\r\n    <app-workspace></app-workspace>\r\n  </div>\r\n  <app-bottombar></app-bottombar>\r\n</div>\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div id=\"root\">\n  <div id=\"top-half\">\n    <app-leftbar></app-leftbar>\n    <app-workspace></app-workspace>\n  </div>\n  <app-bottombar></app-bottombar>\n</div>\n\n\n\n\n"
 
 /***/ }),
 
@@ -660,6 +662,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
 /* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
 /* harmony import */ var _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./animate-template-item/animate-template-item.component */ "./src/app/animate-template-item/animate-template-item.component.ts");
+/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./export-options/export-options.component */ "./src/app/export-options/export-options.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -671,6 +674,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // import { DynamicFormsBootstrapUIModule } from "@ng-dynamic-forms/ui-bootstrap";
+
 
 
 
@@ -701,6 +705,7 @@ var AppModule = /** @class */ (function () {
                 _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__["CanvasSpaceComponent"],
                 _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__["AnimateTemplateComponent"],
                 _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_17__["AnimateTemplateItemComponent"],
+                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_18__["ExportOptionsComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -713,7 +718,8 @@ var AppModule = /** @class */ (function () {
                 _dynamic_form2_dynamic_form_module__WEBPACK_IMPORTED_MODULE_5__["DynamicFormModule"]
             ],
             entryComponents: [
-                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__["AnimateTemplateComponent"]
+                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__["AnimateTemplateComponent"],
+                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_18__["ExportOptionsComponent"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
@@ -745,7 +751,7 @@ module.exports = ":host {\r\n\tbackground-color:#1ABC9C;\r\n\theight: 25px;\r\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"bottom-bar\">\r\n\r\n    <div class=\"edit-message-wrap\">\r\n      <div class=\"row-index edit-message\">\r\n        时长 {{ duration() }} s\r\n      </div>\r\n      <div class=\"column-index edit-message\">\r\n        帧频 {{ fps() }}\r\n      </div>\r\n      <!--\r\n      <div class=\"charset edit-message\">\r\n        UTF-8\r\n      </div>\r\n      <div class=\"language edit-message\" >\r\n        language\r\n      </div>\r\n      -->\r\n    </div>\r\n    <!--\r\n    <div class=\"edit-message-wrap\">\r\n      <div class=\"edit-message\">\r\n        图片等\r\n      </div>    \r\n    </div>\r\n    -->\r\n  </div>\r\n  "
+module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\">\n      <div class=\"row-index edit-message\">\n        时长 {{ duration() }} s\n      </div>\n      <div class=\"column-index edit-message\">\n        帧频 {{ fps() }}\n      </div>\n      <!--\n      <div class=\"charset edit-message\">\n        UTF-8\n      </div>\n      <div class=\"language edit-message\" >\n        language\n      </div>\n      -->\n    </div>\n    <!--\n    <div class=\"edit-message-wrap\">\n      <div class=\"edit-message\">\n        图片等\n      </div>    \n    </div>\n    -->\n  </div>\n  "
 
 /***/ }),
 
@@ -809,7 +815,7 @@ var BottombarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n:host{\r\n\tposition: relative;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n}\r\n.canvas-space-wrap{\r\n\tdisplay: block;\r\n\twidth:100%;\r\n\theight:100%;\r\n}\r\n.image-space-webview{\r\n\tdisplay: block;\r\n\tdisplay:flex;\r\n\tflex:1;\r\n\tposition: absolute;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tleft:0;\r\n\ttop:0;\r\n\toverflow:hidden;\r\n}"
+module.exports = "\r\n:host{\r\n\tposition: relative;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n}\r\n.canvas-space-wrap{\r\n\tdisplay: block;\r\n\twidth:100%;\r\n\theight:100%;\r\n}\r\n.image-space-webview{\r\n\tdisplay: block;\r\n\tdisplay:flex;\r\n\tflex:1;\r\n\tposition: absolute;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tleft:0;\r\n\ttop:0;\r\n\toverflow:hidden;\r\n}\r\n#canvas-size{\r\n\tposition: absolute;\r\n\tleft: 10px;\r\n\ttop: 10px;\r\n\tbackground-color: rgba(0,0,0,0.9);\r\n\tcolor: white;\r\n\tborder-radius: 3px;\r\n\tpadding: 5px 10px;\r\n    z-index: 1;\r\n}"
 
 /***/ }),
 
@@ -820,7 +826,7 @@ module.exports = "\r\n:host{\r\n\tposition: relative;\r\n\twidth: 100%;\r\n\thei
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\r\n  <webview \r\n    #webview\r\n    src=\"./template/temp1.html\"\r\n    class=\"image-space-webview\"\r\n    minwidth=\"0\"\r\n    preload=\"./webview.js\"\r\n  >\r\n  </webview>\r\n</div>\r\n"
+module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\r\n  <div id=\"canvas-size\" *ngIf=\"canvasService.width && canvasService.height\">{{ canvasService.width }}&times;{{ canvasService.height }}</div>\r\n  <webview \r\n    #webview\r\n    src=\"./template/temp1.html\"\r\n    class=\"image-space-webview\"\r\n    minwidth=\"0\"\r\n    preload=\"./webview.js\"\r\n  >\r\n  </webview>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1010,7 +1016,11 @@ var DynamicFieldDirective = /** @class */ (function () {
     DynamicFieldDirective.prototype.ngOnInit = function () {
         if (!components[this.config.type]) {
             var supportedTypes = Object.keys(components).join(', ');
-            throw new Error("Trying to use an unsupported type (" + this.config.type + ").\n        Supported types: " + supportedTypes);
+            /* throw new Error(
+              `Trying to use an unsupported type (${this.config.type}).
+              Supported types: ${supportedTypes}`
+            );*/
+            return;
         }
         var component = this.resolver.resolveComponentFactory(components[this.config.type]);
         this.component = this.container.createComponent(component);
@@ -1092,7 +1102,7 @@ var FormButtonComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  display:none\ninput:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .form-image-wrap {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-size: contain;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 1px solid #eeeeee; }\n  label {\n  display: flex;\n  align-items: stretch; }\n  .image-input {\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.1); }\n  .image-input-input {\n  /* display: none; */\n  width: 0;\n  height: 0;\n  padding: 0; }\n  .form-image-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center; }\n"
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  display:none\ninput:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .form-image-wrap {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-size: contain;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 1px solid #eeeeee; }\n  label {\n  display: flex;\n  align-items: stretch; }\n  .image-input {\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  margin-bottom: 20px; }\n  .image-input-input {\n  /* display: none; */\n  width: 0;\n  height: 0;\n  padding: 0; }\n  .form-image-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center; }\n  .image-input-attr {\n  border: 1px solid #eeeeee;\n  display: flex;\n  align-items: center; }\n  .image-input-attr span {\n  width: 100px;\n  padding-left: 10px; }\n  .image-input-attr input {\n  flex: 1; }\n"
 
 /***/ }),
 
@@ -1123,7 +1133,11 @@ var FormImageComponent = /** @class */ (function () {
     function FormImageComponent(sanitizer) {
         this.sanitizer = sanitizer;
     }
+    FormImageComponent.prototype.ngOnchange = function () {
+        console.log(this.group);
+    };
     FormImageComponent.prototype.ngOnInit = function () {
+        console.log(this.group);
     };
     FormImageComponent.prototype.url = function (url) {
         return this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -1132,10 +1146,10 @@ var FormImageComponent = /** @class */ (function () {
     FormImageComponent.prototype.openFile = function () {
         var _this = this;
         window['remote'].dialog.showOpenDialog(window['remote'].getCurrentWindow(), {
-            title: '请选择文件',
+            title: '请选择图片',
             properties: ['openFile'],
             filters: [
-                { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+                { name: '图片', extensions: ['jpg', 'jpeg', 'png', 'bmp', 'gif'] },
             ]
         }, function (filePaths) {
             //this.getCurrentDirFiles(filePaths[0],result);
@@ -1156,7 +1170,7 @@ var FormImageComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-image',
             styles: [__webpack_require__(/*! ./form-image.component.scss */ "./src/app/dynamic-form2/components/form-image/form-image.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <!--<div\n          class=\"form-image-wrap\" \n          [ngStyle]=\"{'background-image': 'url('+ (src?.value || '') + ')'}\"\n          (click)=\"openFile()\"\n        >\n        </div>-->\n        <img class=\"form-image-image\" style=\"width:100px;height:100px;\" [src]=\"this.url(src?.value || '')\" (click)=\"openFile()\">\n        <div (click)=\"openFile()\" style=\"flex: 1;\">\n          {{ config.label }}\n        </div>\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <img class=\"pointer form-image-image\" style=\"width:100px;height:100px;\" [src]=\"this.url(src?.value || '')\" (click)=\"openFile()\">\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n      <div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-x']\">\n          <span>\u8DDD\u5DE6\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-x'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-y']\">\n          <span>\u8DDD\u4E0A\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-y'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleX']\">\n          <span>\u5BBD\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleX'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleY']\">\n          <span>\u9AD8\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleY'\">\n        </div>\n      </div>\n    </div>\n  "
         }),
         __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
     ], FormImageComponent);
@@ -1174,7 +1188,7 @@ var FormImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n"
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  margin-bottom: 20px; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n"
 
 /***/ }),
 
@@ -1454,6 +1468,104 @@ var DynamicFormModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/export-options/export-options.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/export-options/export-options.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "./src/app/export-options/export-options.component.scss":
+/*!**************************************************************!*\
+  !*** ./src/app/export-options/export-options.component.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .input-wrap {\n  display: flex;\n  align-items: center; }\n  .input-wrap label {\n  width: 100px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/export-options/export-options.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/export-options/export-options.component.ts ***!
+  \************************************************************/
+/*! exports provided: ExportOptionsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExportOptionsComponent", function() { return ExportOptionsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ExportOptionsComponent = /** @class */ (function () {
+    function ExportOptionsComponent(canvasService, fb, matDialog) {
+        this.canvasService = canvasService;
+        this.fb = fb;
+        this.matDialog = matDialog;
+    }
+    ExportOptionsComponent.prototype.ngOnInit = function () {
+        var _a = this.canvasService, width = _a.width, height = _a.height, duration = _a.duration, fps = _a.fps;
+        console.log([width, height, duration, fps]);
+        // alert('ddd');
+        this.form = this.fb.group({
+            time: [this.time(), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(10)],
+            width: [width],
+            height: [height],
+        });
+        this.form.valueChanges.subscribe(function (res) {
+            console.log(res);
+        });
+    };
+    ExportOptionsComponent.prototype.time = function () {
+        return Math.floor(this.canvasService.duration / this.canvasService.fps);
+    };
+    ExportOptionsComponent.prototype.width = function () {
+        return this.canvasService.width;
+    };
+    ExportOptionsComponent.prototype.height = function () {
+        return this.canvasService.height;
+    };
+    ExportOptionsComponent.prototype.confirm = function () {
+        alert('confirm');
+        this.matDialog.closeAll();
+        console.log(this.form.value);
+        this.canvasService.exFile(this.form.value);
+    };
+    ExportOptionsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-export-options',
+            template: __webpack_require__(/*! ./export-options.component.html */ "./src/app/export-options/export-options.component.html"),
+            styles: [__webpack_require__(/*! ./export-options.component.scss */ "./src/app/export-options/export-options.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+    ], ExportOptionsComponent);
+    return ExportOptionsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/leftbar/leftbar.component.css":
 /*!***********************************************!*\
   !*** ./src/app/leftbar/leftbar.component.css ***!
@@ -1461,7 +1573,7 @@ var DynamicFormModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n\twidth:50px;\r\n\tcolor:#aaa;\r\n}\r\n#template-show-trigger {\r\n\twidth:40px;\r\n\theight:40px;\r\n\tborder-radius:50%;\r\n\tbackground-color: #9d62c8;\r\n\tborder:2px solid white;\r\n\tmargin-left: 5px;\r\n\tmargin-top: 10px;\r\n\tcursor: pointer;\r\n}"
+module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n\twidth:50px;\r\n\tcolor:#aaa;\r\n}\r\n#template-show-trigger {\r\n\twidth:40px;\r\n\theight:40px;\r\n\t/* border-radius:50%;\r\n\tbackground-color: #9d62c8;\r\n\tborder:2px solid white;\r\n\tmargin-left: 5px;\r\n\tmargin-top: 10px;\r\n\tcursor: pointer;*/\r\n\tcolor: #eeeeee;\r\n\tfont-size: 35px;\r\n    text-align: center;\r\n    margin: 16px 3px;\r\n\tcursor: pointer;\r\n}"
 
 /***/ }),
 
@@ -1472,7 +1584,7 @@ module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"left-bar\">\r\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\">\r\n  </div>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<div id=\"left-bar\">\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\" class=\"iconfont\">\n      &#xe610;\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1543,6 +1655,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ffmpeg_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ffmpeg.service */ "./src/app/service/ffmpeg.service.ts");
 /* harmony import */ var _dialog_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dialog.service */ "./src/app/service/dialog.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1566,6 +1686,7 @@ var CanvasService = /** @class */ (function () {
         this.savePath = '';
         // 表单配置
         this.options = [];
+        this.expoprtOptons = { width: 800, height: 800, time: 1 };
         this.observables = {
             actions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             exportImg: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
@@ -1579,14 +1700,40 @@ var CanvasService = /** @class */ (function () {
     CanvasService.prototype.init = function (e, e2) {
         console.log(e);
         var props = e;
+        // alert(JSON.stringify(props));
         this.duration = props['duration'];
         this.fps = props['fps'];
-        this.options = this.options;
-        console.log(e2);
+        this.width = props.width;
+        this.height = props.height;
+        this.options = this.reduceOptions(e2); // this.options;
+        console.log(this.options);
         this.observables.options.next({
-            options: e2,
+            options: this.options,
         });
         // "duration":121,"fps":40,"width":800,"height":800,"color":"#FFFFFF","paused":false
+    };
+    CanvasService.prototype.reduceOptions = function (options) {
+        var resultOptions = [];
+        options.forEach(function (item) {
+            switch (item.type) {
+                case 'image':
+                    resultOptions.push(item);
+                    ['x', 'y', 'scaleX', 'scaleY'].forEach(function (i) {
+                        if (item[i] != undefined) {
+                            resultOptions.push({
+                                type: 'number',
+                                value: item[i],
+                                name: item.name + "-" + i
+                            });
+                        }
+                    });
+                    break;
+                default:
+                    resultOptions.push(item);
+                    break;
+            }
+        });
+        return resultOptions;
     };
     CanvasService.prototype.setIsPaused = function (paused) {
         this.paused = paused;
@@ -1610,9 +1757,10 @@ var CanvasService = /** @class */ (function () {
     CanvasService.prototype.goTo = function () {
     };
     // 导出文件
-    CanvasService.prototype.exFile = function () {
+    CanvasService.prototype.exFile = function (expoprtOptons) {
         var _this = this;
         console.log('exFile');
+        this.expoprtOptons = expoprtOptons;
         this.dialogService.openFile(function (e) {
             if (e && e[0]) {
                 _this.savePath = e[0];
@@ -1654,7 +1802,7 @@ var CanvasService = /** @class */ (function () {
     };
     CanvasService.prototype.generateMp4 = function () {
         console.log('mp4');
-        this.ffmpegService.generateMp4({ savePath: this.savePath, duration: this.duration, fps: this.fps });
+        this.ffmpegService.generateMp4(__assign({ savePath: this.savePath, duration: this.duration, fps: this.fps }, this.expoprtOptons));
     };
     CanvasService.prototype.loadTemplate = function (url) {
         if (!url) {
@@ -1775,13 +1923,13 @@ var FfmpegService = /** @class */ (function () {
         this.path = window['path'];
     }
     FfmpegService.prototype.generateMp4 = function (_a) {
-        var savePath = _a.savePath, duration = _a.duration, fps = _a.fps;
+        var savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height;
         alert('generateMp4');
         // console.log(__dirname);
         var currentDir = window['dirname'];
         var frompath = this.path.join(savePath, 'img%d.png');
         var distpath = this.path.join(savePath, 'video.mp4'); // 'D:/del3/video.mp4';
-        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r ' + fps + ' -f image2 -i ' + frompath + ' -t ' + (duration / fps) + ' -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 ' + distpath;
+        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r ' + fps + ' -f image2 -i ' + frompath + ' -t ' + time + ' -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + distpath;
         // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
         alert(commandStr);
         console.log(commandStr);
@@ -1875,7 +2023,7 @@ module.exports = "#app-topbar {\r\n\tbackground-color: black;\r\n\theight: 3rem;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-topbar\">\r\n  topbar works!\r\n</div>\r\n"
+module.exports = "<div id=\"app-topbar\">\n  topbar works!\n</div>\n"
 
 /***/ }),
 
@@ -1938,7 +2086,7 @@ module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t{{ isPaused() }}\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>\r\n\t</div>\r\n</div>\r\n\r\n\r\ny"
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"purple\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -1954,6 +2102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkcanvasComponent", function() { return WorkcanvasComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../export-options/export-options.component */ "./src/app/export-options/export-options.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1965,10 +2115,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var WorkcanvasComponent = /** @class */ (function () {
-    function WorkcanvasComponent(elementRef, canvasService) {
+    function WorkcanvasComponent(elementRef, canvasService, dialog) {
         this.elementRef = elementRef;
         this.canvasService = canvasService;
+        this.dialog = dialog;
         this.c = window['createjs'];
         console.log(this.c);
     }
@@ -1995,8 +2148,13 @@ var WorkcanvasComponent = /** @class */ (function () {
     WorkcanvasComponent.prototype.reset = function () {
         this.canvasService.reset();
     };
+    // 导出mp4
     WorkcanvasComponent.prototype.exFile = function () {
-        this.canvasService.exFile();
+        var dialogRef = this.dialog.open(_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_3__["ExportOptionsComponent"]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log("Dialog result: " + result);
+        });
+        // this.canvasService.exFile();
     };
     WorkcanvasComponent.prototype.isPaused = function () {
         return this.canvasService.paused;
@@ -2013,7 +2171,7 @@ var WorkcanvasComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./workcanvas.component.html */ "./src/app/workcanvas/workcanvas.component.html"),
             styles: [__webpack_require__(/*! ./workcanvas.component.css */ "./src/app/workcanvas/workcanvas.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], WorkcanvasComponent);
     return WorkcanvasComponent;
 }());
@@ -2040,7 +2198,7 @@ module.exports = ":host{\r\n\tflex: 1;\r\n\tbackground-color: #eeeeee;\r\n\tflex
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<app-workcanvas></app-workcanvas>\r\n<app-actionpanel></app-actionpanel>\r\n\r\n"
+module.exports = "\n<app-workcanvas></app-workcanvas>\n<app-actionpanel></app-actionpanel>\n\n"
 
 /***/ }),
 
@@ -2145,7 +2303,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\code\vidora\ui\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! F:\code\vidora\ui\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -4,15 +4,15 @@
 	<app-canvas-space></app-canvas-space>
 </div>
 <div id="canvas-btn-wrap">
-	{{ isPaused() }}
 	<div class="button-row">
-		<button  (click)="togglePlay()">
+		<button  (click)="togglePlay()" class="purple">
 			<span class="iconfont">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}
 		</button>
-		<button mat-flat-button color="accent" (click)="reset()">reset</button>
-		<button mat-flat-button color="warn" (click)="exFile()">导出</button>
+		<button  (click)="exFile()" class="warn">
+			<span class="iconfont">&#xe73c;</span>
+			导出
+		</button>
+		<!--<button mat-flat-button color="accent" (click)="reset()">reset</button>
+		<button mat-flat-button color="warn" (click)="exFile()">导出</button>-->
 	</div>
 </div>
-
-
-y

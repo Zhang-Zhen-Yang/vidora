@@ -25,9 +25,13 @@ function checkedInited() {
 				// color,
 				paused: window.exportRoot.paused,
 			}
+			// createSizeTag({width, height});
 			ipcRenderer.sendToHost('inited', JSON.stringify(props), JSON.stringify(window.options || []));
 			// ipcRenderer.sendToHost('setOptions', JSON.stringify(props));
-			
+			createjs.Ticker.addEventListener("tick", ()=>{
+				// ipcRenderer.sendToHost('tick', window.exportRoot.timeline.position);
+				// console.log(window.exportRoot.timeline.position);
+			});
 		}
 	}, 1000)
 }
@@ -70,6 +74,8 @@ ipcRenderer.on('getBase64', (e, message) => {
 ipcRenderer.on('setOptions', (e, message) => {
 	console.log(message);
 	const toSetOptions = JSON.parse(message);
+	const toSetOptionsKeys = Object.keys(toSetOptions);
+	// alert(toSetOptionsKeys);
 	options.forEach((item) => {
 		if(item.name && (toSetOptions[item.name] != undefined)) {
 			if (toSetOptions[item.name] != item.value) {
@@ -77,7 +83,22 @@ ipcRenderer.on('setOptions', (e, message) => {
 				item.callback(toSetOptions[item.name]);
 			}
 		}
+		console.log(item);
+		const valueSet = {};
+		toSetOptionsKeys.forEach((i)=>{
+			if(i.indexOf(item.name) > -1 && i.indexOf('-') > -1) {
+				const key = i.split('-')[1];
+				if (toSetOptions[i] != '' &&item[key] != toSetOptions[i]) {
+					item[key] = toSetOptions[i]
+					valueSet[key] = toSetOptions[i];
+				}
+			}
+		})
+		if (Object.keys(valueSet).length > 0) {
+			item.callback(valueSet);
+		}
 	})
+	
 
 	//ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
 })

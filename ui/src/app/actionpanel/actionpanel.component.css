@@ -2,5 +2,12 @@
 	width: 300px;
 	background-color: aliceblue;
 	border-left:1px solid #cccccc;
-	padding: 20px;
+	padding: 20px 0 0 20px;;
+	display: flex;
+	flex-direction: column;
+}
+.panel-form-wrap{
+	flex: 1;
+	overflow: auto;
+	padding: 0 20px 20px 0;
 }

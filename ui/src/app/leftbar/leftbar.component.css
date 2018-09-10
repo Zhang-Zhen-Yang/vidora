@@ -8,10 +8,15 @@
 #template-show-trigger {
 	width:40px;
 	height:40px;
-	border-radius:50%;
+	/* border-radius:50%;
 	background-color: #9d62c8;
 	border:2px solid white;
 	margin-left: 5px;
 	margin-top: 10px;
+	cursor: pointer;*/
+	color: #eeeeee;
+	font-size: 35px;
+    text-align: center;
+    margin: 16px 3px;
 	cursor: pointer;
 }

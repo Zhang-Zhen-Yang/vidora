@@ -14,16 +14,7 @@ import {DomSanitizer} from '@angular/platform-browser';
       [formGroup]="group"
     >
       <label class="image-input-lable" >
-        <!--<div
-          class="form-image-wrap" 
-          [ngStyle]="{'background-image': 'url('+ (src?.value || '') + ')'}"
-          (click)="openFile()"
-        >
-        </div>-->
-        <img class="form-image-image" style="width:100px;height:100px;" [src]="this.url(src?.value || '')" (click)="openFile()">
-        <div (click)="openFile()" style="flex: 1;">
-          {{ config.label }}
-        </div>
+        <img class="pointer form-image-image" style="width:100px;height:100px;" [src]="this.url(src?.value || '')" (click)="openFile()">
         <input
           class="image-input-input"
           type="text"
@@ -32,6 +23,24 @@ import {DomSanitizer} from '@angular/platform-browser';
           [attr.placeholder]="config.placeholder"
           [formControlName]="config.name">
       </label>
+      <div>
+        <div class="image-input-attr" *ngIf="group.controls[config.name+'-x']">
+          <span>距左边距:</span>
+          <input type="number" step="10" [formControlName]="config.name+'-x'">
+        </div>
+        <div class="image-input-attr" *ngIf="group.controls[config.name+'-y']">
+          <span>距上边距:</span>
+          <input type="number" step="10" [formControlName]="config.name+'-y'">
+        </div>
+        <div class="image-input-attr" *ngIf="group.controls[config.name+'-scaleX']">
+          <span>宽缩放比:</span>
+          <input type="number" step="0.1" [formControlName]="config.name+'-scaleX'">
+        </div>
+        <div class="image-input-attr" *ngIf="group.controls[config.name+'-scaleY']">
+          <span>高缩放比:</span>
+          <input type="number" step="0.1" [formControlName]="config.name+'-scaleY'">
+        </div>
+      </div>
     </div>
   `
 })
@@ -43,8 +52,11 @@ export class FormImageComponent implements Field, OnInit {
   constructor(private sanitizer: DomSanitizer) {
 
   }
+  ngOnchange() {
+    console.log(this.group);
+  }
   ngOnInit() {
-
+    console.log(this.group);
   }
   url(url) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -54,10 +66,10 @@ export class FormImageComponent implements Field, OnInit {
     window['remote'].dialog.showOpenDialog(
       window['remote'].getCurrentWindow(),
       {
-        title:'请选择文件',
+        title:'请选择图片',
         properties: [ 'openFile'],
         filters: [
-          {name: 'Images', extensions: ['jpg', 'png', 'gif']},
+          {name: '图片', extensions: ['jpg', 'jpeg', 'png', 'bmp', 'gif']},
         ]
       },
       (filePaths) => {

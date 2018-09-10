@@ -36,10 +36,12 @@ export class AnimateTemplateComponent implements OnInit {
         url: 'F:/code/animate cc/d.html'
       },
       {
-        name: 'bbb',
+        name: 'f',
+        url: 'F:/code/animate cc/f.html'
       },
       {
-        name: 'ccc',
+        name: 'g',
+        url: 'F:/code/animate cc/g.html'
       },
       {
         name: 'ddd',

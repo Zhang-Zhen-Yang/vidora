@@ -47,7 +47,7 @@ body div{
 button {
 	letter-spacing: -0.5px;
 	cursor: pointer;
-	background-color: #9d62c8;
+	
 	outline: 0;
 	line-height: 1;
 	text-align: center;
@@ -61,9 +61,18 @@ button {
 	transition: background-color .3s, box-shadow .3s;
 }
 button:hover {
-	background-color: #a46dcc;
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
+button.purple {
+	background-color: #9d62c8;
+}
+button.purple:hover {
+	background-color: #a46dcc;
+}
+button.warn {
+	background-color: #f44336;
+}
+
 
 button:disabled {
 	background: rgba(0, 0, 0, 0.2);
@@ -71,16 +80,17 @@ button:disabled {
 	cursor: not-allowed;
 	box-shadow: none;
 }
+
 @font-face {
-	font-family: 'iconfont';  /* project id 105016 */
-	src: url('http://at.alicdn.com/t/font_105016_pj47aypgdgd.eot');
-	src: url('http://at.alicdn.com/t/font_105016_pj47aypgdgd.eot?#iefix') format('embedded-opentype'),
-	url('http://at.alicdn.com/t/font_105016_pj47aypgdgd.woff') format('woff'),
-	url('http://at.alicdn.com/t/font_105016_pj47aypgdgd.ttf') format('truetype'),
-	url('http://at.alicdn.com/t/font_105016_pj47aypgdgd.svg#iconfont2') format('svg');
-}
+	font-family: 'iconfont2';  /* project id 105016 */
+	src: url('http://at.alicdn.com/t/font_105016_xuaig1m9um.eot');
+	src: url('http://at.alicdn.com/t/font_105016_xuaig1m9um.eot?#iefix') format('embedded-opentype'),
+	url('http://at.alicdn.com/t/font_105016_xuaig1m9um.woff') format('woff'),
+	url('http://at.alicdn.com/t/font_105016_xuaig1m9um.ttf') format('truetype'),
+	url('http://at.alicdn.com/t/font_105016_xuaig1m9um.svg#iconfont2') format('svg');
+  }
 .iconfont{
-    font-family:"iconfont" !important;
+    font-family:"iconfont2" !important;
 	font-size:16px;
 	font-style:normal;
     -webkit-font-smoothing: antialiased;

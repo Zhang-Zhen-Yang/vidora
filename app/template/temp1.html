@@ -44,6 +44,10 @@ function handleComplete(evt,comp) {
 	}
 	exportRoot = new lib.temp1();
 	stage = new lib.Stage(canvas);	
+	var bg = new createjs.Shape();
+	bg.graphics.beginFill('#ffffff').drawRect(0,0,canvas.width, canvas.height);
+	stage.addChild(bg);
+
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);

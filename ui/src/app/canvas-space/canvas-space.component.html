@@ -1,4 +1,5 @@
 <div class="canvas-space-wrap scrollbar-override" >
+  <div id="canvas-size" *ngIf="canvasService.width && canvasService.height">{{ canvasService.width }}&times;{{ canvasService.height }}</div>
   <webview 
     #webview
     src="./template/temp1.html"

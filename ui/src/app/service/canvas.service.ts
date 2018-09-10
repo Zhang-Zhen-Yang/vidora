@@ -17,6 +17,7 @@ export class CanvasService {
   height: 800
   // 表单配置
   options = [];
+  expoprtOptons = {width: 800, height: 800, time: 1}
   constructor(private fileservice: FileService, private ffmpegService: FfmpegService, private dialogService: DialogService) {
 
   }
@@ -26,14 +27,40 @@ export class CanvasService {
   init(e, e2) {
     console.log(e);
     const  props = e;
+    // alert(JSON.stringify(props));
     this.duration = props['duration'];
     this.fps = props['fps'];
-    this.options = this.options;
-    console.log(e2);
+    this.width = props.width;
+    this.height = props.height;
+    this.options = this.reduceOptions(e2); // this.options;
+    console.log(this.options);
     this.observables.options.next({
-      options: e2,
+      options: this.options,
     });
     // "duration":121,"fps":40,"width":800,"height":800,"color":"#FFFFFF","paused":false
+  }
+  reduceOptions(options) {
+    let resultOptions = []
+    options.forEach((item)=>{
+      switch(item.type) {
+        case 'image':
+          resultOptions.push(item);
+          ['x', 'y', 'scaleX', 'scaleY'].forEach((i)=>{
+            if (item[i] != undefined) {
+              resultOptions.push({
+                type: 'number',
+                value: item[i],
+                name: `${item.name}-${i}`
+              });
+            }
+          })
+          break;
+        default:
+          resultOptions.push(item)
+          break;
+      }
+    });
+    return resultOptions;
   }
   setIsPaused(paused) {
     this.paused = paused;
@@ -59,8 +86,9 @@ export class CanvasService {
 
   }
   // 导出文件
-  exFile() {
+  exFile(expoprtOptons) {
     console.log('exFile');
+    this.expoprtOptons = expoprtOptons;
     this.dialogService.openFile((e)=>{
       if (e && e[0]) {
         this.savePath = e[0];
@@ -102,7 +130,7 @@ export class CanvasService {
   }
   generateMp4() {
     console.log('mp4');
-    this.ffmpegService.generateMp4({savePath: this.savePath, duration: this.duration, fps: this.fps});
+    this.ffmpegService.generateMp4({savePath: this.savePath, duration: this.duration, fps: this.fps, ...this.expoprtOptons});
   }
   observables={
     actions: new Subject(),

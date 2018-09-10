@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>视频导出</h2>
+<mat-dialog-content>
+  <div id="export-options-wrap" [formGroup]="form">
+      <!--时长-->
+      <div class="input-wrap">
+        <label>
+          时长(s)
+        </label>
+        <input [formControlName]="'time'" type="number" [max]="time()">
+      </div>
+      <div class="input-wrap">
+        <label>
+          宽
+        </label>
+        <input [formControlName]="'width'" type="number" [max]="width()">
+      </div>
+      <div class="input-wrap">
+        <label>
+          高
+        </label>
+        <input [formControlName]="'height'" type="number" [max]="height()">
+      </div>
+  </div>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>取消</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button (click)="confirm()">确定</button>
+</mat-dialog-actions>

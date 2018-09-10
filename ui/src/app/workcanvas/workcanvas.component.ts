@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, ElementRef} from '@angular/core';
 import { CanvasService } from '../service/canvas.service' 
+import {MatDialog} from '@angular/material';
+import { ExportOptionsComponent } from '../export-options/export-options.component';
 
 @Component({
   selector: 'app-workcanvas',
@@ -9,7 +11,7 @@ import { CanvasService } from '../service/canvas.service'
 export class WorkcanvasComponent implements OnInit, AfterViewInit {
 
   c: any
-  constructor(private elementRef: ElementRef, private canvasService: CanvasService) { 
+  constructor(private elementRef: ElementRef, private canvasService: CanvasService, public dialog: MatDialog) { 
     this.c = window['createjs'];
     console.log(this.c);
   }
@@ -37,8 +39,13 @@ export class WorkcanvasComponent implements OnInit, AfterViewInit {
   reset() {
     this.canvasService.reset();
   }
+  // 导出mp4
   exFile() {
-    this.canvasService.exFile();
+    const dialogRef = this.dialog.open(ExportOptionsComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    // this.canvasService.exFile();
   }
   isPaused() {
     return this.canvasService.paused;

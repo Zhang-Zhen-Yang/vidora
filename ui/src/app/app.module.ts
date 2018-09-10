@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { AnimateTemplateComponent } from './animate-template/animate-template.component';
 import { AnimateTemplateItemComponent } from './animate-template-item/animate-template-item.component';
+import { ExportOptionsComponent } from './export-options/export-options.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AnimateTemplateItemComponent } from './animate-template-item/animate-te
     CanvasSpaceComponent,
     AnimateTemplateComponent,
     AnimateTemplateItemComponent,
+    ExportOptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { AnimateTemplateItemComponent } from './animate-template-item/animate-te
     DynamicFormModule
   ],
   entryComponents: [
-    AnimateTemplateComponent
+    AnimateTemplateComponent,
+    ExportOptionsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
