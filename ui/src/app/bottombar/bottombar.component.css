@@ -1,5 +1,6 @@
 :host {
-	background-color:#1ABC9C;
+	/* background-color:#1ABC9C;*/ 
+	background-color:orange;
 	height: 25px;
 	position: relative;
 }

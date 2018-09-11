@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, ViewChild,AfterViewInit,OnChanges } from '@angular/core';
 import { CanvasService } from '../service/canvas.service';
+import {MatDialog} from '@angular/material';
+import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
+
 @Component({
   selector: 'app-canvas-space',
   templateUrl: './canvas-space.component.html',
@@ -8,9 +11,15 @@ import { CanvasService } from '../service/canvas.service';
 export class CanvasSpaceComponent implements OnInit {
   @ViewChild('webview') webview;
   ready = false
-  constructor(private canvasService: CanvasService) { }
+  constructor(private canvasService: CanvasService, public dialog: MatDialog ) { }
 
   ngOnInit() {
+    /* setTimeout(()=>{
+      this.dialog.open(GeneratingProgressComponent, {
+        // disableClose: true,
+        minWidth: 300,
+      });
+    }, 2000);*/
     // 订阅
     // 播放 暂停
     this.canvasService.observables.actions.subscribe((e)=>{
@@ -20,7 +29,11 @@ export class CanvasSpaceComponent implements OnInit {
     // 导出图片
     this.canvasService.observables.exportImg.subscribe((e)=>{
       console.log(e['path']);
-      this.webview.nativeElement.send('exportImg', e['path']);
+      this.webview.nativeElement.send('exportImg', JSON.stringify(e));
+      this.dialog.open(GeneratingProgressComponent, {
+        disableClose: true,
+        minWidth: 300,
+      });
     });
     // 加载模板
     this.canvasService.observables.template.subscribe((e)=>{
@@ -70,11 +83,13 @@ export class CanvasSpaceComponent implements OnInit {
           break;
         case 'generateMp4':
           this.canvasService.generateMp4();
-          break;  
+          break;
+        case 'tick':
+          this.canvasService.setCurrentPosition(e['args'][0]);
+          break;
         default:
           break;
       }
-
     })
   }
   render(activeFile){
@@ -102,7 +117,7 @@ export class CanvasSpaceComponent implements OnInit {
       flex: 1;
       align-items: center;
       justify-content: center;
-      background-color: #eeeeee;
+      background-color: #eeeeee!important;
       position: fixed;
       left: 0;
       top: 0;

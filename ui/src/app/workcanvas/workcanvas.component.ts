@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ElementRef} from '@angular/core';
 import { CanvasService } from '../service/canvas.service' 
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import { ExportOptionsComponent } from '../export-options/export-options.component';
 
 @Component({
@@ -10,14 +10,16 @@ import { ExportOptionsComponent } from '../export-options/export-options.compone
 })
 export class WorkcanvasComponent implements OnInit, AfterViewInit {
 
-  c: any
-  constructor(private elementRef: ElementRef, private canvasService: CanvasService, public dialog: MatDialog) { 
-    this.c = window['createjs'];
-    console.log(this.c);
+  
+  constructor(private elementRef: ElementRef, private canvasService: CanvasService, public dialog: MatDialog,public snackBar: MatSnackBar) { 
+
   }
 
   ngOnInit() {
-
+    this.canvasService.observables.generateMp4.subscribe((e)=>{
+      // this.snackBar.open('生成成功','', {duration: 3000});
+      this.showSnackbar();
+    })    
   }
   ngAfterViewInit() {
     let canvas =this.elementRef.nativeElement.querySelector('#canvas');//获取第一个p
@@ -56,5 +58,13 @@ export class WorkcanvasComponent implements OnInit, AfterViewInit {
   duration() {
     return this.canvasService.duration;
   }
-
+  showSnackbar() {
+    setTimeout(()=>{
+      this.snackBar.open('生成成功','ok', {
+        duration: 30000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+    }, 100)
+  }
 }

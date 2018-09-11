@@ -10,16 +10,23 @@ import { Subject } from 'rxjs'
 export class CanvasService {
 
   paused:boolean = false
-  savePath: string = ''
+  savePath: string = ''//
+  videoPath: string = '' // video
+  imgPath: string = ''// img
+  audio: string = '' // audio
+  imgPrefix: string = '';
   duration: 1
   fps: 24
   width: 800
   height: 800
+  position: 0
   // 表单配置
   options = [];
   expoprtOptons = {width: 800, height: 800, time: 1}
+  generateStep: number = 0
+  tempPath = window['path'].join(window['dirname'], 'tempDir')
   constructor(private fileservice: FileService, private ffmpegService: FfmpegService, private dialogService: DialogService) {
-
+    this.fileservice.deleteTempFiles(this.tempPath, '');
   }
   setInstance() {
    
@@ -32,6 +39,7 @@ export class CanvasService {
     this.fps = props['fps'];
     this.width = props.width;
     this.height = props.height;
+    this.paused = props.paused;
     this.options = this.reduceOptions(e2); // this.options;
     console.log(this.options);
     this.observables.options.next({
@@ -65,6 +73,9 @@ export class CanvasService {
   setIsPaused(paused) {
     this.paused = paused;
   }
+  setCurrentPosition(p) {
+    this.position = p;
+  }
   play() {
     // this.timeline.setPaused(false);
     this.observables.actions.next({
@@ -87,9 +98,11 @@ export class CanvasService {
   }
   // 导出文件
   exFile(expoprtOptons) {
+    this.generateStep = 0;
     console.log('exFile');
     this.expoprtOptons = expoprtOptons;
-    this.dialogService.openFile((e)=>{
+
+    /* this.dialogService.openFile((e)=>{
       if (e && e[0]) {
         this.savePath = e[0];
         this.observables.exportImg.next({
@@ -97,40 +110,37 @@ export class CanvasService {
         })
       }
       console.log(e);
-    })
-    /* if (this.exportRoot) {
-      // this.ffmpegService.generateMp4();
-      console.log('ddd');
-      // return;
-      
-      console.log(this.exportRoot);
-      const duration = this.exportRoot.timeline.duration
-      let currentPosition = 0;
-      this.exportRoot.gotoAndStop(0.1);
+    })*/
+    this.dialogService.getSaveFile((file)=>{
+      if(!file) {
+        return;
+      }
+      this.videoPath = file;
+      console.log('file', file);
 
-      const tickHandler = this.exportRoot.timeline.on('change', () => {
-        const thisPosition = this.exportRoot.timeline.position;
-        this.stage.update();
-        const base64str = this.canvas.toDataURL();
-        this.fileservice.saveBase64(base64str, thisPosition, () => {
-          console.log(thisPosition);
-          if(thisPosition + 1 < duration) {
-            this.exportRoot.gotoAndStop(thisPosition + 1);
-          } else {
-            this.exportRoot.timeline.off(tickHandler);
-            this.ffmpegService.generateMp4();
-            console.log('生成完毕');
-          }
-          // console.log(thisPosition);
-        });
-        
-      });
-      this.exportRoot.gotoAndStop(0);
-    }*/
+      this.imgPrefix = Date.now() + 'img';
+      this.observables.exportImg.next({
+        path: window['path'].join(window['dirname'], 'tempDir'),
+        imgPrefix: this.imgPrefix,
+      })
+      this.dialogService.showProgress();
+    });
   }
+  // 生成mp4 文件
   generateMp4() {
-    console.log('mp4');
-    this.ffmpegService.generateMp4({savePath: this.savePath, duration: this.duration, fps: this.fps, ...this.expoprtOptons});
+    this.generateStep = 1;
+    this.ffmpegService.generateMp4({
+      distPath: this.videoPath,
+      savePath: window['path'].join(window['dirname'], 'tempDir'),
+      duration: this.duration,
+      fps: this.fps,
+      imgPrefix: this.imgPrefix,
+      ...this.expoprtOptons
+    }, () => {
+      /* this.observables.generateMp4.next({
+        success: true,
+      });*/
+    });
   }
   observables={
     actions: new Subject(),
@@ -138,6 +148,7 @@ export class CanvasService {
     template: new Subject(),
     options: new Subject(),// 用于actionpanel
     optionsSet: new Subject(),
+    generateMp4: new Subject(),
   }
   loadTemplate(url) {
     if (!url) {

@@ -15,6 +15,11 @@ export class BottombarComponent implements OnInit {
   fps() {
     return this.canvasService.fps;
   }
+  position() {
+    let p = (this.canvasService.position / this.canvasService.fps);
+    
+    return isNaN(p) ? 0 : p.toFixed(2);
+  }
   duration() {
     if (this.canvasService.fps && this.canvasService.duration) {
       return (this.canvasService.duration / this.canvasService.fps).toFixed(2);

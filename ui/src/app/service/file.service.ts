@@ -21,4 +21,29 @@ export class FileService {
       callback(err)
     });
   }
+  // 删除文件
+  deleteTempFiles(dir, prefix){
+    this.fs.readdir(dir, (err, res) => {
+      console.log(res);
+      res.forEach((item)=>{
+        if(!prefix) {
+          this.fs.unlink(this.path.join(dir, item), (err) => {
+            if(err) {
+              console.error(err);
+            }
+          })
+        } else if(item.startsWith(prefix)) {
+          this.fs.unlink(this.path.join(dir, item), (err) => {
+            if(err) {
+              console.error(err);
+            }
+          })
+        }
+      })
+    })
+  }
+  // 判断文件是否存在
+  checkFile() {
+
+  }
 }

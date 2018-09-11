@@ -34,7 +34,6 @@ export class ExportOptionsComponent implements OnInit {
     return this.canvasService.height;
   }
   confirm() {
-    alert('confirm');
     this.matDialog.closeAll();
     console.log(this.form.value);
     this.canvasService.exFile(this.form.value);

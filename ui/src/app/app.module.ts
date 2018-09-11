@@ -17,10 +17,13 @@ import { ActionpanelComponent } from './actionpanel/actionpanel.component';
 import { CanvasSpaceComponent } from './canvas-space/canvas-space.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AnimateTemplateComponent } from './animate-template/animate-template.component';
 import { AnimateTemplateItemComponent } from './animate-template-item/animate-template-item.component';
 import { ExportOptionsComponent } from './export-options/export-options.component';
+import { GeneratingProgressComponent } from './generating-progress/generating-progress.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +38,15 @@ import { ExportOptionsComponent } from './export-options/export-options.componen
     AnimateTemplateComponent,
     AnimateTemplateItemComponent,
     ExportOptionsComponent,
+    GeneratingProgressComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
     ReactiveFormsModule,
     DynamicFormsCoreModule,
     // DynamicFormsBootstrapUIModule,
@@ -50,6 +56,7 @@ import { ExportOptionsComponent } from './export-options/export-options.componen
   entryComponents: [
     AnimateTemplateComponent,
     ExportOptionsComponent,
+    GeneratingProgressComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

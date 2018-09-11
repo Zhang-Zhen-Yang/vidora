@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>视频生成中</h2>
+<mat-dialog-content>
+  <div *ngIf="step()==0">
+    <mat-progress-bar mode="determinate" [value]="value()" color="warn"></mat-progress-bar>
+    <div class="f fr jcsb" style="margin-top: 10px;">
+      <span class="fontSmall color-gray">生成逐帧图片</span>
+      <span class="fontSmall color-gray">{{ position() }}/{{ duration() }}</span>
+    </div>
+  </div>
+  <div *ngIf="step()==1">
+    <mat-progress-bar mode="indeterminate" color="warn" value="50"></mat-progress-bar>
+    <div class="f fr jcsb" style="margin-top: 10px;">
+      <span class="fontSmall color-gray">视频合成中</span>
+    </div>
+  </div>
+</mat-dialog-content>

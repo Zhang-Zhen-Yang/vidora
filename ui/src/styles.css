@@ -97,3 +97,36 @@ button:disabled {
     -webkit-text-stroke-width: 0.2px;
 	-moz-osx-font-smoothing: grayscale;
 }
+.fontSmall{
+	font-size:14px;
+}
+
+
+.color-gray{
+	color: #999999;
+}
+
+.f{
+	display: flex;
+}
+.fr {
+	flex-direction: row;
+}
+.fc {
+	flex-direction: column;
+}
+.aic {
+	align-items: center;
+}
+.ais {
+	align-items: stretch;
+}
+.jcc {
+	justify-content: center;
+}
+.jcsa {
+	justify-content: space-around;
+}
+.jcsb {
+	justify-content: space-between;
+}

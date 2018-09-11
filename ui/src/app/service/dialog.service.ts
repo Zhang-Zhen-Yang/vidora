@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
   projectDir = null
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
   /**
    * 打开目录
    * @param callback 
@@ -32,5 +34,23 @@ export class DialogService {
         console.log('userData ',homePath);*/
       }
     );
+  }
+  // 保存文件
+  getSaveFile(callback){
+    window['remote'].dialog.showSaveDialog(
+      window['remote'].getCurrentWindow(),
+      {
+        title:'保存视频',
+        filters: [
+          {name: '视频', extensions: ['mp4']},
+        ]
+      },
+      function(res){
+        callback(res);
+      }
+    )
+  }
+  showProgress() {
+    
   }
 }

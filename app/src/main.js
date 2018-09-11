@@ -583,7 +583,7 @@ var AnimateTemplateComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\t\r\n}\r\n#root {\r\n\talign-items: stretch;\r\n\tposition: fixed;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground-color: #cccccc;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n#top-half {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n}"
+module.exports = ":host {\r\n\tposition: fixed;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tleft: 0;\r\n\ttop: 0;\r\n}\r\n#root {\r\n\talign-items: stretch;\r\n\tposition: fixed;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tbackground-color: #cccccc;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n#top-half {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n}"
 
 /***/ }),
 
@@ -659,10 +659,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./actionpanel/actionpanel.component */ "./src/app/actionpanel/actionpanel.component.ts");
 /* harmony import */ var _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./canvas-space/canvas-space.component */ "./src/app/canvas-space/canvas-space.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
-/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
-/* harmony import */ var _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./animate-template-item/animate-template-item.component */ "./src/app/animate-template-item/animate-template-item.component.ts");
-/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./export-options/export-options.component */ "./src/app/export-options/export-options.component.ts");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/esm5/progress-bar.es5.js");
+/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
+/* harmony import */ var _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./animate-template-item/animate-template-item.component */ "./src/app/animate-template-item/animate-template-item.component.ts");
+/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./export-options/export-options.component */ "./src/app/export-options/export-options.component.ts");
+/* harmony import */ var _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./generating-progress/generating-progress.component */ "./src/app/generating-progress/generating-progress.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -674,6 +677,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 // import { DynamicFormsBootstrapUIModule } from "@ng-dynamic-forms/ui-bootstrap";
+
+
+
 
 
 
@@ -703,23 +709,27 @@ var AppModule = /** @class */ (function () {
                 _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_11__["BottombarComponent"],
                 _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__["ActionpanelComponent"],
                 _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__["CanvasSpaceComponent"],
-                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__["AnimateTemplateComponent"],
-                _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_17__["AnimateTemplateItemComponent"],
-                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_18__["ExportOptionsComponent"],
+                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_18__["AnimateTemplateComponent"],
+                _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_19__["AnimateTemplateItemComponent"],
+                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_20__["ExportOptionsComponent"],
+                _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_21__["GeneratingProgressComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
                 _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_15__["MatButtonModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_16__["MatButtonModule"],
+                _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_15__["MatSnackBarModule"],
+                _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_17__["MatProgressBarModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
                 _ng_dynamic_forms_core__WEBPACK_IMPORTED_MODULE_3__["DynamicFormsCoreModule"],
                 // DynamicFormsBootstrapUIModule,
                 _dynamic_form2_dynamic_form_module__WEBPACK_IMPORTED_MODULE_5__["DynamicFormModule"]
             ],
             entryComponents: [
-                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_16__["AnimateTemplateComponent"],
-                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_18__["ExportOptionsComponent"],
+                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_18__["AnimateTemplateComponent"],
+                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_20__["ExportOptionsComponent"],
+                _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_21__["GeneratingProgressComponent"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
@@ -740,7 +750,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\tbackground-color:#1ABC9C;\r\n\theight: 25px;\r\n\tposition: relative;\r\n}\r\n#bottom-bar{\r\n\tposition: absolute;\r\n\tleft:0;\r\n\tbottom:0;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tcolor:white;\r\n}\r\n.edit-message-wrap{\r\n\tfloat:right;\r\n\tcolor:white;\r\n}\r\n.edit-message{\r\n\tdisplay: inline-block;\r\n\theight:25px;\r\n\tline-height: 25px;\r\n\tfont-size:12px;\r\n\tpadding:0 5px;\r\n}"
+module.exports = ":host {\r\n\t/* background-color:#1ABC9C;*/ \r\n\tbackground-color:orange;\r\n\theight: 25px;\r\n\tposition: relative;\r\n}\r\n#bottom-bar{\r\n\tposition: absolute;\r\n\tleft:0;\r\n\tbottom:0;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tcolor:white;\r\n}\r\n.edit-message-wrap{\r\n\tfloat:right;\r\n\tcolor:white;\r\n}\r\n.edit-message{\r\n\tdisplay: inline-block;\r\n\theight:25px;\r\n\tline-height: 25px;\r\n\tfont-size:12px;\r\n\tpadding:0 5px;\r\n}"
 
 /***/ }),
 
@@ -751,7 +761,7 @@ module.exports = ":host {\r\n\tbackground-color:#1ABC9C;\r\n\theight: 25px;\r\n\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\">\n      <div class=\"row-index edit-message\">\n        时长 {{ duration() }} s\n      </div>\n      <div class=\"column-index edit-message\">\n        帧频 {{ fps() }}\n      </div>\n      <!--\n      <div class=\"charset edit-message\">\n        UTF-8\n      </div>\n      <div class=\"language edit-message\" >\n        language\n      </div>\n      -->\n    </div>\n    <!--\n    <div class=\"edit-message-wrap\">\n      <div class=\"edit-message\">\n        图片等\n      </div>    \n    </div>\n    -->\n  </div>\n  "
+module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\">\n      <div class=\"row-index edit-message\">\n        时长 {{ duration() }} s\n      </div>\n      <div class=\"column-index edit-message\">\n        帧频 {{ fps() }}\n      </div>\n      <div class=\"column-index edit-message\">\n        当前 {{ position() }} s\n      </div>\n      <!--\n      <div class=\"charset edit-message\">\n        UTF-8\n      </div>\n      <div class=\"language edit-message\" >\n        language\n      </div>\n      -->\n    </div>\n    <!--\n    <div class=\"edit-message-wrap\">\n      <div class=\"edit-message\">\n        图片等\n      </div>    \n    </div>\n    -->\n  </div>\n  "
 
 /***/ }),
 
@@ -786,6 +796,10 @@ var BottombarComponent = /** @class */ (function () {
     };
     BottombarComponent.prototype.fps = function () {
         return this.canvasService.fps;
+    };
+    BottombarComponent.prototype.position = function () {
+        var p = (this.canvasService.position / this.canvasService.fps);
+        return isNaN(p) ? 0 : p.toFixed(2);
     };
     BottombarComponent.prototype.duration = function () {
         if (this.canvasService.fps && this.canvasService.duration) {
@@ -842,6 +856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CanvasSpaceComponent", function() { return CanvasSpaceComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../generating-progress/generating-progress.component */ "./src/app/generating-progress/generating-progress.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -853,13 +869,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var CanvasSpaceComponent = /** @class */ (function () {
-    function CanvasSpaceComponent(canvasService) {
+    function CanvasSpaceComponent(canvasService, dialog) {
         this.canvasService = canvasService;
+        this.dialog = dialog;
         this.ready = false;
     }
     CanvasSpaceComponent.prototype.ngOnInit = function () {
         var _this = this;
+        /* setTimeout(()=>{
+          this.dialog.open(GeneratingProgressComponent, {
+            // disableClose: true,
+            minWidth: 300,
+          });
+        }, 2000);*/
         // 订阅
         // 播放 暂停
         this.canvasService.observables.actions.subscribe(function (e) {
@@ -869,7 +894,11 @@ var CanvasSpaceComponent = /** @class */ (function () {
         // 导出图片
         this.canvasService.observables.exportImg.subscribe(function (e) {
             console.log(e['path']);
-            _this.webview.nativeElement.send('exportImg', e['path']);
+            _this.webview.nativeElement.send('exportImg', JSON.stringify(e));
+            _this.dialog.open(_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_3__["GeneratingProgressComponent"], {
+                disableClose: true,
+                minWidth: 300,
+            });
         });
         // 加载模板
         this.canvasService.observables.template.subscribe(function (e) {
@@ -921,6 +950,9 @@ var CanvasSpaceComponent = /** @class */ (function () {
                 case 'generateMp4':
                     _this.canvasService.generateMp4();
                     break;
+                case 'tick':
+                    _this.canvasService.setCurrentPosition(e['args'][0]);
+                    break;
                 default:
                     break;
             }
@@ -944,7 +976,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
      * 向webview 注入css代码
      */
     CanvasSpaceComponent.prototype.injectCSS = function () {
-        this.webview.nativeElement.insertCSS("\n    body{\n      display: flex;\n      flex: 1;\n      align-items: center;\n      justify-content: center;\n      background-color: #eeeeee;\n      position: fixed;\n      left: 0;\n      top: 0;\n      right:0;\n      bottom: 0;\n      overflow: auto;\n    }\n    #animation_container{\n      \n    }\n    canvas {\n      /*margin-top: 20px;*/\n    }\n  ");
+        this.webview.nativeElement.insertCSS("\n    body{\n      display: flex;\n      flex: 1;\n      align-items: center;\n      justify-content: center;\n      background-color: #eeeeee!important;\n      position: fixed;\n      left: 0;\n      top: 0;\n      right:0;\n      bottom: 0;\n      overflow: auto;\n    }\n    #animation_container{\n      \n    }\n    canvas {\n      /*margin-top: 20px;*/\n    }\n  ");
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('webview'),
@@ -956,7 +988,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./canvas-space.component.html */ "./src/app/canvas-space/canvas-space.component.html"),
             styles: [__webpack_require__(/*! ./canvas-space.component.css */ "./src/app/canvas-space/canvas-space.component.css")]
         }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], CanvasSpaceComponent);
     return CanvasSpaceComponent;
 }());
@@ -1475,7 +1507,7 @@ var DynamicFormModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
+module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input step=\"10\" [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input step=\"10\" [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -1546,7 +1578,6 @@ var ExportOptionsComponent = /** @class */ (function () {
         return this.canvasService.height;
     };
     ExportOptionsComponent.prototype.confirm = function () {
-        alert('confirm');
         this.matDialog.closeAll();
         console.log(this.form.value);
         this.canvasService.exFile(this.form.value);
@@ -1560,6 +1591,84 @@ var ExportOptionsComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], ExportOptionsComponent);
     return ExportOptionsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/generating-progress/generating-progress.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/generating-progress/generating-progress.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>视频生成中</h2>\n<mat-dialog-content>\n  <div *ngIf=\"step()==0\">\n    <mat-progress-bar mode=\"determinate\" [value]=\"value()\" color=\"warn\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">生成逐帧图片</span>\n      <span class=\"fontSmall color-gray\">{{ position() }}/{{ duration() }}</span>\n    </div>\n  </div>\n  <div *ngIf=\"step()==1\">\n    <mat-progress-bar mode=\"indeterminate\" color=\"warn\" value=\"50\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">视频合成中</span>\n    </div>\n  </div>\n</mat-dialog-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/generating-progress/generating-progress.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/generating-progress/generating-progress.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/generating-progress/generating-progress.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/generating-progress/generating-progress.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: GeneratingProgressComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeneratingProgressComponent", function() { return GeneratingProgressComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var GeneratingProgressComponent = /** @class */ (function () {
+    function GeneratingProgressComponent(canvasService) {
+        this.canvasService = canvasService;
+    }
+    GeneratingProgressComponent.prototype.ngOnInit = function () {
+    };
+    GeneratingProgressComponent.prototype.position = function () {
+        return this.canvasService.position;
+    };
+    GeneratingProgressComponent.prototype.duration = function () {
+        return this.canvasService.duration;
+    };
+    GeneratingProgressComponent.prototype.value = function () {
+        return this.canvasService.position / this.canvasService.duration * 100;
+    };
+    GeneratingProgressComponent.prototype.step = function () {
+        return this.canvasService.generateStep;
+    };
+    GeneratingProgressComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-generating-progress',
+            template: __webpack_require__(/*! ./generating-progress.component.html */ "./src/app/generating-progress/generating-progress.component.html"),
+            styles: [__webpack_require__(/*! ./generating-progress.component.scss */ "./src/app/generating-progress/generating-progress.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
+    ], GeneratingProgressComponent);
+    return GeneratingProgressComponent;
 }());
 
 
@@ -1683,17 +1792,25 @@ var CanvasService = /** @class */ (function () {
         this.ffmpegService = ffmpegService;
         this.dialogService = dialogService;
         this.paused = false;
-        this.savePath = '';
+        this.savePath = ''; //
+        this.videoPath = ''; // video
+        this.imgPath = ''; // img
+        this.audio = ''; // audio
+        this.imgPrefix = '';
         // 表单配置
         this.options = [];
         this.expoprtOptons = { width: 800, height: 800, time: 1 };
+        this.generateStep = 0;
+        this.tempPath = window['path'].join(window['dirname'], 'tempDir');
         this.observables = {
             actions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             exportImg: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             template: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             options: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             optionsSet: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
+            generateMp4: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
         };
+        this.fileservice.deleteTempFiles(this.tempPath, '');
     }
     CanvasService.prototype.setInstance = function () {
     };
@@ -1705,6 +1822,7 @@ var CanvasService = /** @class */ (function () {
         this.fps = props['fps'];
         this.width = props.width;
         this.height = props.height;
+        this.paused = props.paused;
         this.options = this.reduceOptions(e2); // this.options;
         console.log(this.options);
         this.observables.options.next({
@@ -1738,6 +1856,9 @@ var CanvasService = /** @class */ (function () {
     CanvasService.prototype.setIsPaused = function (paused) {
         this.paused = paused;
     };
+    CanvasService.prototype.setCurrentPosition = function (p) {
+        this.position = p;
+    };
     CanvasService.prototype.play = function () {
         // this.timeline.setPaused(false);
         this.observables.actions.next({
@@ -1759,50 +1880,40 @@ var CanvasService = /** @class */ (function () {
     // 导出文件
     CanvasService.prototype.exFile = function (expoprtOptons) {
         var _this = this;
+        this.generateStep = 0;
         console.log('exFile');
         this.expoprtOptons = expoprtOptons;
-        this.dialogService.openFile(function (e) {
-            if (e && e[0]) {
-                _this.savePath = e[0];
-                _this.observables.exportImg.next({
-                    path: e[0]
-                });
+        /* this.dialogService.openFile((e)=>{
+          if (e && e[0]) {
+            this.savePath = e[0];
+            this.observables.exportImg.next({
+              path: e[0]
+            })
+          }
+          console.log(e);
+        })*/
+        this.dialogService.getSaveFile(function (file) {
+            if (!file) {
+                return;
             }
-            console.log(e);
-        });
-        /* if (this.exportRoot) {
-          // this.ffmpegService.generateMp4();
-          console.log('ddd');
-          // return;
-          
-          console.log(this.exportRoot);
-          const duration = this.exportRoot.timeline.duration
-          let currentPosition = 0;
-          this.exportRoot.gotoAndStop(0.1);
-    
-          const tickHandler = this.exportRoot.timeline.on('change', () => {
-            const thisPosition = this.exportRoot.timeline.position;
-            this.stage.update();
-            const base64str = this.canvas.toDataURL();
-            this.fileservice.saveBase64(base64str, thisPosition, () => {
-              console.log(thisPosition);
-              if(thisPosition + 1 < duration) {
-                this.exportRoot.gotoAndStop(thisPosition + 1);
-              } else {
-                this.exportRoot.timeline.off(tickHandler);
-                this.ffmpegService.generateMp4();
-                console.log('生成完毕');
-              }
-              // console.log(thisPosition);
+            _this.videoPath = file;
+            console.log('file', file);
+            _this.imgPrefix = Date.now() + 'img';
+            _this.observables.exportImg.next({
+                path: window['path'].join(window['dirname'], 'tempDir'),
+                imgPrefix: _this.imgPrefix,
             });
-            
-          });
-          this.exportRoot.gotoAndStop(0);
-        }*/
+            _this.dialogService.showProgress();
+        });
     };
+    // 生成mp4 文件
     CanvasService.prototype.generateMp4 = function () {
-        console.log('mp4');
-        this.ffmpegService.generateMp4(__assign({ savePath: this.savePath, duration: this.duration, fps: this.fps }, this.expoprtOptons));
+        this.generateStep = 1;
+        this.ffmpegService.generateMp4(__assign({ distPath: this.videoPath, savePath: window['path'].join(window['dirname'], 'tempDir'), duration: this.duration, fps: this.fps, imgPrefix: this.imgPrefix }, this.expoprtOptons), function () {
+            /* this.observables.generateMp4.next({
+              success: true,
+            });*/
+        });
     };
     CanvasService.prototype.loadTemplate = function (url) {
         if (!url) {
@@ -1848,6 +1959,7 @@ var CanvasService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogService", function() { return DialogService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1858,8 +1970,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DialogService = /** @class */ (function () {
-    function DialogService() {
+    function DialogService(dialog) {
+        this.dialog = dialog;
         this.projectDir = null;
     }
     /**
@@ -1883,11 +1997,24 @@ var DialogService = /** @class */ (function () {
             console.log('userData ',homePath);*/
         });
     };
+    // 保存文件
+    DialogService.prototype.getSaveFile = function (callback) {
+        window['remote'].dialog.showSaveDialog(window['remote'].getCurrentWindow(), {
+            title: '保存视频',
+            filters: [
+                { name: '视频', extensions: ['mp4'] },
+            ]
+        }, function (res) {
+            callback(res);
+        });
+    };
+    DialogService.prototype.showProgress = function () {
+    };
     DialogService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
     ], DialogService);
     return DialogService;
 }());
@@ -1907,6 +2034,8 @@ var DialogService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FfmpegService", function() { return FfmpegService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _file_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./file.service */ "./src/app/service/file.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1917,36 +2046,50 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var FfmpegService = /** @class */ (function () {
-    function FfmpegService() {
+    function FfmpegService(fileService, snackBar, dialog) {
+        this.fileService = fileService;
+        this.snackBar = snackBar;
+        this.dialog = dialog;
         this.exec = window['exec'];
         this.path = window['path'];
     }
-    FfmpegService.prototype.generateMp4 = function (_a) {
-        var savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height;
-        alert('generateMp4');
+    FfmpegService.prototype.generateMp4 = function (_a, callback) {
+        var _this = this;
+        var distPath = _a.distPath, imgPrefix = _a.imgPrefix, savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height;
+        // alert('generateMp4');
         // console.log(__dirname);
         var currentDir = window['dirname'];
-        var frompath = this.path.join(savePath, 'img%d.png');
-        var distpath = this.path.join(savePath, 'video.mp4'); // 'D:/del3/video.mp4';
-        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r ' + fps + ' -f image2 -i ' + frompath + ' -t ' + time + ' -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + distpath;
+        var frompath = this.path.join(savePath, imgPrefix + "%d.png");
+        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + ' -t ' + time + ' -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + ' ' + distPath;
         // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
-        alert(commandStr);
+        // alert(commandStr);
         console.log(commandStr);
-        var time = new Date();
         this.exec(commandStr, { cwd: currentDir }, function (err, data, data1) {
+            _this.hideDialog();
             if (err) {
                 console.error(err);
+                alert(err);
                 return;
             }
-            console.log('生成成功');
+            // this.snackBar.open('生成成功', 'ok', {duration: 3000});
+            alert('生成成功');
+            _this.fileService.deleteTempFiles(savePath, imgPrefix);
+            callback();
         });
+    };
+    FfmpegService.prototype.hideDialog = function () {
+        this.dialog.closeAll();
+        window.resizeBy(1, 0);
+        window.resizeBy(-1, 0);
     };
     FfmpegService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_file_service__WEBPACK_IMPORTED_MODULE_1__["FileService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], FfmpegService);
     return FfmpegService;
 }());
@@ -1991,6 +2134,32 @@ var FileService = /** @class */ (function () {
         this.fs.writeFile(this.path.join('D:\del3', 'img' + index + '.png'), imgdata, 'base64', function (err) {
             callback(err);
         });
+    };
+    // 删除文件
+    FileService.prototype.deleteTempFiles = function (dir, prefix) {
+        var _this = this;
+        this.fs.readdir(dir, function (err, res) {
+            console.log(res);
+            res.forEach(function (item) {
+                if (!prefix) {
+                    _this.fs.unlink(_this.path.join(dir, item), function (err) {
+                        if (err) {
+                            console.error(err);
+                        }
+                    });
+                }
+                else if (item.startsWith(prefix)) {
+                    _this.fs.unlink(_this.path.join(dir, item), function (err) {
+                        if (err) {
+                            console.error(err);
+                        }
+                    });
+                }
+            });
+        });
+    };
+    // 判断文件是否存在
+    FileService.prototype.checkFile = function () {
     };
     FileService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -2075,7 +2244,7 @@ var TopbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n#canvas-wrap {\r\n\tflex: 1;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\toverflow: auto;\r\n}\r\n\r\n#canvas-wrap canvas {\r\n\tbackground-color: aliceblue;\r\n}\r\n\r\n#canvas-btn-wrap {\r\n\theight:50px;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}\r\n\r\n#canvas-btn-wrap button{\r\n\tmargin: 0 2px;\r\n}"
+module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n#canvas-wrap {\r\n\tflex: 1;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\toverflow: auto;\r\n}\r\n\r\n#canvas-wrap canvas {\r\n\tbackground-color: aliceblue;\r\n}\r\n\r\n#canvas-btn-wrap {\r\n\theight:50px;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}\r\n\r\n#canvas-btn-wrap button{\r\n\tmargin: 0 10px;\r\n}"
 
 /***/ }),
 
@@ -2086,7 +2255,7 @@ module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"purple\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"purple\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t<!--\r\n\t\t\t<button (click)=\"showSnackbar();\">\r\n\t\t\t\tsnackbar\r\n\t\t\t</button>\r\n\t\t-->\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -2118,14 +2287,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var WorkcanvasComponent = /** @class */ (function () {
-    function WorkcanvasComponent(elementRef, canvasService, dialog) {
+    function WorkcanvasComponent(elementRef, canvasService, dialog, snackBar) {
         this.elementRef = elementRef;
         this.canvasService = canvasService;
         this.dialog = dialog;
-        this.c = window['createjs'];
-        console.log(this.c);
+        this.snackBar = snackBar;
     }
     WorkcanvasComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.canvasService.observables.generateMp4.subscribe(function (e) {
+            // this.snackBar.open('生成成功','', {duration: 3000});
+            _this.showSnackbar();
+        });
     };
     WorkcanvasComponent.prototype.ngAfterViewInit = function () {
         var canvas = this.elementRef.nativeElement.querySelector('#canvas'); //获取第一个p
@@ -2165,13 +2338,23 @@ var WorkcanvasComponent = /** @class */ (function () {
     WorkcanvasComponent.prototype.duration = function () {
         return this.canvasService.duration;
     };
+    WorkcanvasComponent.prototype.showSnackbar = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.snackBar.open('生成成功', 'ok', {
+                duration: 30000,
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom',
+            });
+        }, 100);
+    };
     WorkcanvasComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-workcanvas',
             template: __webpack_require__(/*! ./workcanvas.component.html */ "./src/app/workcanvas/workcanvas.component.html"),
             styles: [__webpack_require__(/*! ./workcanvas.component.css */ "./src/app/workcanvas/workcanvas.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
     ], WorkcanvasComponent);
     return WorkcanvasComponent;
 }());
