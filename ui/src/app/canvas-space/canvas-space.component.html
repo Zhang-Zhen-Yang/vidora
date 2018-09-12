@@ -1,5 +1,12 @@
 <div class="canvas-space-wrap scrollbar-override" >
-  <div id="canvas-size" *ngIf="canvasService.width && canvasService.height">{{ canvasService.width }}&times;{{ canvasService.height }}</div>
+  <div id="canvas-top-bar" class="f jcsb aic">
+    <!-- 画布尺寸 -->
+    <div id="canvas-size" *ngIf="canvasService.width && canvasService.height">{{ canvasService.width }}&times;{{ canvasService.height }}</div>
+    <div style="flex:1"></div>
+    <div>
+      <app-audio-manager></app-audio-manager>
+    </div>
+  </div>
   <webview 
     #webview
     src="./template/temp1.html"

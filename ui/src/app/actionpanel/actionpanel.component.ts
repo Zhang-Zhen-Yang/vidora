@@ -51,6 +51,8 @@ export class ActionpanelComponent implements OnInit, AfterViewInit  {
       placeholder: 'Enter your name'
     },
   ];
+
+  
   
   constructor(private fb: FormBuilder, private canvasService: CanvasService) { }
 
@@ -91,6 +93,9 @@ export class ActionpanelComponent implements OnInit, AfterViewInit  {
   submit(value: {[name: string]: any}) { 
     console.log(value); 
   } 
-    
+  
+  optsConfig() {
+    return this.canvasService.opts;
+  }
 
 }

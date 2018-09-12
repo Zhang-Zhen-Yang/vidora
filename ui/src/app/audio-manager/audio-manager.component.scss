@@ -1,0 +1,32 @@
+:host{
+	display: flex;
+	align-items: center;
+}
+#music-albums {
+	padding: 5px;
+	/* background-color: red;*/
+	
+}
+#music-albums span {
+	font-size: 20px;
+}
+#music-albums>div{
+	animation: round 5s linear 0s infinite normal;
+	margin-right: 10px;
+}
+@keyframes round
+{
+	0%{
+		transform:rotate(0deg)
+	}
+	100%{
+		transform:rotate(360deg)
+	}	
+}
+button{
+	font-size: 14px;
+}
+.selected{
+	background-color: orange;
+	color: white;
+}

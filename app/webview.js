@@ -35,13 +35,14 @@
 					paused: window.exportRoot.paused,
 				}
 				// createSizeTag({width, height});
-				ipcRenderer.sendToHost('inited', JSON.stringify(props), JSON.stringify(window.options || []));
+				ipcRenderer.sendToHost('inited', JSON.stringify(props), JSON.stringify(window.options || []), JSON.stringify(window.opts || []));
 				// ipcRenderer.sendToHost('setOptions', JSON.stringify(props));
 				/* createjs.Ticker.addEventListener("tick", ()=>{
 					// ipcRenderer.sendToHost('tick', window.exportRoot.timeline.position);
 					// console.log(window.exportRoot.timeline.position);
 				});*/
 				bindTick();
+				addResizeBar();
 			}
 		}, 1000)
 	}
@@ -161,6 +162,24 @@
 				ipcRenderer.sendToHost('tick', p);
 			}
 		})
+	}
+	function addResizeBar() {
+		const scale = [0, 0.2, 0.5, 0.6, 0.8, 1, 1.2, 1.5, 2, 2.5, 3]
+		const range = document.createElement('input');
+		const container = document.getElementById('animation_container');
+		range.title = 1;
+		range.type = 'range';
+		range.max = 10
+		range.min = 1
+		range.value = 5;
+		range.addEventListener('input', function(e) {
+			// console.log(this.value);
+			const scaleValue = scale[this.value];
+			range.title = scaleValue;
+			// console.log(scaleValue);
+			(container || canvas).style.transform = `scale(${scaleValue},${scaleValue})`
+		})
+		document.body.appendChild(range);
 	}
 	checkedInited();
 })();

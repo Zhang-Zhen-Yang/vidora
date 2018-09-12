@@ -63,10 +63,13 @@ export class FormImageComponent implements Field, OnInit {
   }
   // 打开文件
   openFile() {
+    const imageDir = localStorage.getItem('imageDir') || '';
+    // alert(imageDir);
     window['remote'].dialog.showOpenDialog(
       window['remote'].getCurrentWindow(),
       {
         title:'请选择图片',
+        defaultPath: imageDir,
         properties: [ 'openFile'],
         filters: [
           {name: '图片', extensions: ['jpg', 'jpeg', 'png', 'bmp', 'gif']},
@@ -76,6 +79,9 @@ export class FormImageComponent implements Field, OnInit {
         //this.getCurrentDirFiles(filePaths[0],result);
         if(!filePaths){
           return;
+        }
+        if(Array.isArray(filePaths) && typeof filePaths[0] == 'string') {
+          localStorage.setItem('imageDir', window['path'].dirname(filePaths[0]));
         }
         console.log(filePaths[0]);
         // console.log(this.group.controls[this.config.name]);

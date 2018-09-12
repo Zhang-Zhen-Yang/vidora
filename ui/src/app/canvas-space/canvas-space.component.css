@@ -21,12 +21,22 @@
 	overflow:hidden;
 }
 #canvas-size{
-	position: absolute;
+	/* position: absolute;*/
 	left: 10px;
 	top: 10px;
+	display: inline-block;
 	background-color: rgba(0,0,0,0.9);
 	color: white;
 	border-radius: 3px;
 	padding: 5px 10px;
     z-index: 1;
 }
+#canvas-top-bar{
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 50px;
+	padding: 10px 0px 10px 10px;
+	/* background-color: antiquewhite;*/
+}
+

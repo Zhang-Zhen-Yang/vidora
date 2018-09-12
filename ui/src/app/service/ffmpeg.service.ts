@@ -12,13 +12,14 @@ export class FfmpegService {
     this.exec = window['exec'];
     this.path = window['path'];
   }
-  generateMp4({distPath, imgPrefix, savePath, duration, fps, time, width, height}, callback) {
+  generateMp4({distPath, audioPath, imgPrefix, savePath, duration, fps, time, width, height}, callback) {
 
     // alert('generateMp4');
     // console.log(__dirname);
     const currentDir = window['dirname'];
     const frompath = this.path.join(savePath, `${imgPrefix}%d.png`);
-    var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r '+ fps+' -t '+ time +' -f image2 -i '+ frompath +' -t '+ time +' -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s '+width+'*'+ height +' '+ distPath;
+    const audioCommand = audioPath ? ` -t ${time} -i ${audioPath}` : '';
+    var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r '+ fps+' -t '+ time +' -f image2 -i '+ frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s '+width+'*'+ height +' '+ distPath;
     // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
     
     // alert(commandStr);

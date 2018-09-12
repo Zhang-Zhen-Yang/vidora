@@ -3,6 +3,7 @@ import { CanvasService } from '../service/canvas.service';
 import {MatDialog} from '@angular/material';
 import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
 
+
 @Component({
   selector: 'app-canvas-space',
   templateUrl: './canvas-space.component.html',
@@ -10,8 +11,12 @@ import { GeneratingProgressComponent } from '../generating-progress/generating-p
 })
 export class CanvasSpaceComponent implements OnInit {
   @ViewChild('webview') webview;
+  
+  
   ready = false
-  constructor(private canvasService: CanvasService, public dialog: MatDialog ) { }
+  constructor(private canvasService: CanvasService, public dialog: MatDialog ) { 
+    
+   }
 
   ngOnInit() {
     /* setTimeout(()=>{
@@ -73,7 +78,7 @@ export class CanvasSpaceComponent implements OnInit {
       switch (e.channel) {
         case 'inited':
           console.log(e);
-          this.canvasService.init(JSON.parse(e.args[0]),JSON.parse(e.args[1]));
+          this.canvasService.init(JSON.parse(e.args[0]),JSON.parse(e.args[1]), JSON.parse(e.args[2]));
           break;
         case 'base64':
           console.log(e);
@@ -131,6 +136,13 @@ export class CanvasSpaceComponent implements OnInit {
     canvas {
       /*margin-top: 20px;*/
     }
+    input[type="range"]{
+      position: absolute;
+      z-index: 10;
+      left: 10px;
+      top: 49px;
+    }
   `);
   }
+  
 }

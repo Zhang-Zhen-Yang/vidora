@@ -132,6 +132,9 @@ var createjs, AdobeAn;
 function setOptions() {
 	window.options = [
 	];
+	window.opts = [
+
+	];
 	var obj1 = exportRoot.children[0].children[0];
 	var img1 = exportRoot.children[0].children[0].image;
 	options.push({
@@ -159,4 +162,59 @@ function setOptions() {
 			}
 		}
 	})
+	opts.push([
+		{
+			name: 'img1',
+			label: '图片1',
+			value:img1.src,
+			type: 'image',
+			callback: ()=>{
+				const nImg = new Image();
+				nImg.src = val;
+				nImg.onload = function() {
+					exportRoot.children[0].children[0].image = nImg;
+				}
+			}
+		},
+		{
+			name: 'img1-x',
+			label: 'x',
+			value:obj1.x,
+			type: 'input',
+			callback: (res)=>{
+				exportRoot.children[0].children[0].set({
+					x: res,
+				});
+			}
+		}
+	])
+	opts.push([
+		{
+			name: 'img2',
+			label: '图片2',
+			value:img1.src,
+			type: 'image',
+			callback: ()=>{
+
+			}
+		},
+		{
+			name: 'img2-x',
+			label: 'x',
+			value:obj1.x,
+			type: 'input',
+			callback: (res)=>{
+				
+			}
+		},
+		{
+			name: 'img2-scaleX',
+			label: 'scaleX',
+			value:obj1.scaleX,
+			type: 'input',
+			callback: (res)=>{
+				
+			}
+		},
+	])
 }

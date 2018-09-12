@@ -1,0 +1,21 @@
+<audio #audio src="" controls="controls" loop></audio>
+<div>&nbsp;{{ audioName() }}&nbsp;</div>
+<div id="music-albums" class="pointer" [matMenuTriggerFor]="menu">
+  <div [class]="[paused ? 'audio-paused' : 'audio-running']">
+    <span class="iconfont">&#xe652;</span>
+  </div>
+  <mat-menu #menu="matMenu" MenuPositionX="before" xPosition="before" (closed)="menuClosed(e)">
+      <button mat-menu-item (click)="selectLocalAudio()">本地音乐</button>
+      <button mat-menu-item [matMenuTriggerFor]="preset">内置音乐</button>
+  </mat-menu>
+  <mat-menu #preset="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let item of audioList"
+        (click)="selectAudio(item);"
+        [ngStyle]="{'background-color': audioName() == item.name ? 'orange' : 'white', color: audioName() == item.name ? 'white' : 'inherit'}"
+      >
+        {{item.name}}
+    </button>
+  </mat-menu>
+</div>
