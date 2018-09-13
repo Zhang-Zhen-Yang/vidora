@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>\n</div>\n"
+module.exports = "<div class=\"dynamic-form-wrap\">\n    <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>\n</div>\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<div>\n    <dynamic-form [config]=\"config\" #form=\"dynamicFo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  border: 1px solid red; }\n"
+module.exports = ".dynamic-form-wrap {\n  border: 1px solid #dddddd;\n  padding: 10px;\n  margin-top: 10px; }\n"
 
 /***/ }),
 
@@ -78,11 +78,10 @@ var ActionpanelItemComponent = /** @class */ (function () {
     };
     ActionpanelItemComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        // alert('dddd');
         var previousValid = this.form.valid;
         this.form.changes.subscribe(function (e) {
             console.log(e);
-            // this.canvasService.setOptions(e);
+            _this.canvasService.setOpts(e);
             if (_this.form.valid !== previousValid) {
                 previousValid = _this.form.valid;
                 console.log(_this.form.valid);
@@ -137,7 +136,7 @@ module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\r\n  控制面板\r\n</h3>\r\n<div class=\"panel-form-wrap scrollbar-override\">\r\n  <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>\r\n  <app-actionpanel-item *ngFor=\"let item of optsConfig()\" [config]=\"item\">\r\n\r\n  </app-actionpanel-item>\r\n</div>\r\n"
+module.exports = "<h3>\r\n  控制面板\r\n</h3>\r\n<div class=\"panel-form-wrap scrollbar-override\">\r\n  <!-- <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>-->\r\n  <app-actionpanel-item *ngFor=\"let item of optsConfig()\" [config]=\"item\">\r\n  </app-actionpanel-item>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -172,31 +171,6 @@ var ActionpanelComponent = /** @class */ (function () {
     function ActionpanelComponent(fb, canvasService) {
         this.fb = fb;
         this.canvasService = canvasService;
-        /* config: FormItemOption[] = [
-          {
-            type: 'input',
-            label: 'Full name',
-            name: 'name',
-            placeholder: 'Enter your name'
-          },
-          {
-            type: 'select',
-            label: 'Favourite food',
-            name: 'food',
-            options: ['Pizza', 'Hot Dogs', 'Knakworstje', 'Coffee'],
-            placeholder: 'Select an option'
-          },
-          {
-            type: 'button',
-            label: 'Submit',
-            name: 'submit'
-          },
-          {
-            type: 'image',
-            label: 'image',
-            name: 'image'
-          }
-        ];*/
         this.config = [
             {
                 type: 'input',
@@ -207,40 +181,37 @@ var ActionpanelComponent = /** @class */ (function () {
         ];
     }
     ActionpanelComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        console.log(this.canvasService.options);
-        this.canvasService.observables.options.subscribe(function (e) {
-            _this.config = e['options'];
-            console.log(e['options']);
-            setTimeout(function () {
-                _this.config.forEach(function (item) {
-                    _this.form.setValue(item.name, item['value'] || '');
-                });
-            }, 0);
-        });
+        /* console.log(this.canvasService.options);
+        this.canvasService.observables.options.subscribe((e)=>{
+          this.config = e['options'];
+          console.log(e['options']);
+          setTimeout(()=>{
+            this.config.forEach((item) => {
+              this.form.setValue(item.name, item['value'] || '');
+            })
+          }, 0)
+        });*/
     };
     ActionpanelComponent.prototype.onSubmit = function (data) {
         // console.log(this.myGroup);
     };
     ActionpanelComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        // alert('dddd');
-        var previousValid = this.form.valid;
-        this.form.changes.subscribe(function (e) {
-            console.log(e);
-            _this.canvasService.setOptions(e);
-            if (_this.form.valid !== previousValid) {
-                previousValid = _this.form.valid;
-                console.log(_this.form.valid);
-                // this.form.setDisabled('submit', !previousValid); 
-            }
+        /* let previousValid = this.form.valid;
+        this.form.changes.subscribe((e) => {
+          console.log(e);
+          this.canvasService.setOptions(e);
+          if (this.form.valid !== previousValid) {
+            previousValid = this.form.valid;
+            console.log(this.form.valid);
+            // this.form.setDisabled('submit', !previousValid);
+          }
         });
-        setTimeout(function () {
-            // this.form.setDisabled('submit', true);
-            // this.form.setValue('name', 'Todd Motto');
-            // this.form.setValue('food', 'Hot Dogs');
-            // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
-        }, 0);
+        setTimeout(()=>{
+          // this.form.setDisabled('submit', true);
+          // this.form.setValue('name', 'Todd Motto');
+          // this.form.setValue('food', 'Hot Dogs');
+          // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
+        }, 0)*/
     };
     ActionpanelComponent.prototype.submit = function (value) {
         console.log(value);
@@ -250,33 +221,7 @@ var ActionpanelComponent = /** @class */ (function () {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"]),
-        __metadata("design:type", _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"]
-        /* config: FormItemOption[] = [
-          {
-            type: 'input',
-            label: 'Full name',
-            name: 'name',
-            placeholder: 'Enter your name'
-          },
-          {
-            type: 'select',
-            label: 'Favourite food',
-            name: 'food',
-            options: ['Pizza', 'Hot Dogs', 'Knakworstje', 'Coffee'],
-            placeholder: 'Select an option'
-          },
-          {
-            type: 'button',
-            label: 'Submit',
-            name: 'submit'
-          },
-          {
-            type: 'image',
-            label: 'image',
-            name: 'image'
-          }
-        ];*/
-        )
+        __metadata("design:type", _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"])
     ], ActionpanelComponent.prototype, "form", void 0);
     ActionpanelComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1143,11 +1088,17 @@ var CanvasSpaceComponent = /** @class */ (function () {
             // this.webview.nativeElement.send('template', e['action']);
             _this.webview.nativeElement.loadURL(e['url']);
         });
-        // 对模板内容进行设置
+        // 对模板内容进行设置(旧)
         this.canvasService.observables.optionsSet.subscribe(function (e) {
             console.log('对模板内容进行设置');
             console.log(JSON.stringify(e['options']));
             _this.webview.nativeElement.send('setOptions', JSON.stringify(e['options']));
+        });
+        // 对模板内容进行设置(新)
+        this.canvasService.observables.optsSet.subscribe(function (e) {
+            console.log('对模板内容进行设置(新)');
+            console.log(JSON.stringify(e['opts']));
+            _this.webview.nativeElement.send('setOpts', JSON.stringify(e['opts']));
         });
     };
     CanvasSpaceComponent.prototype.ngOnChanges = function (e) {
@@ -1175,11 +1126,11 @@ var CanvasSpaceComponent = /** @class */ (function () {
         this.webview.nativeElement.addEventListener('ipc-message', function (e) {
             switch (e.channel) {
                 case 'inited':
-                    console.log(e);
+                    // console.log(e);
                     _this.canvasService.init(JSON.parse(e.args[0]), JSON.parse(e.args[1]), JSON.parse(e.args[2]));
                     break;
                 case 'base64':
-                    console.log(e);
+                    // console.log(e);
                     break;
                 case 'setIsPaused':
                     _this.canvasService.setIsPaused(e['args'][0]);
@@ -1270,6 +1221,9 @@ var components = {
     input: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
     select: _form_select_form_select_component__WEBPACK_IMPORTED_MODULE_4__["FormSelectComponent"],
     image: _form_image_form_image_component__WEBPACK_IMPORTED_MODULE_5__["FormImageComponent"],
+    number: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
+    text: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
+    font: _form_select_form_select_component__WEBPACK_IMPORTED_MODULE_4__["FormSelectComponent"],
 };
 var DynamicFieldDirective = /** @class */ (function () {
     function DynamicFieldDirective(resolver, container) {
@@ -1371,7 +1325,7 @@ var FormButtonComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  display:none\ninput:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .form-image-wrap {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-size: contain;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 1px solid #eeeeee; }\n  label {\n  display: flex;\n  align-items: stretch; }\n  .image-input {\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  margin-bottom: 20px; }\n  .image-input-input {\n  /* display: none; */\n  width: 0;\n  height: 0;\n  padding: 0; }\n  .form-image-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center; }\n  .image-input-attr {\n  border: 1px solid #eeeeee;\n  display: flex;\n  align-items: center; }\n  .image-input-attr span {\n  width: 100px;\n  padding-left: 10px; }\n  .image-input-attr input {\n  flex: 1; }\n"
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  display:none\ninput:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .form-image-wrap {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-size: contain;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 1px solid #eeeeee; }\n  label {\n  display: flex;\n  align-items: stretch; }\n  .image-input {\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  margin-bottom: 10px; }\n  .image-input-input {\n  /* display: none; */\n  width: 0;\n  height: 0;\n  padding: 0; }\n  .form-image-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center; }\n  .image-input-attr {\n  border: 1px solid #eeeeee;\n  display: flex;\n  align-items: center; }\n  .image-input-attr span {\n  width: 100px;\n  padding-left: 10px; }\n  .image-input-attr input {\n  flex: 1; }\n"
 
 /***/ }),
 
@@ -1445,7 +1399,7 @@ var FormImageComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-image',
             styles: [__webpack_require__(/*! ./form-image.component.scss */ "./src/app/dynamic-form2/components/form-image/form-image.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <img class=\"pointer form-image-image\" style=\"width:100px;height:100px;\" [src]=\"this.url(src?.value || '')\" (click)=\"openFile()\">\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n      <div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-x']\">\n          <span>\u8DDD\u5DE6\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-x'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-y']\">\n          <span>\u8DDD\u4E0A\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-y'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleX']\">\n          <span>\u5BBD\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleX'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleY']\">\n          <span>\u9AD8\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleY'\">\n        </div>\n      </div>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <img class=\"pointer form-image-image\" style=\"width:100px;height:100px;\" [src]=\"this.url(src?.value || '')\" (click)=\"openFile()\">\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n      <!--<div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-x']\">\n          <span>\u8DDD\u5DE6\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-x'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-y']\">\n          <span>\u8DDD\u4E0A\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-y'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleX']\">\n          <span>\u5BBD\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleX'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleY']\">\n          <span>\u9AD8\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleY'\">\n        </div>\n      </div>-->\n    </div>\n  "
         }),
         __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
     ], FormImageComponent);
@@ -1463,7 +1417,7 @@ var FormImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  margin-bottom: 20px; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n"
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  height: 30px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding-left: 10px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  div {\n  display: flex;\n  margin-bottom: 5px; }\n  label {\n  min-width: 50px; }\n"
 
 /***/ }),
 
@@ -1492,7 +1446,7 @@ var FormInputComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-input',
             styles: [__webpack_require__(/*! ./form-input.component.scss */ "./src/app/dynamic-form2/components/form-input/form-input.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field form-input\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        type=\"text\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n  "
+            template: "\n    <div *ngIf=\"config.type=='text'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n    <div *ngIf=\"config.type=='number'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        type=\"number\"\n        [step]=\"config.step\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n  "
         })
     ], FormInputComponent);
     return FormInputComponent;
@@ -1509,7 +1463,7 @@ var FormInputComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "select {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  text-indent: .01px;\n  text-overflow: '';\n  overflow: hidden;\n  font-family: inherit;\n  font-size: 14px;\n  padding: 10px 15px;\n  border-radius: 0;\n  color: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  width: 100%;\n  outline: none;\n  box-sizing: border-box;\n  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%) no-repeat calc(100% - 20px) calc(1em + 4px), linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%) no-repeat calc(100% - 15px) calc(1em + 4px);\n  background-size: 5px 5px, 5px 5px; }\n  select:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n"
+module.exports = "select {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  text-indent: .01px;\n  text-overflow: '';\n  overflow: hidden;\n  font-family: inherit;\n  font-size: 14px;\n  padding-left: 10px;\n  height: 30px;\n  border-radius: 0;\n  color: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  width: 100%;\n  outline: none;\n  box-sizing: border-box;\n  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%) no-repeat calc(100% - 20px) calc(1em + -1px), linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%) no-repeat calc(100% - 15px) calc(1em + -1px);\n  background-size: 5px 5px, 5px 5px;\n  background-color: white; }\n  select:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  label {\n  min-width: 50px; }\n"
 
 /***/ }),
 
@@ -1538,7 +1492,7 @@ var FormSelectComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-select',
             styles: [__webpack_require__(/*! ./form-select.component.scss */ "./src/app/dynamic-form2/components/form-select/form-select.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field form-select\"\n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <select [formControlName]=\"config.name\">\n        <option value=\"\">{{ config.placeholder }}</option>\n        <option *ngFor=\"let option of config.options\">\n          {{ option }}\n        </option>\n      </select>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field form-select f aic\"\n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <select [formControlName]=\"config.name\">\n        <option *ngFor=\"let option of config.options\">\n          {{ option }}\n        </option>\n      </select>\n    </div>\n  "
         })
     ], FormSelectComponent);
     return FormSelectComponent;
@@ -2031,6 +1985,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var CanvasService = /** @class */ (function () {
     function CanvasService(fileservice, ffmpegService, dialogService) {
+        var _this = this;
         this.fileservice = fileservice;
         this.ffmpegService = ffmpegService;
         this.dialogService = dialogService;
@@ -2047,20 +2002,38 @@ var CanvasService = /** @class */ (function () {
         this.tempPath = window['path'].join(window['dirname'], 'tempDir'); // 临时文件夹，用于存放视频生成过程中的逐帧图片
         // 音频文件名及路径
         this.audio = { name: '无', path: '' }; // audio
+        this.fonts = [];
         this.observables = {
             actions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             exportImg: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             template: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             options: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             optionsSet: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
+            optsSet: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             generateMp4: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             audio: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
         };
         this.fileservice.deleteTempFiles(this.tempPath, '');
+        window['fontList'].getFonts()
+            .then(function (fonts) {
+            alert(typeof fonts);
+            _this.fonts = fonts;
+            _this.opts.forEach(function (opt) {
+                opt.forEach(function (item) {
+                    if (item.type == 'font') {
+                        item.options = fonts;
+                    }
+                });
+            });
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
     }
     CanvasService.prototype.setInstance = function () {
     };
     CanvasService.prototype.init = function (e, e2, e3) {
+        var _this = this;
         console.log(e);
         var props = e;
         // alert(JSON.stringify(props));
@@ -2070,6 +2043,13 @@ var CanvasService = /** @class */ (function () {
         this.height = props.height;
         this.paused = props.paused;
         this.options = this.reduceOptions(e2); // this.options;
+        e3.forEach(function (opt) {
+            opt.forEach(function (item) {
+                if (item.type == 'font') {
+                    item.options = _this.fonts;
+                }
+            });
+        });
         this.opts = e3;
         console.log('e3', e3);
         console.log(this.options);
@@ -2169,18 +2149,30 @@ var CanvasService = /** @class */ (function () {
             return;
         }
         this.options = [];
+        this.opts = [];
         this.observables.options.next({
             options: [],
+        });
+        this.observables.optsSet.next({
+            opts: [],
         });
         this.observables.template.next({
             action: 'loadTemplate',
             url: url,
         });
     };
+    // 旧
     CanvasService.prototype.setOptions = function (options) {
         console.log('setOptions');
         this.observables.optionsSet.next({
             options: options
+        });
+    };
+    // 新
+    CanvasService.prototype.setOpts = function (opts) {
+        console.log('setOptions');
+        this.observables.optsSet.next({
+            opts: opts
         });
     };
     CanvasService.prototype.setAudio = function (val) {
@@ -2437,7 +2429,7 @@ var FileService = /** @class */ (function () {
     FileService.prototype.deleteTempFiles = function (dir, prefix) {
         var _this = this;
         this.fs.readdir(dir, function (err, res) {
-            console.log(res);
+            // console.log(res);
             res.forEach(function (item) {
                 if (!prefix) {
                     _this.fs.unlink(_this.path.join(dir, item), function (err) {

@@ -9,11 +9,10 @@ import { FieldConfig } from '../../models/field-config.interface';
   styleUrls: ['form-select.component.scss'],
   template: `
     <div 
-      class="dynamic-field form-select"
+      class="dynamic-field form-select f aic"
       [formGroup]="group">
       <label>{{ config.label }}</label>
       <select [formControlName]="config.name">
-        <option value="">{{ config.placeholder }}</option>
         <option *ngFor="let option of config.options">
           {{ option }}
         </option>

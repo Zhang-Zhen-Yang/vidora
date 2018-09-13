@@ -23,7 +23,7 @@ import {DomSanitizer} from '@angular/platform-browser';
           [attr.placeholder]="config.placeholder"
           [formControlName]="config.name">
       </label>
-      <div>
+      <!--<div>
         <div class="image-input-attr" *ngIf="group.controls[config.name+'-x']">
           <span>距左边距:</span>
           <input type="number" step="10" [formControlName]="config.name+'-x'">
@@ -40,7 +40,7 @@ import {DomSanitizer} from '@angular/platform-browser';
           <span>高缩放比:</span>
           <input type="number" step="0.1" [formControlName]="config.name+'-scaleY'">
         </div>
-      </div>
+      </div>-->
     </div>
   `
 })

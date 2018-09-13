@@ -8,12 +8,21 @@ import { FieldConfig } from '../../models/field-config.interface';
   selector: 'form-input',
   styleUrls: ['form-input.component.scss'],
   template: `
-    <div 
-      class="dynamic-field form-input" 
+    <div *ngIf="config.type=='text'"
+      class="dynamic-field form-input f aic" 
       [formGroup]="group">
       <label>{{ config.label }}</label>
       <input
-        type="text"
+        [attr.placeholder]="config.placeholder"
+        [formControlName]="config.name">
+    </div>
+    <div *ngIf="config.type=='number'"
+      class="dynamic-field form-input f aic" 
+      [formGroup]="group">
+      <label>{{ config.label }}</label>
+      <input
+        type="number"
+        [step]="config.step"
         [attr.placeholder]="config.placeholder"
         [formControlName]="config.name">
     </div>

@@ -1,0 +1,91 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "font-list",
+        "scope": null,
+        "escapedName": "font-list",
+        "name": "font-list",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "F:\\code\\vidora\\app"
+    ]
+  ],
+  "_cnpm_publish_time": 1503472485690,
+  "_from": "font-list",
+  "_hasShrinkwrap": false,
+  "_id": "font-list@1.1.0",
+  "_location": "/font-list",
+  "_nodeVersion": "8.2.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/font-list-1.1.0.tgz_1503472485613_0.986456799088046"
+  },
+  "_npmUser": {
+    "name": "oldj",
+    "email": "oldj.wu@gmail.com"
+  },
+  "_npmVersion": "5.3.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "font-list",
+    "scope": null,
+    "escapedName": "font-list",
+    "name": "font-list",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/font-list/download/font-list-1.1.0.tgz",
+  "_shasum": "33d1eb9697a8c0d2adde11210729f165f398c2c7",
+  "_shrinkwrap": null,
+  "_spec": "font-list",
+  "_where": "F:\\code\\vidora\\app",
+  "author": {
+    "name": "oldj"
+  },
+  "bugs": {
+    "url": "https://github.com/oldj/node-font-list/issues"
+  },
+  "dependencies": {},
+  "description": "list system fonts",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "33d1eb9697a8c0d2adde11210729f165f398c2c7",
+    "size": 4718,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/font-list/download/font-list-1.1.0.tgz"
+  },
+  "gitHead": "c2ea8e8ac3e100f5941311a2285cd6c2c350abc2",
+  "homepage": "https://github.com/oldj/node-font-list#readme",
+  "keywords": [
+    "font"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "oldj",
+      "email": "oldj.wu@gmail.com"
+    }
+  ],
+  "name": "font-list",
+  "optionalDependencies": {},
+  "publish_time": 1503472485690,
+  "readme": "# font-list\n\n`font-list` is a Node.js package for listing the fonts available on your system.\n\nCurrent version supports **macOS** and **Windows** only, can not be used on Linux yet.\n\n## Install\n\n```bash\nnpm install font-list\n```\n\n## Usage\n\n```js\nconst fontList = require('font-list')\n\nfontList.getFonts()\n  .then(fonts => {\n    console.log(fonts)\n  })\n  .catch(err => {\n    console.log(err)\n  })\n```\n\nThe return value `fonts` is an Array, looks like:\n\n```\n[ '\"Adobe Arabic\"',\n  '\"Adobe Caslon Pro\"',\n  '\"Adobe Devanagari\"',\n  '\"Adobe Fan Heiti Std\"',\n  '\"Adobe Fangsong Std\"',\n  ...\n  ]\n```\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oldj/node-font-list.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.0"
+}

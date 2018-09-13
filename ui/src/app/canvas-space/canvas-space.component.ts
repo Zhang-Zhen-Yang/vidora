@@ -46,11 +46,17 @@ export class CanvasSpaceComponent implements OnInit {
       // this.webview.nativeElement.send('template', e['action']);
       this.webview.nativeElement.loadURL(e['url']);
     });
-    // 对模板内容进行设置
+    // 对模板内容进行设置(旧)
     this.canvasService.observables.optionsSet.subscribe((e)=>{
       console.log('对模板内容进行设置');
       console.log(JSON.stringify(e['options']));
       this.webview.nativeElement.send('setOptions', JSON.stringify(e['options']));
+    });
+    // 对模板内容进行设置(新)
+    this.canvasService.observables.optsSet.subscribe((e)=>{
+      console.log('对模板内容进行设置(新)');
+      console.log(JSON.stringify(e['opts']));
+      this.webview.nativeElement.send('setOpts', JSON.stringify(e['opts']));
     });
   }
   ngOnChanges(e){
@@ -77,11 +83,11 @@ export class CanvasSpaceComponent implements OnInit {
     this.webview.nativeElement.addEventListener('ipc-message',(e)=>{
       switch (e.channel) {
         case 'inited':
-          console.log(e);
+          // console.log(e);
           this.canvasService.init(JSON.parse(e.args[0]),JSON.parse(e.args[1]), JSON.parse(e.args[2]));
           break;
         case 'base64':
-          console.log(e);
+          // console.log(e);
           break;
         case 'setIsPaused':
           this.canvasService.setIsPaused(e['args'][0]);

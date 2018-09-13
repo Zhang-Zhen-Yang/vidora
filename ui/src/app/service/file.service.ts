@@ -24,7 +24,7 @@ export class FileService {
   // 删除文件
   deleteTempFiles(dir, prefix){
     this.fs.readdir(dir, (err, res) => {
-      console.log(res);
+      // console.log(res);
       res.forEach((item)=>{
         if(!prefix) {
           this.fs.unlink(this.path.join(dir, item), (err) => {

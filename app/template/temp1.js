@@ -53,8 +53,33 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.instance.parent = this;
 	this.instance.setTransform(369.6,375.8,1,1,0,0,0,452.6,254.8);
 	this.instance.alpha = 0;
+	
+	window.tween1 = cjs.Tween.get(this.instance).wait(1)
+	.to({regX:452.8,regY:254.9,x:370,y:359.6,alpha:0.043},0).wait(1).
+	to({x:370.1,y:344.7,alpha:0.087},0).wait(1).
+	to({x:370.2,y:331.1,alpha:0.13},0).wait(1).
+	to({x:370.3,y:318.9,alpha:0.174},0).wait(1).
+	to({x:370.4,y:307.8,alpha:0.217},0).wait(1).
+	to({y:298,alpha:0.261},0).wait(1).
+	to({x:370.5,y:289.2,alpha:0.304},0).wait(1).
+	to({x:370.6,y:281.4,alpha:0.348},0).wait(1).
+	to({y:274.6,alpha:0.391},0).wait(1).
+	to({x:370.7,y:268.8,alpha:0.435},0).wait(1).
+	to({y:263.7,alpha:0.478},0).wait(1).
+	to({y:259.5,alpha:0.522},0).wait(1).
+	to({x:370.8,y:255.9,alpha:0.565},0).wait(1).
+	to({y:253,alpha:0.609},0).wait(1).
+	to({y:250.7,alpha:0.652},0).wait(1).
+	to({y:248.9,alpha:0.696},0).wait(1).
+	to({y:247.5,alpha:0.739},0).wait(1).
+	to({y:246.5,alpha:0.783},0).wait(1).
+	to({y:245.9,alpha:0.826},0).wait(1).
+	to({y:245.5,alpha:0.87},0).wait(1).
+	to({y:245.3,alpha:0.913},0).wait(1).
+	to({y:245.2,alpha:0.957},0).wait(1).
+	to({alpha:1},0).wait(1);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({regX:452.8,regY:254.9,x:370,y:359.6,alpha:0.043},0).wait(1).to({x:370.1,y:344.7,alpha:0.087},0).wait(1).to({x:370.2,y:331.1,alpha:0.13},0).wait(1).to({x:370.3,y:318.9,alpha:0.174},0).wait(1).to({x:370.4,y:307.8,alpha:0.217},0).wait(1).to({y:298,alpha:0.261},0).wait(1).to({x:370.5,y:289.2,alpha:0.304},0).wait(1).to({x:370.6,y:281.4,alpha:0.348},0).wait(1).to({y:274.6,alpha:0.391},0).wait(1).to({x:370.7,y:268.8,alpha:0.435},0).wait(1).to({y:263.7,alpha:0.478},0).wait(1).to({y:259.5,alpha:0.522},0).wait(1).to({x:370.8,y:255.9,alpha:0.565},0).wait(1).to({y:253,alpha:0.609},0).wait(1).to({y:250.7,alpha:0.652},0).wait(1).to({y:248.9,alpha:0.696},0).wait(1).to({y:247.5,alpha:0.739},0).wait(1).to({y:246.5,alpha:0.783},0).wait(1).to({y:245.9,alpha:0.826},0).wait(1).to({y:245.5,alpha:0.87},0).wait(1).to({y:245.3,alpha:0.913},0).wait(1).to({y:245.2,alpha:0.957},0).wait(1).to({alpha:1},0).wait(1));
+	this.timeline.addTween(window.tween1);
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(317,371,905.6,509.8);
@@ -168,7 +193,7 @@ function setOptions() {
 			label: '图片1',
 			value:img1.src,
 			type: 'image',
-			callback: ()=>{
+			callback: (val)=>{
 				const nImg = new Image();
 				nImg.src = val;
 				nImg.onload = function() {
@@ -180,11 +205,77 @@ function setOptions() {
 			name: 'img1-x',
 			label: 'x',
 			value:obj1.x,
-			type: 'input',
+			type: 'number',
+			step: 10,
 			callback: (res)=>{
 				exportRoot.children[0].children[0].set({
 					x: res,
 				});
+			}
+		},
+		{
+			name: util.n(),
+			label: 'y',
+			value:obj1.y,
+			type: 'number',
+			step: 10,
+			callback: (res)=>{
+				exportRoot.children[0].children[0].set({
+					y: res,
+				});
+			}
+		},
+		{
+			name: util.n(),
+			label: 'scaleX',
+			value:obj1.scaleX,
+			type: 'number',
+			step: 0.1,
+			callback: (res)=>{
+				exportRoot.children[0].children[0].set({
+					scaleX: res,
+				});
+			}
+		},
+		{
+			name: util.n(),
+			label: 'scaleY',
+			value:obj1.scaleY,
+			type: 'number',
+			step: 0.1,
+			callback: (res)=>{
+				exportRoot.children[0].children[0].set({
+					scaleY: res,
+				});
+			}
+		},
+		{
+			name: util.n(),
+			label: 'rotation',
+			value:obj1.rotation,
+			type: 'number',
+			step: 1,
+			callback: (res)=>{
+				exportRoot.children[0].children[0].set({
+					rotation: res,
+				});
+			}
+		},
+		{	
+			name: util.n(),
+			label: '缓动',
+			value: 1,
+			type: 'select',
+			options: [1, 2, 3, 4, 5],
+			callback: (r) => {
+				console.log(r);
+				console.log(exportRoot.timeline);
+				if (r == 1) {
+					exportRoot.timeline.removeTween(window.tween1);
+				}else {
+					exportRoot.timeline.addTween(window.tween1);
+				}
+				
 			}
 		}
 	])
@@ -199,22 +290,14 @@ function setOptions() {
 			}
 		},
 		{
-			name: 'img2-x',
-			label: 'x',
-			value:obj1.x,
-			type: 'input',
-			callback: (res)=>{
-				
+			name: '字体',
+			label: '字体',
+			value: 'yahei',
+			type: 'font',
+			options: [],
+			callback: (res) => {
+				console.log(res);
 			}
-		},
-		{
-			name: 'img2-scaleX',
-			label: 'scaleX',
-			value:obj1.scaleX,
-			type: 'input',
-			callback: (res)=>{
-				
-			}
-		},
+		}
 	])
 }

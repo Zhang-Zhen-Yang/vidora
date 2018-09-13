@@ -16,11 +16,10 @@ export class ActionpanelItemComponent implements OnInit {
 
   }
   ngAfterViewInit() {
-    // alert('dddd');
     let previousValid = this.form.valid; 
     this.form.changes.subscribe((e) => { 
       console.log(e);
-      // this.canvasService.setOptions(e);
+      this.canvasService.setOpts(e);
       if (this.form.valid !== previousValid) { 
         previousValid = this.form.valid;
         console.log(this.form.valid);

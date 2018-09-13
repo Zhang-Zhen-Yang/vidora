@@ -29,8 +29,24 @@ export class CanvasService {
 
   // 音频文件名及路径
   audio: {name: string, path: string} = { name: '无', path: '' } // audio
+  fonts = []
   constructor(private fileservice: FileService, private ffmpegService: FfmpegService, private dialogService: DialogService) {
     this.fileservice.deleteTempFiles(this.tempPath, '');
+    window['fontList'].getFonts()
+    .then(fonts => {
+      alert(typeof fonts)
+      this.fonts = fonts;
+      this.opts.forEach((opt)=>{
+        opt.forEach((item)=>{
+          if(item.type == 'font') {
+            item.options = fonts;
+          }
+        })
+      })
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
   setInstance() {
    
@@ -45,7 +61,18 @@ export class CanvasService {
     this.height = props.height;
     this.paused = props.paused;
     this.options = this.reduceOptions(e2); // this.options;
+    
+    e3.forEach((opt)=>{
+      opt.forEach((item)=>{
+        if(item.type == 'font') {
+          item.options =  this.fonts;
+        }
+      }) 
+    })
+    
     this.opts = e3;
+    
+    
     console.log('e3', e3);
     console.log(this.options);
     this.observables.options.next({
@@ -155,6 +182,7 @@ export class CanvasService {
     template: new Subject(),
     options: new Subject(),// 用于actionpanel
     optionsSet: new Subject(),
+    optsSet: new Subject(),
     generateMp4: new Subject(),
     audio: new Subject(),
   }
@@ -164,19 +192,30 @@ export class CanvasService {
       return;
     }
     this.options = [];
+    this.opts = [];
     this.observables.options.next({
       options: [],
+    });
+    this.observables.optsSet.next({
+      opts: [],
     });
     this.observables.template.next({
       action: 'loadTemplate',
       url,
     })
   }
-
+  // 旧
   setOptions(options) {
     console.log('setOptions');
     this.observables.optionsSet.next({
       options
+    })
+  }
+  // 新
+  setOpts(opts) {
+    console.log('setOptions');
+    this.observables.optsSet.next({
+      opts
     })
   }
   setAudio(val) {

@@ -5,6 +5,9 @@
 			rect.graphics.beginFill(color).drawRect(0, 0, canvas.width, canvas.height);
 			stage.addChild(rect);
 		},
+		n: () =>{
+			return Date.now() + Math.random() * 1000;
+		} 
 
 	}
 	// 检测是否加载完成
@@ -82,6 +85,7 @@
 	ipcRenderer.on('getBase64', (e, message) => {
 		ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
 	})
+	// 旧
 	ipcRenderer.on('setOptions', (e, message) => {
 		console.log(message);
 		const toSetOptions = JSON.parse(message);
@@ -109,8 +113,24 @@
 				item.callback(valueSet);
 			}
 		})
-		
-
+		//ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
+	})
+	// 新
+	ipcRenderer.on('setOpts', (e, message) => {
+		console.log(message);
+		const toSetOpts = JSON.parse(message);
+		const toSetOptionsKeys = Object.keys(toSetOpts);
+		// alert(toSetOptionsKeys);
+		opts.forEach((opt) => {
+			opt.forEach((item)=>{
+				if(item.name && (toSetOpts[item.name] != undefined)) {
+					if (toSetOpts[item.name] != item.value) {
+						item.value = toSetOpts[item.name];
+						item.callback(toSetOpts[item.name]);
+					}
+				}
+			})
+		})
 		//ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
 	})
 	ipcRenderer.on('exportImg', (e, message)=>{
