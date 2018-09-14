@@ -1,4 +1,5 @@
 (function(){
+	opts = [];
 	window.util = {
 		fill: (color) => {
 			const rect = new createjs.Shape();
@@ -6,8 +7,25 @@
 			stage.addChild(rect);
 		},
 		n: () =>{
-			return Date.now() + Math.random() * 1000;
-		} 
+			return 'name' + Date.now() + parseInt(Math.random() * 100000);
+		},
+		// 添加表单
+		add: (opt) => {
+			opts.push(opt.map((item)=>{
+				item.name = util.n();
+				return item;
+			}))
+		},
+		setImage: ({src, instance}) => {
+			const img = new Image();
+			img.src = src;
+			img.onload = function(){
+				let imgList = Array.isArray(instance)? instance : [instance];
+				imgList.forEach((item)=>{
+					item.image = img;
+				})
+			}
+		}
 
 	}
 	// 检测是否加载完成
@@ -20,11 +38,11 @@
 				bg.graphics.beginFill('rgba(0,0,0,0.1)').drawRect(0, 0, canvas.width, canvas.height);
 				exportRoot.addChildAt(bg, 1)
 				console.log(exportRoot.getChildAt(1))*/
-				try{
+				/* try{
 					setOptions();
 				}catch(e){
 					console.error(e);
-				}
+				}*/ 
 					console.log(exportRoot);
 				// console.log(JSON.stringify(options));
 				// console.log(lib);

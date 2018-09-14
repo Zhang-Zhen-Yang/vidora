@@ -41,7 +41,7 @@ module.exports = "<div class=\"dynamic-form-wrap\">\n    <dynamic-form [config]=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".dynamic-form-wrap {\n  border: 1px solid #dddddd;\n  padding: 10px;\n  margin-top: 10px; }\n"
+module.exports = ".dynamic-form-wrap {\n  border: 1px solid #dddddd;\n  padding: 10px 10px 5px 10px;\n  margin-top: 10px; }\n"
 
 /***/ }),
 
@@ -340,7 +340,7 @@ module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>模板选择</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of templates\" [data]=\"item\" (closedialog)=\"closedialog();\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\n</mat-dialog-actions>"
+module.exports = "<h2 mat-dialog-title>模板选择</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of tempList();\" [data]=\"item\" (closedialog)=\"closedialog();\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -356,6 +356,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateComponent", function() { return AnimateTemplateComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -367,235 +368,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AnimateTemplateComponent = /** @class */ (function () {
-    function AnimateTemplateComponent(dialog) {
+    function AnimateTemplateComponent(dialog, canvasService) {
         this.dialog = dialog;
-        this.templates = [
-            {
-                name: '无标题2',
-                url: 'C:/Users/Asus/Desktop/animate/d.html'
-            },
-            {
-                name: 'e',
-                url: 'C:/Users/Asus/Desktop/animate/e.html'
-            },
-            {
-                name: 'c2',
-                url: 'http://localhost:8080/c2.html'
-            },
-            {
-                name: 'v2a',
-                url: 'F:/code/animate cc/c1.html',
-            },
-            {
-                name: 'c2',
-                url: 'F:/code/animate cc/c2.html'
-            },
-            {
-                name: 'd',
-                url: 'F:/code/animate cc/d.html'
-            },
-            {
-                name: 'f',
-                url: 'F:/code/animate cc/f.html'
-            },
-            {
-                name: 'g',
-                url: 'F:/code/animate cc/g.html'
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'aaaaa',
-            },
-            {
-                name: 'bbb',
-            },
-            {
-                name: 'ccc',
-            },
-            {
-                name: 'ddd',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: 'eee',
-            },
-            {
-                name: '',
-            },
-            {
-                name: '',
-            },
-            {
-                name: '',
-            },
-            {
-                name: '',
-            },
-            {
-                name: '',
-            },
-            {
-                name: '',
-            },
-        ];
+        this.canvasService = canvasService;
     }
     AnimateTemplateComponent.prototype.ngOnInit = function () {
         /* setTimeout(()=>{
@@ -605,13 +382,16 @@ var AnimateTemplateComponent = /** @class */ (function () {
     AnimateTemplateComponent.prototype.closedialog = function () {
         this.dialog.closeAll();
     };
+    AnimateTemplateComponent.prototype.tempList = function () {
+        return this.canvasService.tempList;
+    };
     AnimateTemplateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-animate-template',
             template: __webpack_require__(/*! ./animate-template.component.html */ "./src/app/animate-template/animate-template.component.html"),
             styles: [__webpack_require__(/*! ./animate-template.component.css */ "./src/app/animate-template/animate-template.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__["CanvasService"]])
     ], AnimateTemplateComponent);
     return AnimateTemplateComponent;
 }());
@@ -876,7 +656,11 @@ var AudioManagerComponent = /** @class */ (function () {
         });
         this.canvasService.observables.audio.subscribe(function (res) {
             // console.log(res);
-            ele.src = res['path'];
+            var path = res['path'];
+            ele.src = path;
+            if (path) {
+                ele.play();
+            }
         });
     };
     AudioManagerComponent.prototype.audioItem = function () {
@@ -1224,6 +1008,7 @@ var components = {
     number: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
     text: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
     font: _form_select_form_select_component__WEBPACK_IMPORTED_MODULE_4__["FormSelectComponent"],
+    color: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
 };
 var DynamicFieldDirective = /** @class */ (function () {
     function DynamicFieldDirective(resolver, container) {
@@ -1446,7 +1231,7 @@ var FormInputComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-input',
             styles: [__webpack_require__(/*! ./form-input.component.scss */ "./src/app/dynamic-form2/components/form-input/form-input.component.scss")],
-            template: "\n    <div *ngIf=\"config.type=='text'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n    <div *ngIf=\"config.type=='number'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        type=\"number\"\n        [step]=\"config.step\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n  "
+            template: "\n    <div *ngIf=\"config.type=='text'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n    <div *ngIf=\"config.type=='number'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        type=\"number\"\n        [step]=\"config.step\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n    <div *ngIf=\"config.type=='color'\"\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <input\n        type=\"color\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n  "
         })
     ], FormInputComponent);
     return FormInputComponent;
@@ -1463,7 +1248,7 @@ var FormInputComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "select {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  text-indent: .01px;\n  text-overflow: '';\n  overflow: hidden;\n  font-family: inherit;\n  font-size: 14px;\n  padding-left: 10px;\n  height: 30px;\n  border-radius: 0;\n  color: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  width: 100%;\n  outline: none;\n  box-sizing: border-box;\n  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%) no-repeat calc(100% - 20px) calc(1em + -1px), linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%) no-repeat calc(100% - 15px) calc(1em + -1px);\n  background-size: 5px 5px, 5px 5px;\n  background-color: white; }\n  select:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  label {\n  min-width: 50px; }\n"
+module.exports = "select {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  text-indent: .01px;\n  text-overflow: '';\n  overflow: hidden;\n  font-family: inherit;\n  font-size: 14px;\n  padding-left: 10px;\n  height: 30px;\n  border-radius: 0;\n  color: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  width: 100%;\n  outline: none;\n  box-sizing: border-box;\n  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%) no-repeat calc(100% - 20px) calc(1em + -1px), linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%) no-repeat calc(100% - 15px) calc(1em + -1px);\n  background-size: 5px 5px, 5px 5px;\n  background-color: white; }\n  select:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  label {\n  min-width: 50px; }\n  div {\n  margin-bottom: 5px; }\n"
 
 /***/ }),
 
@@ -1492,7 +1277,7 @@ var FormSelectComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-select',
             styles: [__webpack_require__(/*! ./form-select.component.scss */ "./src/app/dynamic-form2/components/form-select/form-select.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field form-select f aic\"\n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <select [formControlName]=\"config.name\">\n        <option *ngFor=\"let option of config.options\">\n          {{ option }}\n        </option>\n      </select>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field form-select f aic\"\n      [formGroup]=\"group\">\n      <label>{{ config.label }}</label>\n      <select [formControlName]=\"config.name\">\n        <option *ngFor=\"let option of config.options\" [value]=\"option.value || option\">\n          {{ option.name || option }}\n        </option>\n      </select>\n    </div>\n  "
         })
     ], FormSelectComponent);
     return FormSelectComponent;
@@ -1704,7 +1489,7 @@ var DynamicFormModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input step=\"10\" [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input step=\"10\" [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
+module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input step=\"10\" [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input step=\"10\" [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          质量\n        </label>\n        <input step=\"10\" [formControlName]=\"'quality'\" type=\"number\" min=\"0\" max=\"100\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -1760,6 +1545,7 @@ var ExportOptionsComponent = /** @class */ (function () {
             time: [this.time(), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(10)],
             width: [width],
             height: [height],
+            quality: [80],
         });
         this.form.valueChanges.subscribe(function (res) {
             console.log(res);
@@ -1997,12 +1783,14 @@ var CanvasService = /** @class */ (function () {
         // 表单配置
         this.options = [];
         this.opts = [];
-        this.expoprtOptons = { width: 800, height: 800, time: 1 };
+        this.expoprtOptons = { width: 800, height: 800, time: 1, quality: 90 };
         this.generateStep = 0;
         this.tempPath = window['path'].join(window['dirname'], 'tempDir'); // 临时文件夹，用于存放视频生成过程中的逐帧图片
         // 音频文件名及路径
         this.audio = { name: '无', path: '' }; // audio
         this.fonts = [];
+        // 模板列表
+        this.tempList = [];
         this.observables = {
             actions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             exportImg: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
@@ -2016,7 +1804,7 @@ var CanvasService = /** @class */ (function () {
         this.fileservice.deleteTempFiles(this.tempPath, '');
         window['fontList'].getFonts()
             .then(function (fonts) {
-            alert(typeof fonts);
+            // alert(typeof fonts)
             _this.fonts = fonts;
             _this.opts.forEach(function (opt) {
                 opt.forEach(function (item) {
@@ -2029,6 +1817,7 @@ var CanvasService = /** @class */ (function () {
             .catch(function (err) {
             console.log(err);
         });
+        this.tempList = window['tempList'];
     }
     CanvasService.prototype.setInstance = function () {
     };
@@ -2347,26 +2136,35 @@ var FfmpegService = /** @class */ (function () {
     }
     FfmpegService.prototype.generateMp4 = function (_a, callback) {
         var _this = this;
-        var distPath = _a.distPath, audioPath = _a.audioPath, imgPrefix = _a.imgPrefix, savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height;
+        var distPath = _a.distPath, audioPath = _a.audioPath, imgPrefix = _a.imgPrefix, savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height, quality = _a.quality;
         // alert('generateMp4');
         // console.log(__dirname);
         var currentDir = window['dirname'];
         var frompath = this.path.join(savePath, imgPrefix + "%d.png");
         var audioCommand = audioPath ? " -t " + time + " -i " + audioPath : '';
-        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + ' ' + distPath;
+        var qual = (100 - quality) / 100 * 51;
+        if (qual > 51) {
+            qual = 51;
+        }
+        if (qual <= 1) {
+            qual = 1;
+        }
+        var crf = " -crf " + qual + " "; // ' -crf 51 ';
+        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + ' ' + crf + distPath;
         // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
         // alert(commandStr);
         console.log(commandStr);
         this.exec(commandStr, { cwd: currentDir }, function (err, data, data1) {
-            _this.hideDialog();
             if (err) {
                 console.error(err);
                 alert(err);
+                _this.hideDialog();
                 return;
             }
             // this.snackBar.open('生成成功', 'ok', {duration: 3000});
-            alert('生成成功');
             _this.fileService.deleteTempFiles(savePath, imgPrefix);
+            alert('生成成功');
+            _this.hideDialog();
             callback();
         });
     };
@@ -2374,6 +2172,14 @@ var FfmpegService = /** @class */ (function () {
         this.dialog.closeAll();
         window.resizeBy(1, 0);
         window.resizeBy(-1, 0);
+        try {
+            setTimeout(function () {
+                document.querySelector('.cdk-overlay-container').innerHTML = '';
+            }, 2000);
+        }
+        catch (e) {
+            console.error(e);
+        }
     };
     FfmpegService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

@@ -37,7 +37,11 @@ export class AudioManagerComponent implements OnInit {
     })
     this.canvasService.observables.audio.subscribe((res)=>{
       // console.log(res);
-      ele.src = res['path'];
+      const path = res['path'];
+      ele.src = path;
+      if(path) {
+        ele.play();
+      }
     })
   }
   audioItem() {

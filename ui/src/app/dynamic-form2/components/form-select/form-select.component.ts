@@ -13,8 +13,8 @@ import { FieldConfig } from '../../models/field-config.interface';
       [formGroup]="group">
       <label>{{ config.label }}</label>
       <select [formControlName]="config.name">
-        <option *ngFor="let option of config.options">
-          {{ option }}
+        <option *ngFor="let option of config.options" [value]="option.value || option">
+          {{ option.name || option }}
         </option>
       </select>
     </div>

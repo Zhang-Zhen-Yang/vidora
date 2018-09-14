@@ -26,6 +26,15 @@ import { FieldConfig } from '../../models/field-config.interface';
         [attr.placeholder]="config.placeholder"
         [formControlName]="config.name">
     </div>
+    <div *ngIf="config.type=='color'"
+      class="dynamic-field form-input f aic" 
+      [formGroup]="group">
+      <label>{{ config.label }}</label>
+      <input
+        type="color"
+        [attr.placeholder]="config.placeholder"
+        [formControlName]="config.name">
+    </div>
   `
 })
 export class FormInputComponent implements Field {

@@ -17,6 +17,7 @@ const components: {[type: string]: Type<Field>} = {
   number: FormInputComponent,
   text: FormInputComponent,
   font: FormSelectComponent,
+  color: FormInputComponent,
 };
 
 @Directive({

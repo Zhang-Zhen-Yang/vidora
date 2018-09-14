@@ -12,28 +12,38 @@ export class FfmpegService {
     this.exec = window['exec'];
     this.path = window['path'];
   }
-  generateMp4({distPath, audioPath, imgPrefix, savePath, duration, fps, time, width, height}, callback) {
+  generateMp4({distPath, audioPath, imgPrefix, savePath, duration, fps, time, width, height, quality}, callback) {
 
     // alert('generateMp4');
     // console.log(__dirname);
     const currentDir = window['dirname'];
     const frompath = this.path.join(savePath, `${imgPrefix}%d.png`);
     const audioCommand = audioPath ? ` -t ${time} -i ${audioPath}` : '';
-    var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r '+ fps+' -t '+ time +' -f image2 -i '+ frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s '+width+'*'+ height +' '+ distPath;
+    let qual = (100 - quality)/100 * 51;
+    if(qual > 51) {
+      qual = 51
+    }
+    if (qual <= 1 ) {
+      qual = 1;
+    }
+    const crf = ` -crf ${qual} `;// ' -crf 51 ';
+    var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r '+ fps + ' -t '+ time +' -f image2 -i '+ frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s '+width+'*'+ height +' '+ crf + distPath;
     // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
     
     // alert(commandStr);
     console.log(commandStr);
     this.exec(commandStr, {cwd: currentDir}, (err,data,data1) => {
-      this.hideDialog();
+      
       if (err) {
         console.error(err);
         alert(err);
+        this.hideDialog();
         return
       }
       // this.snackBar.open('生成成功', 'ok', {duration: 3000});
-      alert('生成成功');
       this.fileService.deleteTempFiles(savePath, imgPrefix);
+      alert('生成成功');
+      this.hideDialog();
       callback()
     })
   }
@@ -41,5 +51,12 @@ export class FfmpegService {
     this.dialog.closeAll()
     window.resizeBy(1, 0);
     window.resizeBy(-1, 0);
+    try{
+      setTimeout(()=>{
+        document.querySelector('.cdk-overlay-container').innerHTML = '';
+      }, 2000)
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

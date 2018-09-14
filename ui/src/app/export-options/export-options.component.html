@@ -20,6 +20,12 @@
         </label>
         <input step="10" [formControlName]="'height'" type="number" [max]="height()">
       </div>
+      <div class="input-wrap">
+        <label>
+          质量
+        </label>
+        <input step="10" [formControlName]="'quality'" type="number" min="0" max="100">
+      </div>
   </div>
   
 </mat-dialog-content>

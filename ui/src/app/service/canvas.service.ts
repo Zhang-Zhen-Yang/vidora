@@ -23,18 +23,20 @@ export class CanvasService {
   // 表单配置
   options = [];
   opts = [];
-  expoprtOptons = {width: 800, height: 800, time: 1}
+  expoprtOptons = {width: 800, height: 800, time: 1, quality: 90}
   generateStep: number = 0
   tempPath = window['path'].join(window['dirname'], 'tempDir') // 临时文件夹，用于存放视频生成过程中的逐帧图片
 
   // 音频文件名及路径
   audio: {name: string, path: string} = { name: '无', path: '' } // audio
   fonts = []
+  // 模板列表
+  tempList = [];
   constructor(private fileservice: FileService, private ffmpegService: FfmpegService, private dialogService: DialogService) {
     this.fileservice.deleteTempFiles(this.tempPath, '');
     window['fontList'].getFonts()
     .then(fonts => {
-      alert(typeof fonts)
+      // alert(typeof fonts)
       this.fonts = fonts;
       this.opts.forEach((opt)=>{
         opt.forEach((item)=>{
@@ -47,6 +49,7 @@ export class CanvasService {
     .catch(err => {
       console.log(err)
     })
+    this.tempList = window['tempList'];
   }
   setInstance() {
    

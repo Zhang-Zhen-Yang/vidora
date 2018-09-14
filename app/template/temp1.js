@@ -81,6 +81,115 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(window.tween1);
 
+
+	util.add([
+		{
+			label: '图片1',
+			value:this.instance.instance.image.src,
+			type: 'image',
+			callback: (val)=>{
+				const nImg = new Image();
+				nImg.src = val;
+				nImg.onload = () =>{
+					this.instance.instance.image= nImg;
+				}
+			}
+		},
+		{
+			label: 'x',
+			value:this.instance.instance.x,
+			type: 'number',
+			step: 10,
+			callback: (res)=>{
+				this.instance.instance.set({
+					x: res,
+				});
+			}
+		},
+		{
+			label: 'y',
+			value:this.instance.instance.y,
+			type: 'number',
+			step: 10,
+			callback: (res)=>{
+				this.instance.instance.set({
+					y: res,
+				});
+			}
+		},
+		{
+			name: util.n(),
+			label: 'scaleX',
+			value:this.instance.instance.scaleX,
+			type: 'number',
+			step: 0.1,
+			callback: (res)=>{
+				this.instance.instance.set({
+					scaleX: res,
+				});
+			}
+		},
+		{
+			label: 'scaleY',
+			value:this.instance.instance.scaleY,
+			type: 'number',
+			step: 0.1,
+			callback: (res)=>{
+				this.instance.instance.set({
+					scaleY: res,
+				});
+			}
+		},
+		{
+			label: 'rotation',
+			value:this.instance.instance.rotation,
+			type: 'number',
+			step: 1,
+			callback: (res)=>{
+				this.instance.instance.set({
+					rotation: res,
+				});
+			}
+		},
+		{	
+			label: '缓动',
+			value: 1,
+			type: 'select',
+			options: [1, 2, 3, 4, 5],
+			callback: (r) => {
+				console.log(r);
+				console.log(exportRoot.timeline);
+				if (r == 1) {
+					exportRoot.timeline.removeTween(window.tween1);
+				}else {
+					exportRoot.timeline.addTween(window.tween1);
+				}
+				
+			}
+		}
+	])
+	/*util.add([
+		{
+			name: 'img2',
+			label: '图片2',
+			value:img1.src,
+			type: 'image',
+			callback: ()=>{
+
+			}
+		},
+		{
+			name: '字体',
+			label: '字体',
+			value: 'yahei',
+			type: 'font',
+			options: [],
+			callback: (res) => {
+				console.log(res);
+			}
+		}
+	])*/
+
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(317,371,905.6,509.8);
 // library properties:
@@ -152,152 +261,3 @@ an.getComposition = function(id) {
 
 })(createjs = createjs||{}, AdobeAn = AdobeAn||{});
 var createjs, AdobeAn;
-
-
-function setOptions() {
-	window.options = [
-	];
-	window.opts = [
-
-	];
-	var obj1 = exportRoot.children[0].children[0];
-	var img1 = exportRoot.children[0].children[0].image;
-	options.push({
-		name: 'img1',
-		label: 'lable img1',
-		type: 'image',
-		value: img1.src,
-		scaleX: obj1.scaleX,
-		scaleY: obj1.scaleY,
-		x: obj1.x,
-		y: obj1.y,
-		callback: function(val) {
-			if (typeof val == 'string') {
-				const nImg = new Image();
-				nImg.src = val;
-				nImg.onload = function() {
-					exportRoot.children[0].children[0].image = nImg;
-				}
-			} else if(typeof val == 'object') {
-				// alert(JSON.stringify(val));
-				exportRoot.children[0].children[0].set(
-					val
-				);
-				
-			}
-		}
-	})
-	opts.push([
-		{
-			name: 'img1',
-			label: '图片1',
-			value:img1.src,
-			type: 'image',
-			callback: (val)=>{
-				const nImg = new Image();
-				nImg.src = val;
-				nImg.onload = function() {
-					exportRoot.children[0].children[0].image = nImg;
-				}
-			}
-		},
-		{
-			name: 'img1-x',
-			label: 'x',
-			value:obj1.x,
-			type: 'number',
-			step: 10,
-			callback: (res)=>{
-				exportRoot.children[0].children[0].set({
-					x: res,
-				});
-			}
-		},
-		{
-			name: util.n(),
-			label: 'y',
-			value:obj1.y,
-			type: 'number',
-			step: 10,
-			callback: (res)=>{
-				exportRoot.children[0].children[0].set({
-					y: res,
-				});
-			}
-		},
-		{
-			name: util.n(),
-			label: 'scaleX',
-			value:obj1.scaleX,
-			type: 'number',
-			step: 0.1,
-			callback: (res)=>{
-				exportRoot.children[0].children[0].set({
-					scaleX: res,
-				});
-			}
-		},
-		{
-			name: util.n(),
-			label: 'scaleY',
-			value:obj1.scaleY,
-			type: 'number',
-			step: 0.1,
-			callback: (res)=>{
-				exportRoot.children[0].children[0].set({
-					scaleY: res,
-				});
-			}
-		},
-		{
-			name: util.n(),
-			label: 'rotation',
-			value:obj1.rotation,
-			type: 'number',
-			step: 1,
-			callback: (res)=>{
-				exportRoot.children[0].children[0].set({
-					rotation: res,
-				});
-			}
-		},
-		{	
-			name: util.n(),
-			label: '缓动',
-			value: 1,
-			type: 'select',
-			options: [1, 2, 3, 4, 5],
-			callback: (r) => {
-				console.log(r);
-				console.log(exportRoot.timeline);
-				if (r == 1) {
-					exportRoot.timeline.removeTween(window.tween1);
-				}else {
-					exportRoot.timeline.addTween(window.tween1);
-				}
-				
-			}
-		}
-	])
-	opts.push([
-		{
-			name: 'img2',
-			label: '图片2',
-			value:img1.src,
-			type: 'image',
-			callback: ()=>{
-
-			}
-		},
-		{
-			name: '字体',
-			label: '字体',
-			value: 'yahei',
-			type: 'font',
-			options: [],
-			callback: (res) => {
-				console.log(res);
-			}
-		}
-	])
-}

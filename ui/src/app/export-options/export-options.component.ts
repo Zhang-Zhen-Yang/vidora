@@ -19,6 +19,7 @@ export class ExportOptionsComponent implements OnInit {
       time: [this.time(), Validators.maxLength(10)],
       width: [width],
       height: [height],
+      quality: [80],
     })
     this.form.valueChanges.subscribe((res)=>{
       console.log(res);
