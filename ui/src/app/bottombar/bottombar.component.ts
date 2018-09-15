@@ -18,11 +18,11 @@ export class BottombarComponent implements OnInit {
   position() {
     let p = (this.canvasService.position / this.canvasService.fps);
     
-    return isNaN(p) ? 0 : p.toFixed(2);
+    return isNaN(p) ? 0 : p.toFixed(1);
   }
   duration() {
     if (this.canvasService.fps && this.canvasService.duration) {
-      return (this.canvasService.duration / this.canvasService.fps).toFixed(2);
+      return (this.canvasService.duration / this.canvasService.fps).toFixed(1);
     }
     return '-';
   }

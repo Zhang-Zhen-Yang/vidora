@@ -41,7 +41,7 @@ export class CanvasSpaceComponent implements OnInit {
     });
     // 加载模板
     this.canvasService.observables.template.subscribe((e)=>{
-      console.log(e['action']);
+      // console.log(e['action']);
       // this.webview.nativeElement.send('template', e['action']);
       this.webview.nativeElement.loadURL(e['url']);
     });
@@ -57,6 +57,15 @@ export class CanvasSpaceComponent implements OnInit {
       console.log(JSON.stringify(e['opts']));
       this.webview.nativeElement.send('setOpts', JSON.stringify(e['opts']));
     });
+    this.canvasService.observables.localActions.subscribe((e)=>{
+      switch(e['action']) {
+        case 'reload':
+        this.webview.nativeElement.reload();
+          break;
+        default: break;
+      }
+    });
+
   }
   ngOnChanges(e){
     //console.log(e);
@@ -71,6 +80,7 @@ export class CanvasSpaceComponent implements OnInit {
    * 元素加载完成
    */
   ngAfterViewInit(){
+    // 加载完成
     this.webview.nativeElement.addEventListener('dom-ready',()=>{
       this.ready = true;
       // this.webview.nativeElement.openDevTools();
@@ -78,6 +88,9 @@ export class CanvasSpaceComponent implements OnInit {
       // this.webview.nativeElement.send('setImage','aaaaaaaaaa.jpg');
       // this.webview.nativeElement.executeJavaScript('console.log(canvas)');
       // this.webview.nativeElement.executeJavaScript('stop()');
+    })
+    this.webview.nativeElement.addEventListener('did-fail-load', () => {
+      alert('加载出错');
     })
     this.webview.nativeElement.addEventListener('ipc-message',(e)=>{
       switch (e.channel) {

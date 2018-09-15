@@ -68,6 +68,14 @@ export class CanvasService {
         })
       }
     }));
+    this.canvasContextMenu.append(new window['remote'].MenuItem({
+      label:'刷新',
+      click(){ 
+        _t.observables.localActions.next({
+          action: 'reload',
+        })
+      }
+    }));
   }
   setInstance() {
    
@@ -202,17 +210,18 @@ export class CanvasService {
     optsSet: new Subject(),
     generateMp4: new Subject(),
     audio: new Subject(),
+    localActions: new Subject(),
   }
   loadTemplate(url) {
     if (!url) {
       alert('无效的模板地址');
       return;
     }
-    this.options = [];
+    // this.options = [];
     this.opts = [];
-    this.observables.options.next({
+    /* this.observables.options.next({
       options: [],
-    });
+    });*/
     this.observables.optsSet.next({
       opts: [],
     });

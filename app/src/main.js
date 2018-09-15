@@ -771,11 +771,11 @@ var BottombarComponent = /** @class */ (function () {
     };
     BottombarComponent.prototype.position = function () {
         var p = (this.canvasService.position / this.canvasService.fps);
-        return isNaN(p) ? 0 : p.toFixed(2);
+        return isNaN(p) ? 0 : p.toFixed(1);
     };
     BottombarComponent.prototype.duration = function () {
         if (this.canvasService.fps && this.canvasService.duration) {
-            return (this.canvasService.duration / this.canvasService.fps).toFixed(2);
+            return (this.canvasService.duration / this.canvasService.fps).toFixed(1);
         }
         return '-';
     };
@@ -876,7 +876,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
         });
         // 加载模板
         this.canvasService.observables.template.subscribe(function (e) {
-            console.log(e['action']);
+            // console.log(e['action']);
             // this.webview.nativeElement.send('template', e['action']);
             _this.webview.nativeElement.loadURL(e['url']);
         });
@@ -891,6 +891,14 @@ var CanvasSpaceComponent = /** @class */ (function () {
             console.log('对模板内容进行设置(新)');
             console.log(JSON.stringify(e['opts']));
             _this.webview.nativeElement.send('setOpts', JSON.stringify(e['opts']));
+        });
+        this.canvasService.observables.localActions.subscribe(function (e) {
+            switch (e['action']) {
+                case 'reload':
+                    _this.webview.nativeElement.reload();
+                    break;
+                default: break;
+            }
         });
     };
     CanvasSpaceComponent.prototype.ngOnChanges = function (e) {
@@ -907,6 +915,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
      */
     CanvasSpaceComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
+        // 加载完成
         this.webview.nativeElement.addEventListener('dom-ready', function () {
             _this.ready = true;
             // this.webview.nativeElement.openDevTools();
@@ -914,6 +923,9 @@ var CanvasSpaceComponent = /** @class */ (function () {
             // this.webview.nativeElement.send('setImage','aaaaaaaaaa.jpg');
             // this.webview.nativeElement.executeJavaScript('console.log(canvas)');
             // this.webview.nativeElement.executeJavaScript('stop()');
+        });
+        this.webview.nativeElement.addEventListener('did-fail-load', function () {
+            alert('加载出错');
         });
         this.webview.nativeElement.addEventListener('ipc-message', function (e) {
             switch (e.channel) {
@@ -1825,6 +1837,7 @@ var CanvasService = /** @class */ (function () {
             optsSet: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             generateMp4: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             audio: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
+            localActions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
         };
         this.fileservice.deleteTempFiles(this.tempPath, '');
         // 获取字体列表
@@ -1855,6 +1868,14 @@ var CanvasService = /** @class */ (function () {
             click: function () {
                 _t.observables.actions.next({
                     type: 'getBase64',
+                });
+            }
+        }));
+        this.canvasContextMenu.append(new window['remote'].MenuItem({
+            label: '刷新',
+            click: function () {
+                _t.observables.localActions.next({
+                    action: 'reload',
                 });
             }
         }));
@@ -1973,11 +1994,11 @@ var CanvasService = /** @class */ (function () {
             alert('无效的模板地址');
             return;
         }
-        this.options = [];
+        // this.options = [];
         this.opts = [];
-        this.observables.options.next({
-            options: [],
-        });
+        /* this.observables.options.next({
+          options: [],
+        });*/
         this.observables.optsSet.next({
             opts: [],
         });

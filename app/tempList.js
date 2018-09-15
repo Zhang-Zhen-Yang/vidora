@@ -11,6 +11,11 @@ const tempList = [
 	  url:  path.join(d, 'template/temp2', 'h.html'),
 	  img:  path.join(d, 'template/temp2', 'h.png'),
 	},
+	{
+	  name: 'temp error',
+	  url:  'h.html',
+	  img:  path.join(d, 'template/temp2', 'h.png'),
+	},
 	
 
 ];
