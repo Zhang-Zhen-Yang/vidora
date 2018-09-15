@@ -50,11 +50,10 @@ function tryToGetFonts (s) {
     if (i.includes(' ')) {
       i = `"${i}"`
     }
-
-    return {name: fullName, value: i};
+    return i;// {name: i, value: i};
   })
 
-  return a.filter(i => i.value).sortBy();
+  return a.filter(i => i);
 }
 
 module.exports = () => new Promise((resolve, reject) => {
@@ -75,13 +74,13 @@ module.exports = () => new Promise((resolve, reject) => {
     if (stdout) {
       //require('electron').dialog.showMessageBox({message: 'stdout: ' + stdout})
       fonts = fonts.concat(tryToGetFonts(decodeOut))
-    }
-    if (stderr) {
+    } else if (stderr) {
       //require('electron').dialog.showMessageBox({message: 'stderr: ' + stderr})
       fonts = fonts.concat(tryToGetFonts(decodeOut))
     }
 
-    fonts.sort()
+    fonts.sort();
+    // console.log(fonts);
     resolve(fonts)
   })
 })

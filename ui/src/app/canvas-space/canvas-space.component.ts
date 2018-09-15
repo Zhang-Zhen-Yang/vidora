@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild,AfterViewInit,OnChanges } from '@an
 import { CanvasService } from '../service/canvas.service';
 import {MatDialog} from '@angular/material';
 import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
-
+import { DialogService } from '../service/dialog.service';
 
 @Component({
   selector: 'app-canvas-space',
@@ -14,17 +14,16 @@ export class CanvasSpaceComponent implements OnInit {
   
   
   ready = false
-  constructor(private canvasService: CanvasService, public dialog: MatDialog ) { 
+  constructor(private canvasService: CanvasService, public dialog: MatDialog, private dialogService: DialogService ) { 
     
    }
 
   ngOnInit() {
-    /* setTimeout(()=>{
-      this.dialog.open(GeneratingProgressComponent, {
-        // disableClose: true,
-        minWidth: 300,
-      });
-    }, 2000);*/
+      /* setTimeout(()=>{
+        this.dialog.open(GeneratingProgressComponent, {
+          minWidth: 300,
+        });
+      }, 2000);*/
     // 订阅
     // 播放 暂停
     this.canvasService.observables.actions.subscribe((e)=>{
@@ -74,7 +73,7 @@ export class CanvasSpaceComponent implements OnInit {
   ngAfterViewInit(){
     this.webview.nativeElement.addEventListener('dom-ready',()=>{
       this.ready = true;
-      this.webview.nativeElement.openDevTools();
+      // this.webview.nativeElement.openDevTools();
       this.injectCSS();
       // this.webview.nativeElement.send('setImage','aaaaaaaaaa.jpg');
       // this.webview.nativeElement.executeJavaScript('console.log(canvas)');
@@ -87,7 +86,8 @@ export class CanvasSpaceComponent implements OnInit {
           this.canvasService.init(JSON.parse(e.args[0]),JSON.parse(e.args[1]), JSON.parse(e.args[2]));
           break;
         case 'base64':
-          // console.log(e);
+          console.log('base64');
+          this.dialogService.saveImg(e['args'][0]);
           break;
         case 'setIsPaused':
           this.canvasService.setIsPaused(e['args'][0]);
@@ -97,6 +97,9 @@ export class CanvasSpaceComponent implements OnInit {
           break;
         case 'tick':
           this.canvasService.setCurrentPosition(e['args'][0]);
+          break;
+          case 'setProgress':
+          this.canvasService.setProgress(e['args'][0]);
           break;
         default:
           break;
@@ -149,6 +152,9 @@ export class CanvasSpaceComponent implements OnInit {
       top: 49px;
     }
   `);
+  }
+  showContextMenu() {
+    this.canvasService.showCanvasContextMenu();
   }
   
 }

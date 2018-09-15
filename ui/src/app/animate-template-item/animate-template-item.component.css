@@ -4,12 +4,28 @@
 #template-item{
 	display: inline-block;
 	width:200px;
-	height: 100px;
-	background-color:orange;
+	height: 160px;
+	background-color:white;
 	cursor: pointer;
 	margin-top: 10px;
+}
+#template-item:hover{
+	background-color: #eeeeee;
 }
 #template-item-placeholder {
 	width: 200px;
 	height: 0;
+}
+img{
+	object-fit: contain;
+	object-position: center;
+	width: 200px;
+	height: 130px;
+}
+.temp-name{
+	background-color:rgba(0,0,0,0.5);
+	color:white;
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
 }

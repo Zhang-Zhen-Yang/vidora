@@ -7,9 +7,10 @@
       <app-audio-manager></app-audio-manager>
     </div>
   </div>
-  <webview 
+  <webview
+    (contextmenu)="showContextMenu()"
     #webview
-    src="./template/temp1.html"
+    src="./template/temp1/temp1.html"
     class="image-space-webview"
     minwidth="0"
     preload="./webview.js"

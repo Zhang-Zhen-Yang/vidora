@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CanvasService } from '../service/canvas.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-animate-template-item',
@@ -10,7 +11,7 @@ export class AnimateTemplateItemComponent implements OnInit {
 
   @Input() data;
   @Output() closedialog = new EventEmitter();
-  constructor(private canvasService: CanvasService) { }
+  constructor(private canvasService: CanvasService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,9 @@ export class AnimateTemplateItemComponent implements OnInit {
     }
     this.canvasService.loadTemplate(url);
     this.closedialog.emit();
+  }
+  imgSrc(src) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(src);
   }
 
 }

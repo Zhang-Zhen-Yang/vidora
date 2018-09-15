@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
+import { FileService } from './file.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { GeneratingProgressComponent } from '../generating-progress/generating-p
 export class DialogService {
   projectDir = null
   path = window['path']
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private fileService: FileService) { }
   /**
    * 打开目录
    * @param callback 
@@ -58,9 +59,6 @@ export class DialogService {
       }
     )
   }
-  showProgress() {
-    
-  }
   // 打开音乐文件
   selectFile({type, callback}) {
     const audioDir = localStorage.getItem('audioDir') || '';
@@ -88,5 +86,33 @@ export class DialogService {
         }
       }
     );
+  }
+  saveImg(str) {
+    const saveImageDir = localStorage.getItem('saveImageDir') || '';
+    // alert(videoDir);
+    window['remote'].dialog.showSaveDialog(
+      window['remote'].getCurrentWindow(),
+      {
+        title:'保存图片',
+        defaultPath: saveImageDir,
+        filters: [
+          {name: '图片', extensions: ['png']},
+        ]
+      },
+      (res) => {
+        if(typeof res == 'string') {
+          const dirName = this.path.dirname(res);
+          localStorage.setItem('saveImageDir', dirName);
+          // alert(dirName);
+          this.fileService.saveBase64(str, res, (err)=>{
+            if (err) {
+              alert(err);
+              return;
+            }
+            alert('保存成功');
+          });
+        }
+      }
+    )
   }
 }

@@ -17,7 +17,8 @@ export class FfmpegService {
     // alert('generateMp4');
     // console.log(__dirname);
     const currentDir = window['dirname'];
-    const frompath = this.path.join(savePath, `${imgPrefix}%d.png`);
+    const frompath = '"' + this.path.join(savePath, `${imgPrefix}%d.png`) + '"';
+    const outputpath = '"' + distPath + '"'
     const audioCommand = audioPath ? ` -t ${time} -i ${audioPath}` : '';
     let qual = (100 - quality)/100 * 51;
     if(qual > 51) {
@@ -27,7 +28,7 @@ export class FfmpegService {
       qual = 1;
     }
     const crf = ` -crf ${qual} `;// ' -crf 51 ';
-    var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r '+ fps + ' -t '+ time +' -f image2 -i '+ frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s '+width+'*'+ height +' '+ crf + distPath;
+    var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r '+ fps + ' -t '+ time +' -f image2 -i '+ frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s '+width+'*'+ height +' '+ crf + outputpath;
     // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
     
     // alert(commandStr);
@@ -36,14 +37,19 @@ export class FfmpegService {
       
       if (err) {
         console.error(err);
-        alert(err);
         this.hideDialog();
+        setTimeout(()=>{
+          alert(err);
+        }, 1000)
         return
       }
       // this.snackBar.open('生成成功', 'ok', {duration: 3000});
       this.fileService.deleteTempFiles(savePath, imgPrefix);
-      alert('生成成功');
+
       this.hideDialog();
+      setTimeout(()=>{
+        alert('生成成功');
+      }, 1000)
       callback()
     })
   }
@@ -54,7 +60,7 @@ export class FfmpegService {
     try{
       setTimeout(()=>{
         document.querySelector('.cdk-overlay-container').innerHTML = '';
-      }, 2000)
+      }, 2000);
     } catch (e) {
       console.error(e);
     }

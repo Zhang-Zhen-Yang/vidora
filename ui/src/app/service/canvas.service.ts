@@ -16,10 +16,11 @@ export class CanvasService {
   
   imgPrefix: string = '';
   duration: 1
-  fps: 24
-  width: 800
-  height: 800
-  position: 0
+  fps = 24
+  width = 800
+  height =  800
+  position = 0
+  progressPosition =  0
   // 表单配置
   options = [];
   opts = [];
@@ -32,8 +33,11 @@ export class CanvasService {
   fonts = []
   // 模板列表
   tempList = [];
+  // canvas 上下文菜单
+  canvasContextMenu = new window['remote'].Menu();
   constructor(private fileservice: FileService, private ffmpegService: FfmpegService, private dialogService: DialogService) {
     this.fileservice.deleteTempFiles(this.tempPath, '');
+    // 获取字体列表
     window['fontList'].getFonts()
     .then(fonts => {
       // alert(typeof fonts)
@@ -49,7 +53,21 @@ export class CanvasService {
     .catch(err => {
       console.log(err)
     })
+    // 模板列表
     this.tempList = window['tempList'];
+    this.initMenu();
+  }
+  // 初始化菜单
+  initMenu() {
+    const _t = this;
+    this.canvasContextMenu.append(new window['remote'].MenuItem({
+      label:'保存图片',
+      click(){ 
+        _t.observables.actions.next({
+          type: 'getBase64',
+        })
+      }
+    }));
   }
   setInstance() {
    
@@ -112,6 +130,9 @@ export class CanvasService {
   setCurrentPosition(p) {
     this.position = p;
   }
+  setProgress(p) {
+    this.progressPosition = p;
+  }
   play() {
     // this.timeline.setPaused(false);
     this.observables.actions.next({
@@ -137,16 +158,7 @@ export class CanvasService {
     this.generateStep = 0;
     console.log('exFile');
     this.expoprtOptons = expoprtOptons;
-
-    /* this.dialogService.openFile((e)=>{
-      if (e && e[0]) {
-        this.savePath = e[0];
-        this.observables.exportImg.next({
-          path: e[0]
-        })
-      }
-      console.log(e);
-    })*/
+    // 获取mp4 保存路径
     this.dialogService.getSaveFile((file)=>{
       if(!file) {
         return;
@@ -159,12 +171,14 @@ export class CanvasService {
         path: window['path'].join(window['dirname'], 'tempDir'),
         imgPrefix: this.imgPrefix,
       })
-      this.dialogService.showProgress();
+      
+      // this.dialogService.showProgress();
     });
   }
   // 生成mp4 文件
   generateMp4() {
     this.generateStep = 1;
+    this.progressPosition = 0;
     this.ffmpegService.generateMp4({
       distPath: this.videoPath,
       savePath: window['path'].join(window['dirname'], 'tempDir'),
@@ -221,6 +235,9 @@ export class CanvasService {
       opts
     })
   }
+  /**
+   * 设置音乐
+   */
   setAudio(val) {
     let audio = {name:'无', path: ''}
     if(typeof val == 'string') {
@@ -233,5 +250,8 @@ export class CanvasService {
     }
     this.audio = audio;
     this.observables.audio.next(audio);
+  }
+  showCanvasContextMenu() {
+    this.canvasContextMenu.popup(window['remote'].getCurrentWindow());
   }
 }

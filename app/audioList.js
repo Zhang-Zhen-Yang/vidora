@@ -1,13 +1,9 @@
-const rootPath = 'F:/code/audio';
 const path = require('path')
+const rootPath = path.join(__dirname, 'audio');
 const list = [
 	{
 		name:'爱情剧温馨背景',
 		path: '爱情剧温馨背景.wav',
-	},
-	{
-		name:'钢琴舒缓的神奇声音',
-		path: '钢琴舒缓的神奇声音.wav',
 	},
 	{
 		name:'国外舒缓吉他声',
@@ -24,10 +20,6 @@ const list = [
 	{
 		name:'下雨过后屋檐滴水',
 		path: '下雨过后屋檐滴水.wav',
-	},
-	{
-		name:'阴森悬疑的游戏背景配乐',
-		path: '阴森悬疑的游戏背景配乐.wav',
 	},
 	{
 		name:'音乐渐入开场',

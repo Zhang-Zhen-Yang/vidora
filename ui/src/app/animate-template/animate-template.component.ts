@@ -21,7 +21,7 @@ export class AnimateTemplateComponent implements OnInit {
     this.dialog.closeAll();
   }
   tempList() {
-    return this.canvasService.tempList;
+    return this.canvasService.tempList.concat([{},{},{},{},{},{},{},{},{}]);
   }
 
 }

@@ -245,7 +245,7 @@ var ActionpanelComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-block;\r\n\twidth:200px;\r\n\theight: 100px;\r\n\tbackground-color:orange;\r\n\tcursor: pointer;\r\n\tmargin-top: 10px;\r\n}\r\n#template-item-placeholder {\r\n\twidth: 200px;\r\n\theight: 0;\r\n}"
+module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-block;\r\n\twidth:200px;\r\n\theight: 160px;\r\n\tbackground-color:white;\r\n\tcursor: pointer;\r\n\tmargin-top: 10px;\r\n}\r\n#template-item:hover{\r\n\tbackground-color: #eeeeee;\r\n}\r\n#template-item-placeholder {\r\n\twidth: 200px;\r\n\theight: 0;\r\n}\r\nimg{\r\n\t-o-object-fit: contain;\r\n\t   object-fit: contain;\r\n\t-o-object-position: center;\r\n\t   object-position: center;\r\n\twidth: 200px;\r\n\theight: 130px;\r\n}\r\n.temp-name{\r\n\tbackground-color:rgba(0,0,0,0.5);\r\n\tcolor:white;\r\n\theight: 30px;\r\n\tpadding: 0 10px;\r\n\tline-height: 30px;\r\n}"
 
 /***/ }),
 
@@ -256,7 +256,7 @@ module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-bloc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\">\n  animate-template-item works!\n  {{data.name}}\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
+module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\" class=\"f fr ais\">\n  <img [src]=\"imgSrc(data.img)\" alt=\"\" style=\"flex:1;\">\n  <div class=\"temp-name\">{{data.name}}</div>\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
 
 /***/ }),
 
@@ -272,6 +272,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateItemComponent", function() { return AnimateTemplateItemComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -283,9 +284,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AnimateTemplateItemComponent = /** @class */ (function () {
-    function AnimateTemplateItemComponent(canvasService) {
+    function AnimateTemplateItemComponent(canvasService, sanitizer) {
         this.canvasService = canvasService;
+        this.sanitizer = sanitizer;
         this.closedialog = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     AnimateTemplateItemComponent.prototype.ngOnInit = function () {
@@ -298,6 +301,9 @@ var AnimateTemplateItemComponent = /** @class */ (function () {
         }
         this.canvasService.loadTemplate(url);
         this.closedialog.emit();
+    };
+    AnimateTemplateItemComponent.prototype.imgSrc = function (src) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(src);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -313,7 +319,7 @@ var AnimateTemplateItemComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./animate-template-item.component.html */ "./src/app/animate-template-item/animate-template-item.component.html"),
             styles: [__webpack_require__(/*! ./animate-template-item.component.css */ "./src/app/animate-template-item/animate-template-item.component.css")]
         }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
     ], AnimateTemplateItemComponent);
     return AnimateTemplateItemComponent;
 }());
@@ -383,7 +389,7 @@ var AnimateTemplateComponent = /** @class */ (function () {
         this.dialog.closeAll();
     };
     AnimateTemplateComponent.prototype.tempList = function () {
-        return this.canvasService.tempList;
+        return this.canvasService.tempList.concat([{}, {}, {}, {}, {}, {}, {}, {}, {}]);
     };
     AnimateTemplateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -806,7 +812,7 @@ module.exports = "\r\n:host{\r\n\tposition: relative;\r\n\twidth: 100%;\r\n\thei
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\r\n  <div id=\"canvas-top-bar\" class=\"f jcsb aic\">\r\n    <!-- 画布尺寸 -->\r\n    <div id=\"canvas-size\" *ngIf=\"canvasService.width && canvasService.height\">{{ canvasService.width }}&times;{{ canvasService.height }}</div>\r\n    <div style=\"flex:1\"></div>\r\n    <div>\r\n      <app-audio-manager></app-audio-manager>\r\n    </div>\r\n  </div>\r\n  <webview \r\n    #webview\r\n    src=\"./template/temp1.html\"\r\n    class=\"image-space-webview\"\r\n    minwidth=\"0\"\r\n    preload=\"./webview.js\"\r\n  >\r\n  </webview>\r\n</div>\r\n"
+module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\r\n  <div id=\"canvas-top-bar\" class=\"f jcsb aic\">\r\n    <!-- 画布尺寸 -->\r\n    <div id=\"canvas-size\" *ngIf=\"canvasService.width && canvasService.height\">{{ canvasService.width }}&times;{{ canvasService.height }}</div>\r\n    <div style=\"flex:1\"></div>\r\n    <div>\r\n      <app-audio-manager></app-audio-manager>\r\n    </div>\r\n  </div>\r\n  <webview\r\n    (contextmenu)=\"showContextMenu()\"\r\n    #webview\r\n    src=\"./template/temp1/temp1.html\"\r\n    class=\"image-space-webview\"\r\n    minwidth=\"0\"\r\n    preload=\"./webview.js\"\r\n  >\r\n  </webview>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -824,6 +830,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../generating-progress/generating-progress.component */ "./src/app/generating-progress/generating-progress.component.ts");
+/* harmony import */ var _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/dialog.service */ "./src/app/service/dialog.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -837,17 +844,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var CanvasSpaceComponent = /** @class */ (function () {
-    function CanvasSpaceComponent(canvasService, dialog) {
+    function CanvasSpaceComponent(canvasService, dialog, dialogService) {
         this.canvasService = canvasService;
         this.dialog = dialog;
+        this.dialogService = dialogService;
         this.ready = false;
     }
     CanvasSpaceComponent.prototype.ngOnInit = function () {
         var _this = this;
         /* setTimeout(()=>{
           this.dialog.open(GeneratingProgressComponent, {
-            // disableClose: true,
             minWidth: 300,
           });
         }, 2000);*/
@@ -901,7 +909,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
         var _this = this;
         this.webview.nativeElement.addEventListener('dom-ready', function () {
             _this.ready = true;
-            _this.webview.nativeElement.openDevTools();
+            // this.webview.nativeElement.openDevTools();
             _this.injectCSS();
             // this.webview.nativeElement.send('setImage','aaaaaaaaaa.jpg');
             // this.webview.nativeElement.executeJavaScript('console.log(canvas)');
@@ -914,7 +922,8 @@ var CanvasSpaceComponent = /** @class */ (function () {
                     _this.canvasService.init(JSON.parse(e.args[0]), JSON.parse(e.args[1]), JSON.parse(e.args[2]));
                     break;
                 case 'base64':
-                    // console.log(e);
+                    console.log('base64');
+                    _this.dialogService.saveImg(e['args'][0]);
                     break;
                 case 'setIsPaused':
                     _this.canvasService.setIsPaused(e['args'][0]);
@@ -924,6 +933,9 @@ var CanvasSpaceComponent = /** @class */ (function () {
                     break;
                 case 'tick':
                     _this.canvasService.setCurrentPosition(e['args'][0]);
+                    break;
+                case 'setProgress':
+                    _this.canvasService.setProgress(e['args'][0]);
                     break;
                 default:
                     break;
@@ -950,6 +962,9 @@ var CanvasSpaceComponent = /** @class */ (function () {
     CanvasSpaceComponent.prototype.injectCSS = function () {
         this.webview.nativeElement.insertCSS("\n    body{\n      display: flex;\n      flex: 1;\n      align-items: center;\n      justify-content: center;\n      background-color: #eeeeee!important;\n      position: fixed;\n      left: 0;\n      top: 0;\n      right:0;\n      bottom: 0;\n      overflow: auto;\n    }\n    #animation_container{\n      \n    }\n    canvas {\n      /*margin-top: 20px;*/\n    }\n    input[type=\"range\"]{\n      position: absolute;\n      z-index: 10;\n      left: 10px;\n      top: 49px;\n    }\n  ");
     };
+    CanvasSpaceComponent.prototype.showContextMenu = function () {
+        this.canvasService.showCanvasContextMenu();
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('webview'),
         __metadata("design:type", Object)
@@ -960,7 +975,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./canvas-space.component.html */ "./src/app/canvas-space/canvas-space.component.html"),
             styles: [__webpack_require__(/*! ./canvas-space.component.css */ "./src/app/canvas-space/canvas-space.component.css")]
         }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"]])
     ], CanvasSpaceComponent);
     return CanvasSpaceComponent;
 }());
@@ -1628,8 +1643,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var GeneratingProgressComponent = /** @class */ (function () {
     function GeneratingProgressComponent(canvasService) {
         this.canvasService = canvasService;
+        this.inited = false;
     }
     GeneratingProgressComponent.prototype.ngOnInit = function () {
+        // alert('ddd');
+        this.inited = true;
     };
     GeneratingProgressComponent.prototype.position = function () {
         return this.canvasService.position;
@@ -1638,7 +1656,7 @@ var GeneratingProgressComponent = /** @class */ (function () {
         return this.canvasService.duration;
     };
     GeneratingProgressComponent.prototype.value = function () {
-        return this.canvasService.position / this.canvasService.duration * 100;
+        return this.inited ? Math.round(this.canvasService.progressPosition / this.canvasService.duration * 100) : 0;
     };
     GeneratingProgressComponent.prototype.step = function () {
         return this.canvasService.generateStep;
@@ -1780,6 +1798,11 @@ var CanvasService = /** @class */ (function () {
         this.videoPath = ''; // video
         this.imgPath = ''; // img
         this.imgPrefix = '';
+        this.fps = 24;
+        this.width = 800;
+        this.height = 800;
+        this.position = 0;
+        this.progressPosition = 0;
         // 表单配置
         this.options = [];
         this.opts = [];
@@ -1791,6 +1814,8 @@ var CanvasService = /** @class */ (function () {
         this.fonts = [];
         // 模板列表
         this.tempList = [];
+        // canvas 上下文菜单
+        this.canvasContextMenu = new window['remote'].Menu();
         this.observables = {
             actions: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
             exportImg: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
@@ -1802,6 +1827,7 @@ var CanvasService = /** @class */ (function () {
             audio: new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"](),
         };
         this.fileservice.deleteTempFiles(this.tempPath, '');
+        // 获取字体列表
         window['fontList'].getFonts()
             .then(function (fonts) {
             // alert(typeof fonts)
@@ -1817,8 +1843,22 @@ var CanvasService = /** @class */ (function () {
             .catch(function (err) {
             console.log(err);
         });
+        // 模板列表
         this.tempList = window['tempList'];
+        this.initMenu();
     }
+    // 初始化菜单
+    CanvasService.prototype.initMenu = function () {
+        var _t = this;
+        this.canvasContextMenu.append(new window['remote'].MenuItem({
+            label: '保存图片',
+            click: function () {
+                _t.observables.actions.next({
+                    type: 'getBase64',
+                });
+            }
+        }));
+    };
     CanvasService.prototype.setInstance = function () {
     };
     CanvasService.prototype.init = function (e, e2, e3) {
@@ -1876,6 +1916,9 @@ var CanvasService = /** @class */ (function () {
     CanvasService.prototype.setCurrentPosition = function (p) {
         this.position = p;
     };
+    CanvasService.prototype.setProgress = function (p) {
+        this.progressPosition = p;
+    };
     CanvasService.prototype.play = function () {
         // this.timeline.setPaused(false);
         this.observables.actions.next({
@@ -1900,15 +1943,7 @@ var CanvasService = /** @class */ (function () {
         this.generateStep = 0;
         console.log('exFile');
         this.expoprtOptons = expoprtOptons;
-        /* this.dialogService.openFile((e)=>{
-          if (e && e[0]) {
-            this.savePath = e[0];
-            this.observables.exportImg.next({
-              path: e[0]
-            })
-          }
-          console.log(e);
-        })*/
+        // 获取mp4 保存路径
         this.dialogService.getSaveFile(function (file) {
             if (!file) {
                 return;
@@ -1920,12 +1955,13 @@ var CanvasService = /** @class */ (function () {
                 path: window['path'].join(window['dirname'], 'tempDir'),
                 imgPrefix: _this.imgPrefix,
             });
-            _this.dialogService.showProgress();
+            // this.dialogService.showProgress();
         });
     };
     // 生成mp4 文件
     CanvasService.prototype.generateMp4 = function () {
         this.generateStep = 1;
+        this.progressPosition = 0;
         this.ffmpegService.generateMp4(__assign({ distPath: this.videoPath, savePath: window['path'].join(window['dirname'], 'tempDir'), audioPath: this.audio.path, duration: this.duration, fps: this.fps, imgPrefix: this.imgPrefix }, this.expoprtOptons), function () {
             /* this.observables.generateMp4.next({
               success: true,
@@ -1964,6 +2000,9 @@ var CanvasService = /** @class */ (function () {
             opts: opts
         });
     };
+    /**
+     * 设置音乐
+     */
     CanvasService.prototype.setAudio = function (val) {
         var audio = { name: '无', path: '' };
         if (typeof val == 'string') {
@@ -1977,6 +2016,9 @@ var CanvasService = /** @class */ (function () {
         }
         this.audio = audio;
         this.observables.audio.next(audio);
+    };
+    CanvasService.prototype.showCanvasContextMenu = function () {
+        this.canvasContextMenu.popup(window['remote'].getCurrentWindow());
     };
     CanvasService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -2003,6 +2045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogService", function() { return DialogService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _file_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./file.service */ "./src/app/service/file.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2014,9 +2057,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var DialogService = /** @class */ (function () {
-    function DialogService(dialog) {
+    function DialogService(dialog, fileService) {
         this.dialog = dialog;
+        this.fileService = fileService;
         this.projectDir = null;
         this.path = window['path'];
     }
@@ -2060,8 +2105,6 @@ var DialogService = /** @class */ (function () {
             }
         });
     };
-    DialogService.prototype.showProgress = function () {
-    };
     // 打开音乐文件
     DialogService.prototype.selectFile = function (_a) {
         var _this = this;
@@ -2088,11 +2131,36 @@ var DialogService = /** @class */ (function () {
             }
         });
     };
+    DialogService.prototype.saveImg = function (str) {
+        var _this = this;
+        var saveImageDir = localStorage.getItem('saveImageDir') || '';
+        // alert(videoDir);
+        window['remote'].dialog.showSaveDialog(window['remote'].getCurrentWindow(), {
+            title: '保存图片',
+            defaultPath: saveImageDir,
+            filters: [
+                { name: '图片', extensions: ['png'] },
+            ]
+        }, function (res) {
+            if (typeof res == 'string') {
+                var dirName = _this.path.dirname(res);
+                localStorage.setItem('saveImageDir', dirName);
+                // alert(dirName);
+                _this.fileService.saveBase64(str, res, function (err) {
+                    if (err) {
+                        alert(err);
+                        return;
+                    }
+                    alert('保存成功');
+                });
+            }
+        });
+    };
     DialogService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _file_service__WEBPACK_IMPORTED_MODULE_2__["FileService"]])
     ], DialogService);
     return DialogService;
 }());
@@ -2140,7 +2208,8 @@ var FfmpegService = /** @class */ (function () {
         // alert('generateMp4');
         // console.log(__dirname);
         var currentDir = window['dirname'];
-        var frompath = this.path.join(savePath, imgPrefix + "%d.png");
+        var frompath = '"' + this.path.join(savePath, imgPrefix + "%d.png") + '"';
+        var outputpath = '"' + distPath + '"';
         var audioCommand = audioPath ? " -t " + time + " -i " + audioPath : '';
         var qual = (100 - quality) / 100 * 51;
         if (qual > 51) {
@@ -2150,21 +2219,25 @@ var FfmpegService = /** @class */ (function () {
             qual = 1;
         }
         var crf = " -crf " + qual + " "; // ' -crf 51 ';
-        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + ' ' + crf + distPath;
+        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + ' ' + crf + outputpath;
         // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
         // alert(commandStr);
         console.log(commandStr);
         this.exec(commandStr, { cwd: currentDir }, function (err, data, data1) {
             if (err) {
                 console.error(err);
-                alert(err);
                 _this.hideDialog();
+                setTimeout(function () {
+                    alert(err);
+                }, 1000);
                 return;
             }
             // this.snackBar.open('生成成功', 'ok', {duration: 3000});
             _this.fileService.deleteTempFiles(savePath, imgPrefix);
-            alert('生成成功');
             _this.hideDialog();
+            setTimeout(function () {
+                alert('生成成功');
+            }, 1000);
             callback();
         });
     };
@@ -2225,9 +2298,9 @@ var FileService = /** @class */ (function () {
         this.fs.stat('', function () {
         });
     };
-    FileService.prototype.saveBase64 = function (str, index, callback) {
+    FileService.prototype.saveBase64 = function (str, path, callback) {
         var imgdata = str.slice(22);
-        this.fs.writeFile(this.path.join('D:\del3', 'img' + index + '.png'), imgdata, 'base64', function (err) {
+        this.fs.writeFile(path, imgdata, 'base64', function (err) {
             callback(err);
         });
     };

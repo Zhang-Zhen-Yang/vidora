@@ -97,12 +97,13 @@
 		setIsPaused();
 	// ipcRenderer.sendToHost('pong pong')
 	})
-	ipcRenderer.on('checkedInited', (e, message) => {
-		checkedInited();
-	})
 	ipcRenderer.on('getBase64', (e, message) => {
 		ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
 	})
+	ipcRenderer.on('checkedInited', (e, message) => {
+		checkedInited();
+	})
+	
 	// 旧
 	ipcRenderer.on('setOptions', (e, message) => {
 		console.log(message);
@@ -151,6 +152,7 @@
 		})
 		//ipcRenderer.sendToHost('base64', window.canvas.toDataURL());
 	})
+	// 导出图片
 	ipcRenderer.on('exportImg', (e, message)=>{
 		
 		window.exportRoot.timeline.removeAllEventListeners();
@@ -163,6 +165,7 @@
 		setIsPaused();
 		const tickHandler = window.exportRoot.timeline.on('change', () => {
 			const thisPosition = window.exportRoot.timeline.position;
+			ipcRenderer.sendToHost('setProgress', thisPosition);
 			console.log(thisPosition);
 			window.stage.update();
 			const base64str = window.canvas.toDataURL();

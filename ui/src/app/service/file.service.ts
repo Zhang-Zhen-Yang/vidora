@@ -15,9 +15,9 @@ export class FileService {
 
     })
   }
-  saveBase64(str, index, callback) {
+  saveBase64(str, path, callback) {
     var imgdata =  str.slice(22)
-    this.fs.writeFile(this.path.join('D:\del3', 'img'+index+'.png'), imgdata, 'base64', function(err){
+    this.fs.writeFile(path, imgdata, 'base64', function(err){
       callback(err)
     });
   }
