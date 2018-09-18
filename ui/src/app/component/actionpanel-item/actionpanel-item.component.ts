@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit} from '@angular/core';
-import { DynamicFormComponent } from '../dynamic-form2/containers/dynamic-form/dynamic-form.component';
-import { CanvasService } from '../service/canvas.service';
+import { DynamicFormComponent } from '../../dynamic-form2/containers/dynamic-form/dynamic-form.component';
+import { CanvasService } from '../../service/canvas.service';
 
 @Component({
   selector: 'app-actionpanel-item',
@@ -32,6 +32,9 @@ export class ActionpanelItemComponent implements OnInit {
       // this.form.setValue('food', 'Hot Dogs');
       // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
     }, 0) 
-  } 
+  }
+  submit(e) {
+    console.log('dddd');
+  }
 
 }

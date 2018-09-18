@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {CanvasService} from '../service/canvas.service';
+import {CanvasService} from '../../service/canvas.service';
 
 @Component({
   selector: 'app-animate-template',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
+import { GeneratingProgressComponent } from '../component/generating-progress/generating-progress.component';
 import { FileService } from './file.service';
 
 @Injectable({

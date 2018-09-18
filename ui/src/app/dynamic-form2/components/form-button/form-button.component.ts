@@ -14,7 +14,8 @@ import { FieldConfig } from '../../models/field-config.interface';
     >
       <button
         [disabled]="config.disabled"
-        type="submit">
+        (click)="click()"
+      >
         {{ config.label }}
       </button>
     </div>
@@ -23,4 +24,7 @@ import { FieldConfig } from '../../models/field-config.interface';
 export class FormButtonComponent implements Field {
   config: FieldConfig;
   group: FormGroup;
+  click() {
+    alert('dddd');
+  }
 }

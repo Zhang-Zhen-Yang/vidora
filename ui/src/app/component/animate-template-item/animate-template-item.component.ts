@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CanvasService } from '../service/canvas.service';
+import { CanvasService } from '../../service/canvas.service';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({

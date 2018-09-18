@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, ViewChild,AfterViewInit,OnChanges } from '@angular/core';
-import { CanvasService } from '../service/canvas.service';
+import { CanvasService } from '../../service/canvas.service';
 import {MatDialog} from '@angular/material';
 import { GeneratingProgressComponent } from '../generating-progress/generating-progress.component';
-import { DialogService } from '../service/dialog.service';
+import { DialogService } from '../../service/dialog.service';
+import { AnimateTemplateLoadingProgressComponent } from '../animate-template-loading-progress/animate-template-loading-progress.component'
 
 @Component({
   selector: 'app-canvas-space',
@@ -15,7 +16,7 @@ export class CanvasSpaceComponent implements OnInit {
   
   ready = false
   constructor(private canvasService: CanvasService, public dialog: MatDialog, private dialogService: DialogService ) { 
-    
+    this.showLoadingDialog(true);
    }
 
   ngOnInit() {
@@ -44,6 +45,9 @@ export class CanvasSpaceComponent implements OnInit {
       // console.log(e['action']);
       // this.webview.nativeElement.send('template', e['action']);
       this.webview.nativeElement.loadURL(e['url']);
+
+      this.showLoadingDialog(true);
+
     });
     // 对模板内容进行设置(旧)
     this.canvasService.observables.optionsSet.subscribe((e)=>{
@@ -60,7 +64,8 @@ export class CanvasSpaceComponent implements OnInit {
     this.canvasService.observables.localActions.subscribe((e)=>{
       switch(e['action']) {
         case 'reload':
-        this.webview.nativeElement.reload();
+          this.webview.nativeElement.reload();
+          this.showLoadingDialog(true);
           break;
         default: break;
       }
@@ -83,14 +88,17 @@ export class CanvasSpaceComponent implements OnInit {
     // 加载完成
     this.webview.nativeElement.addEventListener('dom-ready',()=>{
       this.ready = true;
-      // this.webview.nativeElement.openDevTools();
+      
+      this.webview.nativeElement.openDevTools();
       this.injectCSS();
       // this.webview.nativeElement.send('setImage','aaaaaaaaaa.jpg');
       // this.webview.nativeElement.executeJavaScript('console.log(canvas)');
       // this.webview.nativeElement.executeJavaScript('stop()');
+      this.showLoadingDialog(false);
     })
     this.webview.nativeElement.addEventListener('did-fail-load', () => {
       alert('加载出错');
+      this.showLoadingDialog(false);
     })
     this.webview.nativeElement.addEventListener('ipc-message',(e)=>{
       switch (e.channel) {
@@ -168,6 +176,22 @@ export class CanvasSpaceComponent implements OnInit {
   }
   showContextMenu() {
     this.canvasService.showCanvasContextMenu();
+  }
+  // 显示加载模板的弹窗
+  showLoadingDialog(show: boolean) {
+    if (show) {
+      setTimeout(()=>{
+        this.dialog.open(AnimateTemplateLoadingProgressComponent, {
+          disableClose: true,
+          minWidth: 300,
+        });
+      }, 0)
+    } else {
+      setTimeout(()=>{
+        this.dialog.closeAll();
+      }, 0)
+    }
+    
   }
   
 }

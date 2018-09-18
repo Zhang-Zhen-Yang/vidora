@@ -2,7 +2,6 @@
   控制面板
 </h3>
 <div class="panel-form-wrap scrollbar-override">
-  <!-- <dynamic-form [config]="config" #form="dynamicForm" (submit)="submit($event)"></dynamic-form>-->
   <app-actionpanel-item *ngFor="let item of optsConfig()" [config]="item">
   </app-actionpanel-item>
 </div>

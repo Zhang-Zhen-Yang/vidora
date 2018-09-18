@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef} from '@angular/core';
-import { CanvasService } from '../service/canvas.service' 
+import { CanvasService } from '../../service/canvas.service' 
 import {MatDialog, MatSnackBar} from '@angular/material';
 import { ExportOptionsComponent } from '../export-options/export-options.component';
 

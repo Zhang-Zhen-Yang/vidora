@@ -23,389 +23,6 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
-/***/ "./src/app/actionpanel-item/actionpanel-item.component.html":
-/*!******************************************************************!*\
-  !*** ./src/app/actionpanel-item/actionpanel-item.component.html ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"dynamic-form-wrap\">\n    <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/actionpanel-item/actionpanel-item.component.scss":
-/*!******************************************************************!*\
-  !*** ./src/app/actionpanel-item/actionpanel-item.component.scss ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".dynamic-form-wrap {\n  border: 1px solid #dddddd;\n  padding: 10px 10px 5px 10px;\n  margin-top: 10px; }\n"
-
-/***/ }),
-
-/***/ "./src/app/actionpanel-item/actionpanel-item.component.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/actionpanel-item/actionpanel-item.component.ts ***!
-  \****************************************************************/
-/*! exports provided: ActionpanelItemComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionpanelItemComponent", function() { return ActionpanelItemComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dynamic-form2/containers/dynamic-form/dynamic-form.component */ "./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ActionpanelItemComponent = /** @class */ (function () {
-    function ActionpanelItemComponent(canvasService) {
-        this.canvasService = canvasService;
-    }
-    ActionpanelItemComponent.prototype.ngOnInit = function () {
-    };
-    ActionpanelItemComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        var previousValid = this.form.valid;
-        this.form.changes.subscribe(function (e) {
-            console.log(e);
-            _this.canvasService.setOpts(e);
-            if (_this.form.valid !== previousValid) {
-                previousValid = _this.form.valid;
-                console.log(_this.form.valid);
-                // this.form.setDisabled('submit', !previousValid); 
-            }
-        });
-        setTimeout(function () {
-            // this.form.setDisabled('submit', true);
-            // this.form.setValue('name', 'Todd Motto');
-            // this.form.setValue('food', 'Hot Dogs');
-            // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
-        }, 0);
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Object)
-    ], ActionpanelItemComponent.prototype, "config", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_1__["DynamicFormComponent"]),
-        __metadata("design:type", _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_1__["DynamicFormComponent"])
-    ], ActionpanelItemComponent.prototype, "form", void 0);
-    ActionpanelItemComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-actionpanel-item',
-            template: __webpack_require__(/*! ./actionpanel-item.component.html */ "./src/app/actionpanel-item/actionpanel-item.component.html"),
-            styles: [__webpack_require__(/*! ./actionpanel-item.component.scss */ "./src/app/actionpanel-item/actionpanel-item.component.scss")]
-        }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_2__["CanvasService"]])
-    ], ActionpanelItemComponent);
-    return ActionpanelItemComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/actionpanel/actionpanel.component.css":
-/*!*******************************************************!*\
-  !*** ./src/app/actionpanel/actionpanel.component.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r\n\tborder-left:1px solid #cccccc;\r\n\tpadding: 20px 0 0 20px;;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n.panel-form-wrap{\r\n\tflex: 1;\r\n\toverflow: auto;\r\n\tpadding: 0 20px 20px 0;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/actionpanel/actionpanel.component.html":
-/*!********************************************************!*\
-  !*** ./src/app/actionpanel/actionpanel.component.html ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<h3>\r\n  控制面板\r\n</h3>\r\n<div class=\"panel-form-wrap scrollbar-override\">\r\n  <!-- <dynamic-form [config]=\"config\" #form=\"dynamicForm\" (submit)=\"submit($event)\"></dynamic-form>-->\r\n  <app-actionpanel-item *ngFor=\"let item of optsConfig()\" [config]=\"item\">\r\n  </app-actionpanel-item>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "./src/app/actionpanel/actionpanel.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/actionpanel/actionpanel.component.ts ***!
-  \******************************************************/
-/*! exports provided: ActionpanelComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionpanelComponent", function() { return ActionpanelComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dynamic-form2/containers/dynamic-form/dynamic-form.component */ "./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ActionpanelComponent = /** @class */ (function () {
-    function ActionpanelComponent(fb, canvasService) {
-        this.fb = fb;
-        this.canvasService = canvasService;
-        this.config = [
-            {
-                type: 'input',
-                label: 'Full name',
-                name: 'name',
-                placeholder: 'Enter your name'
-            },
-        ];
-    }
-    ActionpanelComponent.prototype.ngOnInit = function () {
-        /* console.log(this.canvasService.options);
-        this.canvasService.observables.options.subscribe((e)=>{
-          this.config = e['options'];
-          console.log(e['options']);
-          setTimeout(()=>{
-            this.config.forEach((item) => {
-              this.form.setValue(item.name, item['value'] || '');
-            })
-          }, 0)
-        });*/
-    };
-    ActionpanelComponent.prototype.onSubmit = function (data) {
-        // console.log(this.myGroup);
-    };
-    ActionpanelComponent.prototype.ngAfterViewInit = function () {
-        /* let previousValid = this.form.valid;
-        this.form.changes.subscribe((e) => {
-          console.log(e);
-          this.canvasService.setOptions(e);
-          if (this.form.valid !== previousValid) {
-            previousValid = this.form.valid;
-            console.log(this.form.valid);
-            // this.form.setDisabled('submit', !previousValid);
-          }
-        });
-        setTimeout(()=>{
-          // this.form.setDisabled('submit', true);
-          // this.form.setValue('name', 'Todd Motto');
-          // this.form.setValue('food', 'Hot Dogs');
-          // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
-        }, 0)*/
-    };
-    ActionpanelComponent.prototype.submit = function (value) {
-        console.log(value);
-    };
-    ActionpanelComponent.prototype.optsConfig = function () {
-        return this.canvasService.opts;
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"]),
-        __metadata("design:type", _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"])
-    ], ActionpanelComponent.prototype, "form", void 0);
-    ActionpanelComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-actionpanel',
-            template: __webpack_require__(/*! ./actionpanel.component.html */ "./src/app/actionpanel/actionpanel.component.html"),
-            styles: [__webpack_require__(/*! ./actionpanel.component.css */ "./src/app/actionpanel/actionpanel.component.css")]
-        }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"]])
-    ], ActionpanelComponent);
-    return ActionpanelComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/animate-template-item/animate-template-item.component.css":
-/*!***************************************************************************!*\
-  !*** ./src/app/animate-template-item/animate-template-item.component.css ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-block;\r\n\twidth:200px;\r\n\theight: 160px;\r\n\tbackground-color:white;\r\n\tcursor: pointer;\r\n\tmargin-top: 10px;\r\n}\r\n#template-item:hover{\r\n\tbackground-color: #eeeeee;\r\n}\r\n#template-item-placeholder {\r\n\twidth: 200px;\r\n\theight: 0;\r\n}\r\nimg{\r\n\t-o-object-fit: contain;\r\n\t   object-fit: contain;\r\n\t-o-object-position: center;\r\n\t   object-position: center;\r\n\twidth: 200px;\r\n\theight: 130px;\r\n}\r\n.temp-name{\r\n\tbackground-color:rgba(0,0,0,0.5);\r\n\tcolor:white;\r\n\theight: 30px;\r\n\tpadding: 0 10px;\r\n\tline-height: 30px;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/animate-template-item/animate-template-item.component.html":
-/*!****************************************************************************!*\
-  !*** ./src/app/animate-template-item/animate-template-item.component.html ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\" class=\"f fr ais\">\n  <img [src]=\"imgSrc(data.img)\" alt=\"\" style=\"flex:1;\">\n  <div class=\"temp-name\">{{data.name}}</div>\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/animate-template-item/animate-template-item.component.ts":
-/*!**************************************************************************!*\
-  !*** ./src/app/animate-template-item/animate-template-item.component.ts ***!
-  \**************************************************************************/
-/*! exports provided: AnimateTemplateItemComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateItemComponent", function() { return AnimateTemplateItemComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AnimateTemplateItemComponent = /** @class */ (function () {
-    function AnimateTemplateItemComponent(canvasService, sanitizer) {
-        this.canvasService = canvasService;
-        this.sanitizer = sanitizer;
-        this.closedialog = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-    AnimateTemplateItemComponent.prototype.ngOnInit = function () {
-    };
-    AnimateTemplateItemComponent.prototype.loadTemplate = function (url) {
-        // alert(url);
-        if (!url) {
-            alert('无效的模板地址');
-            return;
-        }
-        this.canvasService.loadTemplate(url);
-        this.closedialog.emit();
-    };
-    AnimateTemplateItemComponent.prototype.imgSrc = function (src) {
-        return this.sanitizer.bypassSecurityTrustResourceUrl(src);
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Object)
-    ], AnimateTemplateItemComponent.prototype, "data", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Object)
-    ], AnimateTemplateItemComponent.prototype, "closedialog", void 0);
-    AnimateTemplateItemComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-animate-template-item',
-            template: __webpack_require__(/*! ./animate-template-item.component.html */ "./src/app/animate-template-item/animate-template-item.component.html"),
-            styles: [__webpack_require__(/*! ./animate-template-item.component.css */ "./src/app/animate-template-item/animate-template-item.component.css")]
-        }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
-    ], AnimateTemplateItemComponent);
-    return AnimateTemplateItemComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/animate-template/animate-template.component.css":
-/*!*****************************************************************!*\
-  !*** ./src/app/animate-template/animate-template.component.css ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n\tjustify-content: space-around;\r\n\tflex-wrap: wrap;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/animate-template/animate-template.component.html":
-/*!******************************************************************!*\
-  !*** ./src/app/animate-template/animate-template.component.html ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<h2 mat-dialog-title>模板选择</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of tempList();\" [data]=\"item\" (closedialog)=\"closedialog();\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\n</mat-dialog-actions>"
-
-/***/ }),
-
-/***/ "./src/app/animate-template/animate-template.component.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/animate-template/animate-template.component.ts ***!
-  \****************************************************************/
-/*! exports provided: AnimateTemplateComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateComponent", function() { return AnimateTemplateComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AnimateTemplateComponent = /** @class */ (function () {
-    function AnimateTemplateComponent(dialog, canvasService) {
-        this.dialog = dialog;
-        this.canvasService = canvasService;
-    }
-    AnimateTemplateComponent.prototype.ngOnInit = function () {
-        /* setTimeout(()=>{
-          this.dialog.closeAll();
-        }, 5000)*/
-    };
-    AnimateTemplateComponent.prototype.closedialog = function () {
-        this.dialog.closeAll();
-    };
-    AnimateTemplateComponent.prototype.tempList = function () {
-        return this.canvasService.tempList.concat([{}, {}, {}, {}, {}, {}, {}, {}, {}]);
-    };
-    AnimateTemplateComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-animate-template',
-            template: __webpack_require__(/*! ./animate-template.component.html */ "./src/app/animate-template/animate-template.component.html"),
-            styles: [__webpack_require__(/*! ./animate-template.component.css */ "./src/app/animate-template/animate-template.component.css")]
-        }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__["CanvasService"]])
-    ], AnimateTemplateComponent);
-    return AnimateTemplateComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -481,24 +98,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _dynamic_form2_dynamic_form_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dynamic-form2/dynamic-form.module */ "./src/app/dynamic-form2/dynamic-form.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./topbar/topbar.component */ "./src/app/topbar/topbar.component.ts");
-/* harmony import */ var _workspace_workspace_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./workspace/workspace.component */ "./src/app/workspace/workspace.component.ts");
-/* harmony import */ var _workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./workcanvas/workcanvas.component */ "./src/app/workcanvas/workcanvas.component.ts");
-/* harmony import */ var _leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./leftbar/leftbar.component */ "./src/app/leftbar/leftbar.component.ts");
-/* harmony import */ var _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./bottombar/bottombar.component */ "./src/app/bottombar/bottombar.component.ts");
-/* harmony import */ var _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./actionpanel/actionpanel.component */ "./src/app/actionpanel/actionpanel.component.ts");
-/* harmony import */ var _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./canvas-space/canvas-space.component */ "./src/app/canvas-space/canvas-space.component.ts");
+/* harmony import */ var _component_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./component/topbar/topbar.component */ "./src/app/component/topbar/topbar.component.ts");
+/* harmony import */ var _component_workspace_workspace_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./component/workspace/workspace.component */ "./src/app/component/workspace/workspace.component.ts");
+/* harmony import */ var _component_workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./component/workcanvas/workcanvas.component */ "./src/app/component/workcanvas/workcanvas.component.ts");
+/* harmony import */ var _component_leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./component/leftbar/leftbar.component */ "./src/app/component/leftbar/leftbar.component.ts");
+/* harmony import */ var _component_bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./component/bottombar/bottombar.component */ "./src/app/component/bottombar/bottombar.component.ts");
+/* harmony import */ var _component_actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./component/actionpanel/actionpanel.component */ "./src/app/component/actionpanel/actionpanel.component.ts");
+/* harmony import */ var _component_canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./component/canvas-space/canvas-space.component */ "./src/app/component/canvas-space/canvas-space.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
 /* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
 /* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/esm5/progress-bar.es5.js");
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
-/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
-/* harmony import */ var _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./animate-template-item/animate-template-item.component */ "./src/app/animate-template-item/animate-template-item.component.ts");
-/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./export-options/export-options.component */ "./src/app/export-options/export-options.component.ts");
-/* harmony import */ var _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./generating-progress/generating-progress.component */ "./src/app/generating-progress/generating-progress.component.ts");
-/* harmony import */ var _audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./audio-manager/audio-manager.component */ "./src/app/audio-manager/audio-manager.component.ts");
-/* harmony import */ var _actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./actionpanel-item/actionpanel-item.component */ "./src/app/actionpanel-item/actionpanel-item.component.ts");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
+/* harmony import */ var _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./component/animate-template/animate-template.component */ "./src/app/component/animate-template/animate-template.component.ts");
+/* harmony import */ var _component_animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./component/animate-template-item/animate-template-item.component */ "./src/app/component/animate-template-item/animate-template-item.component.ts");
+/* harmony import */ var _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./component/animate-template-loading-progress/animate-template-loading-progress.component */ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.ts");
+/* harmony import */ var _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./component/export-options/export-options.component */ "./src/app/component/export-options/export-options.component.ts");
+/* harmony import */ var _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./component/generating-progress/generating-progress.component */ "./src/app/component/generating-progress/generating-progress.component.ts");
+/* harmony import */ var _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./component/audio-manager/audio-manager.component */ "./src/app/component/audio-manager/audio-manager.component.ts");
+/* harmony import */ var _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./component/actionpanel-item/actionpanel-item.component */ "./src/app/component/actionpanel-item/actionpanel-item.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -532,6 +151,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -539,19 +160,20 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _topbar_topbar_component__WEBPACK_IMPORTED_MODULE_7__["TopbarComponent"],
-                _workspace_workspace_component__WEBPACK_IMPORTED_MODULE_8__["WorkspaceComponent"],
-                _workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_9__["WorkcanvasComponent"],
-                _leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_10__["LeftbarComponent"],
-                _bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_11__["BottombarComponent"],
-                _actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__["ActionpanelComponent"],
-                _canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__["CanvasSpaceComponent"],
-                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_19__["AnimateTemplateComponent"],
-                _animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_20__["AnimateTemplateItemComponent"],
-                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_21__["ExportOptionsComponent"],
-                _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_22__["GeneratingProgressComponent"],
-                _audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_23__["AudioManagerComponent"],
-                _actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_24__["ActionpanelItemComponent"],
+                _component_topbar_topbar_component__WEBPACK_IMPORTED_MODULE_7__["TopbarComponent"],
+                _component_workspace_workspace_component__WEBPACK_IMPORTED_MODULE_8__["WorkspaceComponent"],
+                _component_workcanvas_workcanvas_component__WEBPACK_IMPORTED_MODULE_9__["WorkcanvasComponent"],
+                _component_leftbar_leftbar_component__WEBPACK_IMPORTED_MODULE_10__["LeftbarComponent"],
+                _component_bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_11__["BottombarComponent"],
+                _component_actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__["ActionpanelComponent"],
+                _component_canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__["CanvasSpaceComponent"],
+                _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_20__["AnimateTemplateComponent"],
+                _component_animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_21__["AnimateTemplateItemComponent"],
+                _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__["ExportOptionsComponent"],
+                _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__["GeneratingProgressComponent"],
+                _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__["AudioManagerComponent"],
+                _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__["ActionpanelItemComponent"],
+                _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -560,16 +182,18 @@ var AppModule = /** @class */ (function () {
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_16__["MatButtonModule"],
                 _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_15__["MatSnackBarModule"],
                 _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_17__["MatProgressBarModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__["MatProgressSpinnerModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
-                _angular_material_menu__WEBPACK_IMPORTED_MODULE_18__["MatMenuModule"],
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__["MatMenuModule"],
                 _ng_dynamic_forms_core__WEBPACK_IMPORTED_MODULE_3__["DynamicFormsCoreModule"],
                 // DynamicFormsBootstrapUIModule,
                 _dynamic_form2_dynamic_form_module__WEBPACK_IMPORTED_MODULE_5__["DynamicFormModule"]
             ],
             entryComponents: [
-                _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_19__["AnimateTemplateComponent"],
-                _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_21__["ExportOptionsComponent"],
-                _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_22__["GeneratingProgressComponent"],
+                _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_20__["AnimateTemplateComponent"],
+                _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__["ExportOptionsComponent"],
+                _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__["GeneratingProgressComponent"],
+                _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
@@ -583,10 +207,459 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/audio-manager/audio-manager.component.html":
-/*!************************************************************!*\
-  !*** ./src/app/audio-manager/audio-manager.component.html ***!
-  \************************************************************/
+/***/ "./src/app/component/actionpanel-item/actionpanel-item.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/component/actionpanel-item/actionpanel-item.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"dynamic-form-wrap\">\n    <dynamic-form\n        [config]=\"config\" \n        #form=\"dynamicForm\"\n    ></dynamic-form>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/actionpanel-item/actionpanel-item.component.scss":
+/*!****************************************************************************!*\
+  !*** ./src/app/component/actionpanel-item/actionpanel-item.component.scss ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".dynamic-form-wrap {\n  border: 1px solid #dddddd;\n  padding: 10px 10px 5px 10px;\n  margin-top: 10px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/component/actionpanel-item/actionpanel-item.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/component/actionpanel-item/actionpanel-item.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: ActionpanelItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionpanelItemComponent", function() { return ActionpanelItemComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../dynamic-form2/containers/dynamic-form/dynamic-form.component */ "./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ActionpanelItemComponent = /** @class */ (function () {
+    function ActionpanelItemComponent(canvasService) {
+        this.canvasService = canvasService;
+    }
+    ActionpanelItemComponent.prototype.ngOnInit = function () {
+    };
+    ActionpanelItemComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        var previousValid = this.form.valid;
+        this.form.changes.subscribe(function (e) {
+            console.log(e);
+            _this.canvasService.setOpts(e);
+            if (_this.form.valid !== previousValid) {
+                previousValid = _this.form.valid;
+                console.log(_this.form.valid);
+                // this.form.setDisabled('submit', !previousValid); 
+            }
+        });
+        setTimeout(function () {
+            // this.form.setDisabled('submit', true);
+            // this.form.setValue('name', 'Todd Motto');
+            // this.form.setValue('food', 'Hot Dogs');
+            // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
+        }, 0);
+    };
+    ActionpanelItemComponent.prototype.submit = function (e) {
+        console.log('dddd');
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ActionpanelItemComponent.prototype, "config", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_1__["DynamicFormComponent"]),
+        __metadata("design:type", _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_1__["DynamicFormComponent"])
+    ], ActionpanelItemComponent.prototype, "form", void 0);
+    ActionpanelItemComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-actionpanel-item',
+            template: __webpack_require__(/*! ./actionpanel-item.component.html */ "./src/app/component/actionpanel-item/actionpanel-item.component.html"),
+            styles: [__webpack_require__(/*! ./actionpanel-item.component.scss */ "./src/app/component/actionpanel-item/actionpanel-item.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_2__["CanvasService"]])
+    ], ActionpanelItemComponent);
+    return ActionpanelItemComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/actionpanel/actionpanel.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/component/actionpanel/actionpanel.component.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r\n\tborder-left:1px solid #cccccc;\r\n\tpadding: 20px 0 0 20px;;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n.panel-form-wrap{\r\n\tflex: 1;\r\n\toverflow: auto;\r\n\tpadding: 0 20px 20px 0;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/actionpanel/actionpanel.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/component/actionpanel/actionpanel.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>\r\n  控制面板\r\n</h3>\r\n<div class=\"panel-form-wrap scrollbar-override\">\r\n  <app-actionpanel-item *ngFor=\"let item of optsConfig()\" [config]=\"item\">\r\n  </app-actionpanel-item>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/component/actionpanel/actionpanel.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/component/actionpanel/actionpanel.component.ts ***!
+  \****************************************************************/
+/*! exports provided: ActionpanelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActionpanelComponent", function() { return ActionpanelComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../dynamic-form2/containers/dynamic-form/dynamic-form.component */ "./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ActionpanelComponent = /** @class */ (function () {
+    function ActionpanelComponent(fb, canvasService) {
+        this.fb = fb;
+        this.canvasService = canvasService;
+        this.config = [
+            {
+                type: 'input',
+                label: 'Full name',
+                name: 'name',
+                placeholder: 'Enter your name'
+            },
+        ];
+    }
+    ActionpanelComponent.prototype.ngOnInit = function () {
+        /* console.log(this.canvasService.options);
+        this.canvasService.observables.options.subscribe((e)=>{
+          this.config = e['options'];
+          console.log(e['options']);
+          setTimeout(()=>{
+            this.config.forEach((item) => {
+              this.form.setValue(item.name, item['value'] || '');
+            })
+          }, 0)
+        });*/
+    };
+    ActionpanelComponent.prototype.onSubmit = function (data) {
+        // console.log(this.myGroup);
+    };
+    ActionpanelComponent.prototype.ngAfterViewInit = function () {
+        /* let previousValid = this.form.valid;
+        this.form.changes.subscribe((e) => {
+          console.log(e);
+          this.canvasService.setOptions(e);
+          if (this.form.valid !== previousValid) {
+            previousValid = this.form.valid;
+            console.log(this.form.valid);
+            // this.form.setDisabled('submit', !previousValid);
+          }
+        });
+        setTimeout(()=>{
+          // this.form.setDisabled('submit', true);
+          // this.form.setValue('name', 'Todd Motto');
+          // this.form.setValue('food', 'Hot Dogs');
+          // this.form.setValue('image', 'http://img5q.duitang.com/uploads/item/201411/30/20141130225105_Xe3cW.thumb.700_0.png');
+        }, 0)*/
+    };
+    ActionpanelComponent.prototype.submit = function (value) {
+        console.log(value);
+    };
+    ActionpanelComponent.prototype.optsConfig = function () {
+        return this.canvasService.opts;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"]),
+        __metadata("design:type", _dynamic_form2_containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_2__["DynamicFormComponent"])
+    ], ActionpanelComponent.prototype, "form", void 0);
+    ActionpanelComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-actionpanel',
+            template: __webpack_require__(/*! ./actionpanel.component.html */ "./src/app/component/actionpanel/actionpanel.component.html"),
+            styles: [__webpack_require__(/*! ./actionpanel.component.css */ "./src/app/component/actionpanel/actionpanel.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"]])
+    ], ActionpanelComponent);
+    return ActionpanelComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template-item/animate-template-item.component.css":
+/*!*************************************************************************************!*\
+  !*** ./src/app/component/animate-template-item/animate-template-item.component.css ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host{\r\n\t\r\n}\r\n#template-item{\r\n\tdisplay: inline-block;\r\n\twidth:200px;\r\n\theight: 160px;\r\n\tbackground-color:white;\r\n\tcursor: pointer;\r\n\tmargin-top: 10px;\r\n}\r\n#template-item:hover{\r\n\tbackground-color: #eeeeee;\r\n}\r\n#template-item-placeholder {\r\n\twidth: 200px;\r\n\theight: 0;\r\n}\r\nimg{\r\n\t-o-object-fit: contain;\r\n\t   object-fit: contain;\r\n\t-o-object-position: center;\r\n\t   object-position: center;\r\n\twidth: 200px;\r\n\theight: 130px;\r\n}\r\n.temp-name{\r\n\tbackground-color:rgba(0,0,0,0.5);\r\n\tcolor:white;\r\n\theight: 30px;\r\n\tpadding: 0 10px;\r\n\tline-height: 30px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template-item/animate-template-item.component.html":
+/*!**************************************************************************************!*\
+  !*** ./src/app/component/animate-template-item/animate-template-item.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"template-item\" *ngIf=\"data.name\" (click)=\"loadTemplate(data.url)\" class=\"f fr ais\">\n  <img [src]=\"imgSrc(data.img)\" alt=\"\" style=\"flex:1;\">\n  <div class=\"temp-name\">{{data.name}}</div>\n</div>\n<div id=\"template-item-placeholder\" *ngIf=\"!data.name\">\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template-item/animate-template-item.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/component/animate-template-item/animate-template-item.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: AnimateTemplateItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateItemComponent", function() { return AnimateTemplateItemComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AnimateTemplateItemComponent = /** @class */ (function () {
+    function AnimateTemplateItemComponent(canvasService, sanitizer) {
+        this.canvasService = canvasService;
+        this.sanitizer = sanitizer;
+        this.closedialog = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    AnimateTemplateItemComponent.prototype.ngOnInit = function () {
+    };
+    AnimateTemplateItemComponent.prototype.loadTemplate = function (url) {
+        // alert(url);
+        if (!url) {
+            alert('无效的模板地址');
+            return;
+        }
+        this.canvasService.loadTemplate(url);
+        this.closedialog.emit();
+    };
+    AnimateTemplateItemComponent.prototype.imgSrc = function (src) {
+        return this.sanitizer.bypassSecurityTrustResourceUrl(src);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AnimateTemplateItemComponent.prototype, "data", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AnimateTemplateItemComponent.prototype, "closedialog", void 0);
+    AnimateTemplateItemComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-animate-template-item',
+            template: __webpack_require__(/*! ./animate-template-item.component.html */ "./src/app/component/animate-template-item/animate-template-item.component.html"),
+            styles: [__webpack_require__(/*! ./animate-template-item.component.css */ "./src/app/component/animate-template-item/animate-template-item.component.css")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"]])
+    ], AnimateTemplateItemComponent);
+    return AnimateTemplateItemComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.html":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.html ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-dialog-content>\n  <div class=\"f aic\">\n    <mat-progress-spinner\n        class=\"example-margin\"\n        color=\"warn\"\n        diameter=\"50\"\n        mode=\"indeterminate\">\n    </mat-progress-spinner>\n    <p>\n      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加载模板中···\n    </p>\n  </div>\n</mat-dialog-content>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.scss":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.scss ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "div {\n  padding: 15px 0; }\n"
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.ts":
+/*!************************************************************************************************************!*\
+  !*** ./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.ts ***!
+  \************************************************************************************************************/
+/*! exports provided: AnimateTemplateLoadingProgressComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateLoadingProgressComponent", function() { return AnimateTemplateLoadingProgressComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AnimateTemplateLoadingProgressComponent = /** @class */ (function () {
+    function AnimateTemplateLoadingProgressComponent() {
+    }
+    AnimateTemplateLoadingProgressComponent.prototype.ngOnInit = function () {
+    };
+    AnimateTemplateLoadingProgressComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-animate-template-loading-progress',
+            template: __webpack_require__(/*! ./animate-template-loading-progress.component.html */ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.html"),
+            styles: [__webpack_require__(/*! ./animate-template-loading-progress.component.scss */ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AnimateTemplateLoadingProgressComponent);
+    return AnimateTemplateLoadingProgressComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template/animate-template.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/component/animate-template/animate-template.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n\tjustify-content: space-around;\r\n\tflex-wrap: wrap;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template/animate-template.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/component/animate-template/animate-template.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>模板选择</h2>\n<mat-dialog-content>\n  <div id=\"template-wrap\">\n    <app-animate-template-item *ngFor=\"let item of tempList();\" [data]=\"item\" (closedialog)=\"closedialog();\">\n    </app-animate-template-item>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <!--<button mat-button [mat-dialog-close]=\"true\">Yes</button>-->\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "./src/app/component/animate-template/animate-template.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/component/animate-template/animate-template.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: AnimateTemplateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimateTemplateComponent", function() { return AnimateTemplateComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AnimateTemplateComponent = /** @class */ (function () {
+    function AnimateTemplateComponent(dialog, canvasService) {
+        this.dialog = dialog;
+        this.canvasService = canvasService;
+    }
+    AnimateTemplateComponent.prototype.ngOnInit = function () {
+        /* setTimeout(()=>{
+          this.dialog.closeAll();
+        }, 5000)*/
+    };
+    AnimateTemplateComponent.prototype.closedialog = function () {
+        this.dialog.closeAll();
+    };
+    AnimateTemplateComponent.prototype.tempList = function () {
+        return this.canvasService.tempList.concat([{}, {}, {}, {}, {}, {}, {}, {}, {}]);
+    };
+    AnimateTemplateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-animate-template',
+            template: __webpack_require__(/*! ./animate-template.component.html */ "./src/app/component/animate-template/animate-template.component.html"),
+            styles: [__webpack_require__(/*! ./animate-template.component.css */ "./src/app/component/animate-template/animate-template.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_2__["CanvasService"]])
+    ], AnimateTemplateComponent);
+    return AnimateTemplateComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/audio-manager/audio-manager.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/component/audio-manager/audio-manager.component.html ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -594,10 +667,10 @@ module.exports = "<audio #audio src=\"\" controls=\"controls\" loop></audio>\n<d
 
 /***/ }),
 
-/***/ "./src/app/audio-manager/audio-manager.component.scss":
-/*!************************************************************!*\
-  !*** ./src/app/audio-manager/audio-manager.component.scss ***!
-  \************************************************************/
+/***/ "./src/app/component/audio-manager/audio-manager.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/component/audio-manager/audio-manager.component.scss ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -605,10 +678,10 @@ module.exports = ":host {\n  display: flex;\n  align-items: center; }\n\n#music-
 
 /***/ }),
 
-/***/ "./src/app/audio-manager/audio-manager.component.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/audio-manager/audio-manager.component.ts ***!
-  \**********************************************************/
+/***/ "./src/app/component/audio-manager/audio-manager.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/component/audio-manager/audio-manager.component.ts ***!
+  \********************************************************************/
 /*! exports provided: AudioManagerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -617,8 +690,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AudioManagerComponent", function() { return AudioManagerComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _service_dialog_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/dialog.service */ "./src/app/service/dialog.service.ts");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _service_dialog_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/dialog.service */ "./src/app/service/dialog.service.ts");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -703,8 +776,8 @@ var AudioManagerComponent = /** @class */ (function () {
     AudioManagerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-audio-manager',
-            template: __webpack_require__(/*! ./audio-manager.component.html */ "./src/app/audio-manager/audio-manager.component.html"),
-            styles: [__webpack_require__(/*! ./audio-manager.component.scss */ "./src/app/audio-manager/audio-manager.component.scss")]
+            template: __webpack_require__(/*! ./audio-manager.component.html */ "./src/app/component/audio-manager/audio-manager.component.html"),
+            styles: [__webpack_require__(/*! ./audio-manager.component.scss */ "./src/app/component/audio-manager/audio-manager.component.scss")]
         }),
         __metadata("design:paramtypes", [_service_dialog_service__WEBPACK_IMPORTED_MODULE_2__["DialogService"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"]])
     ], AudioManagerComponent);
@@ -715,10 +788,10 @@ var AudioManagerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/bottombar/bottombar.component.css":
-/*!***************************************************!*\
-  !*** ./src/app/bottombar/bottombar.component.css ***!
-  \***************************************************/
+/***/ "./src/app/component/bottombar/bottombar.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/component/bottombar/bottombar.component.css ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -726,10 +799,10 @@ module.exports = ":host {\r\n\t/* background-color:#1ABC9C;*/ \r\n\tbackground-c
 
 /***/ }),
 
-/***/ "./src/app/bottombar/bottombar.component.html":
-/*!****************************************************!*\
-  !*** ./src/app/bottombar/bottombar.component.html ***!
-  \****************************************************/
+/***/ "./src/app/component/bottombar/bottombar.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/component/bottombar/bottombar.component.html ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -737,10 +810,10 @@ module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\
 
 /***/ }),
 
-/***/ "./src/app/bottombar/bottombar.component.ts":
-/*!**************************************************!*\
-  !*** ./src/app/bottombar/bottombar.component.ts ***!
-  \**************************************************/
+/***/ "./src/app/component/bottombar/bottombar.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/component/bottombar/bottombar.component.ts ***!
+  \************************************************************/
 /*! exports provided: BottombarComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -748,7 +821,7 @@ module.exports = "<div id=\"bottom-bar\">\n\n    <div class=\"edit-message-wrap\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BottombarComponent", function() { return BottombarComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -782,8 +855,8 @@ var BottombarComponent = /** @class */ (function () {
     BottombarComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-bottombar',
-            template: __webpack_require__(/*! ./bottombar.component.html */ "./src/app/bottombar/bottombar.component.html"),
-            styles: [__webpack_require__(/*! ./bottombar.component.css */ "./src/app/bottombar/bottombar.component.css")]
+            template: __webpack_require__(/*! ./bottombar.component.html */ "./src/app/component/bottombar/bottombar.component.html"),
+            styles: [__webpack_require__(/*! ./bottombar.component.css */ "./src/app/component/bottombar/bottombar.component.css")]
         }),
         __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
     ], BottombarComponent);
@@ -794,10 +867,10 @@ var BottombarComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/canvas-space/canvas-space.component.css":
-/*!*********************************************************!*\
-  !*** ./src/app/canvas-space/canvas-space.component.css ***!
-  \*********************************************************/
+/***/ "./src/app/component/canvas-space/canvas-space.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/component/canvas-space/canvas-space.component.css ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -805,10 +878,10 @@ module.exports = "\r\n:host{\r\n\tposition: relative;\r\n\twidth: 100%;\r\n\thei
 
 /***/ }),
 
-/***/ "./src/app/canvas-space/canvas-space.component.html":
-/*!**********************************************************!*\
-  !*** ./src/app/canvas-space/canvas-space.component.html ***!
-  \**********************************************************/
+/***/ "./src/app/component/canvas-space/canvas-space.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/component/canvas-space/canvas-space.component.html ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -816,10 +889,10 @@ module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\r\n  <di
 
 /***/ }),
 
-/***/ "./src/app/canvas-space/canvas-space.component.ts":
-/*!********************************************************!*\
-  !*** ./src/app/canvas-space/canvas-space.component.ts ***!
-  \********************************************************/
+/***/ "./src/app/component/canvas-space/canvas-space.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/component/canvas-space/canvas-space.component.ts ***!
+  \******************************************************************/
 /*! exports provided: CanvasSpaceComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -827,10 +900,11 @@ module.exports = "<div class=\"canvas-space-wrap scrollbar-override\" >\r\n  <di
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CanvasSpaceComponent", function() { return CanvasSpaceComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../generating-progress/generating-progress.component */ "./src/app/generating-progress/generating-progress.component.ts");
-/* harmony import */ var _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/dialog.service */ "./src/app/service/dialog.service.ts");
+/* harmony import */ var _generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../generating-progress/generating-progress.component */ "./src/app/component/generating-progress/generating-progress.component.ts");
+/* harmony import */ var _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/dialog.service */ "./src/app/service/dialog.service.ts");
+/* harmony import */ var _animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../animate-template-loading-progress/animate-template-loading-progress.component */ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -845,12 +919,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var CanvasSpaceComponent = /** @class */ (function () {
     function CanvasSpaceComponent(canvasService, dialog, dialogService) {
         this.canvasService = canvasService;
         this.dialog = dialog;
         this.dialogService = dialogService;
         this.ready = false;
+        this.showLoadingDialog(true);
     }
     CanvasSpaceComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -879,6 +955,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
             // console.log(e['action']);
             // this.webview.nativeElement.send('template', e['action']);
             _this.webview.nativeElement.loadURL(e['url']);
+            _this.showLoadingDialog(true);
         });
         // 对模板内容进行设置(旧)
         this.canvasService.observables.optionsSet.subscribe(function (e) {
@@ -896,6 +973,7 @@ var CanvasSpaceComponent = /** @class */ (function () {
             switch (e['action']) {
                 case 'reload':
                     _this.webview.nativeElement.reload();
+                    _this.showLoadingDialog(true);
                     break;
                 default: break;
             }
@@ -918,14 +996,16 @@ var CanvasSpaceComponent = /** @class */ (function () {
         // 加载完成
         this.webview.nativeElement.addEventListener('dom-ready', function () {
             _this.ready = true;
-            // this.webview.nativeElement.openDevTools();
+            _this.webview.nativeElement.openDevTools();
             _this.injectCSS();
             // this.webview.nativeElement.send('setImage','aaaaaaaaaa.jpg');
             // this.webview.nativeElement.executeJavaScript('console.log(canvas)');
             // this.webview.nativeElement.executeJavaScript('stop()');
+            _this.showLoadingDialog(false);
         });
         this.webview.nativeElement.addEventListener('did-fail-load', function () {
             alert('加载出错');
+            _this.showLoadingDialog(false);
         });
         this.webview.nativeElement.addEventListener('ipc-message', function (e) {
             switch (e.channel) {
@@ -977,6 +1057,23 @@ var CanvasSpaceComponent = /** @class */ (function () {
     CanvasSpaceComponent.prototype.showContextMenu = function () {
         this.canvasService.showCanvasContextMenu();
     };
+    // 显示加载模板的弹窗
+    CanvasSpaceComponent.prototype.showLoadingDialog = function (show) {
+        var _this = this;
+        if (show) {
+            setTimeout(function () {
+                _this.dialog.open(_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_5__["AnimateTemplateLoadingProgressComponent"], {
+                    disableClose: true,
+                    minWidth: 300,
+                });
+            }, 0);
+        }
+        else {
+            setTimeout(function () {
+                _this.dialog.closeAll();
+            }, 0);
+        }
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('webview'),
         __metadata("design:type", Object)
@@ -984,12 +1081,517 @@ var CanvasSpaceComponent = /** @class */ (function () {
     CanvasSpaceComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-canvas-space',
-            template: __webpack_require__(/*! ./canvas-space.component.html */ "./src/app/canvas-space/canvas-space.component.html"),
-            styles: [__webpack_require__(/*! ./canvas-space.component.css */ "./src/app/canvas-space/canvas-space.component.css")]
+            template: __webpack_require__(/*! ./canvas-space.component.html */ "./src/app/component/canvas-space/canvas-space.component.html"),
+            styles: [__webpack_require__(/*! ./canvas-space.component.css */ "./src/app/component/canvas-space/canvas-space.component.css")]
         }),
         __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"]])
     ], CanvasSpaceComponent);
     return CanvasSpaceComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/export-options/export-options.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/component/export-options/export-options.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input step=\"10\" [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input step=\"10\" [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          质量\n        </label>\n        <input step=\"10\" [formControlName]=\"'quality'\" type=\"number\" min=\"0\" max=\"100\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "./src/app/component/export-options/export-options.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/component/export-options/export-options.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .input-wrap {\n  display: flex;\n  align-items: center; }\n  .input-wrap label {\n  width: 100px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/component/export-options/export-options.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/component/export-options/export-options.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: ExportOptionsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExportOptionsComponent", function() { return ExportOptionsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ExportOptionsComponent = /** @class */ (function () {
+    function ExportOptionsComponent(canvasService, fb, matDialog) {
+        this.canvasService = canvasService;
+        this.fb = fb;
+        this.matDialog = matDialog;
+    }
+    ExportOptionsComponent.prototype.ngOnInit = function () {
+        var _a = this.canvasService, width = _a.width, height = _a.height, duration = _a.duration, fps = _a.fps;
+        console.log([width, height, duration, fps]);
+        // alert('ddd');
+        this.form = this.fb.group({
+            time: [this.time(), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(10)],
+            width: [width],
+            height: [height],
+            quality: [80],
+        });
+        this.form.valueChanges.subscribe(function (res) {
+            console.log(res);
+        });
+    };
+    ExportOptionsComponent.prototype.time = function () {
+        return Math.floor(this.canvasService.duration / this.canvasService.fps);
+    };
+    ExportOptionsComponent.prototype.width = function () {
+        return this.canvasService.width;
+    };
+    ExportOptionsComponent.prototype.height = function () {
+        return this.canvasService.height;
+    };
+    ExportOptionsComponent.prototype.confirm = function () {
+        this.matDialog.closeAll();
+        console.log(this.form.value);
+        this.canvasService.exFile(this.form.value);
+    };
+    ExportOptionsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-export-options',
+            template: __webpack_require__(/*! ./export-options.component.html */ "./src/app/component/export-options/export-options.component.html"),
+            styles: [__webpack_require__(/*! ./export-options.component.scss */ "./src/app/component/export-options/export-options.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+    ], ExportOptionsComponent);
+    return ExportOptionsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/generating-progress/generating-progress.component.html":
+/*!**********************************************************************************!*\
+  !*** ./src/app/component/generating-progress/generating-progress.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>视频生成中</h2>\n<mat-dialog-content>\n  <div *ngIf=\"step()==0\">\n    <mat-progress-bar mode=\"determinate\" [value]=\"value()\" color=\"warn\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">生成逐帧图片</span>\n      <span class=\"fontSmall color-gray\">{{ position() }}/{{ duration() }}</span>\n    </div>\n  </div>\n  <div *ngIf=\"step()==1\">\n    <mat-progress-bar mode=\"indeterminate\" color=\"warn\" value=\"50\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">视频合成中</span>\n    </div>\n  </div>\n</mat-dialog-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/generating-progress/generating-progress.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/component/generating-progress/generating-progress.component.scss ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/component/generating-progress/generating-progress.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/component/generating-progress/generating-progress.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: GeneratingProgressComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeneratingProgressComponent", function() { return GeneratingProgressComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var GeneratingProgressComponent = /** @class */ (function () {
+    function GeneratingProgressComponent(canvasService) {
+        this.canvasService = canvasService;
+        this.inited = false;
+    }
+    GeneratingProgressComponent.prototype.ngOnInit = function () {
+        // alert('ddd');
+        this.inited = true;
+    };
+    GeneratingProgressComponent.prototype.position = function () {
+        return this.canvasService.position;
+    };
+    GeneratingProgressComponent.prototype.duration = function () {
+        return this.canvasService.duration;
+    };
+    GeneratingProgressComponent.prototype.value = function () {
+        return this.inited ? Math.round(this.canvasService.progressPosition / this.canvasService.duration * 100) : 0;
+    };
+    GeneratingProgressComponent.prototype.step = function () {
+        return this.canvasService.generateStep;
+    };
+    GeneratingProgressComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-generating-progress',
+            template: __webpack_require__(/*! ./generating-progress.component.html */ "./src/app/component/generating-progress/generating-progress.component.html"),
+            styles: [__webpack_require__(/*! ./generating-progress.component.scss */ "./src/app/component/generating-progress/generating-progress.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
+    ], GeneratingProgressComponent);
+    return GeneratingProgressComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/leftbar/leftbar.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/component/leftbar/leftbar.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n\twidth:50px;\r\n\tcolor:#aaa;\r\n}\r\n#template-show-trigger {\r\n\twidth:40px;\r\n\theight:40px;\r\n\t/* border-radius:50%;\r\n\tbackground-color: #9d62c8;\r\n\tborder:2px solid white;\r\n\tmargin-left: 5px;\r\n\tmargin-top: 10px;\r\n\tcursor: pointer;*/\r\n\tcolor: #eeeeee;\r\n\tfont-size: 35px;\r\n    text-align: center;\r\n    margin: 16px 3px;\r\n\tcursor: pointer;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/leftbar/leftbar.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/component/leftbar/leftbar.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"left-bar\">\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\" class=\"iconfont\">\n      &#xe610;\n  </div>\n</div>\n\n\n"
+
+/***/ }),
+
+/***/ "./src/app/component/leftbar/leftbar.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/component/leftbar/leftbar.component.ts ***!
+  \********************************************************/
+/*! exports provided: LeftbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeftbarComponent", function() { return LeftbarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animate-template/animate-template.component */ "./src/app/component/animate-template/animate-template.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LeftbarComponent = /** @class */ (function () {
+    function LeftbarComponent(dialog) {
+        this.dialog = dialog;
+    }
+    LeftbarComponent.prototype.ngOnInit = function () {
+    };
+    LeftbarComponent.prototype.showTemplateDialog = function () {
+        var dialogRef = this.dialog.open(_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__["AnimateTemplateComponent"]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log("Dialog result: " + result);
+        });
+    };
+    LeftbarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-leftbar',
+            template: __webpack_require__(/*! ./leftbar.component.html */ "./src/app/component/leftbar/leftbar.component.html"),
+            styles: [__webpack_require__(/*! ./leftbar.component.css */ "./src/app/component/leftbar/leftbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+    ], LeftbarComponent);
+    return LeftbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/topbar/topbar.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/component/topbar/topbar.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#app-topbar {\r\n\tbackground-color: black;\r\n\theight: 3rem;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/topbar/topbar.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/component/topbar/topbar.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"app-topbar\">\n  topbar works!\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/topbar/topbar.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/component/topbar/topbar.component.ts ***!
+  \******************************************************/
+/*! exports provided: TopbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopbarComponent", function() { return TopbarComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TopbarComponent = /** @class */ (function () {
+    function TopbarComponent() {
+    }
+    TopbarComponent.prototype.ngOnInit = function () {
+    };
+    TopbarComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-topbar',
+            template: __webpack_require__(/*! ./topbar.component.html */ "./src/app/component/topbar/topbar.component.html"),
+            styles: [__webpack_require__(/*! ./topbar.component.css */ "./src/app/component/topbar/topbar.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TopbarComponent);
+    return TopbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/workcanvas/workcanvas.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/component/workcanvas/workcanvas.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n#canvas-wrap {\r\n\tflex: 1;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\toverflow: auto;\r\n}\r\n\r\n#canvas-wrap canvas {\r\n\tbackground-color: aliceblue;\r\n}\r\n\r\n#canvas-btn-wrap {\r\n\theight:50px;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}\r\n\r\n#canvas-btn-wrap button{\r\n\tmargin: 0 10px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/workcanvas/workcanvas.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/component/workcanvas/workcanvas.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"purple\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t<!--\r\n\t\t\t<button (click)=\"showSnackbar();\">\r\n\t\t\t\tsnackbar\r\n\t\t\t</button>\r\n\t\t-->\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/component/workcanvas/workcanvas.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/component/workcanvas/workcanvas.component.ts ***!
+  \**************************************************************/
+/*! exports provided: WorkcanvasComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkcanvasComponent", function() { return WorkcanvasComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/canvas.service */ "./src/app/service/canvas.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../export-options/export-options.component */ "./src/app/component/export-options/export-options.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var WorkcanvasComponent = /** @class */ (function () {
+    function WorkcanvasComponent(elementRef, canvasService, dialog, snackBar) {
+        this.elementRef = elementRef;
+        this.canvasService = canvasService;
+        this.dialog = dialog;
+        this.snackBar = snackBar;
+    }
+    WorkcanvasComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.canvasService.observables.generateMp4.subscribe(function (e) {
+            // this.snackBar.open('生成成功','', {duration: 3000});
+            _this.showSnackbar();
+        });
+    };
+    WorkcanvasComponent.prototype.ngAfterViewInit = function () {
+        var canvas = this.elementRef.nativeElement.querySelector('#canvas'); //获取第一个p
+        // this.canvasService.init(canvas);
+    };
+    WorkcanvasComponent.prototype.togglePlay = function () {
+        if (this.canvasService.paused) {
+            this.canvasService.play();
+        }
+        else {
+            this.canvasService.pause();
+        }
+    };
+    WorkcanvasComponent.prototype.play = function () {
+        this.canvasService.play();
+    };
+    WorkcanvasComponent.prototype.pause = function () {
+        this.canvasService.pause();
+    };
+    WorkcanvasComponent.prototype.reset = function () {
+        this.canvasService.reset();
+    };
+    // 导出mp4
+    WorkcanvasComponent.prototype.exFile = function () {
+        var dialogRef = this.dialog.open(_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_3__["ExportOptionsComponent"]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log("Dialog result: " + result);
+        });
+        // this.canvasService.exFile();
+    };
+    WorkcanvasComponent.prototype.isPaused = function () {
+        return this.canvasService.paused;
+    };
+    WorkcanvasComponent.prototype.fps = function () {
+        return this.canvasService.fps;
+    };
+    WorkcanvasComponent.prototype.duration = function () {
+        return this.canvasService.duration;
+    };
+    WorkcanvasComponent.prototype.showSnackbar = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.snackBar.open('生成成功', 'ok', {
+                duration: 30000,
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom',
+            });
+        }, 100);
+    };
+    WorkcanvasComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-workcanvas',
+            template: __webpack_require__(/*! ./workcanvas.component.html */ "./src/app/component/workcanvas/workcanvas.component.html"),
+            styles: [__webpack_require__(/*! ./workcanvas.component.css */ "./src/app/component/workcanvas/workcanvas.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
+    ], WorkcanvasComponent);
+    return WorkcanvasComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/workspace/workspace.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/component/workspace/workspace.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host{\r\n\tflex: 1;\r\n\tbackground-color: #eeeeee;\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\talign-items: stretch;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/component/workspace/workspace.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/component/workspace/workspace.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<app-workcanvas></app-workcanvas>\n<app-actionpanel></app-actionpanel>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/component/workspace/workspace.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/component/workspace/workspace.component.ts ***!
+  \************************************************************/
+/*! exports provided: WorkspaceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkspaceComponent", function() { return WorkspaceComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var WorkspaceComponent = /** @class */ (function () {
+    function WorkspaceComponent() {
+    }
+    WorkspaceComponent.prototype.ngOnInit = function () {
+    };
+    WorkspaceComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-workspace',
+            template: __webpack_require__(/*! ./workspace.component.html */ "./src/app/component/workspace/workspace.component.html"),
+            styles: [__webpack_require__(/*! ./workspace.component.css */ "./src/app/component/workspace/workspace.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], WorkspaceComponent);
+    return WorkspaceComponent;
 }());
 
 
@@ -1116,11 +1718,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var FormButtonComponent = /** @class */ (function () {
     function FormButtonComponent() {
     }
+    FormButtonComponent.prototype.click = function () {
+        alert('dddd');
+    };
     FormButtonComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-button',
             styles: [__webpack_require__(/*! ./form-button.component.scss */ "./src/app/dynamic-form2/components/form-button/form-button.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field form-button\"\n      [formGroup]=\"group\"\n    >\n      <button\n        [disabled]=\"config.disabled\"\n        type=\"submit\">\n        {{ config.label }}\n      </button>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field form-button\"\n      [formGroup]=\"group\"\n    >\n      <button\n        [disabled]=\"config.disabled\"\n        (click)=\"click()\"\n      >\n        {{ config.label }}\n      </button>\n    </div>\n  "
         })
     ], FormButtonComponent);
     return FormButtonComponent;
@@ -1503,259 +2108,6 @@ var DynamicFormModule = /** @class */ (function () {
         })
     ], DynamicFormModule);
     return DynamicFormModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/export-options/export-options.component.html":
-/*!**************************************************************!*\
-  !*** ./src/app/export-options/export-options.component.html ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n  <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--时长-->\n      <div class=\"input-wrap\">\n        <label>\n          时长(s)\n        </label>\n        <input [formControlName]=\"'time'\" type=\"number\" [max]=\"time()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          宽\n        </label>\n        <input step=\"10\" [formControlName]=\"'width'\" type=\"number\" [max]=\"width()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          高\n        </label>\n        <input step=\"10\" [formControlName]=\"'height'\" type=\"number\" [max]=\"height()\">\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          质量\n        </label>\n        <input step=\"10\" [formControlName]=\"'quality'\" type=\"number\" min=\"0\" max=\"100\">\n      </div>\n  </div>\n  \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>"
-
-/***/ }),
-
-/***/ "./src/app/export-options/export-options.component.scss":
-/*!**************************************************************!*\
-  !*** ./src/app/export-options/export-options.component.scss ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .input-wrap {\n  display: flex;\n  align-items: center; }\n  .input-wrap label {\n  width: 100px; }\n"
-
-/***/ }),
-
-/***/ "./src/app/export-options/export-options.component.ts":
-/*!************************************************************!*\
-  !*** ./src/app/export-options/export-options.component.ts ***!
-  \************************************************************/
-/*! exports provided: ExportOptionsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExportOptionsComponent", function() { return ExportOptionsComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ExportOptionsComponent = /** @class */ (function () {
-    function ExportOptionsComponent(canvasService, fb, matDialog) {
-        this.canvasService = canvasService;
-        this.fb = fb;
-        this.matDialog = matDialog;
-    }
-    ExportOptionsComponent.prototype.ngOnInit = function () {
-        var _a = this.canvasService, width = _a.width, height = _a.height, duration = _a.duration, fps = _a.fps;
-        console.log([width, height, duration, fps]);
-        // alert('ddd');
-        this.form = this.fb.group({
-            time: [this.time(), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].maxLength(10)],
-            width: [width],
-            height: [height],
-            quality: [80],
-        });
-        this.form.valueChanges.subscribe(function (res) {
-            console.log(res);
-        });
-    };
-    ExportOptionsComponent.prototype.time = function () {
-        return Math.floor(this.canvasService.duration / this.canvasService.fps);
-    };
-    ExportOptionsComponent.prototype.width = function () {
-        return this.canvasService.width;
-    };
-    ExportOptionsComponent.prototype.height = function () {
-        return this.canvasService.height;
-    };
-    ExportOptionsComponent.prototype.confirm = function () {
-        this.matDialog.closeAll();
-        console.log(this.form.value);
-        this.canvasService.exFile(this.form.value);
-    };
-    ExportOptionsComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-export-options',
-            template: __webpack_require__(/*! ./export-options.component.html */ "./src/app/export-options/export-options.component.html"),
-            styles: [__webpack_require__(/*! ./export-options.component.scss */ "./src/app/export-options/export-options.component.scss")]
-        }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_3__["CanvasService"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
-    ], ExportOptionsComponent);
-    return ExportOptionsComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/generating-progress/generating-progress.component.html":
-/*!************************************************************************!*\
-  !*** ./src/app/generating-progress/generating-progress.component.html ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<h2 mat-dialog-title>视频生成中</h2>\n<mat-dialog-content>\n  <div *ngIf=\"step()==0\">\n    <mat-progress-bar mode=\"determinate\" [value]=\"value()\" color=\"warn\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">生成逐帧图片</span>\n      <span class=\"fontSmall color-gray\">{{ position() }}/{{ duration() }}</span>\n    </div>\n  </div>\n  <div *ngIf=\"step()==1\">\n    <mat-progress-bar mode=\"indeterminate\" color=\"warn\" value=\"50\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">视频合成中</span>\n    </div>\n  </div>\n</mat-dialog-content>\n"
-
-/***/ }),
-
-/***/ "./src/app/generating-progress/generating-progress.component.scss":
-/*!************************************************************************!*\
-  !*** ./src/app/generating-progress/generating-progress.component.scss ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/generating-progress/generating-progress.component.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/generating-progress/generating-progress.component.ts ***!
-  \**********************************************************************/
-/*! exports provided: GeneratingProgressComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeneratingProgressComponent", function() { return GeneratingProgressComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var GeneratingProgressComponent = /** @class */ (function () {
-    function GeneratingProgressComponent(canvasService) {
-        this.canvasService = canvasService;
-        this.inited = false;
-    }
-    GeneratingProgressComponent.prototype.ngOnInit = function () {
-        // alert('ddd');
-        this.inited = true;
-    };
-    GeneratingProgressComponent.prototype.position = function () {
-        return this.canvasService.position;
-    };
-    GeneratingProgressComponent.prototype.duration = function () {
-        return this.canvasService.duration;
-    };
-    GeneratingProgressComponent.prototype.value = function () {
-        return this.inited ? Math.round(this.canvasService.progressPosition / this.canvasService.duration * 100) : 0;
-    };
-    GeneratingProgressComponent.prototype.step = function () {
-        return this.canvasService.generateStep;
-    };
-    GeneratingProgressComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-generating-progress',
-            template: __webpack_require__(/*! ./generating-progress.component.html */ "./src/app/generating-progress/generating-progress.component.html"),
-            styles: [__webpack_require__(/*! ./generating-progress.component.scss */ "./src/app/generating-progress/generating-progress.component.scss")]
-        }),
-        __metadata("design:paramtypes", [_service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"]])
-    ], GeneratingProgressComponent);
-    return GeneratingProgressComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/leftbar/leftbar.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/leftbar/leftbar.component.css ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n\twidth:50px;\r\n\tcolor:#aaa;\r\n}\r\n#template-show-trigger {\r\n\twidth:40px;\r\n\theight:40px;\r\n\t/* border-radius:50%;\r\n\tbackground-color: #9d62c8;\r\n\tborder:2px solid white;\r\n\tmargin-left: 5px;\r\n\tmargin-top: 10px;\r\n\tcursor: pointer;*/\r\n\tcolor: #eeeeee;\r\n\tfont-size: 35px;\r\n    text-align: center;\r\n    margin: 16px 3px;\r\n\tcursor: pointer;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/leftbar/leftbar.component.html":
-/*!************************************************!*\
-  !*** ./src/app/leftbar/leftbar.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"left-bar\">\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\" class=\"iconfont\">\n      &#xe610;\n  </div>\n</div>\n\n\n"
-
-/***/ }),
-
-/***/ "./src/app/leftbar/leftbar.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/leftbar/leftbar.component.ts ***!
-  \**********************************************/
-/*! exports provided: LeftbarComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeftbarComponent", function() { return LeftbarComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animate-template/animate-template.component */ "./src/app/animate-template/animate-template.component.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var LeftbarComponent = /** @class */ (function () {
-    function LeftbarComponent(dialog) {
-        this.dialog = dialog;
-    }
-    LeftbarComponent.prototype.ngOnInit = function () {
-    };
-    LeftbarComponent.prototype.showTemplateDialog = function () {
-        var dialogRef = this.dialog.open(_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__["AnimateTemplateComponent"]);
-        dialogRef.afterClosed().subscribe(function (result) {
-            console.log("Dialog result: " + result);
-        });
-    };
-    LeftbarComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-leftbar',
-            template: __webpack_require__(/*! ./leftbar.component.html */ "./src/app/leftbar/leftbar.component.html"),
-            styles: [__webpack_require__(/*! ./leftbar.component.css */ "./src/app/leftbar/leftbar.component.css")]
-        }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
-    ], LeftbarComponent);
-    return LeftbarComponent;
 }());
 
 
@@ -2229,9 +2581,13 @@ var FfmpegService = /** @class */ (function () {
         // alert('generateMp4');
         // console.log(__dirname);
         var currentDir = window['dirname'];
+        // 临时图片目录
         var frompath = '"' + this.path.join(savePath, imgPrefix + "%d.png") + '"';
+        // 视频生成路径
         var outputpath = '"' + distPath + '"';
+        // 音频
         var audioCommand = audioPath ? " -t " + time + " -i " + audioPath : '';
+        // 视频质量 1 - 51;越小越清晰
         var qual = (100 - quality) / 100 * 51;
         if (qual > 51) {
             qual = 51;
@@ -2239,8 +2595,11 @@ var FfmpegService = /** @class */ (function () {
         if (qual <= 1) {
             qual = 1;
         }
+        // 视频尺寸（应方显示为原有模板的高宽比）
+        var videoSize = width + '*' + height;
+        // 视频质量
         var crf = " -crf " + qual + " "; // ' -crf 51 ';
-        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + width + '*' + height + ' ' + crf + outputpath;
+        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -r ' + fps + ' -t ' + time + ' -f image2 -i ' + frompath + audioCommand + ' -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 -s ' + videoSize + ' ' + crf + outputpath;
         // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
         // alert(commandStr);
         console.log(commandStr);
@@ -2358,258 +2717,6 @@ var FileService = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], FileService);
     return FileService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/topbar/topbar.component.css":
-/*!*********************************************!*\
-  !*** ./src/app/topbar/topbar.component.css ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "#app-topbar {\r\n\tbackground-color: black;\r\n\theight: 3rem;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/topbar/topbar.component.html":
-/*!**********************************************!*\
-  !*** ./src/app/topbar/topbar.component.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"app-topbar\">\n  topbar works!\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/topbar/topbar.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/topbar/topbar.component.ts ***!
-  \********************************************/
-/*! exports provided: TopbarComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TopbarComponent", function() { return TopbarComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var TopbarComponent = /** @class */ (function () {
-    function TopbarComponent() {
-    }
-    TopbarComponent.prototype.ngOnInit = function () {
-    };
-    TopbarComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-topbar',
-            template: __webpack_require__(/*! ./topbar.component.html */ "./src/app/topbar/topbar.component.html"),
-            styles: [__webpack_require__(/*! ./topbar.component.css */ "./src/app/topbar/topbar.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], TopbarComponent);
-    return TopbarComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/workcanvas/workcanvas.component.css":
-/*!*****************************************************!*\
-  !*** ./src/app/workcanvas/workcanvas.component.css ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n#canvas-wrap {\r\n\tflex: 1;\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\toverflow: auto;\r\n}\r\n\r\n#canvas-wrap canvas {\r\n\tbackground-color: aliceblue;\r\n}\r\n\r\n#canvas-btn-wrap {\r\n\theight:50px;\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n}\r\n\r\n#canvas-btn-wrap button{\r\n\tmargin: 0 10px;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/workcanvas/workcanvas.component.html":
-/*!******************************************************!*\
-  !*** ./src/app/workcanvas/workcanvas.component.html ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"purple\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t<!--\r\n\t\t\t<button (click)=\"showSnackbar();\">\r\n\t\t\t\tsnackbar\r\n\t\t\t</button>\r\n\t\t-->\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
-
-/***/ }),
-
-/***/ "./src/app/workcanvas/workcanvas.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/workcanvas/workcanvas.component.ts ***!
-  \****************************************************/
-/*! exports provided: WorkcanvasComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkcanvasComponent", function() { return WorkcanvasComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/canvas.service */ "./src/app/service/canvas.service.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _export_options_export_options_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../export-options/export-options.component */ "./src/app/export-options/export-options.component.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var WorkcanvasComponent = /** @class */ (function () {
-    function WorkcanvasComponent(elementRef, canvasService, dialog, snackBar) {
-        this.elementRef = elementRef;
-        this.canvasService = canvasService;
-        this.dialog = dialog;
-        this.snackBar = snackBar;
-    }
-    WorkcanvasComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.canvasService.observables.generateMp4.subscribe(function (e) {
-            // this.snackBar.open('生成成功','', {duration: 3000});
-            _this.showSnackbar();
-        });
-    };
-    WorkcanvasComponent.prototype.ngAfterViewInit = function () {
-        var canvas = this.elementRef.nativeElement.querySelector('#canvas'); //获取第一个p
-        // this.canvasService.init(canvas);
-    };
-    WorkcanvasComponent.prototype.togglePlay = function () {
-        if (this.canvasService.paused) {
-            this.canvasService.play();
-        }
-        else {
-            this.canvasService.pause();
-        }
-    };
-    WorkcanvasComponent.prototype.play = function () {
-        this.canvasService.play();
-    };
-    WorkcanvasComponent.prototype.pause = function () {
-        this.canvasService.pause();
-    };
-    WorkcanvasComponent.prototype.reset = function () {
-        this.canvasService.reset();
-    };
-    // 导出mp4
-    WorkcanvasComponent.prototype.exFile = function () {
-        var dialogRef = this.dialog.open(_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_3__["ExportOptionsComponent"]);
-        dialogRef.afterClosed().subscribe(function (result) {
-            console.log("Dialog result: " + result);
-        });
-        // this.canvasService.exFile();
-    };
-    WorkcanvasComponent.prototype.isPaused = function () {
-        return this.canvasService.paused;
-    };
-    WorkcanvasComponent.prototype.fps = function () {
-        return this.canvasService.fps;
-    };
-    WorkcanvasComponent.prototype.duration = function () {
-        return this.canvasService.duration;
-    };
-    WorkcanvasComponent.prototype.showSnackbar = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.snackBar.open('生成成功', 'ok', {
-                duration: 30000,
-                horizontalPosition: 'center',
-                verticalPosition: 'bottom',
-            });
-        }, 100);
-    };
-    WorkcanvasComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-workcanvas',
-            template: __webpack_require__(/*! ./workcanvas.component.html */ "./src/app/workcanvas/workcanvas.component.html"),
-            styles: [__webpack_require__(/*! ./workcanvas.component.css */ "./src/app/workcanvas/workcanvas.component.css")]
-        }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], _service_canvas_service__WEBPACK_IMPORTED_MODULE_1__["CanvasService"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
-    ], WorkcanvasComponent);
-    return WorkcanvasComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/workspace/workspace.component.css":
-/*!***************************************************!*\
-  !*** ./src/app/workspace/workspace.component.css ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ":host{\r\n\tflex: 1;\r\n\tbackground-color: #eeeeee;\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\talign-items: stretch;\r\n}"
-
-/***/ }),
-
-/***/ "./src/app/workspace/workspace.component.html":
-/*!****************************************************!*\
-  !*** ./src/app/workspace/workspace.component.html ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n<app-workcanvas></app-workcanvas>\n<app-actionpanel></app-actionpanel>\n\n"
-
-/***/ }),
-
-/***/ "./src/app/workspace/workspace.component.ts":
-/*!**************************************************!*\
-  !*** ./src/app/workspace/workspace.component.ts ***!
-  \**************************************************/
-/*! exports provided: WorkspaceComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkspaceComponent", function() { return WorkspaceComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var WorkspaceComponent = /** @class */ (function () {
-    function WorkspaceComponent() {
-    }
-    WorkspaceComponent.prototype.ngOnInit = function () {
-    };
-    WorkspaceComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-workspace',
-            template: __webpack_require__(/*! ./workspace.component.html */ "./src/app/workspace/workspace.component.html"),
-            styles: [__webpack_require__(/*! ./workspace.component.css */ "./src/app/workspace/workspace.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], WorkspaceComponent);
-    return WorkspaceComponent;
 }());
 
 

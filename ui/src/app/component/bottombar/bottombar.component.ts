@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CanvasService } from '../service/canvas.service' 
+import { CanvasService } from '../../service/canvas.service' 
 
 @Component({
   selector: 'app-bottombar',

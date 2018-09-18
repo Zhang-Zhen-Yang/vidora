@@ -69,7 +69,8 @@
 	}
 
 	function setIsPaused() {
-		ipcRenderer.sendToHost('setIsPaused', window.exportRoot.paused);
+		// alert(stage.tickEnabled);
+		ipcRenderer.sendToHost('setIsPaused', /*!stage.tickEnabled*/ window.exportRoot.paused);
 	}
 
 	const {ipcRenderer} = require('electron')
@@ -81,6 +82,11 @@
 	// ipcRenderer.sendToHost('pong pong')
 	})
 	ipcRenderer.on('play', (e, message) => {
+		/* try{
+			stage.play();
+		}catch(e) {
+			// alert(e);
+		}*/
 		window.exportRoot.timeline.removeAllEventListeners();
 		window.exportRoot.paused = false;
 		setIsPaused();
@@ -88,6 +94,11 @@
 	})
 	ipcRenderer.on('pause', (e, message) => {
 		// window.exportRoot.timeline.removeAllEventListeners();
+		/*try{
+			stage.stop();
+		}catch(e) {
+			window.exportRoot.paused = true;
+		}*/
 		window.exportRoot.paused = true;
 		setIsPaused();
 	})
@@ -154,19 +165,46 @@
 	})
 	// 导出图片
 	ipcRenderer.on('exportImg', (e, message)=>{
-		
+		// stage.seek(0);
 		window.exportRoot.timeline.removeAllEventListeners();
-		console.log(message);
 		const {path: dirpath, imgPrefix} = JSON.parse(message);
 
 		const duration = window.exportRoot.timeline.duration
 		let currentPosition = 0;
 		window.exportRoot.gotoAndStop(0.1);
+		
 		setIsPaused();
-		const tickHandler = window.exportRoot.timeline.on('change', () => {
+		/* const tickHandle = stage.on('tick',()=>{
 			const thisPosition = window.exportRoot.timeline.position;
 			ipcRenderer.sendToHost('setProgress', thisPosition);
 			console.log(thisPosition);
+			window.stage.update();
+			const base64str = window.canvas.toDataURL();
+			var imgdata =  base64str.slice(22)
+			imageCount[thisPosition] = false; 
+			fs.writeFile(path.join(dirpath, imgPrefix + thisPosition + '.png'), imgdata, 'base64', function(err){
+				if(err) {
+					console.error(err);
+				}
+				if(thisPosition + 1 < duration) {
+					window.exportRoot.gotoAndStop(thisPosition + 1);
+				} else {
+					// window.exportRoot.timeline.off(tickHandler);
+					// window.exportRoot.timeline.removeAllEventListeners();
+					// window.ffmpegService.generateMp4();
+					if(imageCount.length == imageCount.filter((i)=>{return i;})) {
+						console.log('生成完毕');
+						ipcRenderer.sendToHost('generateMp4');
+					}
+
+				}
+			});
+		})*/
+		
+		const tickHandler = window.exportRoot.timeline.on('change', () => {
+			const thisPosition = window.exportRoot.timeline.position;
+			ipcRenderer.sendToHost('setProgress', thisPosition);
+			console.log('positon', thisPosition);
 			window.stage.update();
 			const base64str = window.canvas.toDataURL();
 			
@@ -179,7 +217,6 @@
 				if(thisPosition + 1 < duration) {
 					window.exportRoot.gotoAndStop(thisPosition + 1);
 				} else {
-					// window.exportRoot.timeline.off(tickHandler);
 					window.exportRoot.timeline.removeAllEventListeners();
 					// window.ffmpegService.generateMp4();
 					console.log('生成完毕');

@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { DynamicFormComponent } from '../dynamic-form2/containers/dynamic-form/dynamic-form.component';
-import { CanvasService } from '../service/canvas.service';
+import { DynamicFormComponent } from '../../dynamic-form2/containers/dynamic-form/dynamic-form.component';
+import { CanvasService } from '../../service/canvas.service';
 
 interface FormItemOption {
   type: string;

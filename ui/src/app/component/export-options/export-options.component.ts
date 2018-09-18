@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {MatDialog} from '@angular/material';
-import { CanvasService } from '../service/canvas.service';
+import { CanvasService } from '../../service/canvas.service';
 @Component({
   selector: 'app-export-options',
   templateUrl: './export-options.component.html',

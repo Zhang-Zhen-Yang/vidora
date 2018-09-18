@@ -166,6 +166,13 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 				}
 				
 			}
+		},
+		{
+			label: 'aa',
+			type: 'button',
+			callback: () =>{
+				alert('ddd');
+			}
 		}
 	])
 	/*util.add([

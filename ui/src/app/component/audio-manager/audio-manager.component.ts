@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {MatDialog, MatMenuTrigger} from '@angular/material';
-import { DialogService } from '../service/dialog.service';
-import { CanvasService } from '../service/canvas.service';
+import { DialogService } from '../../service/dialog.service';
+import { CanvasService } from '../../service/canvas.service';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
