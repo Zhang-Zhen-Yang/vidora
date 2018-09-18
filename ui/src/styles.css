@@ -72,6 +72,9 @@ button.purple:hover {
 button.warn {
 	background-color: #f44336;
 }
+button.blue{
+	background-color: #3498DB
+}
 
 
 button:disabled {
