@@ -1,7 +1,11 @@
+div{
+  display: flex;
+}
 button {
   letter-spacing: -0.5px;
   cursor: pointer;
-  background-color: #9d62c8;
+  // background-color: #9d62c8;
+  // background-color: #9d62c8;
   outline: 0;
   line-height: 1;
   text-align: center;
@@ -13,9 +17,8 @@ button {
   border: none;
   color: #fff;
   transition: background-color .3s, box-shadow .3s;
-
   &:hover {
-    background-color: #a46dcc;
+    // background-color: #a46dcc;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   }
 
@@ -24,5 +27,12 @@ button {
     color: rgba(0, 0, 0, 0.4);
     cursor: not-allowed;
     box-shadow: none;
+  }
+  &.small{
+    padding: 5px 10px;
+    font-size: 14;
+  }
+  &.block{
+    flex: 1;
   }
 }

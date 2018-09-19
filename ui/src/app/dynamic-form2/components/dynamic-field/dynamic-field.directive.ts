@@ -5,6 +5,8 @@ import { FormButtonComponent } from '../form-button/form-button.component';
 import { FormInputComponent } from '../form-input/form-input.component';
 import { FormSelectComponent } from '../form-select/form-select.component';
 import { FormImageComponent } from '../form-image/form-image.component';
+import { FormCheckboxComponent } from '../form-checkbox/form-checkbox.component';
+import { FormRadioComponent } from '../form-radio/form-radio.component';
 
 import { Field } from '../../models/field.interface';
 import { FieldConfig } from '../../models/field-config.interface';
@@ -18,6 +20,8 @@ const components: {[type: string]: Type<Field>} = {
   text: FormInputComponent,
   font: FormSelectComponent,
   color: FormInputComponent,
+  checkbox: FormCheckboxComponent,
+  radio: FormRadioComponent,
 };
 
 @Directive({
@@ -53,6 +57,7 @@ export class DynamicFieldDirective implements Field, OnChanges, OnInit {
       );*/
       return;
     }
+    // alert(this.config.type);
     const component = this.resolver.resolveComponentFactory<Field>(components[this.config.type]);
     this.component = this.container.createComponent(component);
     this.component.instance.config = this.config;

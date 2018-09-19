@@ -173,8 +173,66 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			callback: () =>{
 				alert('ddd');
 			}
+		},
+		{
+			label: 'checkbox',
+			type: 'checkbox',
+			value: {
+				apple: true,
+				banana: false,
+				p: true,
+			},
+			options: [
+				{
+					value: 'a',
+					name: 'apple',
+				},
+				{
+					value: 'b',
+					name: 'banana',
+				},
+				{
+					value: 'p',
+					name: 'p',
+				},
+				
+			],
+			callback: (r) => {
+
+			}
+		},
+		{
+			label: 'radio',
+			type: 'radio',
+			value: 'b',
+			options: [
+				{
+					value: 'a',
+					name: 'apple'
+				},
+				{
+					value: 'b',
+					name: 'banana',
+				},
+				{
+					value: 'c',
+					name: 'camera',
+				},
+				{
+					value: 'd',
+					name: 'digital',
+				},
+				{
+					value: 'e',
+					name: 'english',
+				},
+			],
+			callback: (r) => {
+
+			}
 		}
 	])
+
 	/*util.add([
 		{
 			name: 'img2',

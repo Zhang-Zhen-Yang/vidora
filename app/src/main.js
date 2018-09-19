@@ -585,7 +585,7 @@ var AnimateTemplateLoadingProgressComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n\tjustify-content: space-around;\r\n\tflex-wrap: wrap;\r\n}"
+module.exports = "#template-wrap{\r\n\t/*width: 500px;*/\r\n\tdisplay: flex;\r\n\tjustify-content: space-around;\r\n\tflex-wrap: wrap;\r\n\tpadding: 10px 0;\r\n}"
 
 /***/ }),
 
@@ -1427,7 +1427,7 @@ module.exports = ":host {\r\n\tflex: 1;\r\n\tdisplay: flex;\r\n\tflex-direction:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"blue\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t<!--\r\n\t\t\t<button (click)=\"showSnackbar();\">\r\n\t\t\t\tsnackbar\r\n\t\t\t</button>\r\n\t\t-->\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
+module.exports = "<div id=\"canvas-wrap\" class=\"scrollbar-override\">\r\n\t<!--<canvas id=\"canvas\" width=\"800\" height=\"800\">\r\n\t</canvas>-->\r\n\t<app-canvas-space></app-canvas-space>\r\n</div>\r\n<div id=\"canvas-btn-wrap\">\r\n\t<div class=\"button-row\">\r\n\t\t<button  (click)=\"togglePlay()\" class=\"blue\">\r\n\t\t\t<span class=\"iconfont\">{{ isPaused() ? '&#xe61c;' : '&#xe61d;' }}</span> {{ isPaused() ? '播放' : '暂停' }}\r\n\t\t</button>\r\n\t\t<button  (click)=\"exFile()\" class=\"warn\">\r\n\t\t\t<span class=\"iconfont\">&#xe73c;</span>\r\n\t\t\t导出\r\n\t\t</button>\r\n\t\t\r\n\t\t<!--\r\n\t\t\t<button (click)=\"showSnackbar();\">\r\n\t\t\t\tsnackbar\r\n\t\t\t</button>\r\n\t\t-->\r\n\t\t<!--<button mat-flat-button color=\"accent\" (click)=\"reset()\">reset</button>\r\n\t\t<button mat-flat-button color=\"warn\" (click)=\"exFile()\">导出</button>-->\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -1614,6 +1614,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../form-input/form-input.component */ "./src/app/dynamic-form2/components/form-input/form-input.component.ts");
 /* harmony import */ var _form_select_form_select_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../form-select/form-select.component */ "./src/app/dynamic-form2/components/form-select/form-select.component.ts");
 /* harmony import */ var _form_image_form_image_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../form-image/form-image.component */ "./src/app/dynamic-form2/components/form-image/form-image.component.ts");
+/* harmony import */ var _form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../form-checkbox/form-checkbox.component */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts");
+/* harmony import */ var _form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../form-radio/form-radio.component */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1629,6 +1631,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var components = {
     button: _form_button_form_button_component__WEBPACK_IMPORTED_MODULE_2__["FormButtonComponent"],
     input: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
@@ -1638,6 +1642,8 @@ var components = {
     text: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
     font: _form_select_form_select_component__WEBPACK_IMPORTED_MODULE_4__["FormSelectComponent"],
     color: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
+    checkbox: _form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_6__["FormCheckboxComponent"],
+    radio: _form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_7__["FormRadioComponent"],
 };
 var DynamicFieldDirective = /** @class */ (function () {
     function DynamicFieldDirective(resolver, container) {
@@ -1659,6 +1665,7 @@ var DynamicFieldDirective = /** @class */ (function () {
             );*/
             return;
         }
+        // alert(this.config.type);
         var component = this.resolver.resolveComponentFactory(components[this.config.type]);
         this.component = this.container.createComponent(component);
         this.component.instance.config = this.config;
@@ -1693,7 +1700,7 @@ var DynamicFieldDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "button {\n  letter-spacing: -0.5px;\n  cursor: pointer;\n  background-color: #9d62c8;\n  outline: 0;\n  line-height: 1;\n  text-align: center;\n  padding: 12px 30px;\n  font-size: 15px;\n  font-weight: 600;\n  border-radius: 2px;\n  display: inline-block;\n  border: none;\n  color: #fff;\n  transition: background-color .3s, box-shadow .3s; }\n  button:hover {\n    background-color: #a46dcc;\n    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }\n  button:disabled {\n    background: rgba(0, 0, 0, 0.2);\n    color: rgba(0, 0, 0, 0.4);\n    cursor: not-allowed;\n    box-shadow: none; }\n"
+module.exports = "div {\n  display: flex; }\n\nbutton {\n  letter-spacing: -0.5px;\n  cursor: pointer;\n  outline: 0;\n  line-height: 1;\n  text-align: center;\n  padding: 12px 30px;\n  font-size: 15px;\n  font-weight: 600;\n  border-radius: 2px;\n  display: inline-block;\n  border: none;\n  color: #fff;\n  transition: background-color .3s, box-shadow .3s; }\n\nbutton:hover {\n    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }\n\nbutton:disabled {\n    background: rgba(0, 0, 0, 0.2);\n    color: rgba(0, 0, 0, 0.4);\n    cursor: not-allowed;\n    box-shadow: none; }\n\nbutton.small {\n    padding: 5px 10px;\n    font-size: 14; }\n\nbutton.block {\n    flex: 1; }\n"
 
 /***/ }),
 
@@ -1725,10 +1732,60 @@ var FormButtonComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-button',
             styles: [__webpack_require__(/*! ./form-button.component.scss */ "./src/app/dynamic-form2/components/form-button/form-button.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field form-button\"\n      [formGroup]=\"group\"\n    >\n      <button\n        [disabled]=\"config.disabled\"\n        (click)=\"click()\"\n      >\n        {{ config.label }}\n      </button>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field form-button\"\n      [formGroup]=\"group\"\n    >\n      <button\n        class=\"blue block\"\n        [disabled]=\"config.disabled\"\n        (click)=\"click()\"\n      >\n        {{ config.label }}\n      </button>\n    </div>\n  "
         })
     ], FormButtonComponent);
     return FormButtonComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.scss":
+/*!*************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.scss ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input {\n  font-family: inherit;\n  font-size: 14px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding-left: 10px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  div {\n  display: flex;\n  margin-bottom: 5px; }\n  label {\n  min-width: 50px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts ***!
+  \***********************************************************************************/
+/*! exports provided: FormCheckboxComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormCheckboxComponent", function() { return FormCheckboxComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FormCheckboxComponent = /** @class */ (function () {
+    function FormCheckboxComponent() {
+    }
+    FormCheckboxComponent.prototype.itemChange = function (name, res) {
+        this.config.value[name] = res.checked;
+        this.group.controls[this.config.name].setValue(this.config.value);
+    };
+    FormCheckboxComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-checkbox',
+            styles: [__webpack_require__(/*! ./form-checkbox.component.scss */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.scss")],
+            template: "\n    <div\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <div>\n        {{ config.label }}\n      </div>\n      <div style=\"flex:1;flex-wrap: wrap;\">\n        <div *ngFor=\"let item of config.options\">\n          <label>\n            <input\n              #i\n              [checked]=\"config.value[item.name]\"\n              (change)=\"itemChange(item.name, i);\"\n              type=\"checkbox\" >\n            {{ item.name }}\n          </label>\n        </div>\n      </div>\n      <!--<input\n        type=\"checkbox\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\" >-->\n    </div>\n  "
+        })
+    ], FormCheckboxComponent);
+    return FormCheckboxComponent;
 }());
 
 
@@ -1867,6 +1924,52 @@ var FormInputComponent = /** @class */ (function () {
         })
     ], FormInputComponent);
     return FormInputComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/form-radio/form-radio.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/form-radio/form-radio.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input {\n  font-family: inherit;\n  font-size: 14px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding-left: 10px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  div {\n  display: flex;\n  margin-bottom: 5px; }\n  label {\n  min-width: 50px; }\n  .radio-label {\n  width: 50px; }\n  /*radio++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/\n  .radio {\n  display: inline-block;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background-color: #ffffff;\n  border: 2px solid #3498DB;\n  text-align: center;\n  cursor: pointer;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-transform: translate(-2px, 3px);\n  transform: translate(-2px, 4px); }\n  .radio.sm {\n  width: 14px;\n  height: 14px;\n  -webkit-transform: translate(-2px, 3px);\n  transform: translate(-2px, 4px); }\n  .radioWrap {\n  padding-right: 10px;\n  padding-top: 5px;\n  padding-bottom: 5px; }\n  .radioWrap:hover .radio {\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input {\n  display: none; }\n  .radioWrap > input:checked + .radio {\n  background-color: #3498DB;\n  border-color: #3498DB;\n  box-shadow: 0 0 0 3px #ffffff inset; }\n  .radioWrap:hover > input:checked + .radio {\n  background-color: rgba(52, 152, 219, 0.938);\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input:disabled + .radio {\n  background-color: #d3d4e2;\n  border-color: #d3d4e2;\n  box-shadow: 0 0 0 3px #ffffff inset; }\n  .radioWrap > input:checked + .radio.sm {\n  background-color: #3498DB;\n  border-color: #3498DB;\n  box-shadow: 0 0 0 2px #ffffff inset; }\n  .radioWrap:hover > input:checked + .radio.sm {\n  background-color: rgba(52, 152, 219, 0.938);\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input:disabled + .radio.sm {\n  background-color: #d3d4e2;\n  border-color: #d3d4e2;\n  box-shadow: 0 0 0 2px #ffffff inset; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/form-radio/form-radio.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: FormRadioComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormRadioComponent", function() { return FormRadioComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FormRadioComponent = /** @class */ (function () {
+    function FormRadioComponent() {
+    }
+    FormRadioComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-radio',
+            styles: [__webpack_require__(/*! ./form-radio.component.scss */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.scss")],
+            template: "\n    <div\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <div class=\"radio-label\">{{ config.label }}</div>\n      <div style=\"flex:1;flex-wrap: wrap;\">\n        <label *ngFor=\"let item of config.options\" class=\"radioWrap f fdr aic\">\n          <input\n            type=\"radio\"\n            [value]=\"item.value\"\n            [attr.placeholder]=\"config.placeholder\"\n            [formControlName]=\"config.name\" >\n            <div class=\"radio sm\"></div>\n            {{ item.name }}\n        </label>\n      \n      </div>\n    </div>\n  "
+        })
+    ], FormRadioComponent);
+    return FormRadioComponent;
 }());
 
 
@@ -2064,12 +2167,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_form_input_form_input_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/form-input/form-input.component */ "./src/app/dynamic-form2/components/form-input/form-input.component.ts");
 /* harmony import */ var _components_form_select_form_select_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/form-select/form-select.component */ "./src/app/dynamic-form2/components/form-select/form-select.component.ts");
 /* harmony import */ var _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/form-image/form-image.component */ "./src/app/dynamic-form2/components/form-image/form-image.component.ts");
+/* harmony import */ var _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/form-checkbox/form-checkbox.component */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts");
+/* harmony import */ var _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/form-radio/form-radio.component */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -2086,7 +2194,8 @@ var DynamicFormModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
             ],
             declarations: [
                 _components_dynamic_field_dynamic_field_directive__WEBPACK_IMPORTED_MODULE_3__["DynamicFieldDirective"],
@@ -2094,7 +2203,9 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_button_form_button_component__WEBPACK_IMPORTED_MODULE_5__["FormButtonComponent"],
                 _components_form_input_form_input_component__WEBPACK_IMPORTED_MODULE_6__["FormInputComponent"],
                 _components_form_select_form_select_component__WEBPACK_IMPORTED_MODULE_7__["FormSelectComponent"],
-                _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__["FormImageComponent"]
+                _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__["FormImageComponent"],
+                _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
+                _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"]
             ],
             exports: [
                 _containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_4__["DynamicFormComponent"]
@@ -2103,7 +2214,9 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_button_form_button_component__WEBPACK_IMPORTED_MODULE_5__["FormButtonComponent"],
                 _components_form_input_form_input_component__WEBPACK_IMPORTED_MODULE_6__["FormInputComponent"],
                 _components_form_select_form_select_component__WEBPACK_IMPORTED_MODULE_7__["FormSelectComponent"],
-                _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__["FormImageComponent"]
+                _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__["FormImageComponent"],
+                _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
+                _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
             ]
         })
     ], DynamicFormModule);

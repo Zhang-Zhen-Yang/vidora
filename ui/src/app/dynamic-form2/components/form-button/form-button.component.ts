@@ -13,6 +13,7 @@ import { FieldConfig } from '../../models/field-config.interface';
       [formGroup]="group"
     >
       <button
+        class="blue block"
         [disabled]="config.disabled"
         (click)="click()"
       >
