@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>视频操作</h2>
+<mat-dialog-content>
+    <div id="export-options-wrap" [formGroup]="form">
+      <!--名称-->
+      <div class="input-wrap">
+        <label>
+          name
+        </label>
+        <input [formControlName]="'name'" type="text" (click)="selectFile()">
+      </div>
+      <!--类型-->
+      <div class="input-wrap">
+        <label>
+          type
+        </label>
+        <select [formControlName]="'type'" >
+            <option *ngFor="let item of types" [value]="item">{{item}}</option>
+        </select>
+      </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>取消</button>
+    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+    <button mat-button (click)="confirm()">确定</button>
+  </mat-dialog-actions>

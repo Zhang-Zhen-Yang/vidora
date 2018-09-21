@@ -56,6 +56,7 @@ export class CanvasService {
     // 模板列表
     this.tempList = window['tempList'];
     this.initMenu();
+    this.initShortcut();
   }
   // 初始化菜单
   initMenu() {
@@ -76,6 +77,24 @@ export class CanvasService {
         })
       }
     }));
+  }
+  initShortcut() {
+    document.addEventListener('keydown', (e) => {
+      console.log(e);
+      const code = e.which;
+      switch(code) {
+        // space
+        /*case 32:
+          if(this.paused) {
+            this.play();
+          } else {
+            this.pause();
+          }
+        break;*/
+        default:
+        break;
+      }
+    })
   }
   setInstance() {
    

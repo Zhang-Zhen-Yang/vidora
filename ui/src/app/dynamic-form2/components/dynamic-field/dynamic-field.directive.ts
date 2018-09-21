@@ -7,6 +7,7 @@ import { FormSelectComponent } from '../form-select/form-select.component';
 import { FormImageComponent } from '../form-image/form-image.component';
 import { FormCheckboxComponent } from '../form-checkbox/form-checkbox.component';
 import { FormRadioComponent } from '../form-radio/form-radio.component';
+import { FormTitleComponent } from '../form-title/form-title.component';
 
 import { Field } from '../../models/field.interface';
 import { FieldConfig } from '../../models/field-config.interface';
@@ -22,6 +23,7 @@ const components: {[type: string]: Type<Field>} = {
   color: FormInputComponent,
   checkbox: FormCheckboxComponent,
   radio: FormRadioComponent,
+  title: FormTitleComponent,
 };
 
 @Directive({

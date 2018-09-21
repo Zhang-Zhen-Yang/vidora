@@ -36,3 +36,11 @@ button {
     flex: 1;
   }
 }
+input{
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  opacity: 0;
+}

@@ -8,6 +8,7 @@ import {MatSnackBar, MatDialog} from '@angular/material';
 export class FfmpegService {
   exec
   path
+  currentDir = window['dirname'];
   constructor(private fileService: FileService, private snackBar: MatSnackBar, public dialog: MatDialog) { 
     this.exec = window['exec'];
     this.path = window['path'];
@@ -16,7 +17,7 @@ export class FfmpegService {
 
     // alert('generateMp4');
     // console.log(__dirname);
-    const currentDir = window['dirname'];
+    
     // 临时图片目录
     const frompath = '"' + this.path.join(savePath, `${imgPrefix}%d.png`) + '"';
     // 视频生成路径
@@ -40,7 +41,7 @@ export class FfmpegService {
     
     // alert(commandStr);
     console.log(commandStr);
-    this.exec(commandStr, {cwd: currentDir}, (err,data,data1) => {
+    this.exec(commandStr, {cwd: this.currentDir}, (err,data,data1) => {
       
       if (err) {
         console.error(err);
@@ -71,5 +72,40 @@ export class FfmpegService {
     } catch (e) {
       console.error(e);
     }
+  }
+  // 转换格式
+  transform() {
+    const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -i "F:/code/node/test/s.mp4" "F:/code/node/test/s.mov"';
+    // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';    
+    const command = this.exec(commandStr, {cwd: this.currentDir, killSignal: 'SIGTERM',}, (err,data,data1) => {
+      if(err) {
+        console.error(err);
+        return ;
+      }
+      console.log(data);
+    })
+    command.stdout.on('data',(res)=>{
+      console.log(res);
+    })
+    command.stderr.on('data',(res)=>{
+      console.error(res);
+    })
+    setTimeout(()=>{
+      console.log('k----------------------------------------------------------------------------');
+      console.log(command);
+      const pid = command.pid;
+      console.log(pid);
+      // taskkill /f /t /im spx.exe
+      this.exec(`taskkill  /f /t /pid ${pid}`, (err, stdout, stderr)=>{
+        if(err) {
+          console.log(err);
+          return;
+        }
+        console.log(stdout);
+      })
+      // process.kill(0);
+      // command.exit(0);
+      // command.exit('SIGTERM');
+    }, 10000)
   }
 }

@@ -13,7 +13,7 @@
         mat-menu-item
         *ngFor="let item of audioList"
         (click)="selectAudio(item);"
-        [ngStyle]="{'background-color': audioName() == item.name ? 'orange' : 'white', color: audioName() == item.name ? 'white' : 'inherit'}"
+        [ngStyle]="{'background-color': audioName() == item.name ? '#f44336' : 'white', color: audioName() == item.name ? 'white' : 'inherit'}"
       >
         {{item.name}}
     </button>

@@ -16,7 +16,8 @@
       window.remote = remote;
       window.webFrame = webFrame;
       window.clipboard = clipboard;
-      window.exec = require('child_process').exec;
+      window.child_process = require('child_process');
+      window.exec = window.child_process.exec;
       // window.glob = require('glob');
       window.path = require('path');
       window.fs = require('fs');

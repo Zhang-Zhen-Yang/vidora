@@ -1,6 +1,6 @@
 :host {
 	width: 300px;
-	background-color: aliceblue;
+	background-color:#ededed;/* aliceblue;*/
 	border-left:1px solid #cccccc;
 	padding: 20px 0 0 20px;;
 	display: flex;

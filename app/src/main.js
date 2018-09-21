@@ -118,6 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./component/generating-progress/generating-progress.component */ "./src/app/component/generating-progress/generating-progress.component.ts");
 /* harmony import */ var _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./component/audio-manager/audio-manager.component */ "./src/app/component/audio-manager/audio-manager.component.ts");
 /* harmony import */ var _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./component/actionpanel-item/actionpanel-item.component */ "./src/app/component/actionpanel-item/actionpanel-item.component.ts");
+/* harmony import */ var _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./component/video-transform/video-transform.component */ "./src/app/component/video-transform/video-transform.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -153,6 +154,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -174,6 +176,7 @@ var AppModule = /** @class */ (function () {
                 _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__["AudioManagerComponent"],
                 _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__["ActionpanelItemComponent"],
                 _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
+                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -194,6 +197,7 @@ var AppModule = /** @class */ (function () {
                 _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__["ExportOptionsComponent"],
                 _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__["GeneratingProgressComponent"],
                 _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
+                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
@@ -312,7 +316,7 @@ var ActionpanelItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color: aliceblue;\r\n\tborder-left:1px solid #cccccc;\r\n\tpadding: 20px 0 0 20px;;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n.panel-form-wrap{\r\n\tflex: 1;\r\n\toverflow: auto;\r\n\tpadding: 0 20px 20px 0;\r\n}"
+module.exports = ":host {\r\n\twidth: 300px;\r\n\tbackground-color:#ededed;/* aliceblue;*/\r\n\tborder-left:1px solid #cccccc;\r\n\tpadding: 20px 0 0 20px;;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n.panel-form-wrap{\r\n\tflex: 1;\r\n\toverflow: auto;\r\n\tpadding: 0 20px 20px 0;\r\n}"
 
 /***/ }),
 
@@ -663,7 +667,7 @@ var AnimateTemplateComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<audio #audio src=\"\" controls=\"controls\" loop></audio>\n<div>&nbsp;{{ audioName() }}&nbsp;</div>\n<div id=\"music-albums\" class=\"pointer\" [matMenuTriggerFor]=\"menu\">\n  <div [class]=\"[paused ? 'audio-paused' : 'audio-running']\">\n    <span class=\"iconfont\">&#xe652;</span>\n  </div>\n  <mat-menu #menu=\"matMenu\" MenuPositionX=\"before\" xPosition=\"before\" (closed)=\"menuClosed(e)\">\n      <button mat-menu-item (click)=\"selectLocalAudio()\">本地音乐</button>\n      <button mat-menu-item [matMenuTriggerFor]=\"preset\">内置音乐</button>\n  </mat-menu>\n  <mat-menu #preset=\"matMenu\">\n      <button\n        mat-menu-item\n        *ngFor=\"let item of audioList\"\n        (click)=\"selectAudio(item);\"\n        [ngStyle]=\"{'background-color': audioName() == item.name ? 'orange' : 'white', color: audioName() == item.name ? 'white' : 'inherit'}\"\n      >\n        {{item.name}}\n    </button>\n  </mat-menu>\n</div>\n"
+module.exports = "<audio #audio src=\"\" controls=\"controls\" loop></audio>\n<div>&nbsp;{{ audioName() }}&nbsp;</div>\n<div id=\"music-albums\" class=\"pointer\" [matMenuTriggerFor]=\"menu\">\n  <div [class]=\"[paused ? 'audio-paused' : 'audio-running']\">\n    <span class=\"iconfont\">&#xe652;</span>\n  </div>\n  <mat-menu #menu=\"matMenu\" MenuPositionX=\"before\" xPosition=\"before\" (closed)=\"menuClosed(e)\">\n      <button mat-menu-item (click)=\"selectLocalAudio()\">本地音乐</button>\n      <button mat-menu-item [matMenuTriggerFor]=\"preset\">内置音乐</button>\n  </mat-menu>\n  <mat-menu #preset=\"matMenu\">\n      <button\n        mat-menu-item\n        *ngFor=\"let item of audioList\"\n        (click)=\"selectAudio(item);\"\n        [ngStyle]=\"{'background-color': audioName() == item.name ? '#f44336' : 'white', color: audioName() == item.name ? 'white' : 'inherit'}\"\n      >\n        {{item.name}}\n    </button>\n  </mat-menu>\n</div>\n"
 
 /***/ }),
 
@@ -674,7 +678,7 @@ module.exports = "<audio #audio src=\"\" controls=\"controls\" loop></audio>\n<d
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  align-items: center; }\n\n#music-albums {\n  padding: 5px;\n  /* background-color: red;*/ }\n\n#music-albums span {\n  font-size: 20px; }\n\n#music-albums > div {\n  -webkit-animation: round 5s linear 0s infinite normal;\n          animation: round 5s linear 0s infinite normal;\n  margin-right: 10px; }\n\n@-webkit-keyframes round {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes round {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\nbutton {\n  font-size: 14px; }\n\n.selected {\n  background-color: orange;\n  color: white; }\n"
+module.exports = ":host {\n  display: flex;\n  align-items: center; }\n\n#music-albums {\n  padding: 5px;\n  /* background-color: red;*/ }\n\n#music-albums span {\n  font-size: 20px; }\n\n#music-albums > div {\n  -webkit-animation: round 5s linear 0s infinite normal;\n          animation: round 5s linear 0s infinite normal;\n  margin-right: 10px; }\n\n@-webkit-keyframes round {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes round {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg); }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\nbutton {\n  font-size: 14px; }\n\n.selected {\n  background-color: #f44336;\n  color: white; }\n"
 
 /***/ }),
 
@@ -795,7 +799,7 @@ var AudioManagerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\t/* background-color:#1ABC9C;*/ \r\n\tbackground-color:orange;\r\n\theight: 25px;\r\n\tposition: relative;\r\n}\r\n#bottom-bar{\r\n\tposition: absolute;\r\n\tleft:0;\r\n\tbottom:0;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tcolor:white;\r\n}\r\n.edit-message-wrap{\r\n\tfloat:right;\r\n\tcolor:white;\r\n}\r\n.edit-message{\r\n\tdisplay: inline-block;\r\n\theight:25px;\r\n\tline-height: 25px;\r\n\tfont-size:12px;\r\n\tpadding:0 5px;\r\n}"
+module.exports = ":host {\r\n\t/* background-color:#1ABC9C;*/ \r\n\tbackground-color:#3498DB;\r\n\theight: 25px;\r\n\tposition: relative;\r\n}\r\n#bottom-bar{\r\n\tposition: absolute;\r\n\tleft:0;\r\n\tbottom:0;\r\n\twidth:100%;\r\n\theight:100%;\r\n\tcolor:white;\r\n}\r\n.edit-message-wrap{\r\n\tfloat:right;\r\n\tcolor:white;\r\n}\r\n.edit-message{\r\n\tdisplay: inline-block;\r\n\theight:25px;\r\n\tline-height: 25px;\r\n\tfont-size:12px;\r\n\tpadding:0 5px;\r\n}"
 
 /***/ }),
 
@@ -1111,7 +1115,7 @@ module.exports = "<h2 mat-dialog-title>视频导出</h2>\n<mat-dialog-content>\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis;\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .input-wrap {\n  display: flex;\n  align-items: center; }\n  .input-wrap label {\n  width: 100px; }\n"
+module.exports = "/* input {\r\n\tdisplay: block;\r\n\tfont-family: inherit;\r\n\tfont-size: 14px;\r\n\twidth: 100%;\r\n\tborder: 1px solid rgba(0, 0, 0, 0.1);\r\n\toutline: none;\r\n\tpadding: 10px 15px;\r\n\tcolor: rgba(0, 0, 0, 0.7);\r\n\tbox-sizing: border-box;\r\n\toverflow: hidden;\r\n\twhite-space: nowrap;\r\n\tword-break: break-all;\r\n\ttext-overflow: ellipsis;\r\n\tmargin-top: 10px;\r\n\tmargin-bottom: 10px;\r\n\t&:focus {\r\n\t  border: 1px solid rgba(0, 0, 0, 0.4);\r\n\t  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);\r\n\t}\r\n}\r\n.input-wrap{\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n.input-wrap label{\r\n\twidth: 100px;\r\n}*/\n"
 
 /***/ }),
 
@@ -1279,7 +1283,7 @@ var GeneratingProgressComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n\twidth:50px;\r\n\tcolor:#aaa;\r\n}\r\n#template-show-trigger {\r\n\twidth:40px;\r\n\theight:40px;\r\n\t/* border-radius:50%;\r\n\tbackground-color: #9d62c8;\r\n\tborder:2px solid white;\r\n\tmargin-left: 5px;\r\n\tmargin-top: 10px;\r\n\tcursor: pointer;*/\r\n\tcolor: #eeeeee;\r\n\tfont-size: 35px;\r\n    text-align: center;\r\n    margin: 16px 3px;\r\n\tcursor: pointer;\r\n}"
+module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n\twidth:50px;\r\n\tcolor:#aaa;\r\n}\r\n#template-show-trigger {\r\n\twidth:40px;\r\n\theight:40px;\r\n\t/* border-radius:50%;\r\n\tbackground-color: #9d62c8;\r\n\tborder:2px solid white;\r\n\tmargin-left: 5px;\r\n\tmargin-top: 10px;\r\n\tcursor: pointer;*/\r\n\tcolor: #eeeeee;\r\n\tfont-size: 30px;\r\n    text-align: center;\r\n\tmargin: 16px 3px;\r\n\tmargin-bottom: 30px;\r\n\tcursor: pointer;\r\n}"
 
 /***/ }),
 
@@ -1290,7 +1294,7 @@ module.exports = ":host {\r\n\tbackground-color:#2B2B2B;\r\n}\r\n#left-bar {\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"left-bar\">\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\" class=\"iconfont\">\n      &#xe610;\n  </div>\n</div>\n\n\n"
+module.exports = "<div id=\"left-bar\">\n  <div  id=\"template-show-trigger\" (click)=\"showTemplateDialog()\" class=\"iconfont\" title=\"模板选择\">\n    &#xe610;\n  </div>\n  <div  id=\"template-show-trigger\" (click)=\"showAudioDialog()\" class=\"iconfont\" title=\"影片编辑\" style=\"font-size: 26px;\">\n    &#xe978;\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1307,6 +1311,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animate-template/animate-template.component */ "./src/app/component/animate-template/animate-template.component.ts");
+/* harmony import */ var _video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../video-transform/video-transform.component */ "./src/app/component/video-transform/video-transform.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1319,14 +1324,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LeftbarComponent = /** @class */ (function () {
     function LeftbarComponent(dialog) {
         this.dialog = dialog;
     }
     LeftbarComponent.prototype.ngOnInit = function () {
     };
+    // 显示模板弹窗
     LeftbarComponent.prototype.showTemplateDialog = function () {
         var dialogRef = this.dialog.open(_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_2__["AnimateTemplateComponent"]);
+        dialogRef.afterClosed().subscribe(function (result) {
+            console.log("Dialog result: " + result);
+        });
+    };
+    // 显示视频转换弹窗
+    LeftbarComponent.prototype.showAudioDialog = function () {
+        var dialogRef = this.dialog.open(_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_3__["VideoTransformComponent"]);
         dialogRef.afterClosed().subscribe(function (result) {
             console.log("Dialog result: " + result);
         });
@@ -1404,6 +1418,130 @@ var TopbarComponent = /** @class */ (function () {
     ], TopbarComponent);
     return TopbarComponent;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/video-transform/video-transform.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/component/video-transform/video-transform.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>视频操作</h2>\n<mat-dialog-content>\n    <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--名称-->\n      <div class=\"input-wrap\">\n        <label>\n          name\n        </label>\n        <input [formControlName]=\"'name'\" type=\"text\" (click)=\"selectFile()\">\n      </div>\n      <!--类型-->\n      <div class=\"input-wrap\">\n        <label>\n          type\n        </label>\n        <select [formControlName]=\"'type'\" >\n            <option *ngFor=\"let item of types\" [value]=\"item\">{{item}}</option>\n        </select>\n      </div>\n    </div>\n</mat-dialog-content>\n<mat-dialog-actions>\n    <button mat-button mat-dialog-close>取消</button>\n    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n    <button mat-button (click)=\"confirm()\">确定</button>\n  </mat-dialog-actions>\n"
+
+/***/ }),
+
+/***/ "./src/app/component/video-transform/video-transform.component.scss":
+/*!**************************************************************************!*\
+  !*** ./src/app/component/video-transform/video-transform.component.scss ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/component/video-transform/video-transform.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/component/video-transform/video-transform.component.ts ***!
+  \************************************************************************/
+/*! exports provided: VideoTransformComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VideoTransformComponent", function() { return VideoTransformComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _videoType__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./videoType */ "./src/app/component/video-transform/videoType.ts");
+/* harmony import */ var _service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/ffmpeg.service */ "./src/app/service/ffmpeg.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/*
+ffmpeg常用参数的介绍
+-i 指定要转换视频的源文件
+-s 视频转换后视频的分辨率
+-vcodec 视频转换时使用的编解码器
+-r 视频转换换的桢率(默认25桢每秒)
+-b 视频转换换的bit率
+-ab 音频转换后的bit率(默认64k)
+-acodec 制度音频使用的编码器
+-ac 制定转换后音频的声道
+-ar 音频转换后的采样率
+*/
+var VideoTransformComponent = /** @class */ (function () {
+    function VideoTransformComponent(fb, ffmpegService) {
+        this.fb = fb;
+        this.ffmpegService = ffmpegService;
+        this.types = _videoType__WEBPACK_IMPORTED_MODULE_2__["VideoType"];
+        console.log(_videoType__WEBPACK_IMPORTED_MODULE_2__["VideoType"]);
+        this.form = fb.group({
+            name: ['ddd'],
+            type: ['mp4']
+        });
+        this.form.valueChanges.subscribe(function (res) {
+            console.log(res);
+        });
+    }
+    VideoTransformComponent.prototype.ngOnInit = function () {
+    };
+    // 选择文件
+    VideoTransformComponent.prototype.selectFile = function () {
+        console.log('select');
+    };
+    VideoTransformComponent.prototype.confirm = function () {
+        this.ffmpegService.transform();
+    };
+    VideoTransformComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-video-transform',
+            template: __webpack_require__(/*! ./video-transform.component.html */ "./src/app/component/video-transform/video-transform.component.html"),
+            styles: [__webpack_require__(/*! ./video-transform.component.scss */ "./src/app/component/video-transform/video-transform.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_3__["FfmpegService"]])
+    ], VideoTransformComponent);
+    return VideoTransformComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/component/video-transform/videoType.ts":
+/*!********************************************************!*\
+  !*** ./src/app/component/video-transform/videoType.ts ***!
+  \********************************************************/
+/*! exports provided: VideoType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VideoType", function() { return VideoType; });
+var VideoType = [
+    'mp4',
+    '3gp',
+    'mpg',
+    'avi',
+    'wmv',
+    'flv',
+    'wav',
+    'mov',
+];
 
 
 
@@ -1616,6 +1754,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _form_image_form_image_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../form-image/form-image.component */ "./src/app/dynamic-form2/components/form-image/form-image.component.ts");
 /* harmony import */ var _form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../form-checkbox/form-checkbox.component */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts");
 /* harmony import */ var _form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../form-radio/form-radio.component */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts");
+/* harmony import */ var _form_title_form_title_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../form-title/form-title.component */ "./src/app/dynamic-form2/components/form-title/form-title.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1625,6 +1764,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1644,6 +1784,7 @@ var components = {
     color: _form_input_form_input_component__WEBPACK_IMPORTED_MODULE_3__["FormInputComponent"],
     checkbox: _form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_6__["FormCheckboxComponent"],
     radio: _form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_7__["FormRadioComponent"],
+    title: _form_title_form_title_component__WEBPACK_IMPORTED_MODULE_8__["FormTitleComponent"],
 };
 var DynamicFieldDirective = /** @class */ (function () {
     function DynamicFieldDirective(resolver, container) {
@@ -1700,7 +1841,7 @@ var DynamicFieldDirective = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "div {\n  display: flex; }\n\nbutton {\n  letter-spacing: -0.5px;\n  cursor: pointer;\n  outline: 0;\n  line-height: 1;\n  text-align: center;\n  padding: 12px 30px;\n  font-size: 15px;\n  font-weight: 600;\n  border-radius: 2px;\n  display: inline-block;\n  border: none;\n  color: #fff;\n  transition: background-color .3s, box-shadow .3s; }\n\nbutton:hover {\n    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }\n\nbutton:disabled {\n    background: rgba(0, 0, 0, 0.2);\n    color: rgba(0, 0, 0, 0.4);\n    cursor: not-allowed;\n    box-shadow: none; }\n\nbutton.small {\n    padding: 5px 10px;\n    font-size: 14; }\n\nbutton.block {\n    flex: 1; }\n"
+module.exports = "div {\n  display: flex; }\n\nbutton {\n  letter-spacing: -0.5px;\n  cursor: pointer;\n  outline: 0;\n  line-height: 1;\n  text-align: center;\n  padding: 12px 30px;\n  font-size: 15px;\n  font-weight: 600;\n  border-radius: 2px;\n  display: inline-block;\n  border: none;\n  color: #fff;\n  transition: background-color .3s, box-shadow .3s; }\n\nbutton:hover {\n    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); }\n\nbutton:disabled {\n    background: rgba(0, 0, 0, 0.2);\n    color: rgba(0, 0, 0, 0.4);\n    cursor: not-allowed;\n    box-shadow: none; }\n\nbutton.small {\n    padding: 5px 10px;\n    font-size: 14; }\n\nbutton.block {\n    flex: 1; }\n\ninput {\n  width: 0;\n  height: 0;\n  padding: 0;\n  margin: 0;\n  border: none;\n  opacity: 0; }\n"
 
 /***/ }),
 
@@ -1726,13 +1867,14 @@ var FormButtonComponent = /** @class */ (function () {
     function FormButtonComponent() {
     }
     FormButtonComponent.prototype.click = function () {
-        alert('dddd');
+        // alert('dddd');
+        this.group.controls[this.config.name].setValue(Date.now(), { emitEvent: true });
     };
     FormButtonComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-button',
             styles: [__webpack_require__(/*! ./form-button.component.scss */ "./src/app/dynamic-form2/components/form-button/form-button.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field form-button\"\n      [formGroup]=\"group\"\n    >\n      <button\n        class=\"blue block\"\n        [disabled]=\"config.disabled\"\n        (click)=\"click()\"\n      >\n        {{ config.label }}\n      </button>\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field form-button\"\n      [formGroup]=\"group\"\n    >\n      <button\n        class=\"blue block\"\n        [disabled]=\"config.disabled\"\n        (click)=\"click()\"\n      >\n        {{ config.label }}\n      </button>\n      <input\n        type=\"text\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\">\n    </div>\n  "
         })
     ], FormButtonComponent);
     return FormButtonComponent;
@@ -1749,7 +1891,7 @@ var FormButtonComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  font-family: inherit;\n  font-size: 14px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding-left: 10px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  div {\n  display: flex;\n  margin-bottom: 5px; }\n  label {\n  min-width: 50px; }\n"
+module.exports = "/* input {\r\n  font-family: inherit;\r\n  font-size: 14px;\r\n  border: 1px solid rgba(0, 0, 0, 0.1);\r\n  outline: none;\r\n  // padding: 10px 15px;\r\n  padding-left: 10px;\r\n  \r\n  color: rgba(0, 0, 0, 0.7);\r\n  box-sizing: border-box;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  &:focus {\r\n    border: 1px solid rgba(0, 0, 0, 0.4);\r\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);\r\n  }\r\n}*/\ndiv {\n  display: flex;\n  margin-bottom: 5px; }\n.label {\n  width: 50px; }\n/*checkbox++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/\n.checkbox-wrap {\n  display: inline-block;\n  padding-right: 10px; }\n.checkbox-wrap .checkbox-rect {\n  position: relative;\n  display: inline-block;\n  background-color: #ffffff;\n  border: 2px solid #aaa;\n  text-align: center;\n  color: #ffffff;\n  font-size: 14px;\n  line-height: 16px;\n  border-radius: 2px;\n  width: 16px;\n  height: 16px;\n  line-height: 12px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  top: 8px; }\n.checkbox-wrap > input {\n  display: none; }\n.checkbox-rect:after {\n  width: 4px;\n  height: 8px;\n  position: absolute;\n  top: 0px;\n  left: 3px;\n  border: 2px solid #ffffff;\n  border-top: 0;\n  border-left: 0;\n  opacity: 0;\n  -webkit-transform: rotate(45deg) scale3D(0.15, 0.15, 1);\n          transform: rotate(45deg) scale3D(0.15, 0.15, 1);\n  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);\n  content: \" \"; }\n.checkbox-wrap > input:checked + .checkbox-rect {\n  background-color: #3498DB;\n  border-color: #3498DB; }\n.checkbox-wrap > input:checked + .checkbox-rect:after {\n  opacity: 1;\n  -webkit-transform: rotate(45deg) scale3D(1, 1, 1);\n          transform: rotate(45deg) scale3D(1, 1, 1);\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }\n.checkbox-wrap.inverse > input:checked + .checkbox-rect {\n  background-color: #ffffff;\n  border: 2px solid #aaa;\n  color: #3498DB; }\n"
 
 /***/ }),
 
@@ -1782,7 +1924,7 @@ var FormCheckboxComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-checkbox',
             styles: [__webpack_require__(/*! ./form-checkbox.component.scss */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.scss")],
-            template: "\n    <div\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <div>\n        {{ config.label }}\n      </div>\n      <div style=\"flex:1;flex-wrap: wrap;\">\n        <div *ngFor=\"let item of config.options\">\n          <label>\n            <input\n              #i\n              [checked]=\"config.value[item.name]\"\n              (change)=\"itemChange(item.name, i);\"\n              type=\"checkbox\" >\n            {{ item.name }}\n          </label>\n        </div>\n      </div>\n      <!--<input\n        type=\"checkbox\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\" >-->\n    </div>\n  "
+            template: "\n    <div\n      class=\"dynamic-field form-input f aic\" \n      [formGroup]=\"group\">\n      <div class=\"label\">\n        {{ config.label }}\n      </div>\n      <div style=\"flex:1;flex-wrap: wrap;\">\n        <div *ngFor=\"let item of config.options\">\n          <label class=\"checkbox-wrap f aic\">\n            <input\n              #i\n              [checked]=\"config.value[item.name]\"\n              (change)=\"itemChange(item.name, i);\"\n              type=\"checkbox\" >\n            <div class=\"checkbox-rect\"></div>\n            {{ item.name }}\n          </label>\n        </div>\n      </div>\n      <!--<input\n        type=\"checkbox\"\n        [attr.placeholder]=\"config.placeholder\"\n        [formControlName]=\"config.name\" >-->\n    </div>\n  "
         })
     ], FormCheckboxComponent);
     return FormCheckboxComponent;
@@ -1937,7 +2079,7 @@ var FormInputComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  font-family: inherit;\n  font-size: 14px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding-left: 10px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  div {\n  display: flex;\n  margin-bottom: 5px; }\n  label {\n  min-width: 50px; }\n  .radio-label {\n  width: 50px; }\n  /*radio++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/\n  .radio {\n  display: inline-block;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background-color: #ffffff;\n  border: 2px solid #3498DB;\n  text-align: center;\n  cursor: pointer;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-transform: translate(-2px, 3px);\n  transform: translate(-2px, 4px); }\n  .radio.sm {\n  width: 14px;\n  height: 14px;\n  -webkit-transform: translate(-2px, 3px);\n  transform: translate(-2px, 4px); }\n  .radioWrap {\n  padding-right: 10px;\n  padding-top: 5px;\n  padding-bottom: 5px; }\n  .radioWrap:hover .radio {\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input {\n  display: none; }\n  .radioWrap > input:checked + .radio {\n  background-color: #3498DB;\n  border-color: #3498DB;\n  box-shadow: 0 0 0 3px #ffffff inset; }\n  .radioWrap:hover > input:checked + .radio {\n  background-color: rgba(52, 152, 219, 0.938);\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input:disabled + .radio {\n  background-color: #d3d4e2;\n  border-color: #d3d4e2;\n  box-shadow: 0 0 0 3px #ffffff inset; }\n  .radioWrap > input:checked + .radio.sm {\n  background-color: #3498DB;\n  border-color: #3498DB;\n  box-shadow: 0 0 0 2px #ffffff inset; }\n  .radioWrap:hover > input:checked + .radio.sm {\n  background-color: rgba(52, 152, 219, 0.938);\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input:disabled + .radio.sm {\n  background-color: #d3d4e2;\n  border-color: #d3d4e2;\n  box-shadow: 0 0 0 2px #ffffff inset; }\n"
+module.exports = "input {\n  font-family: inherit;\n  font-size: 14px;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  padding-left: 10px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  input:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  div {\n  display: flex;\n  margin-bottom: 5px; }\n  label {\n  min-width: 50px; }\n  .radio-label {\n  width: 50px; }\n  /*radio++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/\n  .radio {\n  display: inline-block;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background-color: #ffffff;\n  border: 2px solid #3498DB;\n  text-align: center;\n  cursor: pointer;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n   -ms-user-select: none;\n       user-select: none;\n  -webkit-transform: translate(-2px, 3px);\n  transform: translate(-2px, 3px); }\n  .radio.sm {\n  width: 14px;\n  height: 14px;\n  -webkit-transform: translate(-2px, 3px);\n  transform: translate(-2px, 3px); }\n  .radioWrap {\n  padding-right: 10px;\n  padding-top: 5px;\n  padding-bottom: 5px; }\n  .radioWrap:hover .radio {\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input {\n  display: none; }\n  .radioWrap > input:checked + .radio {\n  background-color: #3498DB;\n  border-color: #3498DB;\n  box-shadow: 0 0 0 3px #ffffff inset; }\n  .radioWrap:hover > input:checked + .radio {\n  background-color: rgba(52, 152, 219, 0.938);\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input:disabled + .radio {\n  background-color: #d3d4e2;\n  border-color: #d3d4e2;\n  box-shadow: 0 0 0 3px #ffffff inset; }\n  .radioWrap > input:checked + .radio.sm {\n  background-color: #3498DB;\n  border-color: #3498DB;\n  box-shadow: 0 0 0 2px #ffffff inset; }\n  .radioWrap:hover > input:checked + .radio.sm {\n  background-color: rgba(52, 152, 219, 0.938);\n  border-color: rgba(52, 152, 219, 0.938); }\n  .radioWrap > input:disabled + .radio.sm {\n  background-color: #d3d4e2;\n  border-color: #d3d4e2;\n  box-shadow: 0 0 0 2px #ffffff inset; }\n"
 
 /***/ }),
 
@@ -1983,7 +2125,7 @@ var FormRadioComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "select {\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  text-indent: .01px;\n  text-overflow: '';\n  overflow: hidden;\n  font-family: inherit;\n  font-size: 14px;\n  padding-left: 10px;\n  height: 30px;\n  border-radius: 0;\n  color: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  width: 100%;\n  outline: none;\n  box-sizing: border-box;\n  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%) no-repeat calc(100% - 20px) calc(1em + -1px), linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%) no-repeat calc(100% - 15px) calc(1em + -1px);\n  background-size: 5px 5px, 5px 5px;\n  background-color: white; }\n  select:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  label {\n  min-width: 50px; }\n  div {\n  margin-bottom: 5px; }\n"
+module.exports = "/*select {\r\n  -webkit-appearance: none;\r\n  -moz-appearance: none;\r\n  text-indent: .01px;\r\n  text-overflow: '';\r\n  overflow: hidden;\r\n  font-family: inherit;\r\n  font-size: 14px;\r\n  // padding: 10px 15px;\r\n  padding-left: 10px;\r\n  height: 30px;\r\n  border-radius: 0;\r\n  color: rgba(0, 0, 0, 0.7);\r\n  border: 1px solid rgba(0, 0, 0, 0.1);\r\n  width: 100%;\r\n  outline: none;\r\n  box-sizing: border-box;\r\n  background:\r\n    linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%)\r\n      no-repeat calc(100% - 20px) calc(1em + -1px),\r\n    linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%)\r\n      no-repeat calc(100% - 15px) calc(1em + -1px);\r\n  background-size: 5px 5px, 5px 5px;\r\n  &:focus {\r\n    border: 1px solid rgba(0, 0, 0, 0.4);\r\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);\r\n  }\r\n  background-color: white;\r\n}*/\nlabel {\n  min-width: 50px; }\ndiv {\n  margin-bottom: 5px; }\n"
 
 /***/ }),
 
@@ -2022,6 +2164,52 @@ var FormSelectComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dynamic-form2/components/form-title/form-title.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/form-title/form-title.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/form-title/form-title.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/form-title/form-title.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: FormTitleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormTitleComponent", function() { return FormTitleComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FormTitleComponent = /** @class */ (function () {
+    function FormTitleComponent() {
+    }
+    FormTitleComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'form-title',
+            styles: [__webpack_require__(/*! ./form-title.component.scss */ "./src/app/dynamic-form2/components/form-title/form-title.component.scss")],
+            template: "\n    <div [ngStyle]=\"config.style\">\n      {{ config.label }}\n    </div>\n  "
+        })
+    ], FormTitleComponent);
+    return FormTitleComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts":
 /*!*********************************************************************************!*\
   !*** ./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts ***!
@@ -2054,7 +2242,7 @@ var DynamicFormComponent = /** @class */ (function () {
     Object.defineProperty(DynamicFormComponent.prototype, "controls", {
         get: function () { return this.config.filter(function (_a) {
             var type = _a.type;
-            return type !== 'button';
+            return true; /* type !== 'button'*/
         }); },
         enumerable: true,
         configurable: true
@@ -2169,12 +2357,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/form-image/form-image.component */ "./src/app/dynamic-form2/components/form-image/form-image.component.ts");
 /* harmony import */ var _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/form-checkbox/form-checkbox.component */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts");
 /* harmony import */ var _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/form-radio/form-radio.component */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts");
+/* harmony import */ var _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/form-title/form-title.component */ "./src/app/dynamic-form2/components/form-title/form-title.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2205,7 +2395,8 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_select_form_select_component__WEBPACK_IMPORTED_MODULE_7__["FormSelectComponent"],
                 _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__["FormImageComponent"],
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
-                _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"]
+                _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
+                _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
             ],
             exports: [
                 _containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_4__["DynamicFormComponent"]
@@ -2217,6 +2408,7 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_image_form_image_component__WEBPACK_IMPORTED_MODULE_8__["FormImageComponent"],
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
+                _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
             ]
         })
     ], DynamicFormModule);
@@ -2324,6 +2516,7 @@ var CanvasService = /** @class */ (function () {
         // 模板列表
         this.tempList = window['tempList'];
         this.initMenu();
+        this.initShortcut();
     }
     // 初始化菜单
     CanvasService.prototype.initMenu = function () {
@@ -2344,6 +2537,24 @@ var CanvasService = /** @class */ (function () {
                 });
             }
         }));
+    };
+    CanvasService.prototype.initShortcut = function () {
+        document.addEventListener('keydown', function (e) {
+            console.log(e);
+            var code = e.which;
+            switch (code) {
+                // space
+                /*case 32:
+                  if(this.paused) {
+                    this.play();
+                  } else {
+                    this.pause();
+                  }
+                break;*/
+                default:
+                    break;
+            }
+        });
     };
     CanvasService.prototype.setInstance = function () {
     };
@@ -2685,15 +2896,15 @@ var FfmpegService = /** @class */ (function () {
         this.fileService = fileService;
         this.snackBar = snackBar;
         this.dialog = dialog;
+        this.currentDir = window['dirname'];
         this.exec = window['exec'];
         this.path = window['path'];
     }
     FfmpegService.prototype.generateMp4 = function (_a, callback) {
-        var _this = this;
-        var distPath = _a.distPath, audioPath = _a.audioPath, imgPrefix = _a.imgPrefix, savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height, quality = _a.quality;
         // alert('generateMp4');
         // console.log(__dirname);
-        var currentDir = window['dirname'];
+        var _this = this;
+        var distPath = _a.distPath, audioPath = _a.audioPath, imgPrefix = _a.imgPrefix, savePath = _a.savePath, duration = _a.duration, fps = _a.fps, time = _a.time, width = _a.width, height = _a.height, quality = _a.quality;
         // 临时图片目录
         var frompath = '"' + this.path.join(savePath, imgPrefix + "%d.png") + '"';
         // 视频生成路径
@@ -2716,7 +2927,7 @@ var FfmpegService = /** @class */ (function () {
         // var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -r 30 -f image2 -i D:/del3/img%d.png -t 10 -i ./audio/1.mp3 -pix_fmt yuv420p -preset slow -profile:v baseline -q:v 4 D:/del3/video.mp4'
         // alert(commandStr);
         console.log(commandStr);
-        this.exec(commandStr, { cwd: currentDir }, function (err, data, data1) {
+        this.exec(commandStr, { cwd: this.currentDir }, function (err, data, data1) {
             if (err) {
                 console.error(err);
                 _this.hideDialog();
@@ -2746,6 +2957,42 @@ var FfmpegService = /** @class */ (function () {
         catch (e) {
             console.error(e);
         }
+    };
+    // 转换格式
+    FfmpegService.prototype.transform = function () {
+        var _this = this;
+        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -i "F:/code/node/test/s.mp4" "F:/code/node/test/s.mov"';
+        // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';    
+        var command = this.exec(commandStr, { cwd: this.currentDir, killSignal: 'SIGTERM', }, function (err, data, data1) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            console.log(data);
+        });
+        command.stdout.on('data', function (res) {
+            console.log(res);
+        });
+        command.stderr.on('data', function (res) {
+            console.error(res);
+        });
+        setTimeout(function () {
+            console.log('k----------------------------------------------------------------------------');
+            console.log(command);
+            var pid = command.pid;
+            console.log(pid);
+            // taskkill /f /t /im spx.exe
+            _this.exec("taskkill  /f /t /pid " + pid, function (err, stdout, stderr) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log(stdout);
+            });
+            // process.kill(0);
+            // command.exit(0);
+            // command.exit('SIGTERM');
+        }, 10000);
     };
     FfmpegService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

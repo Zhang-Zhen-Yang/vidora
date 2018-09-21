@@ -11,17 +11,18 @@ import { FieldConfig } from '../../models/field-config.interface';
     <div
       class="dynamic-field form-input f aic" 
       [formGroup]="group">
-      <div>
+      <div class="label">
         {{ config.label }}
       </div>
       <div style="flex:1;flex-wrap: wrap;">
         <div *ngFor="let item of config.options">
-          <label>
+          <label class="checkbox-wrap f aic">
             <input
               #i
               [checked]="config.value[item.name]"
               (change)="itemChange(item.name, i);"
               type="checkbox" >
+            <div class="checkbox-rect"></div>
             {{ item.name }}
           </label>
         </div>

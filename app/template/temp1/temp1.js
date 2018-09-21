@@ -84,6 +84,17 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	util.add([
 		{
+			type: 'title',
+			label: '图片一',
+			style: {
+				/* backgroundColor: 'red',*/
+				color: '#333333',
+				marginBottom: '10px',
+				fontSize: '16px',
+				fontWeight: 'bold',
+			}
+		},
+		{
 			label: '图片1',
 			value:this.instance.instance.image.src,
 			type: 'image',
@@ -170,26 +181,26 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		{
 			label: 'aa',
 			type: 'button',
-			callback: () =>{
-				alert('ddd');
+			callback: (r) =>{
+				alert(r);
 			}
 		},
 		{
-			label: 'checkbox',
+			label: '水果',
 			type: 'checkbox',
 			value: {
-				apple: true,
-				banana: false,
+				苹果apple: true,
+				香蕉banana: false,
 				p: true,
 			},
 			options: [
 				{
 					value: 'a',
-					name: 'apple',
+					name: '苹果apple',
 				},
 				{
 					value: 'b',
-					name: 'banana',
+					name: '香蕉banana',
 				},
 				{
 					value: 'p',
@@ -198,7 +209,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 				
 			],
 			callback: (r) => {
-
+				console.log(r);
 			}
 		},
 		{
@@ -208,7 +219,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			options: [
 				{
 					value: 'a',
-					name: 'apple'
+					name: '苹果apple'
 				},
 				{
 					value: 'b',
@@ -228,7 +239,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 				},
 			],
 			callback: (r) => {
-
+				console.log(r);
 			}
 		}
 	])
