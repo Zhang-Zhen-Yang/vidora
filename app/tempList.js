@@ -21,6 +21,11 @@ const tempList = [
 	  url:  'F:/code/animate cc/i.html',
 	  img:  'F:/code/animate cc/i.png',
 	},
+	{
+	  name: 'temp 60',
+	  url:  'F:/code/animate cc/60.html',
+	  img:  'F:/code/animate cc/60.png',
+	},
 	
 
 ];

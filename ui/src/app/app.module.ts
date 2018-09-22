@@ -34,6 +34,7 @@ import { GeneratingProgressComponent } from './component/generating-progress/gen
 import { AudioManagerComponent } from './component/audio-manager/audio-manager.component';
 import { ActionpanelItemComponent } from './component/actionpanel-item/actionpanel-item.component';
 import { VideoTransformComponent } from './component/video-transform/video-transform.component';
+import { TransformingProgressComponent } from './component/transforming-progress/transforming-progress.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { VideoTransformComponent } from './component/video-transform/video-trans
     ActionpanelItemComponent,
     AnimateTemplateLoadingProgressComponent,
     VideoTransformComponent,
+    TransformingProgressComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { VideoTransformComponent } from './component/video-transform/video-trans
     ExportOptionsComponent,
     GeneratingProgressComponent,
     AnimateTemplateLoadingProgressComponent,
-    VideoTransformComponent
+    VideoTransformComponent,
+    TransformingProgressComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

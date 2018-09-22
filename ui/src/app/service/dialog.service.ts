@@ -9,6 +9,18 @@ import { FileService } from './file.service';
 export class DialogService {
   projectDir = null
   path = window['path']
+  typeMap = {
+    audio: {
+      title: '请选择音乐',
+      name: '音乐',
+      extensions: ['mp3', 'wav'],
+    },
+    video: {
+      title: '请选择视频',
+      name: '视频',
+      extensions: ['mp4', 'mov'],
+    },
+  }
   constructor(private dialog: MatDialog, private fileService: FileService) { }
   /**
    * 打开目录
@@ -46,7 +58,9 @@ export class DialogService {
         title:'保存视频',
         defaultPath: videoDir,
         filters: [
-          {name: '视频', extensions: ['mp4']},
+          {name: 'mp4', extensions: ['mp4']},
+          {name: 'mov', extensions: ['mov']},
+          {name: 'avi', extensions: ['avi']},
         ]
       },
       function(res){
@@ -61,27 +75,27 @@ export class DialogService {
   }
   // 打开音乐文件
   selectFile({type, callback}) {
-    const audioDir = localStorage.getItem('audioDir') || '';
+    const Dir = localStorage.getItem(`${type}Dir`) || '';
     // alert(audioDir);
     window['remote'].dialog.showOpenDialog(
       window['remote'].getCurrentWindow(),
       {
-        title:'请选择音乐',
-        defaultPath: audioDir,
+        title: this.typeMap[type].title,
+        defaultPath: Dir,
         properties: [ 'openFile'],
         filters: [
-          {name: '音乐', extensions: ['mp3', 'wav']},
+          {name: this.typeMap[type].name, extensions: this.typeMap[type].extensions},
         ]
       },
       (filePaths) => {
-        //this.getCurrentDirFiles(filePaths[0],result);
+        // this.getCurrentDirFiles(filePaths[0],result);
         if(!filePaths){
           return;
         }
         callback(filePaths);
         if(Array.isArray(filePaths) && typeof filePaths[0] == 'string') {
           const dirName = this.path.dirname(filePaths[0]);
-          localStorage.setItem('audioDir', dirName);
+          localStorage.setItem(`${type}Dir`, dirName);
           // alert(dirName);
         }
       }

@@ -119,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./component/audio-manager/audio-manager.component */ "./src/app/component/audio-manager/audio-manager.component.ts");
 /* harmony import */ var _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./component/actionpanel-item/actionpanel-item.component */ "./src/app/component/actionpanel-item/actionpanel-item.component.ts");
 /* harmony import */ var _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./component/video-transform/video-transform.component */ "./src/app/component/video-transform/video-transform.component.ts");
+/* harmony import */ var _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./component/transforming-progress/transforming-progress.component */ "./src/app/component/transforming-progress/transforming-progress.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -155,6 +156,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -177,6 +179,7 @@ var AppModule = /** @class */ (function () {
                 _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__["ActionpanelItemComponent"],
                 _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
                 _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"],
+                _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_28__["TransformingProgressComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -197,7 +200,8 @@ var AppModule = /** @class */ (function () {
                 _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__["ExportOptionsComponent"],
                 _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__["GeneratingProgressComponent"],
                 _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
-                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"]
+                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"],
+                _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_28__["TransformingProgressComponent"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
@@ -1423,6 +1427,81 @@ var TopbarComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/component/transforming-progress/transforming-progress.component.html":
+/*!**************************************************************************************!*\
+  !*** ./src/app/component/transforming-progress/transforming-progress.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>视频转换中</h2>\n<mat-dialog-content>\n  <div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"value()\" color=\"warn\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">当前: {{ current() }}</span>\n      <span class=\"fontSmall color-gray\">总长:{{ duration() }}</span>\n    </div>\n  </div>\n</mat-dialog-content>"
+
+/***/ }),
+
+/***/ "./src/app/component/transforming-progress/transforming-progress.component.scss":
+/*!**************************************************************************************!*\
+  !*** ./src/app/component/transforming-progress/transforming-progress.component.scss ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/component/transforming-progress/transforming-progress.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/component/transforming-progress/transforming-progress.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: TransformingProgressComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransformingProgressComponent", function() { return TransformingProgressComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/ffmpeg.service */ "./src/app/service/ffmpeg.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TransformingProgressComponent = /** @class */ (function () {
+    function TransformingProgressComponent(ffmpegService) {
+        this.ffmpegService = ffmpegService;
+    }
+    TransformingProgressComponent.prototype.ngOnInit = function () {
+    };
+    TransformingProgressComponent.prototype.value = function () {
+        return 50;
+    };
+    TransformingProgressComponent.prototype.current = function () {
+        return this.ffmpegService.current;
+    };
+    TransformingProgressComponent.prototype.duration = function () {
+        return this.ffmpegService.duration;
+    };
+    TransformingProgressComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-transforming-progress',
+            template: __webpack_require__(/*! ./transforming-progress.component.html */ "./src/app/component/transforming-progress/transforming-progress.component.html"),
+            styles: [__webpack_require__(/*! ./transforming-progress.component.scss */ "./src/app/component/transforming-progress/transforming-progress.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_1__["FfmpegService"]])
+    ], TransformingProgressComponent);
+    return TransformingProgressComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/component/video-transform/video-transform.component.html":
 /*!**************************************************************************!*\
   !*** ./src/app/component/video-transform/video-transform.component.html ***!
@@ -1459,6 +1538,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _videoType__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./videoType */ "./src/app/component/video-transform/videoType.ts");
 /* harmony import */ var _service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../service/ffmpeg.service */ "./src/app/service/ffmpeg.service.ts");
+/* harmony import */ var _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../service/dialog.service */ "./src/app/service/dialog.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../transforming-progress/transforming-progress.component */ "./src/app/component/transforming-progress/transforming-progress.component.ts");
+var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1468,6 +1558,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
+
 
 
 
@@ -1485,13 +1578,15 @@ ffmpeg常用参数的介绍
 -ar 音频转换后的采样率
 */
 var VideoTransformComponent = /** @class */ (function () {
-    function VideoTransformComponent(fb, ffmpegService) {
+    function VideoTransformComponent(fb, ffmpegService, dialogService, dialog) {
         this.fb = fb;
         this.ffmpegService = ffmpegService;
+        this.dialogService = dialogService;
+        this.dialog = dialog;
         this.types = _videoType__WEBPACK_IMPORTED_MODULE_2__["VideoType"];
         console.log(_videoType__WEBPACK_IMPORTED_MODULE_2__["VideoType"]);
         this.form = fb.group({
-            name: ['ddd'],
+            name: [''],
             type: ['mp4']
         });
         this.form.valueChanges.subscribe(function (res) {
@@ -1502,10 +1597,37 @@ var VideoTransformComponent = /** @class */ (function () {
     };
     // 选择文件
     VideoTransformComponent.prototype.selectFile = function () {
+        var _this = this;
         console.log('select');
+        this.dialogService.selectFile({
+            type: 'video',
+            callback: function (res) {
+                console.log(res);
+                _this.form.controls.name.setValue(res[0]);
+            }
+        });
     };
     VideoTransformComponent.prototype.confirm = function () {
-        this.ffmpegService.transform();
+        var _this = this;
+        this.dialogService.getSaveFile(function (res) {
+            console.log(res);
+            var values = _this.form.value;
+            if (!values.name) {
+                alert('请选择要转换视频文件');
+                return;
+            }
+            var options = __assign({}, values, { dist: res });
+            console.log(options);
+            _this.dialog.closeAll();
+            setTimeout(function () {
+                _this.dialog.open(_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_6__["TransformingProgressComponent"], {
+                    disableClose: true,
+                    minWidth: 300,
+                });
+            }, 0);
+            _this.ffmpegService.transform(options);
+        });
+        // this.ffmpegService.transform()
     };
     VideoTransformComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1513,7 +1635,7 @@ var VideoTransformComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./video-transform.component.html */ "./src/app/component/video-transform/video-transform.component.html"),
             styles: [__webpack_require__(/*! ./video-transform.component.scss */ "./src/app/component/video-transform/video-transform.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_3__["FfmpegService"]])
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"], _service_ffmpeg_service__WEBPACK_IMPORTED_MODULE_3__["FfmpegService"], _service_dialog_service__WEBPACK_IMPORTED_MODULE_4__["DialogService"], _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
     ], VideoTransformComponent);
     return VideoTransformComponent;
 }());
@@ -2761,6 +2883,18 @@ var DialogService = /** @class */ (function () {
         this.fileService = fileService;
         this.projectDir = null;
         this.path = window['path'];
+        this.typeMap = {
+            audio: {
+                title: '请选择音乐',
+                name: '音乐',
+                extensions: ['mp3', 'wav'],
+            },
+            video: {
+                title: '请选择视频',
+                name: '视频',
+                extensions: ['mp4', 'mov'],
+            },
+        };
     }
     /**
      * 打开目录
@@ -2791,7 +2925,9 @@ var DialogService = /** @class */ (function () {
             title: '保存视频',
             defaultPath: videoDir,
             filters: [
-                { name: '视频', extensions: ['mp4'] },
+                { name: 'mp4', extensions: ['mp4'] },
+                { name: 'mov', extensions: ['mov'] },
+                { name: 'avi', extensions: ['avi'] },
             ]
         }, function (res) {
             callback(res);
@@ -2806,24 +2942,24 @@ var DialogService = /** @class */ (function () {
     DialogService.prototype.selectFile = function (_a) {
         var _this = this;
         var type = _a.type, callback = _a.callback;
-        var audioDir = localStorage.getItem('audioDir') || '';
+        var Dir = localStorage.getItem(type + "Dir") || '';
         // alert(audioDir);
         window['remote'].dialog.showOpenDialog(window['remote'].getCurrentWindow(), {
-            title: '请选择音乐',
-            defaultPath: audioDir,
+            title: this.typeMap[type].title,
+            defaultPath: Dir,
             properties: ['openFile'],
             filters: [
-                { name: '音乐', extensions: ['mp3', 'wav'] },
+                { name: this.typeMap[type].name, extensions: this.typeMap[type].extensions },
             ]
         }, function (filePaths) {
-            //this.getCurrentDirFiles(filePaths[0],result);
+            // this.getCurrentDirFiles(filePaths[0],result);
             if (!filePaths) {
                 return;
             }
             callback(filePaths);
             if (Array.isArray(filePaths) && typeof filePaths[0] == 'string') {
                 var dirName = _this.path.dirname(filePaths[0]);
-                localStorage.setItem('audioDir', dirName);
+                localStorage.setItem(type + "Dir", dirName);
                 // alert(dirName);
             }
         });
@@ -2897,6 +3033,9 @@ var FfmpegService = /** @class */ (function () {
         this.snackBar = snackBar;
         this.dialog = dialog;
         this.currentDir = window['dirname'];
+        this.current = '';
+        this.duration = '';
+        this.pid = '';
         this.exec = window['exec'];
         this.path = window['path'];
     }
@@ -2959,40 +3098,58 @@ var FfmpegService = /** @class */ (function () {
         }
     };
     // 转换格式
-    FfmpegService.prototype.transform = function () {
+    FfmpegService.prototype.transform = function (_a) {
         var _this = this;
-        var commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -i "F:/code/node/test/s.mp4" "F:/code/node/test/s.mov"';
+        var name = _a.name, dist = _a.dist;
+        this.current = '';
+        this.pid = '';
+        var commandStr = "\"./ffmpeg/bin/ffmpeg.exe\" -y -i \"" + name + "\" \"" + dist + "\"";
         // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';    
         var command = this.exec(commandStr, { cwd: this.currentDir, killSignal: 'SIGTERM', }, function (err, data, data1) {
             if (err) {
                 console.error(err);
                 return;
             }
+            alert('转换完成');
+            _this.dialog.closeAll();
             console.log(data);
         });
         command.stdout.on('data', function (res) {
             console.log(res);
         });
         command.stderr.on('data', function (res) {
+            if (!_this.pid) {
+                _this.pid = command.pid;
+            }
             console.error(res);
-        });
-        setTimeout(function () {
-            console.log('k----------------------------------------------------------------------------');
-            console.log(command);
-            var pid = command.pid;
-            console.log(pid);
-            // taskkill /f /t /im spx.exe
-            _this.exec("taskkill  /f /t /pid " + pid, function (err, stdout, stderr) {
-                if (err) {
-                    console.log(err);
-                    return;
+            if (res.startsWith('Input')) {
+                var matches = (/Duration:(.*?),/mig.exec(res));
+                if (Array.isArray(matches) && matches[1]) {
+                    _this.duration = matches[1];
                 }
-                console.log(stdout);
-            });
-            // process.kill(0);
-            // command.exit(0);
-            // command.exit('SIGTERM');
-        }, 10000);
+            }
+            if (res.startsWith('frame')) {
+                console.log(res);
+                var matches = /time=(.*?)\s/mig.exec(res);
+                if (Array.isArray(matches) && matches[1]) {
+                    _this.current = matches[1];
+                }
+            }
+            console.log([_this.duration, _this.current]);
+        });
+        /* setTimeout(()=>{
+          console.log('k----------------------------------------------------------------------------');
+          console.log(command);
+          const pid = command.pid;
+          console.log(pid);
+          this.exec(`taskkill  /f /t /pid ${pid}`, (err, stdout, stderr)=>{
+            if(err) {
+              console.log(err);
+              return;
+            }
+            console.log(stdout);
+          })
+        }, 10000)*/
     };
     FfmpegService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

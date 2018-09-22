@@ -73,29 +73,53 @@ export class FfmpegService {
       console.error(e);
     }
   }
+
+  current = '';
+  duration = '';
+  pid = '';
   // 转换格式
-  transform() {
-    const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -y -i "F:/code/node/test/s.mp4" "F:/code/node/test/s.mov"';
+  transform({name, dist}) {
+    this.current = '';
+    this.pid = '';
+    const commandStr = `"./ffmpeg/bin/ffmpeg.exe" -y -i "${name}" "${dist}"`;
     // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';    
     const command = this.exec(commandStr, {cwd: this.currentDir, killSignal: 'SIGTERM',}, (err,data,data1) => {
       if(err) {
         console.error(err);
         return ;
       }
+      alert('转换完成');
+      this.dialog.closeAll()
       console.log(data);
     })
     command.stdout.on('data',(res)=>{
       console.log(res);
     })
     command.stderr.on('data',(res)=>{
+      if (!this.pid) {
+        this.pid = command.pid;
+      }
       console.error(res);
+      if(res.startsWith('Input')) {
+        const matches = (/Duration:(.*?),/mig.exec(res));
+        if(Array.isArray(matches) && matches[1]) {
+          this.duration = matches[1];
+        }
+      }
+      if(res.startsWith('frame')) {
+        console.log(res);
+        const matches = /time=(.*?)\s/mig.exec(res);
+        if(Array.isArray(matches) && matches[1]) {
+          this.current = matches[1];
+        }
+      }
+      console.log([this.duration, this.current]);
     })
-    setTimeout(()=>{
+    /* setTimeout(()=>{
       console.log('k----------------------------------------------------------------------------');
       console.log(command);
       const pid = command.pid;
       console.log(pid);
-      // taskkill /f /t /im spx.exe
       this.exec(`taskkill  /f /t /pid ${pid}`, (err, stdout, stderr)=>{
         if(err) {
           console.log(err);
@@ -103,9 +127,7 @@ export class FfmpegService {
         }
         console.log(stdout);
       })
-      // process.kill(0);
-      // command.exit(0);
-      // command.exit('SIGTERM');
-    }, 10000)
+    }, 10000)*/
+    
   }
 }

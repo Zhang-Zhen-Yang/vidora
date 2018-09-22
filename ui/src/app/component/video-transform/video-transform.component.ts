@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { VideoType } from './videoType';
 import { FfmpegService } from '../../service/ffmpeg.service'
+import { DialogService } from '../../service/dialog.service'
+import { MatDialog } from '@angular/material';
+import { TransformingProgressComponent } from '../transforming-progress/transforming-progress.component';
+
 /*
 ffmpeg常用参数的介绍
 -i 指定要转换视频的源文件
@@ -22,10 +26,10 @@ ffmpeg常用参数的介绍
 export class VideoTransformComponent implements OnInit {
   form: FormGroup
   types = VideoType;
-  constructor(private fb: FormBuilder, private ffmpegService: FfmpegService) {
+  constructor(private fb: FormBuilder, private ffmpegService: FfmpegService, private dialogService: DialogService, private dialog: MatDialog) {
     console.log(VideoType);
     this.form = fb.group({
-      name: ['ddd'],
+      name: [''],
       type: ['mp4']
     })
     this.form.valueChanges.subscribe((res)=>{
@@ -38,9 +42,34 @@ export class VideoTransformComponent implements OnInit {
   // 选择文件
   selectFile() {
     console.log('select');
+    this.dialogService.selectFile({
+      type: 'video',
+      callback: (res)=>{
+        console.log(res);
+        this.form.controls.name.setValue(res[0]);
+      }
+    })
   }
   confirm() {
-    this.ffmpegService.transform()
+    this.dialogService.getSaveFile((res) => {
+      console.log(res);
+      const values = this.form.value;
+      if (!values.name) {
+        alert('请选择要转换视频文件');
+        return;
+      }
+      const options = {...values, dist: res};
+      console.log(options);
+      this.dialog.closeAll();
+      setTimeout(()=>{
+        this.dialog.open(TransformingProgressComponent, {
+          disableClose: true,
+          minWidth: 300,
+        });
+      },0)
+      this.ffmpegService.transform(options);
+    });
+    // this.ffmpegService.transform()
   }
 
 }
