@@ -200,7 +200,7 @@ export class CanvasService {
       })
       
       // this.dialogService.showProgress();
-    });
+    }, true);
   }
   // 生成mp4 文件
   generateMp4() {

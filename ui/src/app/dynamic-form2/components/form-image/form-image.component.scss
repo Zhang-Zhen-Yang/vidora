@@ -51,6 +51,7 @@ label {
   height: 100px;
   object-fit: contain;
   object-position: center;
+  background-color: #efefef;
 }
 .image-input-attr{
   border: 1px solid #eeeeee;
@@ -63,4 +64,7 @@ label {
 }
 .image-input-attr input{
   flex: 1;
+}
+.image-input-table{
+  width: 100%;
 }

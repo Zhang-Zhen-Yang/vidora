@@ -4,23 +4,31 @@
       <!--名称-->
       <div class="input-wrap">
         <label>
-          name
+          文件
         </label>
-        <input [formControlName]="'name'" type="text" (click)="selectFile()">
+        <input [formControlName]="'name'" disabled type="text">
+        <button class="warn" (click)="selectFile()">文件</button>
       </div>
-      <!--类型-->
       <div class="input-wrap">
         <label>
-          type
+          质量
+        </label>
+        <input [formControlName]="'quality'" type="number" min="0" max="100">
+      </div>
+
+      <!--类型
+      <div class="input-wrap">
+        <label>
+          类型
         </label>
         <select [formControlName]="'type'" >
             <option *ngFor="let item of types" [value]="item">{{item}}</option>
         </select>
-      </div>
+      </div>-->
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close>取消</button>
-    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-    <button mat-button (click)="confirm()">确定</button>
-  </mat-dialog-actions>
+  <button mat-button mat-dialog-close>取消</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button (click)="confirm()">确定</button>
+</mat-dialog-actions>

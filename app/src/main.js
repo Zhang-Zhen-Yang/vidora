@@ -480,6 +480,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+/*模板列表 */
 var AnimateTemplateItemComponent = /** @class */ (function () {
     function AnimateTemplateItemComponent(canvasService, sanitizer) {
         this.canvasService = canvasService;
@@ -1434,7 +1435,7 @@ var TopbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>视频转换中</h2>\n<mat-dialog-content>\n  <div>\n    <mat-progress-bar mode=\"determinate\" [value]=\"value()\" color=\"warn\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">当前: {{ current() }}</span>\n      <span class=\"fontSmall color-gray\">总长:{{ duration() }}</span>\n    </div>\n  </div>\n</mat-dialog-content>"
+module.exports = "<h2 mat-dialog-title>视频转换中</h2>\n<mat-dialog-content>\n  <div *ngIf=\"duration()\">\n    <mat-progress-bar mode=\"determinate\" [value]=\"value()\" color=\"warn\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">当前: {{ current() }}</span>\n      <span class=\"fontSmall color-gray\">总长:{{ duration() }}</span>\n    </div>\n  </div>\n  <div *ngIf=\"!duration()\">\n    <mat-progress-bar mode=\"indeterminate\" color=\"warn\" value=\"50\"></mat-progress-bar>\n    <div class=\"f fr jcsb\" style=\"margin-top: 10px;\">\n      <span class=\"fontSmall color-gray\">视频转换</span>\n    </div>\n  </div>\n\n</mat-dialog-content>"
 
 /***/ }),
 
@@ -1478,12 +1479,29 @@ var TransformingProgressComponent = /** @class */ (function () {
     }
     TransformingProgressComponent.prototype.ngOnInit = function () {
     };
+    // 当前进度
     TransformingProgressComponent.prototype.value = function () {
-        return 50;
+        // return 50;
+        var cTime = this.ffmpegService.current.split(':').reverse();
+        var cTimeNum = 0;
+        cTime.forEach(function (item, index) {
+            cTimeNum += parseFloat(item) * Math.pow(60, index);
+        });
+        return cTimeNum / this.cTimeNum() * 100;
     };
+    TransformingProgressComponent.prototype.cTimeNum = function () {
+        var dTime = this.ffmpegService.duration.split(':').reverse();
+        var dTimeNum = 0;
+        dTime.forEach(function (item, index) {
+            dTimeNum += parseFloat(item) * Math.pow(60, index);
+        });
+        return dTimeNum;
+    };
+    // 当前时间 -----------------------------------------------------------------------------
     TransformingProgressComponent.prototype.current = function () {
         return this.ffmpegService.current;
     };
+    // 持续时间 -----------------------------------------------------------------------------
     TransformingProgressComponent.prototype.duration = function () {
         return this.ffmpegService.duration;
     };
@@ -1509,7 +1527,7 @@ var TransformingProgressComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>视频操作</h2>\n<mat-dialog-content>\n    <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--名称-->\n      <div class=\"input-wrap\">\n        <label>\n          name\n        </label>\n        <input [formControlName]=\"'name'\" type=\"text\" (click)=\"selectFile()\">\n      </div>\n      <!--类型-->\n      <div class=\"input-wrap\">\n        <label>\n          type\n        </label>\n        <select [formControlName]=\"'type'\" >\n            <option *ngFor=\"let item of types\" [value]=\"item\">{{item}}</option>\n        </select>\n      </div>\n    </div>\n</mat-dialog-content>\n<mat-dialog-actions>\n    <button mat-button mat-dialog-close>取消</button>\n    <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n    <button mat-button (click)=\"confirm()\">确定</button>\n  </mat-dialog-actions>\n"
+module.exports = "<h2 mat-dialog-title>视频操作</h2>\n<mat-dialog-content>\n    <div id=\"export-options-wrap\" [formGroup]=\"form\">\n      <!--名称-->\n      <div class=\"input-wrap\">\n        <label>\n          文件\n        </label>\n        <input [formControlName]=\"'name'\" disabled type=\"text\">\n        <button class=\"warn\" (click)=\"selectFile()\">文件</button>\n      </div>\n      <div class=\"input-wrap\">\n        <label>\n          质量\n        </label>\n        <input [formControlName]=\"'quality'\" type=\"number\" min=\"0\" max=\"100\">\n      </div>\n\n      <!--类型\n      <div class=\"input-wrap\">\n        <label>\n          类型\n        </label>\n        <select [formControlName]=\"'type'\" >\n            <option *ngFor=\"let item of types\" [value]=\"item\">{{item}}</option>\n        </select>\n      </div>-->\n    </div>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button mat-dialog-close>取消</button>\n  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n  <button mat-button (click)=\"confirm()\">确定</button>\n</mat-dialog-actions>\n"
 
 /***/ }),
 
@@ -1520,7 +1538,7 @@ module.exports = "<h2 mat-dialog-title>视频操作</h2>\n<mat-dialog-content>\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".input-wrap {\n  display: flex;\n  flex-direction: row;\n  align-items: center; }\n  .input-wrap label {\n    width: 60px; }\n  .input-wrap input {\n    flex: 1; }\n  .input-wrap button {\n    margin-left: 10px; }\n"
 
 /***/ }),
 
@@ -1587,7 +1605,8 @@ var VideoTransformComponent = /** @class */ (function () {
         console.log(_videoType__WEBPACK_IMPORTED_MODULE_2__["VideoType"]);
         this.form = fb.group({
             name: [''],
-            type: ['mp4']
+            type: ['mp4'],
+            quality: [80],
         });
         this.form.valueChanges.subscribe(function (res) {
             console.log(res);
@@ -1595,7 +1614,7 @@ var VideoTransformComponent = /** @class */ (function () {
     }
     VideoTransformComponent.prototype.ngOnInit = function () {
     };
-    // 选择文件
+    // 选择文件 ---------------------------------------------------------------------------
     VideoTransformComponent.prototype.selectFile = function () {
         var _this = this;
         console.log('select');
@@ -1607,17 +1626,26 @@ var VideoTransformComponent = /** @class */ (function () {
             }
         });
     };
+    // 确定--------------------------------------------------------------------------------
     VideoTransformComponent.prototype.confirm = function () {
         var _this = this;
+        var values = this.form.value;
+        if (!values.name) {
+            alert('请选择要转换视频文件');
+            return;
+        }
         this.dialogService.getSaveFile(function (res) {
             console.log(res);
-            var values = _this.form.value;
             if (!values.name) {
                 alert('请选择要转换视频文件');
                 return;
             }
             var options = __assign({}, values, { dist: res });
             console.log(options);
+            if (options.dist == options.name) {
+                alert('转换和生成的文件不能为同一文件路径');
+                return;
+            }
             _this.dialog.closeAll();
             setTimeout(function () {
                 _this.dialog.open(_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_6__["TransformingProgressComponent"], {
@@ -1626,7 +1654,7 @@ var VideoTransformComponent = /** @class */ (function () {
                 });
             }, 0);
             _this.ffmpegService.transform(options);
-        });
+        }, false);
         // this.ffmpegService.transform()
     };
     VideoTransformComponent = __decorate([
@@ -1858,6 +1886,121 @@ var WorkspaceComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dynamic-form2/api.js":
+/*!**************************************!*\
+  !*** ./src/app/dynamic-form2/api.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*
+ * @Author: zhangzhenyang 
+ * @Date: 2018-11-20 11:52:21 
+ * @Last Modified by: zhangzhenyang
+ * @Last Modified time: 2018-11-20 13:38:47
+ */
+
+const base = 'http://192.168.1.134:8090/wonbaoWeb/';
+// const remote = 'http://192.168.1.134:8090/wonbaoWeb/';
+const remote = '';
+/* harmony default export */ __webpack_exports__["default"] = ({
+	remote,
+	img: `${base}/assets/`,
+	getItemInfo: `${base}marketing/wireless/activitypage/getItemInfo`,// 获取宝贝详情(y)
+	getItems: `${base}public/getItems`, // 获取宝贝(可参考旺店宝的无线活动页的添加(y)
+	loadPromotionActivity: `${base}public/loadPromotionActivity`,//   加载促销活动列表(y)
+	getPromotionItems: `${base}public/getPromotionItems`,//   加载活动中的宝贝 (y)
+	getPictureCategory: `${base}goods/manage/picture/getPictureCategory`,//获取图片空间列表(y)
+	getPictureItems: `${base}goods/manage/picture/getPictureItems`, // 获取图片空间图片列表(y)
+	getSellerCats:`${base}public/getSellerCats`, // 获取宝贝类目 (y)
+	getPosterLabel: `${base}marketing/wireless/activitypage/getPosterLabel`,// 获取海报主题，标签，颜色 (y)
+	getPosterTemplates: `${base}marketing/wireless/activitypage/getPosterTemplates`,// 获取所有的海报模板 (y)
+	uploadPage: `${base}marketing/wireless/activitypage/uploadPage`,// 无线活动页上传本地图片到图片空间(y)
+
+	getCoupons: `${base}promotion/coupon/ump/activity/getCoupons`,// 获取旺店宝优惠券(y)
+	getPromotionCoupon: `${base}marketing/poster/plan/getPromotionCoupon`,// 获取官方优惠券(y)
+
+	getPromotionMealPlan: `${base}marketing/meal/plan/getPlans`,// 搭配套餐计划(y)
+
+
+	getPages: `${base}marketing/wireless/activitypage/getPages`, // 获取无线活动页所有计划
+
+	getTemplate: `${base}marketing/wirelessnew/template/getTemplate`, // 获取无线活动页的模板信息,页面加载时调用（y）
+	addtemplate: `${base}marketing/wirelessnew/template/addOrUpdateTemplate`, // 无线活动页保存到模板 (y)
+	updatetemplate: '', // 无线活动页修改模板 （暂缺）
+	getPagenew: `${base}marketing/wirelessnew/activitypage/getPage`, // 获取新版无线活动页计划详细信息(y)
+	addPage: `${base}marketing/wirelessnew/activitypage/addPage`, // 无线活动页保存到计划 (y)
+	updatePage: `${base}marketing/wirelessnew/activitypage/updatePage`, // 无线活动页更新计划(y)
+});
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.html":
+/*!*************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/author-dialog/author-dialog.component.html ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<webview  #authorDialog id=\"author-dialog\" src=\"http://192.168.1.134:8090/wonbaoWeb/local?userId=105227988\"></webview>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.scss":
+/*!*************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/author-dialog/author-dialog.component.scss ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#author-dialog {\n  width: 800px;\n  height: 500px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts ***!
+  \***********************************************************************************/
+/*! exports provided: AuthorDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthorDialogComponent", function() { return AuthorDialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// 授权弹窗组件
+
+var AuthorDialogComponent = /** @class */ (function () {
+    function AuthorDialogComponent() {
+    }
+    AuthorDialogComponent.prototype.ngOnInit = function () {
+    };
+    AuthorDialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-author-dialog',
+            template: __webpack_require__(/*! ./author-dialog.component.html */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.html"),
+            styles: [__webpack_require__(/*! ./author-dialog.component.scss */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AuthorDialogComponent);
+    return AuthorDialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dynamic-form2/components/dynamic-field/dynamic-field.directive.ts":
 /*!***********************************************************************************!*\
   !*** ./src/app/dynamic-form2/components/dynamic-field/dynamic-field.directive.ts ***!
@@ -2063,7 +2206,7 @@ var FormCheckboxComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  display:none\ninput:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .form-image-wrap {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-size: contain;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 1px solid #eeeeee; }\n  label {\n  display: flex;\n  align-items: stretch; }\n  .image-input {\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  margin-bottom: 10px; }\n  .image-input-input {\n  /* display: none; */\n  width: 0;\n  height: 0;\n  padding: 0; }\n  .form-image-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center; }\n  .image-input-attr {\n  border: 1px solid #eeeeee;\n  display: flex;\n  align-items: center; }\n  .image-input-attr span {\n  width: 100px;\n  padding-left: 10px; }\n  .image-input-attr input {\n  flex: 1; }\n"
+module.exports = "input {\n  display: block;\n  font-family: inherit;\n  font-size: 14px;\n  width: 100%;\n  border: 1px solid rgba(0, 0, 0, 0);\n  outline: none;\n  padding: 10px 15px;\n  color: rgba(0, 0, 0, 0.7);\n  box-sizing: border-box;\n  overflow: hidden;\n  white-space: nowrap;\n  word-break: break-all;\n  text-overflow: ellipsis; }\n  display:none\ninput:focus {\n    border: 1px solid rgba(0, 0, 0, 0.4);\n    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }\n  .form-image-wrap {\n  width: 100px;\n  height: 100px;\n  background-color: white;\n  background-size: contain;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 1px solid #eeeeee; }\n  label {\n  display: flex;\n  align-items: stretch; }\n  .image-input {\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  margin-bottom: 10px; }\n  .image-input-input {\n  /* display: none; */\n  width: 0;\n  height: 0;\n  padding: 0; }\n  .form-image-image {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n  background-color: #efefef; }\n  .image-input-attr {\n  border: 1px solid #eeeeee;\n  display: flex;\n  align-items: center; }\n  .image-input-attr span {\n  width: 100px;\n  padding-left: 10px; }\n  .image-input-attr input {\n  flex: 1; }\n  .image-input-table {\n  width: 100%; }\n"
 
 /***/ }),
 
@@ -2079,6 +2222,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormImageComponent", function() { return FormImageComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _form_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../form.service */ "./src/app/dynamic-form2/form.service.ts");
+/* harmony import */ var _image_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../image.service */ "./src/app/dynamic-form2/image.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../image-dialog/image-dialog.component */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2090,9 +2237,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
 var FormImageComponent = /** @class */ (function () {
-    function FormImageComponent(sanitizer) {
+    function FormImageComponent(sanitizer, formService, dialog, imageService) {
         this.sanitizer = sanitizer;
+        this.formService = formService;
+        this.dialog = dialog;
+        this.imageService = imageService;
     }
     FormImageComponent.prototype.ngOnchange = function () {
         console.log(this.group);
@@ -2104,30 +2258,37 @@ var FormImageComponent = /** @class */ (function () {
         return this.sanitizer.bypassSecurityTrustResourceUrl(url);
     };
     // 打开文件
-    FormImageComponent.prototype.openFile = function () {
+    FormImageComponent.prototype.openFile = function (type) {
         var _this = this;
-        var imageDir = localStorage.getItem('imageDir') || '';
-        // alert(imageDir);
-        window['remote'].dialog.showOpenDialog(window['remote'].getCurrentWindow(), {
-            title: '请选择图片',
-            defaultPath: imageDir,
-            properties: ['openFile'],
-            filters: [
-                { name: '图片', extensions: ['jpg', 'jpeg', 'png', 'bmp', 'gif'] },
-            ]
-        }, function (filePaths) {
-            //this.getCurrentDirFiles(filePaths[0],result);
-            if (!filePaths) {
-                return;
-            }
-            if (Array.isArray(filePaths) && typeof filePaths[0] == 'string') {
-                localStorage.setItem('imageDir', window['path'].dirname(filePaths[0]));
-            }
-            console.log(filePaths[0]);
-            // console.log(this.group.controls[this.config.name]);
-            _this.group.controls[_this.config.name].setValue(filePaths[0].replace(/\\/g, '/'), { emitEvent: true });
-            _this.input.nativeElement.blur();
-        });
+        if (type == 0) {
+            // this.formService.showImageDialog();
+            this.dialog.open(_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ImageDialogComponent"]);
+            this.imageService.openAuthorDialog();
+        }
+        else if (type == 1) {
+            var imageDir = localStorage.getItem('imageDir') || '';
+            // alert(imageDir);
+            window['remote'].dialog.showOpenDialog(window['remote'].getCurrentWindow(), {
+                title: '请选择图片',
+                defaultPath: imageDir,
+                properties: ['openFile'],
+                filters: [
+                    { name: '图片', extensions: ['jpg', 'jpeg', 'png', 'bmp', 'gif'] },
+                ]
+            }, function (filePaths) {
+                //this.getCurrentDirFiles(filePaths[0],result);
+                if (!filePaths) {
+                    return;
+                }
+                if (Array.isArray(filePaths) && typeof filePaths[0] == 'string') {
+                    localStorage.setItem('imageDir', window['path'].dirname(filePaths[0]));
+                }
+                console.log(filePaths[0]);
+                // console.log(this.group.controls[this.config.name]);
+                _this.group.controls[_this.config.name].setValue(filePaths[0].replace(/\\/g, '/'), { emitEvent: true });
+                _this.input.nativeElement.blur();
+            });
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('input'),
@@ -2137,9 +2298,9 @@ var FormImageComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'form-image',
             styles: [__webpack_require__(/*! ./form-image.component.scss */ "./src/app/dynamic-form2/components/form-image/form-image.component.scss")],
-            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <img class=\"pointer form-image-image\" style=\"width:100px;height:100px;\" [src]=\"this.url(src?.value || '')\" (click)=\"openFile()\">\n        <input\n          class=\"image-input-input\"\n          type=\"text\"\n          #src\n          #input\n          [attr.placeholder]=\"config.placeholder\"\n          [formControlName]=\"config.name\">\n      </label>\n      <!--<div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-x']\">\n          <span>\u8DDD\u5DE6\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-x'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-y']\">\n          <span>\u8DDD\u4E0A\u8FB9\u8DDD:</span>\n          <input type=\"number\" step=\"10\" [formControlName]=\"config.name+'-y'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleX']\">\n          <span>\u5BBD\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleX'\">\n        </div>\n        <div class=\"image-input-attr\" *ngIf=\"group.controls[config.name+'-scaleY']\">\n          <span>\u9AD8\u7F29\u653E\u6BD4:</span>\n          <input type=\"number\" step=\"0.1\" [formControlName]=\"config.name+'-scaleY'\">\n        </div>\n      </div>-->\n    </div>\n  "
+            template: "\n    <div \n      class=\"dynamic-field image-input\" \n      [formGroup]=\"group\"\n    >\n      <label class=\"image-input-lable\" >\n        <table class=\"image-input-table\">\n          <tr>\n            <td rowspan=\"2\">\n              <img class=\"pointer form-image-image\" style=\"width:100px;height:100px;\" [src]=\"this.url(src?.value || '')\" (click)=\"openFile()\">\n              <input\n                class=\"image-input-input\"\n                type=\"text\"\n                #src\n                #input\n                [attr.placeholder]=\"config.placeholder\"\n                [formControlName]=\"config.name\">\n            </td>\n            <td class=\"text-align-right vertical-align-top\">\n              <button class=\"blue block\" (click)=\"openFile(0)\">\u7EBF\u4E0A</button>\n            </td>\n          </tr>\n          <tr>\n            <td class=\"text-align-right\">\n              <button class=\"blue block\" (click)=\"openFile(1)\">\u672C\u5730</button>\n            </td>\n          </tr>\n        </table>\n      </label>\n    </div>\n  "
         }),
-        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
+        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"], _form_service__WEBPACK_IMPORTED_MODULE_2__["FormService"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], _image_service__WEBPACK_IMPORTED_MODULE_3__["ImageService"]])
     ], FormImageComponent);
     return FormImageComponent;
 }());
@@ -2332,6 +2493,158 @@ var FormTitleComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-category-item/image-category-item.component.html ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"img-space-item\" (click)=\"click\">\n <div class=\"left img-category-title relative\">\n    <div\n      [ngClass]=\"['folder-toggle-icon', 'absolute', 'pointer', data.picture_category_id == -1 ? 'top-toggle-icon' : '']\"\n      *ngIf=\"data.children.length > 0\"\n      (click)=\"toggleFolder()\"\n    >\n      {{ showChild ? '-' : '+' }}\n    </div><span\n      class=\"pointer\"\n      (click)=\"selectCategory(data.picture_category_id, data.picture_category_name.trim())\"\n      [ngclass]=\"{'active-category': pictureCategoryId == data.picture_category_id}\">{{data.picture_category_name.trim()}}</span>\n  </div>\n\n\n <div class=\"left img-category-children\" *ngIf=\"(data.children.length > 0) && showChild\">\n    <app-image-category-item *ngFor=\"let item of data.children\" [data]=\"item\">\n    </app-image-category-item>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.scss":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-category-item/image-category-item.component.scss ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".img-space-item {\n  padding-left: 10px;\n  margin-left: 10px;\n  position: relative; }\n\n.img-space-item:before {\n  content: '';\n  position: absolute;\n  left: 0;\n  top: -11px;\n  width: 1px;\n  height: 100%;\n  background-color: #7D8699; }\n\n.img-category-title {\n  color: #7D8699;\n  font-size: 12px;\n  padding-left: 20px;\n  line-height: 2em;\n  white-space: nowrap; }\n\n.active-category {\n  color: red; }\n\n.img-category-title:before {\n  content: '';\n  width: 20px;\n  height: 1px;\n  background-color: #7D8699;\n  position: absolute;\n  left: -9px;\n  top: 12px; }\n\n.folder-toggle-icon {\n  width: 15px;\n  height: 15px;\n  border: 1px solid #7D8699;\n  line-height: 12px;\n  text-align: center;\n  left: -18px;\n  top: 6px;\n  background-color: white;\n  z-index: 1; }\n\n.top-toggle-icon:before {\n  content: '';\n  position: absolute;\n  left: 0;\n  top: -21px;\n  width: 100%;\n  height: 20px;\n  background-color: white; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: ImageCategoryItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageCategoryItemComponent", function() { return ImageCategoryItemComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _image_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../image.service */ "./src/app/dynamic-form2/image.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ImageCategoryItemComponent = /** @class */ (function () {
+    function ImageCategoryItemComponent(imageService) {
+        this.imageService = imageService;
+        this.showChild = true;
+        this.pictureCategoryId = null;
+    }
+    ImageCategoryItemComponent.prototype.ngOnInit = function () {
+        // console.log('dddddddd', this.data);
+    };
+    ImageCategoryItemComponent.prototype.click = function () {
+    };
+    ImageCategoryItemComponent.prototype.toggleFolder = function () {
+        this.showChild = !this.showChild;
+    };
+    ImageCategoryItemComponent.prototype.selectCategory = function (id, name) {
+        this.pictureCategoryId = id;
+        this.imageService.fetchImage({ id: id, pageNo: 1 });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ImageCategoryItemComponent.prototype, "data", void 0);
+    ImageCategoryItemComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-image-category-item',
+            template: __webpack_require__(/*! ./image-category-item.component.html */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.html"),
+            styles: [__webpack_require__(/*! ./image-category-item.component.scss */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_image_service__WEBPACK_IMPORTED_MODULE_1__["ImageService"]])
+    ], ImageCategoryItemComponent);
+    return ImageCategoryItemComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-dialog/image-dialog.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"img-dialog\">\n  <div style=\"flex:1;\">\n      <app-image-category-item *ngFor=\"let item of imageCategory()\" [data]=\"item\">\n\n      </app-image-category-item>\n  </div>\n  <div style=\"flex: 2;\">\n    右\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-dialog/image-dialog.component.scss ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#img-dialog {\n  width: 800px;\n  height: 600px;\n  display: flex;\n  flex-direction: row;\n  justify-content: stretch; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: ImageDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageDialogComponent", function() { return ImageDialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _image_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../image.service */ "./src/app/dynamic-form2/image.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// 图片选择
+
+
+var ImageDialogComponent = /** @class */ (function () {
+    function ImageDialogComponent(imageService) {
+        this.imageService = imageService;
+    }
+    ImageDialogComponent.prototype.ngOnInit = function () {
+    };
+    ImageDialogComponent.prototype.imageCategory = function () {
+        return this.imageService.imageCategory;
+    };
+    ImageDialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-image-dialog',
+            template: __webpack_require__(/*! ./image-dialog.component.html */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.html"),
+            styles: [__webpack_require__(/*! ./image-dialog.component.scss */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_image_service__WEBPACK_IMPORTED_MODULE_1__["ImageService"]])
+    ], ImageDialogComponent);
+    return ImageDialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts":
 /*!*********************************************************************************!*\
   !*** ./src/app/dynamic-form2/containers/dynamic-form/dynamic-form.component.ts ***!
@@ -2480,6 +2793,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/form-checkbox/form-checkbox.component */ "./src/app/dynamic-form2/components/form-checkbox/form-checkbox.component.ts");
 /* harmony import */ var _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/form-radio/form-radio.component */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts");
 /* harmony import */ var _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/form-title/form-title.component */ "./src/app/dynamic-form2/components/form-title/form-title.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/image-dialog/image-dialog.component */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts");
+/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/image-category-item/image-category-item.component */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2499,6 +2817,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+// material 
+
+
+
+
+
 var DynamicFormModule = /** @class */ (function () {
     function DynamicFormModule() {
     }
@@ -2507,7 +2831,9 @@ var DynamicFormModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialogModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"],
             ],
             declarations: [
                 _components_dynamic_field_dynamic_field_directive__WEBPACK_IMPORTED_MODULE_3__["DynamicFieldDirective"],
@@ -2519,6 +2845,9 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
                 _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
+                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_13__["ImageDialogComponent"],
+                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_14__["AuthorDialogComponent"],
+                _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_16__["ImageCategoryItemComponent"],
             ],
             exports: [
                 _containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_4__["DynamicFormComponent"]
@@ -2531,12 +2860,172 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
                 _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
-            ]
+                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_13__["ImageDialogComponent"],
+                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_14__["AuthorDialogComponent"],
+            ],
+            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
     ], DynamicFormModule);
     return DynamicFormModule;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/form.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/dynamic-form2/form.service.ts ***!
+  \***********************************************/
+/*! exports provided: FormService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormService", function() { return FormService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FormService = /** @class */ (function () {
+    function FormService() {
+    }
+    FormService.prototype.showImageDialog = function () {
+        alert('ddd');
+    };
+    FormService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], FormService);
+    return FormService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/image.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/dynamic-form2/image.service.ts ***!
+  \************************************************/
+/*! exports provided: ImageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageService", function() { return ImageService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./api.js */ "./src/app/dynamic-form2/api.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ImageService = /** @class */ (function () {
+    function ImageService(dialog, http) {
+        this.dialog = dialog;
+        this.http = http;
+        // 图片空间类目
+        this.imageCategory = [];
+    }
+    ImageService.prototype.openAuthorDialog = function () {
+        this.fetchImageSpaceCategory();
+    };
+    // 获取图片空间类目
+    ImageService.prototype.fetchImageSpaceCategory = function () {
+        var _this = this;
+        this.http.get(_api_js__WEBPACK_IMPORTED_MODULE_4__["default"].getPictureCategory, {}).subscribe(function (e) {
+            console.log(e);
+            if (e['success']) {
+                var categoryList = e['data'];
+                var top_1 = categoryList.filter(function (item) {
+                    return item.picture_category_id == -1;
+                });
+                var parentList = [];
+                categoryList.forEach(function (item) {
+                    if (item.parent_id == 0 && item.picture_category_id != -1) {
+                        parentList.push(item);
+                    }
+                });
+                _this.imageCategoryGetChild(categoryList, parentList);
+                var result = parentList;
+                if (top_1 && top_1[0]) {
+                    top_1[0].children = parentList;
+                    result = top_1;
+                }
+                _this.imageCategory = result;
+                console.log(result);
+            }
+            else {
+                alert('获取图片空间类目失败');
+            }
+        }, function (err) {
+            console.log(err);
+            alert(err);
+            // 打开授权窗口
+            _this.dialog.open(_components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_2__["AuthorDialogComponent"]);
+        });
+    };
+    ImageService.prototype.imageCategoryGetChild = function (categoryList, list) {
+        var _this = this;
+        list.forEach(function (item) {
+            var id = item.picture_category_id;
+            var childList = [];
+            categoryList.forEach(function (i) {
+                if (i.parent_id == id) {
+                    childList.push(i);
+                }
+            });
+            if (childList.length > 0) {
+                _this.imageCategoryGetChild(categoryList, childList);
+            }
+            item.children = childList;
+        });
+    };
+    // 获取图片空间图片
+    ImageService.prototype.fetchImage = function (_a) {
+        var id = _a.id, _b = _a.pageNo, pageNo = _b === void 0 ? 1 : _b;
+        console.log([id, pageNo]);
+        var req = {
+            categroyId: id || '',
+            pageSize: 20,
+            currentPage: pageNo,
+        };
+        this.http.post(_api_js__WEBPACK_IMPORTED_MODULE_4__["default"].getPictureItems, req).subscribe(function (res) {
+        }, function (res) {
+        });
+    };
+    ImageService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+    ], ImageService);
+    return ImageService;
+}());
+
+// "Http failure during parsing for https://oauth.taobao.com/authorize?response_type=code&client_id=12020783&redirect_uri=https://2015.wonbao.net/authorize/web&scope=promotion,item,usergrade&view=web&state=%2Fgoods%2Fmanage%2Fpicture%2FgetPictureCategory"
 
 
 /***/ }),
@@ -2775,7 +3264,7 @@ var CanvasService = /** @class */ (function () {
                 imgPrefix: _this.imgPrefix,
             });
             // this.dialogService.showProgress();
-        });
+        }, true);
     };
     // 生成mp4 文件
     CanvasService.prototype.generateMp4 = function () {
@@ -2918,16 +3407,24 @@ var DialogService = /** @class */ (function () {
         });
     };
     // 保存文件
-    DialogService.prototype.getSaveFile = function (callback) {
+    DialogService.prototype.getSaveFile = function (callback, onlyMp4) {
         var videoDir = localStorage.getItem('videoDir') || '';
         // alert(videoDir);
         window['remote'].dialog.showSaveDialog(window['remote'].getCurrentWindow(), {
             title: '保存视频',
             defaultPath: videoDir,
-            filters: [
+            filters: onlyMp4 ? [
+                { name: 'mp4', extensions: ['mp4'] }
+            ] : [
                 { name: 'mp4', extensions: ['mp4'] },
                 { name: 'mov', extensions: ['mov'] },
                 { name: 'avi', extensions: ['avi'] },
+                { name: '3gp', extensions: ['3gp'] },
+                { name: 'wmv', extensions: ['wmv'] },
+                { name: 'wav', extensions: ['wav'] },
+                { name: 'flv', extensions: ['flv'] },
+                { name: 'mpg', extensions: ['mpg'] },
+                { name: 'webm', extensions: ['webm'] },
             ]
         }, function (res) {
             callback(res);
@@ -3100,11 +3597,24 @@ var FfmpegService = /** @class */ (function () {
     // 转换格式
     FfmpegService.prototype.transform = function (_a) {
         var _this = this;
-        var name = _a.name, dist = _a.dist;
+        var name = _a.name, dist = _a.dist, quality = _a.quality;
+        this.current = '';
+        this.duration = '';
         this.current = '';
         this.pid = '';
-        var commandStr = "\"./ffmpeg/bin/ffmpeg.exe\" -y -i \"" + name + "\" \"" + dist + "\"";
-        // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';    
+        // 视频质量 1 - 51;越小越清晰
+        var qual = (100 - quality) / 100 * 51;
+        if (qual > 51) {
+            qual = 51;
+        }
+        if (qual <= 1) {
+            qual = 1;
+        }
+        // 视频质量
+        var crf = " -crf " + qual + " "; // ' -crf 51 ';
+        var commandStr = "\"./ffmpeg/bin/ffmpeg.exe\" -y -i \"" + name + "\" " + crf + " \"" + dist + "\"";
+        // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';   
+        console.log(commandStr);
         var command = this.exec(commandStr, { cwd: this.currentDir, killSignal: 'SIGTERM', }, function (err, data, data1) {
             if (err) {
                 console.error(err);

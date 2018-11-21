@@ -1,10 +1,17 @@
 <h2 mat-dialog-title>视频转换中</h2>
 <mat-dialog-content>
-  <div>
+  <div *ngIf="duration()">
     <mat-progress-bar mode="determinate" [value]="value()" color="warn"></mat-progress-bar>
     <div class="f fr jcsb" style="margin-top: 10px;">
       <span class="fontSmall color-gray">当前: {{ current() }}</span>
       <span class="fontSmall color-gray">总长:{{ duration() }}</span>
     </div>
   </div>
+  <div *ngIf="!duration()">
+    <mat-progress-bar mode="indeterminate" color="warn" value="50"></mat-progress-bar>
+    <div class="f fr jcsb" style="margin-top: 10px;">
+      <span class="fontSmall color-gray">视频转换</span>
+    </div>
+  </div>
+
 </mat-dialog-content>

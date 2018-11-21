@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -13,11 +13,21 @@ import { FormCheckboxComponent } from './components/form-checkbox/form-checkbox.
 import { FormRadioComponent } from './components/form-radio/form-radio.component';
 import { FormTitleComponent } from './components/form-title/form-title.component';
 
+// material 
+import {MatDialogModule} from '@angular/material/dialog';
+import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
+import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ImageCategoryItemComponent } from './components/image-category-item/image-category-item.component';
+
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    HttpClientModule,
   ],
   declarations: [
     DynamicFieldDirective,
@@ -29,6 +39,9 @@ import { FormTitleComponent } from './components/form-title/form-title.component
     FormCheckboxComponent,
     FormRadioComponent,
     FormTitleComponent,
+    ImageDialogComponent,
+    AuthorDialogComponent,
+    ImageCategoryItemComponent,
   ],
   exports: [
     DynamicFormComponent
@@ -41,6 +54,9 @@ import { FormTitleComponent } from './components/form-title/form-title.component
     FormCheckboxComponent,
     FormRadioComponent,
     FormTitleComponent,
-  ]
+    ImageDialogComponent,
+    AuthorDialogComponent,
+  ],
+  schemas:[NO_ERRORS_SCHEMA]
 })
 export class DynamicFormModule {}

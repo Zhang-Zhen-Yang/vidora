@@ -73,16 +73,28 @@ export class FfmpegService {
       console.error(e);
     }
   }
-
   current = '';
   duration = '';
   pid = '';
   // 转换格式
-  transform({name, dist}) {
+  transform({name, dist, quality}) {
+    this.current = '';
+    this.duration = '';
     this.current = '';
     this.pid = '';
-    const commandStr = `"./ffmpeg/bin/ffmpeg.exe" -y -i "${name}" "${dist}"`;
-    // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';    
+    // 视频质量 1 - 51;越小越清晰
+    let qual = (100 - quality)/100 * 51;
+    if(qual > 51) {
+      qual = 51
+    }
+    if (qual <= 1 ) {
+      qual = 1;
+    }
+    // 视频质量
+    const crf = ` -crf ${qual} `;// ' -crf 51 ';
+    const commandStr = `"./ffmpeg/bin/ffmpeg.exe" -y -i "${name}" ${crf} "${dist}"`;
+    // const commandStr = '"./ffmpeg/bin/ffmpeg.exe" -i "C:/Users/Administrator/Desktop/mp4/需要.mp4" "C:/Users/Administrator/Desktop/mp4/需要.mov"';   
+    console.log(commandStr); 
     const command = this.exec(commandStr, {cwd: this.currentDir, killSignal: 'SIGTERM',}, (err,data,data1) => {
       if(err) {
         console.error(err);

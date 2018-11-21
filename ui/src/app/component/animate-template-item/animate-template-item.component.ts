@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CanvasService } from '../../service/canvas.service';
 import {DomSanitizer} from '@angular/platform-browser';
-
+/*模板列表 */
 @Component({
   selector: 'app-animate-template-item',
   templateUrl: './animate-template-item.component.html',

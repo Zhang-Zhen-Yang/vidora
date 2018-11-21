@@ -1,0 +1,20 @@
+<div class="img-space-item" (click)="click">
+ <div class="left img-category-title relative">
+    <div
+      [ngClass]="['folder-toggle-icon', 'absolute', 'pointer', data.picture_category_id == -1 ? 'top-toggle-icon' : '']"
+      *ngIf="data.children.length > 0"
+      (click)="toggleFolder()"
+    >
+      {{ showChild ? '-' : '+' }}
+    </div><span
+      class="pointer"
+      (click)="selectCategory(data.picture_category_id, data.picture_category_name.trim())"
+      [ngclass]="{'active-category': pictureCategoryId == data.picture_category_id}">{{data.picture_category_name.trim()}}</span>
+  </div>
+
+
+ <div class="left img-category-children" *ngIf="(data.children.length > 0) && showChild">
+    <app-image-category-item *ngFor="let item of data.children" [data]="item">
+    </app-image-category-item>
+  </div>
+</div>

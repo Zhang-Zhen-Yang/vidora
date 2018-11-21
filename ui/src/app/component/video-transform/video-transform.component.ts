@@ -30,7 +30,8 @@ export class VideoTransformComponent implements OnInit {
     console.log(VideoType);
     this.form = fb.group({
       name: [''],
-      type: ['mp4']
+      type: ['mp4'],
+      quality: [80],
     })
     this.form.valueChanges.subscribe((res)=>{
       console.log(res);
@@ -39,7 +40,7 @@ export class VideoTransformComponent implements OnInit {
 
   ngOnInit() {
   }
-  // 选择文件
+  // 选择文件 ---------------------------------------------------------------------------
   selectFile() {
     console.log('select');
     this.dialogService.selectFile({
@@ -50,16 +51,26 @@ export class VideoTransformComponent implements OnInit {
       }
     })
   }
+  // 确定--------------------------------------------------------------------------------
   confirm() {
+    const values = this.form.value;
+    if(!values.name) {
+      alert('请选择要转换视频文件');
+      return;
+    }
     this.dialogService.getSaveFile((res) => {
       console.log(res);
-      const values = this.form.value;
+      
       if (!values.name) {
         alert('请选择要转换视频文件');
         return;
       }
       const options = {...values, dist: res};
       console.log(options);
+      if(options.dist == options.name) {
+        alert('转换和生成的文件不能为同一文件路径');
+        return;
+      }
       this.dialog.closeAll();
       setTimeout(()=>{
         this.dialog.open(TransformingProgressComponent, {
@@ -68,8 +79,9 @@ export class VideoTransformComponent implements OnInit {
         });
       },0)
       this.ffmpegService.transform(options);
-    });
+    }, false);
     // this.ffmpegService.transform()
   }
+
 
 }

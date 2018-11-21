@@ -49,7 +49,7 @@ export class DialogService {
     );
   }
   // 保存文件
-  getSaveFile(callback){
+  getSaveFile(callback, onlyMp4){
     const videoDir = localStorage.getItem('videoDir') || '';
     // alert(videoDir);
     window['remote'].dialog.showSaveDialog(
@@ -57,10 +57,18 @@ export class DialogService {
       {
         title:'保存视频',
         defaultPath: videoDir,
-        filters: [
+        filters: onlyMp4 ? [
+          {name: 'mp4', extensions: ['mp4']}
+        ] : [
           {name: 'mp4', extensions: ['mp4']},
           {name: 'mov', extensions: ['mov']},
           {name: 'avi', extensions: ['avi']},
+          {name: '3gp', extensions: ['3gp']},
+          {name: 'wmv', extensions: ['wmv']},
+          {name: 'wav', extensions: ['wav']},
+          {name: 'flv', extensions: ['flv']},
+          {name: 'mpg', extensions: ['mpg']},
+          {name: 'webm', extensions: ['webm']},
         ]
       },
       function(res){
