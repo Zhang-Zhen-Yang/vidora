@@ -1944,7 +1944,7 @@ const remote = '';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<webview  #authorDialog id=\"author-dialog\" src=\"http://192.168.1.134:8090/wonbaoWeb/local?userId=105227988\"></webview>\n"
+module.exports = "<webview  #authorDialog id=\"author-dialog\" src=\"http://192.168.1.134:8090/wonbaoWeb/local?userId=105227988\">\n</webview>\n"
 
 /***/ }),
 
@@ -1995,6 +1995,143 @@ var AuthorDialogComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], AuthorDialogComponent);
     return AuthorDialogComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/checked-icon/checked-icon.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  checked-icon works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/checked-icon/checked-icon.component.scss ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/checked-icon/checked-icon.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: CheckedIconComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckedIconComponent", function() { return CheckedIconComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CheckedIconComponent = /** @class */ (function () {
+    function CheckedIconComponent() {
+    }
+    CheckedIconComponent.prototype.ngOnInit = function () {
+    };
+    CheckedIconComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'checked-icon',
+            template: __webpack_require__(/*! ./checked-icon.component.html */ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.html"),
+            styles: [__webpack_require__(/*! ./checked-icon.component.scss */ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CheckedIconComponent);
+    return CheckedIconComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/content-notice/content-notice.component.html":
+/*!***************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/content-notice/content-notice.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<table class=\"relative content-notice\" *ngIf=\"show()\">\n    <tr>\n      <td class=\"center middle\">\n        <div style=\"display: inline-block;\">\n          <mat-progress-spinner\n            *ngIf=\"lastAction == 'loading'\"\n            class=\"example-margin\"\n            color=\"warn\"\n            diameter=\"50\"\n            mode=\"indeterminate\">\n          </mat-progress-spinner>\n        </div>\n        \n          <div *ngIf=\"lastAction == 'error'\">\n            {{ msg || '请求出错' }}\n          </div>\n          <div *ngIf=\"lastAction == 'success' && count == 0\">\n            数据为空\n          </div>\n      </td>\n    </tr>\n  </table>"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/content-notice/content-notice.component.scss":
+/*!***************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/content-notice/content-notice.component.scss ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".content-notice {\n  width: 100%;\n  height: calc(100% - 10px);\n  text-align: center; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/content-notice/content-notice.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/content-notice/content-notice.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: ContentNoticeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentNoticeComponent", function() { return ContentNoticeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ContentNoticeComponent = /** @class */ (function () {
+    function ContentNoticeComponent() {
+    }
+    ContentNoticeComponent.prototype.ngOnInit = function () {
+    };
+    ContentNoticeComponent.prototype.show = function () {
+        return this.lastAction == 'loading' || this.lastAction == 'error' || (this.lastAction == 'success' && this.count == 0);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ContentNoticeComponent.prototype, "lastAction", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ContentNoticeComponent.prototype, "count", void 0);
+    ContentNoticeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'content-notice',
+            template: __webpack_require__(/*! ./content-notice.component.html */ "./src/app/dynamic-form2/components/content-notice/content-notice.component.html"),
+            styles: [__webpack_require__(/*! ./content-notice.component.scss */ "./src/app/dynamic-form2/components/content-notice/content-notice.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ContentNoticeComponent);
+    return ContentNoticeComponent;
 }());
 
 
@@ -2263,7 +2400,16 @@ var FormImageComponent = /** @class */ (function () {
         if (type == 0) {
             // this.formService.showImageDialog();
             this.dialog.open(_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ImageDialogComponent"]);
-            this.imageService.openAuthorDialog();
+            this.imageService.setImageCallback(function (imageUrl) {
+                if (imageUrl) {
+                    _this.group.controls[_this.config.name].setValue(imageUrl, { emitEvent: true });
+                    _this.input.nativeElement.blur();
+                    _this.dialog.closeAll();
+                }
+                else {
+                    alert('请选择图片');
+                }
+            });
         }
         else if (type == 1) {
             var imageDir = localStorage.getItem('imageDir') || '';
@@ -2500,7 +2646,7 @@ var FormTitleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"img-space-item\" (click)=\"click\">\n <div class=\"left img-category-title relative\">\n    <div\n      [ngClass]=\"['folder-toggle-icon', 'absolute', 'pointer', data.picture_category_id == -1 ? 'top-toggle-icon' : '']\"\n      *ngIf=\"data.children.length > 0\"\n      (click)=\"toggleFolder()\"\n    >\n      {{ showChild ? '-' : '+' }}\n    </div><span\n      class=\"pointer\"\n      (click)=\"selectCategory(data.picture_category_id, data.picture_category_name.trim())\"\n      [ngclass]=\"{'active-category': pictureCategoryId == data.picture_category_id}\">{{data.picture_category_name.trim()}}</span>\n  </div>\n\n\n <div class=\"left img-category-children\" *ngIf=\"(data.children.length > 0) && showChild\">\n    <app-image-category-item *ngFor=\"let item of data.children\" [data]=\"item\">\n    </app-image-category-item>\n  </div>\n</div>\n"
+module.exports = "<div class=\"img-space-item\" (click)=\"click\">\n <div class=\"left img-category-title relative\">\n    <div\n      [ngClass]=\"['folder-toggle-icon', 'absolute', 'pointer', data.picture_category_id == -1 ? 'top-toggle-icon' : '']\"\n      *ngIf=\"data.children.length > 0\"\n      (click)=\"toggleFolder()\"\n    >\n      {{ showChild ? '-' : '+' }}\n    </div><span\n      [title]=\"data.picture_category_id\"\n      (click)=\"selectCategory(data.picture_category_id, data.picture_category_name.trim())\"\n      [ngClass]=\"{pointer: true,'active-category': pictureCategoryId() == data.picture_category_id}\">{{data.picture_category_name.trim()}}</span>\n  </div>\n\n\n <div class=\"left img-category-children\" *ngIf=\"(data.children.length > 0) && showChild\">\n    <app-image-category-item *ngFor=\"let item of data.children\" [data]=\"item\">\n    </app-image-category-item>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2542,18 +2688,20 @@ var ImageCategoryItemComponent = /** @class */ (function () {
     function ImageCategoryItemComponent(imageService) {
         this.imageService = imageService;
         this.showChild = true;
-        this.pictureCategoryId = null;
     }
     ImageCategoryItemComponent.prototype.ngOnInit = function () {
         // console.log('dddddddd', this.data);
     };
     ImageCategoryItemComponent.prototype.click = function () {
     };
+    ImageCategoryItemComponent.prototype.pictureCategoryId = function () {
+        return this.imageService.categoryId;
+    };
     ImageCategoryItemComponent.prototype.toggleFolder = function () {
         this.showChild = !this.showChild;
     };
     ImageCategoryItemComponent.prototype.selectCategory = function (id, name) {
-        this.pictureCategoryId = id;
+        // this.pictureCategoryId = id;
         this.imageService.fetchImage({ id: id, pageNo: 1 });
     };
     __decorate([
@@ -2575,6 +2723,78 @@ var ImageCategoryItemComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.html ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n  <div id=\"action-bar\">\n    <div>\n      <span [matMenuTriggerFor]=\"menu\">出售中</span>\n      <mat-menu #menu=\"matMenu\" MenuPositionX=\"after\" xPosition=\"after\" (closed)=\"typeMenuClosed(e)\">\n          <button mat-menu-item >出售中</button>\n          <button mat-menu-item >仓库中</button>\n      </mat-menu>\n    </div>\n    \n  </div>\n  <div id=\"goods-contents\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n\n\n  </div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.scss":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.scss ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  background-color: red;\n  display: flex;\n  width: 1000px;\n  height: 500px;\n  flex-direction: column;\n  align-items: stretch; }\n\n#action-bar {\n  height: 100px;\n  background-color: red; }\n\n#goods-contents {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: auto; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.ts":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.ts ***!
+  \*********************************************************************************************/
+/*! exports provided: ImageDialogGoodsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageDialogGoodsComponent", function() { return ImageDialogGoodsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/*
+ * @Author: zhangzhenyang
+ * @Date: 2018-11-22 09:46:39
+ * @Last Modified by: zhangzhenyang
+ * @Last Modified time: 2018-11-22 10:27:46
+ */
+// 选择图片 宝贝列表
+
+var ImageDialogGoodsComponent = /** @class */ (function () {
+    function ImageDialogGoodsComponent() {
+    }
+    ImageDialogGoodsComponent.prototype.ngOnInit = function () {
+    };
+    ImageDialogGoodsComponent.prototype.typeMenuClosed = function () {
+    };
+    ImageDialogGoodsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'image-dialog-goods',
+            template: __webpack_require__(/*! ./image-dialog-goods.component.html */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.html"),
+            styles: [__webpack_require__(/*! ./image-dialog-goods.component.scss */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ImageDialogGoodsComponent);
+    return ImageDialogGoodsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.html":
 /*!***********************************************************************************!*\
   !*** ./src/app/dynamic-form2/components/image-dialog/image-dialog.component.html ***!
@@ -2582,7 +2802,7 @@ var ImageCategoryItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"img-dialog\">\n  <div style=\"flex:1;\">\n      <app-image-category-item *ngFor=\"let item of imageCategory()\" [data]=\"item\">\n\n      </app-image-category-item>\n  </div>\n  <div style=\"flex: 2;\">\n    右\n  </div>\n</div>\n"
+module.exports = "<table cellspacing=\"0\" cellpadding=\"0\" style=\"margin-bottom: 20px;\">\n  <tr>\n    <td>\n      <h2 mat-dialog-title style=\"margin: 0;\">选择图片</h2>\n    </td>\n    <td>\n      <tab-toggle [tabIndex]=\"imageService.tabIndex\" [list]=\"['图片空间', '宝贝图片']\" (setIndex)=\"setIndex($event)\"></tab-toggle>\n    </td>\n  </tr>\n</table>\n<mat-dialog-content>\n  <!--图片空间-->\n  <div id=\"img-dialog\"  *ngIf=\"imageService.tabIndex == 0\">\n    <div style=\"flex:3;overflow: auto;\">\n        <app-image-category-item *ngFor=\"let item of imageCategory()\" [data]=\"item\">\n\n        </app-image-category-item>\n    </div>\n    <div style=\"flex: 8;overflow: auto;\">\n      <content-notice [lastAction]=\"imageService.imagelastAction\" [count]=\"imageList().length\"></content-notice>\n      <div id=\"image-item-wrap\" *ngIf=\"imageService.imagelastAction == 'success'\">\n        <app-image-item *ngFor=\"let item of imageList()\" [data]=\"item\"></app-image-item>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n      </div>\n    </div>\n  </div>\n  <!-- 宝贝列表 -->\n  <image-dialog-goods *ngIf=\"imageService.tabIndex == 1\"></image-dialog-goods>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <table class=\"bottom-table\">\n    <tr>\n      <td>\n        <pagination-simple [pageNo]=\"imageService.imagePageNo\" [hasNext]=\"imageService.hastNext\" (gotopage)=\"goTo($event)\"></pagination-simple>\n      </td>\n      <td>\n        <button mat-button mat-dialog-close class=\"warn\">取消</button>\n        &nbsp;\n        <button mat-button (click)=\"confirm()\" class=\"blue\">确定</button>\n      </td>\n    </tr>\n  </table>\n\n</mat-dialog-actions>\n"
 
 /***/ }),
 
@@ -2593,7 +2813,7 @@ module.exports = "<div id=\"img-dialog\">\n  <div style=\"flex:1;\">\n      <app
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#img-dialog {\n  width: 800px;\n  height: 600px;\n  display: flex;\n  flex-direction: row;\n  justify-content: stretch; }\n"
+module.exports = "#img-dialog {\n  width: 1000px;\n  height: 500px;\n  display: flex;\n  flex-direction: row;\n  justify-content: stretch; }\n\n:host {\n  background-color: red; }\n\n#image-item-wrap {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  flex-wrap: wrap; }\n\n.image-space-image-item.fake {\n  width: 120px;\n  height: 10px; }\n\n.mat-dialog-content {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  position: relative;\n  overflow: hidden;\n  padding-right: 0; }\n\n.bottom-table {\n  width: 100%; }\n\n.bottom-table td:last-child {\n    text-align: right; }\n"
 
 /***/ }),
 
@@ -2626,9 +2846,28 @@ var ImageDialogComponent = /** @class */ (function () {
         this.imageService = imageService;
     }
     ImageDialogComponent.prototype.ngOnInit = function () {
+        if (this.imageService.imageList.length == 0) {
+            this.imageService.fetchImage({ id: null, pageNo: 1 });
+        }
+        if (this.imageService.imageCategory.length == 0) {
+            this.imageService.fetchImageSpaceCategory();
+        }
     };
     ImageDialogComponent.prototype.imageCategory = function () {
         return this.imageService.imageCategory;
+    };
+    ImageDialogComponent.prototype.imageList = function () {
+        return this.imageService.imageList;
+    };
+    // 跳页
+    ImageDialogComponent.prototype.goTo = function (pageNo) {
+        this.imageService.fetchImage({ id: null, pageNo: pageNo });
+    };
+    ImageDialogComponent.prototype.confirm = function () {
+        this.imageService.imageCallback(this.imageService.selectedImage);
+    };
+    ImageDialogComponent.prototype.setIndex = function (index) {
+        this.imageService.tabIndex = index;
     };
     ImageDialogComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2639,6 +2878,253 @@ var ImageDialogComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_image_service__WEBPACK_IMPORTED_MODULE_1__["ImageService"]])
     ], ImageDialogComponent);
     return ImageDialogComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-item/image-item.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-item/image-item.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div\n  class=\"image-space-image-item\"\n  [ngStyle]=\"{backgroundImage: 'url(' + data.imgUrl + ')'}\"\n  (click)=\"select(data.imgUrl)\"\n  [ngClass]=\"{'selected-image': data.imgUrl == imageService.selectedImage}\"\n>\n  <div class=\"checked-icon\" *ngIf=\"data.imgUrl == imageService.selectedImage\">\n    <span class=\"iconfont\">\n        &#xe631;\n    </span>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-item/image-item.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-item/image-item.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".image-space-image-item {\n  width: 120px;\n  height: 120px;\n  background-color: #efefef;\n  border: 2px solid #eeeeee;\n  margin: 5px;\n  background-size: contain;\n  background-position: center;\n  background-repeat: no-repeat;\n  position: relative; }\n\n.image-space-image-item.selected-image {\n  border: 2px solid #3498DB; }\n\n.checked-icon {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  width: 0;\n  height: 0;\n  border-top: 16px solid transparent;\n  border-left: 16px solid transparent;\n  border-right: 16px solid #3498DB;\n  border-bottom: 16px solid #3498DB;\n  line-height: 13px;\n  text-indent: -2px; }\n\n.iconfont {\n  color: white;\n  font-size: 16px; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/image-item/image-item.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/image-item/image-item.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: ImageItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageItemComponent", function() { return ImageItemComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _image_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../image.service */ "./src/app/dynamic-form2/image.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ImageItemComponent = /** @class */ (function () {
+    function ImageItemComponent(imageService) {
+        this.imageService = imageService;
+    }
+    ImageItemComponent.prototype.ngOnInit = function () {
+    };
+    ImageItemComponent.prototype.select = function (img) {
+        this.imageService.setSelectedImage(img);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ImageItemComponent.prototype, "data", void 0);
+    ImageItemComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-image-item',
+            template: __webpack_require__(/*! ./image-item.component.html */ "./src/app/dynamic-form2/components/image-item/image-item.component.html"),
+            styles: [__webpack_require__(/*! ./image-item.component.scss */ "./src/app/dynamic-form2/components/image-item/image-item.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_image_service__WEBPACK_IMPORTED_MODULE_1__["ImageService"]])
+    ], ImageItemComponent);
+    return ImageItemComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.html":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.html ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"pagination-simple\">\n  <span class=\"prev\" (click)=\"goTo('prev')\" [ngStyle]=\"{cursor: pageNo == 1? 'not-allowed': 'pointer'}\">上一页</span><span>{{ pageNo }}</span><span class=\"next\" (click)=\"goTo('next')\" [ngStyle]=\"{cursor: hasNext ? 'pointer' : 'not-allowed'}\">下一页</span>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.scss ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".pagination-simple {\n  display: inline-block;\n  font-size: 14px; }\n  .pagination-simple > span {\n    display: inline-block;\n    border: 1px solid #cccccc;\n    line-height: 2em;\n    min-width: 30px;\n    text-align: center;\n    padding: 0 5px;\n    border-right: none; }\n  .pagination-simple > span:last-child {\n    border-right: 1px solid #cccccc; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: PaginationSimpleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaginationSimpleComponent", function() { return PaginationSimpleComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+// import { EventEmitter } from 'events';
+var PaginationSimpleComponent = /** @class */ (function () {
+    function PaginationSimpleComponent() {
+        this.gotopage = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    PaginationSimpleComponent.prototype.ngOnInit = function () {
+    };
+    PaginationSimpleComponent.prototype.goTo = function (type) {
+        var page = this.pageNo;
+        if (type == 'prev') {
+            if (this.pageNo == 1) {
+                return;
+            }
+            page -= 1;
+        }
+        else {
+            if (this.hasNext) {
+                page += 1;
+            }
+            else {
+                return;
+            }
+        }
+        this.gotopage.emit(page);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PaginationSimpleComponent.prototype, "pageNo", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PaginationSimpleComponent.prototype, "hasNext", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], PaginationSimpleComponent.prototype, "gotopage", void 0);
+    PaginationSimpleComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'pagination-simple',
+            template: __webpack_require__(/*! ./pagination-simple.component.html */ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.html"),
+            styles: [__webpack_require__(/*! ./pagination-simple.component.scss */ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PaginationSimpleComponent);
+    return PaginationSimpleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.html":
+/*!*******************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.html ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"tab-toggle\">\n  <span \n    *ngFor=\"let item of list;let i = index;\" \n    [ngClass]=\"{active: tabIndex == i}\"\n    (click)=\"setActiveIndex(i)\"\n  >\n  {{item }}</span>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".tab-toggle {\n  border: 1px solid #3498DB;\n  border-radius: 5px; }\n  .tab-toggle span {\n    display: inline-block;\n    border-left: 1px solid #3498DB;\n    padding: 3px 5px;\n    color: #3498DB;\n    cursor: pointer; }\n  .tab-toggle span:first-child {\n    border-left: none; }\n  .tab-toggle span.active {\n    background-color: #3498DB;\n    color: white; }\n"
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: TabToggleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabToggleComponent", function() { return TabToggleComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TabToggleComponent = /** @class */ (function () {
+    function TabToggleComponent() {
+        this.setIndex = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    TabToggleComponent.prototype.ngOnInit = function () {
+    };
+    TabToggleComponent.prototype.setActiveIndex = function (index) {
+        this.setIndex.emit(index);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TabToggleComponent.prototype, "tabIndex", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TabToggleComponent.prototype, "list", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], TabToggleComponent.prototype, "setIndex", void 0);
+    TabToggleComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'tab-toggle',
+            template: __webpack_require__(/*! ./tab-toggle.component.html */ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.html"),
+            styles: [__webpack_require__(/*! ./tab-toggle.component.scss */ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TabToggleComponent);
+    return TabToggleComponent;
 }());
 
 
@@ -2794,10 +3280,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/form-radio/form-radio.component */ "./src/app/dynamic-form2/components/form-radio/form-radio.component.ts");
 /* harmony import */ var _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/form-title/form-title.component */ "./src/app/dynamic-form2/components/form-title/form-title.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
-/* harmony import */ var _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/image-dialog/image-dialog.component */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts");
-/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/image-category-item/image-category-item.component */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
+/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm5/tabs.es5.js");
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
+/* harmony import */ var _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/image-dialog/image-dialog.component */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts");
+/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/image-category-item/image-category-item.component */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts");
+/* harmony import */ var _components_image_item_image_item_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/image-item/image-item.component */ "./src/app/dynamic-form2/components/image-item/image-item.component.ts");
+/* harmony import */ var _components_pagination_simple_pagination_simple_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pagination-simple/pagination-simple.component */ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.ts");
+/* harmony import */ var _components_content_notice_content_notice_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/content-notice/content-notice.component */ "./src/app/dynamic-form2/components/content-notice/content-notice.component.ts");
+/* harmony import */ var _components_checked_icon_checked_icon_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/checked-icon/checked-icon.component */ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.ts");
+/* harmony import */ var _components_image_dialog_goods_image_dialog_goods_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/image-dialog-goods/image-dialog-goods.component */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.ts");
+/* harmony import */ var _components_tab_toggle_tab_toggle_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/tab-toggle/tab-toggle.component */ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2823,6 +3318,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
+
+
+
 var DynamicFormModule = /** @class */ (function () {
     function DynamicFormModule() {
     }
@@ -2833,7 +3337,10 @@ var DynamicFormModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__["MatDialogModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_15__["HttpClientModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__["MatProgressSpinnerModule"],
+                _angular_material_tabs__WEBPACK_IMPORTED_MODULE_14__["MatTabsModule"],
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__["MatMenuModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"],
             ],
             declarations: [
                 _components_dynamic_field_dynamic_field_directive__WEBPACK_IMPORTED_MODULE_3__["DynamicFieldDirective"],
@@ -2845,9 +3352,15 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
                 _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
-                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_13__["ImageDialogComponent"],
-                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_14__["AuthorDialogComponent"],
-                _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_16__["ImageCategoryItemComponent"],
+                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_16__["ImageDialogComponent"],
+                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_17__["AuthorDialogComponent"],
+                _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_19__["ImageCategoryItemComponent"],
+                _components_image_item_image_item_component__WEBPACK_IMPORTED_MODULE_20__["ImageItemComponent"],
+                _components_pagination_simple_pagination_simple_component__WEBPACK_IMPORTED_MODULE_21__["PaginationSimpleComponent"],
+                _components_content_notice_content_notice_component__WEBPACK_IMPORTED_MODULE_22__["ContentNoticeComponent"],
+                _components_checked_icon_checked_icon_component__WEBPACK_IMPORTED_MODULE_23__["CheckedIconComponent"],
+                _components_image_dialog_goods_image_dialog_goods_component__WEBPACK_IMPORTED_MODULE_24__["ImageDialogGoodsComponent"],
+                _components_tab_toggle_tab_toggle_component__WEBPACK_IMPORTED_MODULE_25__["TabToggleComponent"],
             ],
             exports: [
                 _containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_4__["DynamicFormComponent"]
@@ -2860,8 +3373,8 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
                 _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
-                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_13__["ImageDialogComponent"],
-                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_14__["AuthorDialogComponent"],
+                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_16__["ImageDialogComponent"],
+                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_17__["AuthorDialogComponent"],
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
@@ -2946,8 +3459,24 @@ var ImageService = /** @class */ (function () {
     function ImageService(dialog, http) {
         this.dialog = dialog;
         this.http = http;
-        // 图片空间类目
-        this.imageCategory = [];
+        // 选项卡索引
+        this.tabIndex = 1;
+        // 当前的类目id
+        this.categoryId = -1;
+        this.imageCategory = []; // 图片空间类目
+        this.imageList = [];
+        this.imagePageNo = 1;
+        this.imagePageSize = 50;
+        this.imagelastAction = 'loading';
+        this.hastNext = true; // 是否有下一页
+        this.selectedImage = '';
+        this.imageCallback = function (e) { };
+        this.goodsType = 'onsale';
+        this.goodsCategorys = [];
+        this.goodsList = [];
+        this.goodsPageNo = 1;
+        this.goodsPageSize = 20;
+        this.selectedGoods = '';
     }
     ImageService.prototype.openAuthorDialog = function () {
         this.fetchImageSpaceCategory();
@@ -3005,16 +3534,44 @@ var ImageService = /** @class */ (function () {
     };
     // 获取图片空间图片
     ImageService.prototype.fetchImage = function (_a) {
+        var _this = this;
         var id = _a.id, _b = _a.pageNo, pageNo = _b === void 0 ? 1 : _b;
         console.log([id, pageNo]);
+        if (id) {
+            this.categoryId = id;
+        }
         var req = {
-            categroyId: id || '',
-            pageSize: 20,
+            categroyId: this.categoryId,
+            pageSize: this.imagePageSize,
             currentPage: pageNo,
         };
-        this.http.post(_api_js__WEBPACK_IMPORTED_MODULE_4__["default"].getPictureItems, req).subscribe(function (res) {
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('categoryId', req.categroyId.toString()).set('pageSize', req.pageSize.toString()).set('currentPage', req.currentPage.toString());
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
+        this.imagelastAction = 'loading';
+        this.http.post(_api_js__WEBPACK_IMPORTED_MODULE_4__["default"].getPictureItems, req, { headers: headers, params: params }).subscribe(function (res) {
+            if (res['success']) {
+                _this.imageList = res['data'];
+                _this.hastNext = res['hastNext'];
+                _this.imagePageNo = req.currentPage;
+                _this.selectedImage = '';
+                _this.imagelastAction = 'success';
+            }
+            else {
+                alert('获取图片失败');
+                _this.imagelastAction = 'error';
+            }
         }, function (res) {
+            alert('获取图片失败（net）');
+            _this.imagelastAction = 'error';
         });
+    };
+    // 选择图片
+    ImageService.prototype.setSelectedImage = function (selectedImage) {
+        this.selectedImage = selectedImage;
+    };
+    // 设置选择图片时的回调函数
+    ImageService.prototype.setImageCallback = function (callback) {
+        this.imageCallback = callback;
     };
     ImageService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

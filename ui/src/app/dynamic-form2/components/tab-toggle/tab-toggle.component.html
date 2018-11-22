@@ -1,0 +1,8 @@
+<div class="tab-toggle">
+  <span 
+    *ngFor="let item of list;let i = index;" 
+    [ngClass]="{active: tabIndex == i}"
+    (click)="setActiveIndex(i)"
+  >
+  {{item }}</span>
+</div>

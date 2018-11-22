@@ -1,0 +1,18 @@
+.tab-toggle{
+	border: 1px solid #3498DB;
+	border-radius: 5px;
+	span{
+		display: inline-block;
+		border-left: 1px solid #3498DB;
+		padding: 3px 5px;
+		color: #3498DB;
+		cursor: pointer;
+	}
+	span:first-child{
+		border-left: none;
+	}
+	span.active{
+		background-color: #3498DB;
+		color: white;
+	}
+}

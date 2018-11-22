@@ -7,9 +7,9 @@
     >
       {{ showChild ? '-' : '+' }}
     </div><span
-      class="pointer"
+      [title]="data.picture_category_id"
       (click)="selectCategory(data.picture_category_id, data.picture_category_name.trim())"
-      [ngclass]="{'active-category': pictureCategoryId == data.picture_category_id}">{{data.picture_category_name.trim()}}</span>
+      [ngClass]="{pointer: true,'active-category': pictureCategoryId() == data.picture_category_id}">{{data.picture_category_name.trim()}}</span>
   </div>
 
 

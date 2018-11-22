@@ -15,11 +15,21 @@ import { FormTitleComponent } from './components/form-title/form-title.component
 
 // material 
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+
 import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
 import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCategoryItemComponent } from './components/image-category-item/image-category-item.component';
+import { ImageItemComponent } from './components/image-item/image-item.component';
+import { PaginationSimpleComponent } from './components/pagination-simple/pagination-simple.component';
+import { ContentNoticeComponent } from './components/content-notice/content-notice.component';
+import { CheckedIconComponent } from './components/checked-icon/checked-icon.component';
+import { ImageDialogGoodsComponent } from './components/image-dialog-goods/image-dialog-goods.component';
+import { TabToggleComponent } from './components/tab-toggle/tab-toggle.component';
 
 @NgModule({
   imports: [
@@ -27,6 +37,9 @@ import { ImageCategoryItemComponent } from './components/image-category-item/ima
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatMenuModule,
     HttpClientModule,
   ],
   declarations: [
@@ -42,6 +55,12 @@ import { ImageCategoryItemComponent } from './components/image-category-item/ima
     ImageDialogComponent,
     AuthorDialogComponent,
     ImageCategoryItemComponent,
+    ImageItemComponent,
+    PaginationSimpleComponent,
+    ContentNoticeComponent,
+    CheckedIconComponent,
+    ImageDialogGoodsComponent,
+    TabToggleComponent,
   ],
   exports: [
     DynamicFormComponent

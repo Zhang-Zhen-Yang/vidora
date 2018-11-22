@@ -83,13 +83,21 @@ button:disabled {
 	cursor: not-allowed;
 	box-shadow: none;
 }
-@font-face {
-	font-family: 'iconfont2';  /* project id 105016 */
+/*@font-face {
+	font-family: 'iconfont2';  
 	src: url('http://at.alicdn.com/t/font_105016_j5zabtyoo6c.eot');
 	src: url('http://at.alicdn.com/t/font_105016_j5zabtyoo6c.eot?#iefix') format('embedded-opentype'),
 	url('http://at.alicdn.com/t/font_105016_j5zabtyoo6c.woff') format('woff'),
 	url('http://at.alicdn.com/t/font_105016_j5zabtyoo6c.ttf') format('truetype'),
 	url('http://at.alicdn.com/t/font_105016_j5zabtyoo6c.svg#iconfont2') format('svg');
+  }*/
+  @font-face {
+	font-family: 'iconfont2';  /* project id 105016 */
+	src: url('http://at.alicdn.com/t/font_105016_cqme39awe1c.eot');
+	src: url('http://at.alicdn.com/t/font_105016_cqme39awe1c.eot?#iefix') format('embedded-opentype'),
+	url('http://at.alicdn.com/t/font_105016_cqme39awe1c.woff') format('woff'),
+	url('http://at.alicdn.com/t/font_105016_cqme39awe1c.ttf') format('truetype'),
+	url('http://at.alicdn.com/t/font_105016_cqme39awe1c.svg#iconfont2') format('svg');
   }
 .iconfont{
     font-family:"iconfont2" !important;

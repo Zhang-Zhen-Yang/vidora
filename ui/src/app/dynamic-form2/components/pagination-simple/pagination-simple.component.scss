@@ -1,0 +1,16 @@
+.pagination-simple{
+    display: inline-block;
+    font-size: 14px;
+    &>span{
+      display: inline-block;
+      border: 1px solid #cccccc;
+      line-height: 2em;
+      min-width: 30px;
+      text-align: center;
+      padding: 0 5px;
+      border-right: none;
+    }
+    &>span:last-child{
+      border-right: 1px solid #cccccc;
+    }
+  }

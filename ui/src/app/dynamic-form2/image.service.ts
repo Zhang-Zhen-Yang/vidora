@@ -1,21 +1,41 @@
 import { Injectable } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import api from './api.js';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ImageService {
-  // 图片空间类目
-  imageCategory = [];
+
+  // 选项卡索引
+  tabIndex: number = 1;
+
+  // 当前的类目id
+  categoryId = -1;
+  imageCategory = []; // 图片空间类目
+  imageList: Array<any> = [];
+  imagePageNo:number = 1;
+  imagePageSize: number = 50;
+  imagelastAction: string = 'loading';
+  hastNext: boolean = true; // 是否有下一页
+  selectedImage = '';
+  imageCallback = (e)=>{};
+
+  goodsType: string = 'onsale';
+  goodsCategorys = [];
+  goodsList = [];
+  goodsPageNo: number = 1;
+  goodsPageSize: number = 20;
+  selectedGoods = '';
+
 
   constructor(private dialog: MatDialog, private http: HttpClient) { 
 
   }
-  openAuthorDialog() {
-    
+  openAuthorDialog() {    
     this.fetchImageSpaceCategory();
   }
   // 获取图片空间类目
@@ -75,23 +95,49 @@ export class ImageService {
       item.children = childList;
     });
   }
+
   // 获取图片空间图片
   fetchImage({id, pageNo=1}) {
     console.log([id, pageNo]);
+    if(id) {
+      this.categoryId = id;
+    }
+    
     let req = {
-      categroyId: id || '',
-      pageSize: 20,
+      categroyId: this.categoryId,
+      pageSize: this.imagePageSize,
       currentPage: pageNo,
     };
-    this.http.post(api.getPictureItems, req).subscribe(
+    let params = new HttpParams().set('categoryId', req.categroyId.toString()).set('pageSize', req.pageSize.toString()).set('currentPage', req.currentPage.toString());
+    let headers=new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' })
+
+    this.imagelastAction = 'loading';
+    this.http.post(api.getPictureItems, req, {headers, params}).subscribe(
       (res)=>{
-        
+        if(res['success']) {
+          this.imageList = res['data'];
+          this.hastNext = res['hastNext'];
+          this.imagePageNo = req.currentPage;
+          this.selectedImage = '';
+          this.imagelastAction = 'success';
+        } else {  
+          alert('获取图片失败');
+          this.imagelastAction = 'error';
+        }
       },
       (res)=>{
-
+        alert('获取图片失败（net）');
+        this.imagelastAction = 'error';
       }
     )
-
+  }
+  // 选择图片
+  setSelectedImage(selectedImage) {
+    this.selectedImage = selectedImage;
+  }
+  // 设置选择图片时的回调函数
+  setImageCallback(callback) {
+    this.imageCallback = callback;
   }
   
 } 

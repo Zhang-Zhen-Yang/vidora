@@ -69,7 +69,16 @@ export class FormImageComponent implements Field, OnInit {
     if(type == 0) {
       // this.formService.showImageDialog();
       this.dialog.open(ImageDialogComponent);
-      this.imageService.openAuthorDialog();
+      this.imageService.setImageCallback((imageUrl) => {
+        if(imageUrl) {
+          this.group.controls[this.config.name].setValue(imageUrl, {emitEvent: true});
+          this.input.nativeElement.blur();
+          this.dialog.closeAll();
+        } else {
+          alert('请选择图片');
+        }
+      });
+
     }else if(type == 1) {
       const imageDir = localStorage.getItem('imageDir') || '';
       // alert(imageDir);

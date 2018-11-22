@@ -1,0 +1,34 @@
+.image-space-image-item{
+	width: 120px;
+	height: 120px;
+	// background-color: oldlace;
+	background-color: #efefef;
+	border: 2px solid #eeeeee;
+	margin: 5px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.image-space-image-item.selected-image{
+	border: 2px solid #3498DB;
+}
+.checked-icon{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-top: 16px solid transparent;
+	border-left: 16px solid transparent;
+	border-right: 16px solid #3498DB;
+	border-bottom: 16px solid #3498DB;
+	line-height: 13px;
+    text-indent: -2px;
+}
+.iconfont{
+	color: white;
+	font-size: 16px;
+	
+	
+}

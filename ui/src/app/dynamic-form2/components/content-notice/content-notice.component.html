@@ -1,0 +1,22 @@
+<table class="relative content-notice" *ngIf="show()">
+    <tr>
+      <td class="center middle">
+        <div style="display: inline-block;">
+          <mat-progress-spinner
+            *ngIf="lastAction == 'loading'"
+            class="example-margin"
+            color="warn"
+            diameter="50"
+            mode="indeterminate">
+          </mat-progress-spinner>
+        </div>
+        
+          <div *ngIf="lastAction == 'error'">
+            {{ msg || '请求出错' }}
+          </div>
+          <div *ngIf="lastAction == 'success' && count == 0">
+            数据为空
+          </div>
+      </td>
+    </tr>
+  </table>

@@ -1,8 +1,34 @@
 #img-dialog{
-	width: 800px;
-	height: 600px;
+	width: 1000px;
+	height: 500px;
 	display: flex;
 	flex-direction: row;
 	justify-content: stretch;
-	
+}
+:host{
+	background-color: red;
+}
+#image-item-wrap{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.image-space-image-item.fake{
+	width: 120px;
+	height: 10px;
+}
+.mat-dialog-content{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	position: relative;
+	overflow: hidden;
+	padding-right: 0;
+}
+.bottom-table{
+	width: 100%;
+	td:last-child{
+		text-align: right;
+	}
 }

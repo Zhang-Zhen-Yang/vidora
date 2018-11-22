@@ -9,18 +9,21 @@ export class ImageCategoryItemComponent implements OnInit {
   @Input() data; 
   constructor(private imageService: ImageService) { }
   showChild = true
-  pictureCategoryId = null
+  
   ngOnInit() {
     // console.log('dddddddd', this.data);
   }
   click() {
-
+    
+  }
+  pictureCategoryId() {
+    return this.imageService.categoryId;
   }
   toggleFolder() {
     this.showChild = !this.showChild;
   }
   selectCategory(id, name) {
-    this.pictureCategoryId = id;
+    // this.pictureCategoryId = id;
     this.imageService.fetchImage({id, pageNo: 1});
   }
 

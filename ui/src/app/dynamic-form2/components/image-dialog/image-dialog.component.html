@@ -1,10 +1,47 @@
-<div id="img-dialog">
-  <div style="flex:1;">
-      <app-image-category-item *ngFor="let item of imageCategory()" [data]="item">
+<table cellspacing="0" cellpadding="0" style="margin-bottom: 20px;">
+  <tr>
+    <td>
+      <h2 mat-dialog-title style="margin: 0;">选择图片</h2>
+    </td>
+    <td>
+      <tab-toggle [tabIndex]="imageService.tabIndex" [list]="['图片空间', '宝贝图片']" (setIndex)="setIndex($event)"></tab-toggle>
+    </td>
+  </tr>
+</table>
+<mat-dialog-content>
+  <!--图片空间-->
+  <div id="img-dialog"  *ngIf="imageService.tabIndex == 0">
+    <div style="flex:3;overflow: auto;">
+        <app-image-category-item *ngFor="let item of imageCategory()" [data]="item">
 
-      </app-image-category-item>
+        </app-image-category-item>
+    </div>
+    <div style="flex: 8;overflow: auto;">
+      <content-notice [lastAction]="imageService.imagelastAction" [count]="imageList().length"></content-notice>
+      <div id="image-item-wrap" *ngIf="imageService.imagelastAction == 'success'">
+        <app-image-item *ngFor="let item of imageList()" [data]="item"></app-image-item>
+        <div class="image-space-image-item fake"></div>
+        <div class="image-space-image-item fake"></div>
+        <div class="image-space-image-item fake"></div>
+        <div class="image-space-image-item fake"></div>
+      </div>
+    </div>
   </div>
-  <div style="flex: 2;">
-    右
-  </div>
-</div>
+  <!-- 宝贝列表 -->
+  <image-dialog-goods *ngIf="imageService.tabIndex == 1"></image-dialog-goods>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <table class="bottom-table">
+    <tr>
+      <td>
+        <pagination-simple [pageNo]="imageService.imagePageNo" [hasNext]="imageService.hastNext" (gotopage)="goTo($event)"></pagination-simple>
+      </td>
+      <td>
+        <button mat-button mat-dialog-close class="warn">取消</button>
+        &nbsp;
+        <button mat-button (click)="confirm()" class="blue">确定</button>
+      </td>
+    </tr>
+  </table>
+
+</mat-dialog-actions>

@@ -1,0 +1,12 @@
+<div
+  class="image-space-image-item"
+  [ngStyle]="{backgroundImage: 'url(' + data.imgUrl + ')'}"
+  (click)="select(data.imgUrl)"
+  [ngClass]="{'selected-image': data.imgUrl == imageService.selectedImage}"
+>
+  <div class="checked-icon" *ngIf="data.imgUrl == imageService.selectedImage">
+    <span class="iconfont">
+        &#xe631;
+    </span>
+  </div>
+</div>
