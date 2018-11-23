@@ -21,6 +21,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+// pagination
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import {MatMenuModule} from '@angular/material/menu';
 
@@ -66,6 +68,7 @@ import { TransformingProgressComponent } from './component/transforming-progress
     ReactiveFormsModule,
     MatMenuModule,
     DynamicFormsCoreModule,
+    NgxPaginationModule,
     // DynamicFormsBootstrapUIModule,
 
     DynamicFormModule

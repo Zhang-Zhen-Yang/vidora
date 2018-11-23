@@ -110,16 +110,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
 /* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/esm5/progress-bar.es5.js");
 /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
-/* harmony import */ var _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./component/animate-template/animate-template.component */ "./src/app/component/animate-template/animate-template.component.ts");
-/* harmony import */ var _component_animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./component/animate-template-item/animate-template-item.component */ "./src/app/component/animate-template-item/animate-template-item.component.ts");
-/* harmony import */ var _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./component/animate-template-loading-progress/animate-template-loading-progress.component */ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.ts");
-/* harmony import */ var _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./component/export-options/export-options.component */ "./src/app/component/export-options/export-options.component.ts");
-/* harmony import */ var _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./component/generating-progress/generating-progress.component */ "./src/app/component/generating-progress/generating-progress.component.ts");
-/* harmony import */ var _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./component/audio-manager/audio-manager.component */ "./src/app/component/audio-manager/audio-manager.component.ts");
-/* harmony import */ var _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./component/actionpanel-item/actionpanel-item.component */ "./src/app/component/actionpanel-item/actionpanel-item.component.ts");
-/* harmony import */ var _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./component/video-transform/video-transform.component */ "./src/app/component/video-transform/video-transform.component.ts");
-/* harmony import */ var _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./component/transforming-progress/transforming-progress.component */ "./src/app/component/transforming-progress/transforming-progress.component.ts");
+/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
+/* harmony import */ var _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./component/animate-template/animate-template.component */ "./src/app/component/animate-template/animate-template.component.ts");
+/* harmony import */ var _component_animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./component/animate-template-item/animate-template-item.component */ "./src/app/component/animate-template-item/animate-template-item.component.ts");
+/* harmony import */ var _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./component/animate-template-loading-progress/animate-template-loading-progress.component */ "./src/app/component/animate-template-loading-progress/animate-template-loading-progress.component.ts");
+/* harmony import */ var _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./component/export-options/export-options.component */ "./src/app/component/export-options/export-options.component.ts");
+/* harmony import */ var _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./component/generating-progress/generating-progress.component */ "./src/app/component/generating-progress/generating-progress.component.ts");
+/* harmony import */ var _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./component/audio-manager/audio-manager.component */ "./src/app/component/audio-manager/audio-manager.component.ts");
+/* harmony import */ var _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./component/actionpanel-item/actionpanel-item.component */ "./src/app/component/actionpanel-item/actionpanel-item.component.ts");
+/* harmony import */ var _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./component/video-transform/video-transform.component */ "./src/app/component/video-transform/video-transform.component.ts");
+/* harmony import */ var _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./component/transforming-progress/transforming-progress.component */ "./src/app/component/transforming-progress/transforming-progress.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -147,6 +148,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+// pagination
+
 
 
 
@@ -171,15 +174,15 @@ var AppModule = /** @class */ (function () {
                 _component_bottombar_bottombar_component__WEBPACK_IMPORTED_MODULE_11__["BottombarComponent"],
                 _component_actionpanel_actionpanel_component__WEBPACK_IMPORTED_MODULE_12__["ActionpanelComponent"],
                 _component_canvas_space_canvas_space_component__WEBPACK_IMPORTED_MODULE_13__["CanvasSpaceComponent"],
-                _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_20__["AnimateTemplateComponent"],
-                _component_animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_21__["AnimateTemplateItemComponent"],
-                _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__["ExportOptionsComponent"],
-                _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__["GeneratingProgressComponent"],
-                _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_25__["AudioManagerComponent"],
-                _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_26__["ActionpanelItemComponent"],
-                _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
-                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"],
-                _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_28__["TransformingProgressComponent"],
+                _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_21__["AnimateTemplateComponent"],
+                _component_animate_template_item_animate_template_item_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateItemComponent"],
+                _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_24__["ExportOptionsComponent"],
+                _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_25__["GeneratingProgressComponent"],
+                _component_audio_manager_audio_manager_component__WEBPACK_IMPORTED_MODULE_26__["AudioManagerComponent"],
+                _component_actionpanel_item_actionpanel_item_component__WEBPACK_IMPORTED_MODULE_27__["ActionpanelItemComponent"],
+                _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_23__["AnimateTemplateLoadingProgressComponent"],
+                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_28__["VideoTransformComponent"],
+                _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_29__["TransformingProgressComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -190,18 +193,19 @@ var AppModule = /** @class */ (function () {
                 _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_17__["MatProgressBarModule"],
                 _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_18__["MatProgressSpinnerModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
-                _angular_material_menu__WEBPACK_IMPORTED_MODULE_19__["MatMenuModule"],
+                _angular_material_menu__WEBPACK_IMPORTED_MODULE_20__["MatMenuModule"],
                 _ng_dynamic_forms_core__WEBPACK_IMPORTED_MODULE_3__["DynamicFormsCoreModule"],
+                ngx_pagination__WEBPACK_IMPORTED_MODULE_19__["NgxPaginationModule"],
                 // DynamicFormsBootstrapUIModule,
                 _dynamic_form2_dynamic_form_module__WEBPACK_IMPORTED_MODULE_5__["DynamicFormModule"]
             ],
             entryComponents: [
-                _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_20__["AnimateTemplateComponent"],
-                _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_23__["ExportOptionsComponent"],
-                _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_24__["GeneratingProgressComponent"],
-                _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_22__["AnimateTemplateLoadingProgressComponent"],
-                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_27__["VideoTransformComponent"],
-                _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_28__["TransformingProgressComponent"],
+                _component_animate_template_animate_template_component__WEBPACK_IMPORTED_MODULE_21__["AnimateTemplateComponent"],
+                _component_export_options_export_options_component__WEBPACK_IMPORTED_MODULE_24__["ExportOptionsComponent"],
+                _component_generating_progress_generating_progress_component__WEBPACK_IMPORTED_MODULE_25__["GeneratingProgressComponent"],
+                _component_animate_template_loading_progress_animate_template_loading_progress_component__WEBPACK_IMPORTED_MODULE_23__["AnimateTemplateLoadingProgressComponent"],
+                _component_video_transform_video_transform_component__WEBPACK_IMPORTED_MODULE_28__["VideoTransformComponent"],
+                _component_transforming_progress_transforming_progress_component__WEBPACK_IMPORTED_MODULE_29__["TransformingProgressComponent"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
@@ -1899,10 +1903,11 @@ __webpack_require__.r(__webpack_exports__);
  * @Author: zhangzhenyang 
  * @Date: 2018-11-20 11:52:21 
  * @Last Modified by: zhangzhenyang
- * @Last Modified time: 2018-11-20 13:38:47
+ * @Last Modified time: 2018-11-23 09:06:56
  */
 
-const base = 'http://192.168.1.134:8090/wonbaoWeb/';
+// const base = 'http://192.168.1.134:8090/wonbaoWeb/';
+const base = 'http://2015.wonbao.net/';
 // const remote = 'http://192.168.1.134:8090/wonbaoWeb/';
 const remote = '';
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1918,22 +1923,125 @@ const remote = '';
 	getPosterLabel: `${base}marketing/wireless/activitypage/getPosterLabel`,// 获取海报主题，标签，颜色 (y)
 	getPosterTemplates: `${base}marketing/wireless/activitypage/getPosterTemplates`,// 获取所有的海报模板 (y)
 	uploadPage: `${base}marketing/wireless/activitypage/uploadPage`,// 无线活动页上传本地图片到图片空间(y)
-
-	getCoupons: `${base}promotion/coupon/ump/activity/getCoupons`,// 获取旺店宝优惠券(y)
-	getPromotionCoupon: `${base}marketing/poster/plan/getPromotionCoupon`,// 获取官方优惠券(y)
-
-	getPromotionMealPlan: `${base}marketing/meal/plan/getPlans`,// 搭配套餐计划(y)
-
-
-	getPages: `${base}marketing/wireless/activitypage/getPages`, // 获取无线活动页所有计划
-
-	getTemplate: `${base}marketing/wirelessnew/template/getTemplate`, // 获取无线活动页的模板信息,页面加载时调用（y）
-	addtemplate: `${base}marketing/wirelessnew/template/addOrUpdateTemplate`, // 无线活动页保存到模板 (y)
-	updatetemplate: '', // 无线活动页修改模板 （暂缺）
-	getPagenew: `${base}marketing/wirelessnew/activitypage/getPage`, // 获取新版无线活动页计划详细信息(y)
-	addPage: `${base}marketing/wirelessnew/activitypage/addPage`, // 无线活动页保存到计划 (y)
-	updatePage: `${base}marketing/wirelessnew/activitypage/updatePage`, // 无线活动页更新计划(y)
 });
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/author-callback.service.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/dynamic-form2/author-callback.service.ts ***!
+  \**********************************************************/
+/*! exports provided: AuthorCallbackService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthorCallbackService", function() { return AuthorCallbackService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AuthorCallbackService = /** @class */ (function () {
+    function AuthorCallbackService() {
+        this.dialogRef = null;
+        this.callbackList = [];
+    }
+    AuthorCallbackService.prototype.execCallbacks = function () {
+        this.callbackList.forEach(function (item) {
+            if (item) {
+                try {
+                    item();
+                }
+                catch (e) {
+                    console.error(e);
+                }
+            }
+        });
+        this.callbackList = [];
+        if (this.dialogRef) {
+            this.dialogRef.close();
+            this.dialogRef = null;
+        }
+    };
+    AuthorCallbackService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], AuthorCallbackService);
+    return AuthorCallbackService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dynamic-form2/author.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/dynamic-form2/author.service.ts ***!
+  \*************************************************/
+/*! exports provided: AuthorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthorService", function() { return AuthorService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
+/* harmony import */ var _author_callback_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./author-callback.service */ "./src/app/dynamic-form2/author-callback.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AuthorService = /** @class */ (function () {
+    function AuthorService(dialog, aCS) {
+        this.dialog = dialog;
+        this.aCS = aCS;
+    }
+    AuthorService.prototype.checkAuthor = function (err, callback) {
+        var _this = this;
+        if (callback === void 0) { callback = null; }
+        console.log('checkAuthor');
+        if (err.url && err.url.indexOf('https://oauth.taobao.com/authorize') > -1) {
+            this.aCS.callbackList.push(callback);
+            // 打开授权窗口
+            if (!this.aCS.dialogRef) {
+                this.aCS.dialogRef = this.dialog.open(_components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_2__["AuthorDialogComponent"]);
+                this.aCS.dialogRef.afterClosed().subscribe(function (result) {
+                    alert(_this.aCS.callbackList.length);
+                    _this.aCS.callbackList = [];
+                    _this.aCS.dialogRef = null;
+                });
+            }
+        }
+    };
+    AuthorService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _author_callback_service__WEBPACK_IMPORTED_MODULE_3__["AuthorCallbackService"]])
+    ], AuthorService);
+    return AuthorService;
+}());
+
+
 
 /***/ }),
 
@@ -1944,7 +2052,7 @@ const remote = '';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<webview  #authorDialog id=\"author-dialog\" src=\"http://192.168.1.134:8090/wonbaoWeb/local?userId=105227988\">\n</webview>\n"
+module.exports = "<webview \n\t#authorDialog\n\tid=\"author-dialog\"\n\tsrc=\"https://oauth.taobao.com/authorize?response_type=code&client_id=12020783&redirect_uri=http://2015.wonbao.net/authorize/web&scope=promotion,item,usergrade&view=web&state=ajaxauthorize-\"\n\tpreload=\"./authorDetect.js\"\n>\n</webview>\n"
 
 /***/ }),
 
@@ -1970,6 +2078,7 @@ module.exports = "#author-dialog {\n  width: 800px;\n  height: 500px; }\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthorDialogComponent", function() { return AuthorDialogComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _author_callback_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../author-callback.service */ "./src/app/dynamic-form2/author-callback.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1981,18 +2090,39 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 // 授权弹窗组件
 
+
 var AuthorDialogComponent = /** @class */ (function () {
-    function AuthorDialogComponent() {
+    function AuthorDialogComponent(aCS) {
+        this.aCS = aCS;
     }
     AuthorDialogComponent.prototype.ngOnInit = function () {
     };
+    AuthorDialogComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.authorDialog.nativeElement.addEventListener('dom-ready', function () {
+            _this.authorDialog.nativeElement.openDevTools();
+            _this.authorDialog.nativeElement.addEventListener('ipc-message', function (e) {
+                switch (e.channel) {
+                    case 'inited':
+                        // console.log('initedddddddddd');
+                        _this.aCS.execCallbacks();
+                        break;
+                    default: break;
+                }
+            });
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('authorDialog'),
+        __metadata("design:type", Object)
+    ], AuthorDialogComponent.prototype, "authorDialog", void 0);
     AuthorDialogComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-author-dialog',
             template: __webpack_require__(/*! ./author-dialog.component.html */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.html"),
             styles: [__webpack_require__(/*! ./author-dialog.component.scss */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_author_callback_service__WEBPACK_IMPORTED_MODULE_1__["AuthorCallbackService"]])
     ], AuthorDialogComponent);
     return AuthorDialogComponent;
 }());
@@ -2082,7 +2212,7 @@ module.exports = "<table class=\"relative content-notice\" *ngIf=\"show()\">\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".content-notice {\n  width: 100%;\n  height: calc(100% - 10px);\n  text-align: center; }\n"
+module.exports = ":host {\n  width: 100%;\n  height: calc(100% - 10px); }\n\n.content-notice {\n  width: 100%;\n  height: calc(100% - 10px);\n  text-align: center; }\n"
 
 /***/ }),
 
@@ -2730,7 +2860,7 @@ var ImageCategoryItemComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n  <div id=\"action-bar\">\n    <div>\n      <span [matMenuTriggerFor]=\"menu\">出售中</span>\n      <mat-menu #menu=\"matMenu\" MenuPositionX=\"after\" xPosition=\"after\" (closed)=\"typeMenuClosed(e)\">\n          <button mat-menu-item >出售中</button>\n          <button mat-menu-item >仓库中</button>\n      </mat-menu>\n    </div>\n    \n  </div>\n  <div id=\"goods-contents\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n\n\n  </div>\n\n"
+module.exports = "\n  <div id=\"action-bar\">\n    <!--类型-->\n    <table>\n      <tr>\n        <td>\n          <!--类型-->\n          <div class=\"goods-type\" [matMenuTriggerFor]=\"typeMenu\">\n            <span>{{goodsService.goodsType}}</span>\n          </div>\n          <mat-menu #typeMenu=\"matMenu\" MenuPositionX=\"after\" xPosition=\"after\" (closed)=\"typeMenuClosed(e)\">\n            <button\n              mat-menu-item\n              *ngFor=\"let item of ['出售中', '仓库中']\"\n              (click)=\"selectType(item)\"\n            >{{item}}</button>\n          </mat-menu>\n        \n          <!--类目-->\n          <div class=\"goods-type\" [matMenuTriggerFor]=\"categoryMenu\" style=\"margin-left: 10px;\">\n              <span>{{goodsService.categoryName}}</span>\n            </div>\n            <mat-menu #categoryMenu=\"matMenu\" MenuPositionX=\"after\" xPosition=\"after\" (closed)=\"typeMenuClosed(e)\">\n              <button\n                mat-menu-item\n                *ngFor=\"let item of goodsService.goodsCategorys\"\n                (click)=\"selectCategory(item)\"\n              >{{ item.name }}</button>\n            </mat-menu>\n        </td>\n        <td style=\"float: right;margin-right: 10px;\">\n          <div class=\"goods-search-input\">\n            <input type=\"text\" placeholder=\"关键字 宝贝链接 商家编码\" [(ngModel)]=\"goodsService.searchValue\">\n            <button class=\"blue\" (click)=\"search()\">搜索</button>\n          </div>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <div id=\"goods-contents\">\n    <ng-container *ngIf=\"goodsService.lastAction == 'success'\" >\n      <div *ngFor=\"let item of goodsService.goodsList\" style=\"display: inline-block;\">\n        <img [src]=\"item.pic_url\" alt=\"\" style=\"width: 150px\">\n        <div>{{item.title}}</div>\n        {{ item.num_iid }}\n      </div>\n    </ng-container>\n    <content-notice\n    *ngIf=\"goodsService.lastAction != 'success' || goodsService.count == 0\"\n      [lastAction]=\"goodsService.lastAction\"\n      [count]=\"goodsService.count\"\n    ></content-notice>\n\n    <!--<img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    <img src=\"http://imgs.aixifan.com/content/2018_10_4/1.5386193577866096E9.png\" alt=\"\" style=\"width: 100px;height:100px;\">\n    -->\n\n  </div>\n\n"
 
 /***/ }),
 
@@ -2741,7 +2871,7 @@ module.exports = "\n  <div id=\"action-bar\">\n    <div>\n      <span [matMenuTr
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  background-color: red;\n  display: flex;\n  width: 1000px;\n  height: 500px;\n  flex-direction: column;\n  align-items: stretch; }\n\n#action-bar {\n  height: 100px;\n  background-color: red; }\n\n#goods-contents {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: auto; }\n"
+module.exports = ":host {\n  display: flex;\n  width: 1000px;\n  height: 60vh;\n  flex-direction: column;\n  align-items: stretch; }\n\n#action-bar table {\n  width: 100%; }\n\n#goods-contents {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: auto;\n  flex: 1; }\n\n.goods-type {\n  cursor: pointer;\n  -moz-appearance: none;\n  display: inline-block;\n  width: 8em;\n  text-indent: 0;\n  text-overflow: '';\n  overflow: hidden;\n  font-family: inherit;\n  font-size: 14px;\n  padding-left: 16px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 0;\n  color: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  outline: none;\n  box-sizing: border-box;\n  background: linear-gradient(45deg, transparent 50%, rgba(0, 0, 0, 0.7) 50%) no-repeat calc(100% - 20px) calc(1em + -1px), linear-gradient(135deg, rgba(0, 0, 0, 0.7) 50%, transparent 50%) no-repeat calc(100% - 15px) calc(1em + -1px);\n  background-size: 5px 5px, 5px 5px;\n  background-color: white; }\n\n.mat-menu-item {\n  font-size: 14px;\n  height: 30px;\n  line-height: 30px; }\n\n.goods-search-input {\n  height: 30px;\n  display: flex;\n  flex-direction: row;\n  width: 300px; }\n\n.goods-search-input input {\n    height: 100%;\n    flex: 1; }\n\n.goods-search-input button {\n    height: 100%;\n    font-size: 14px;\n    padding: 0 20px;\n    border-radius: 0 2px 2px 0; }\n"
 
 /***/ }),
 
@@ -2756,6 +2886,7 @@ module.exports = ":host {\n  background-color: red;\n  display: flex;\n  width: 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageDialogGoodsComponent", function() { return ImageDialogGoodsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _goods_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../goods.service */ "./src/app/dynamic-form2/goods.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2769,16 +2900,36 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
  * @Author: zhangzhenyang
  * @Date: 2018-11-22 09:46:39
  * @Last Modified by: zhangzhenyang
- * @Last Modified time: 2018-11-22 10:27:46
+ * @Last Modified time: 2018-11-23 14:45:07
  */
 // 选择图片 宝贝列表
 
+
 var ImageDialogGoodsComponent = /** @class */ (function () {
-    function ImageDialogGoodsComponent() {
+    function ImageDialogGoodsComponent(goodsService) {
+        this.goodsService = goodsService;
     }
     ImageDialogGoodsComponent.prototype.ngOnInit = function () {
+        if (this.goodsService.goodsCategorys.length == 0) {
+            this.goodsService.getSellerCats();
+        }
+        if (this.goodsService.goodsList.length == 0) {
+            this.goodsService.fetchGoods({ pageNo: 1 });
+        }
     };
     ImageDialogGoodsComponent.prototype.typeMenuClosed = function () {
+    };
+    ImageDialogGoodsComponent.prototype.selectCategory = function (item) {
+        this.goodsService.categoryId = item.id;
+        this.goodsService.categoryName = item.name;
+        this.goodsService.fetchGoods({ pageNo: 1 });
+    };
+    ImageDialogGoodsComponent.prototype.selectType = function (item) {
+        this.goodsService.goodsType = item;
+        this.goodsService.fetchGoods({ pageNo: 1 });
+    };
+    ImageDialogGoodsComponent.prototype.search = function () {
+        this.goodsService.fetchGoods({ pageNo: 1 });
     };
     ImageDialogGoodsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2786,7 +2937,7 @@ var ImageDialogGoodsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./image-dialog-goods.component.html */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.html"),
             styles: [__webpack_require__(/*! ./image-dialog-goods.component.scss */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_goods_service__WEBPACK_IMPORTED_MODULE_1__["GoodsService"]])
     ], ImageDialogGoodsComponent);
     return ImageDialogGoodsComponent;
 }());
@@ -2802,7 +2953,7 @@ var ImageDialogGoodsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table cellspacing=\"0\" cellpadding=\"0\" style=\"margin-bottom: 20px;\">\n  <tr>\n    <td>\n      <h2 mat-dialog-title style=\"margin: 0;\">选择图片</h2>\n    </td>\n    <td>\n      <tab-toggle [tabIndex]=\"imageService.tabIndex\" [list]=\"['图片空间', '宝贝图片']\" (setIndex)=\"setIndex($event)\"></tab-toggle>\n    </td>\n  </tr>\n</table>\n<mat-dialog-content>\n  <!--图片空间-->\n  <div id=\"img-dialog\"  *ngIf=\"imageService.tabIndex == 0\">\n    <div style=\"flex:3;overflow: auto;\">\n        <app-image-category-item *ngFor=\"let item of imageCategory()\" [data]=\"item\">\n\n        </app-image-category-item>\n    </div>\n    <div style=\"flex: 8;overflow: auto;\">\n      <content-notice [lastAction]=\"imageService.imagelastAction\" [count]=\"imageList().length\"></content-notice>\n      <div id=\"image-item-wrap\" *ngIf=\"imageService.imagelastAction == 'success'\">\n        <app-image-item *ngFor=\"let item of imageList()\" [data]=\"item\"></app-image-item>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n      </div>\n    </div>\n  </div>\n  <!-- 宝贝列表 -->\n  <image-dialog-goods *ngIf=\"imageService.tabIndex == 1\"></image-dialog-goods>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <table class=\"bottom-table\">\n    <tr>\n      <td>\n        <pagination-simple [pageNo]=\"imageService.imagePageNo\" [hasNext]=\"imageService.hastNext\" (gotopage)=\"goTo($event)\"></pagination-simple>\n      </td>\n      <td>\n        <button mat-button mat-dialog-close class=\"warn\">取消</button>\n        &nbsp;\n        <button mat-button (click)=\"confirm()\" class=\"blue\">确定</button>\n      </td>\n    </tr>\n  </table>\n\n</mat-dialog-actions>\n"
+module.exports = "<table cellspacing=\"0\" cellpadding=\"0\" style=\"margin-bottom: 20px;\">\n  <tr>\n    <td>\n      <h2 mat-dialog-title style=\"margin: 0;\">选择图片</h2>\n    </td>\n    <td>\n      <tab-toggle [tabIndex]=\"imageService.tabIndex\" [list]=\"['图片空间', '宝贝图片']\" (setIndex)=\"setIndex($event)\"></tab-toggle>\n    </td>\n  </tr>\n</table>\n<mat-dialog-content>\n  <!--图片空间-->\n  <div id=\"img-dialog\"  *ngIf=\"imageService.tabIndex == 0\">\n    <div style=\"flex:3;overflow: auto;\">\n        <app-image-category-item *ngFor=\"let item of imageCategory()\" [data]=\"item\">\n\n        </app-image-category-item>\n    </div>\n    <div style=\"flex: 8;overflow: auto;\">\n      <content-notice [lastAction]=\"imageService.imagelastAction\" [count]=\"imageList().length\"></content-notice>\n      <div id=\"image-item-wrap\" *ngIf=\"imageService.imagelastAction == 'success'\">\n        <app-image-item *ngFor=\"let item of imageList()\" [data]=\"item\"></app-image-item>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n        <div class=\"image-space-image-item fake\"></div>\n      </div>\n    </div>\n  </div>\n  <!-- 宝贝列表 -->\n  <image-dialog-goods *ngIf=\"imageService.tabIndex == 1\"></image-dialog-goods>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <table class=\"bottom-table\">\n    <tr>\n      <td>\n        <pagination-simple\n          *ngIf=\"imageService.tabIndex == 0\"\n          [pageNo]=\"imageService.imagePageNo\"\n          [hasNext]=\"imageService.hastNext\"\n          (gotopage)=\"goTo($event)\"\n        ></pagination-simple>\n        <div class=\"list\" \n          *ngIf=\"imageService.tabIndex == 1\"\n        >   \n            <!--{{ goodsService.pageSize }}-\n            {{ goodsService.pageNo }}-\n            {{ goodsService.count }}-->\n            <ul style=\"display: none;\">\n              <li *ngFor=\"let item of collection | paginate: { itemsPerPage: goodsService.pageSize, currentPage: goodsService.pageNo, totalItems: goodsService.count || 1 }\">{{ item }}</li>\n            </ul>\n            <pagination-controls\n              previousLabel=\"上一页\"\n              nextLabel=\"下一页\"\n              (pageChange)=\"goodsGoTo($event)\"\n            ></pagination-controls>\n        </div>\n      </td>\n      <td>\n        <button mat-button mat-dialog-close class=\"warn\">取消</button>\n        &nbsp;\n        <button mat-button (click)=\"confirm()\" class=\"blue\">确定</button>\n      </td>\n    </tr>\n  </table>\n\n</mat-dialog-actions>\n"
 
 /***/ }),
 
@@ -2813,7 +2964,7 @@ module.exports = "<table cellspacing=\"0\" cellpadding=\"0\" style=\"margin-bott
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#img-dialog {\n  width: 1000px;\n  height: 500px;\n  display: flex;\n  flex-direction: row;\n  justify-content: stretch; }\n\n:host {\n  background-color: red; }\n\n#image-item-wrap {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  flex-wrap: wrap; }\n\n.image-space-image-item.fake {\n  width: 120px;\n  height: 10px; }\n\n.mat-dialog-content {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  position: relative;\n  overflow: hidden;\n  padding-right: 0; }\n\n.bottom-table {\n  width: 100%; }\n\n.bottom-table td:last-child {\n    text-align: right; }\n"
+module.exports = "#img-dialog {\n  width: 1000px;\n  height: 60vh;\n  display: flex;\n  flex-direction: row;\n  justify-content: stretch; }\n\n:host {\n  background-color: red; }\n\n#image-item-wrap {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  flex-wrap: wrap; }\n\n.image-space-image-item.fake {\n  width: 120px;\n  height: 10px; }\n\n.mat-dialog-content {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  position: relative;\n  overflow: hidden;\n  padding-right: 0; }\n\n.bottom-table {\n  width: 100%; }\n\n.bottom-table td:last-child {\n    text-align: right; }\n"
 
 /***/ }),
 
@@ -2829,6 +2980,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageDialogComponent", function() { return ImageDialogComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _image_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../image.service */ "./src/app/dynamic-form2/image.service.ts");
+/* harmony import */ var _goods_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../goods.service */ "./src/app/dynamic-form2/goods.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2841,9 +2993,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 // 图片选择
 
 
+
 var ImageDialogComponent = /** @class */ (function () {
-    function ImageDialogComponent(imageService) {
+    function ImageDialogComponent(imageService, goodsService) {
         this.imageService = imageService;
+        this.goodsService = goodsService;
+        this.collection = [];
+        for (var i = 1; i <= 100; i++) {
+            this.collection.push("item " + i);
+        }
     }
     ImageDialogComponent.prototype.ngOnInit = function () {
         if (this.imageService.imageList.length == 0) {
@@ -2869,13 +3027,16 @@ var ImageDialogComponent = /** @class */ (function () {
     ImageDialogComponent.prototype.setIndex = function (index) {
         this.imageService.tabIndex = index;
     };
+    ImageDialogComponent.prototype.goodsGoTo = function (pageNo) {
+        this.goodsService.fetchGoods({ pageNo: pageNo });
+    };
     ImageDialogComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-image-dialog',
             template: __webpack_require__(/*! ./image-dialog.component.html */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.html"),
             styles: [__webpack_require__(/*! ./image-dialog.component.scss */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.scss")]
         }),
-        __metadata("design:paramtypes", [_image_service__WEBPACK_IMPORTED_MODULE_1__["ImageService"]])
+        __metadata("design:paramtypes", [_image_service__WEBPACK_IMPORTED_MODULE_1__["ImageService"], _goods_service__WEBPACK_IMPORTED_MODULE_2__["GoodsService"]])
     ], ImageDialogComponent);
     return ImageDialogComponent;
 }());
@@ -3070,7 +3231,7 @@ module.exports = "<div class=\"tab-toggle\">\n  <span \n    *ngFor=\"let item of
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".tab-toggle {\n  border: 1px solid #3498DB;\n  border-radius: 5px; }\n  .tab-toggle span {\n    display: inline-block;\n    border-left: 1px solid #3498DB;\n    padding: 3px 5px;\n    color: #3498DB;\n    cursor: pointer; }\n  .tab-toggle span:first-child {\n    border-left: none; }\n  .tab-toggle span.active {\n    background-color: #3498DB;\n    color: white; }\n"
+module.exports = ".tab-toggle {\n  border: 1px solid #3498DB;\n  border-radius: 3px;\n  margin: 0 10px; }\n  .tab-toggle span {\n    display: inline-block;\n    border-left: 1px solid #3498DB;\n    padding: 5px 8px;\n    color: #3498DB;\n    cursor: pointer; }\n  .tab-toggle span:first-child {\n    border-left: none; }\n  .tab-toggle span.active {\n    background-color: #3498DB;\n    color: white; }\n"
 
 /***/ }),
 
@@ -3283,16 +3444,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
 /* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm5/tabs.es5.js");
 /* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm5/menu.es5.js");
-/* harmony import */ var _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/image-dialog/image-dialog.component */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts");
-/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/image-category-item/image-category-item.component */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts");
-/* harmony import */ var _components_image_item_image_item_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/image-item/image-item.component */ "./src/app/dynamic-form2/components/image-item/image-item.component.ts");
-/* harmony import */ var _components_pagination_simple_pagination_simple_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/pagination-simple/pagination-simple.component */ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.ts");
-/* harmony import */ var _components_content_notice_content_notice_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/content-notice/content-notice.component */ "./src/app/dynamic-form2/components/content-notice/content-notice.component.ts");
-/* harmony import */ var _components_checked_icon_checked_icon_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/checked-icon/checked-icon.component */ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.ts");
-/* harmony import */ var _components_image_dialog_goods_image_dialog_goods_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/image-dialog-goods/image-dialog-goods.component */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.ts");
-/* harmony import */ var _components_tab_toggle_tab_toggle_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/tab-toggle/tab-toggle.component */ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.ts");
+/* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
+/* harmony import */ var _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/image-dialog/image-dialog.component */ "./src/app/dynamic-form2/components/image-dialog/image-dialog.component.ts");
+/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/image-category-item/image-category-item.component */ "./src/app/dynamic-form2/components/image-category-item/image-category-item.component.ts");
+/* harmony import */ var _components_image_item_image_item_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/image-item/image-item.component */ "./src/app/dynamic-form2/components/image-item/image-item.component.ts");
+/* harmony import */ var _components_pagination_simple_pagination_simple_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/pagination-simple/pagination-simple.component */ "./src/app/dynamic-form2/components/pagination-simple/pagination-simple.component.ts");
+/* harmony import */ var _components_content_notice_content_notice_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/content-notice/content-notice.component */ "./src/app/dynamic-form2/components/content-notice/content-notice.component.ts");
+/* harmony import */ var _components_checked_icon_checked_icon_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/checked-icon/checked-icon.component */ "./src/app/dynamic-form2/components/checked-icon/checked-icon.component.ts");
+/* harmony import */ var _components_image_dialog_goods_image_dialog_goods_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/image-dialog-goods/image-dialog-goods.component */ "./src/app/dynamic-form2/components/image-dialog-goods/image-dialog-goods.component.ts");
+/* harmony import */ var _components_tab_toggle_tab_toggle_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/tab-toggle/tab-toggle.component */ "./src/app/dynamic-form2/components/tab-toggle/tab-toggle.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3317,6 +3479,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+// pagination
+
 
 
 
@@ -3340,7 +3504,8 @@ var DynamicFormModule = /** @class */ (function () {
                 _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_13__["MatProgressSpinnerModule"],
                 _angular_material_tabs__WEBPACK_IMPORTED_MODULE_14__["MatTabsModule"],
                 _angular_material_menu__WEBPACK_IMPORTED_MODULE_15__["MatMenuModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_18__["HttpClientModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_19__["HttpClientModule"],
+                ngx_pagination__WEBPACK_IMPORTED_MODULE_16__["NgxPaginationModule"],
             ],
             declarations: [
                 _components_dynamic_field_dynamic_field_directive__WEBPACK_IMPORTED_MODULE_3__["DynamicFieldDirective"],
@@ -3352,15 +3517,15 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
                 _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
-                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_16__["ImageDialogComponent"],
-                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_17__["AuthorDialogComponent"],
-                _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_19__["ImageCategoryItemComponent"],
-                _components_image_item_image_item_component__WEBPACK_IMPORTED_MODULE_20__["ImageItemComponent"],
-                _components_pagination_simple_pagination_simple_component__WEBPACK_IMPORTED_MODULE_21__["PaginationSimpleComponent"],
-                _components_content_notice_content_notice_component__WEBPACK_IMPORTED_MODULE_22__["ContentNoticeComponent"],
-                _components_checked_icon_checked_icon_component__WEBPACK_IMPORTED_MODULE_23__["CheckedIconComponent"],
-                _components_image_dialog_goods_image_dialog_goods_component__WEBPACK_IMPORTED_MODULE_24__["ImageDialogGoodsComponent"],
-                _components_tab_toggle_tab_toggle_component__WEBPACK_IMPORTED_MODULE_25__["TabToggleComponent"],
+                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_17__["ImageDialogComponent"],
+                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_18__["AuthorDialogComponent"],
+                _components_image_category_item_image_category_item_component__WEBPACK_IMPORTED_MODULE_20__["ImageCategoryItemComponent"],
+                _components_image_item_image_item_component__WEBPACK_IMPORTED_MODULE_21__["ImageItemComponent"],
+                _components_pagination_simple_pagination_simple_component__WEBPACK_IMPORTED_MODULE_22__["PaginationSimpleComponent"],
+                _components_content_notice_content_notice_component__WEBPACK_IMPORTED_MODULE_23__["ContentNoticeComponent"],
+                _components_checked_icon_checked_icon_component__WEBPACK_IMPORTED_MODULE_24__["CheckedIconComponent"],
+                _components_image_dialog_goods_image_dialog_goods_component__WEBPACK_IMPORTED_MODULE_25__["ImageDialogGoodsComponent"],
+                _components_tab_toggle_tab_toggle_component__WEBPACK_IMPORTED_MODULE_26__["TabToggleComponent"],
             ],
             exports: [
                 _containers_dynamic_form_dynamic_form_component__WEBPACK_IMPORTED_MODULE_4__["DynamicFormComponent"]
@@ -3373,8 +3538,8 @@ var DynamicFormModule = /** @class */ (function () {
                 _components_form_checkbox_form_checkbox_component__WEBPACK_IMPORTED_MODULE_9__["FormCheckboxComponent"],
                 _components_form_radio_form_radio_component__WEBPACK_IMPORTED_MODULE_10__["FormRadioComponent"],
                 _components_form_title_form_title_component__WEBPACK_IMPORTED_MODULE_11__["FormTitleComponent"],
-                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_16__["ImageDialogComponent"],
-                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_17__["AuthorDialogComponent"],
+                _components_image_dialog_image_dialog_component__WEBPACK_IMPORTED_MODULE_17__["ImageDialogComponent"],
+                _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_18__["AuthorDialogComponent"],
             ],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
@@ -3426,6 +3591,136 @@ var FormService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dynamic-form2/goods.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/dynamic-form2/goods.service.ts ***!
+  \************************************************/
+/*! exports provided: GoodsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoodsService", function() { return GoodsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api.js */ "./src/app/dynamic-form2/api.js");
+/* harmony import */ var _author_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./author.service */ "./src/app/dynamic-form2/author.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var GoodsService = /** @class */ (function () {
+    function GoodsService(dialog, http, authorService) {
+        this.dialog = dialog;
+        this.http = http;
+        this.authorService = authorService;
+        this.goodsType = '出售中';
+        this.searchValue = '';
+        this.goodsCategorys = [];
+        this.selectedGoods = '';
+        this.goodsList = [];
+        this.count = 0;
+        this.lastAction = 'loading';
+        this.pageNo = 1;
+        this.pageSize = 10;
+        this.categoryId = 'all';
+        this.categoryName = '全部分类';
+    }
+    // 宝贝
+    // 获取宝贝类目
+    GoodsService.prototype.getSellerCats = function () {
+        var _this = this;
+        this.http.post(_api_js__WEBPACK_IMPORTED_MODULE_3__["default"].getSellerCats, {}).subscribe(function (res) {
+            console.log(res);
+            if (res['data']) {
+                _this.goodsCategorys = res['data'].map(function (item, index) {
+                    item.name = item.name.replace('&nbsp;', ' ');
+                    return item;
+                });
+            }
+            else {
+            }
+        }, function (err) {
+            alert('获取宝贝类目失败（net）');
+            _this.authorService.checkAuthor(err, function () {
+                _this.getSellerCats;
+            });
+        });
+    };
+    // 获取宝贝列表
+    GoodsService.prototype.fetchGoods = function (_a) {
+        var _this = this;
+        var _b = _a.pageNo, pageNo = _b === void 0 ? 1 : _b;
+        this.lastAction = 'loading';
+        var req = {
+            pageNo: pageNo || this.pageNo,
+            pageSize: this.pageSize,
+            type: this.goodsType == '出售中' ? 'onsale' : 'instock',
+            keyword: this.searchValue,
+            cid: this.categoryId,
+            fields: '',
+        };
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        for (var i in req) {
+            params = params.set(i, req[i]);
+        }
+        // let headers=new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' })
+        var apiUrl = _api_js__WEBPACK_IMPORTED_MODULE_3__["default"].getItems;
+        this.http.post(apiUrl, params).subscribe(function (res) {
+            if (res['items']) {
+                _this.goodsList = res['items'].map(function (item, index) {
+                    return {
+                        title: item.title,
+                        pic_url: item.picUrl,
+                        price: item.price,
+                        prev_price: item.price,
+                        num_iid: item.numIid,
+                        num: item.num,
+                    };
+                });
+                _this.count = res['totalCount'];
+                _this.pageNo = req.pageNo;
+                _this.lastAction = 'success';
+            }
+            else {
+                alert('获取宝贝列表出错');
+                _this.lastAction = 'error';
+                _this.authorService.checkAuthor(res, function () {
+                    _this.fetchGoods({ pageNo: pageNo });
+                });
+            }
+        }, function (res) {
+            alert('获取宝贝列表出错');
+            _this.lastAction = 'error';
+            _this.authorService.checkAuthor(res, function () {
+                _this.fetchGoods({ pageNo: pageNo });
+            });
+        });
+    };
+    GoodsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _author_service__WEBPACK_IMPORTED_MODULE_4__["AuthorService"]])
+    ], GoodsService);
+    return GoodsService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dynamic-form2/image.service.ts":
 /*!************************************************!*\
   !*** ./src/app/dynamic-form2/image.service.ts ***!
@@ -3438,9 +3733,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageService", function() { return ImageService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/author-dialog/author-dialog.component */ "./src/app/dynamic-form2/components/author-dialog/author-dialog.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./api.js */ "./src/app/dynamic-form2/api.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api.js */ "./src/app/dynamic-form2/api.js");
+/* harmony import */ var _author_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./author.service */ "./src/app/dynamic-form2/author.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3456,9 +3751,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var ImageService = /** @class */ (function () {
-    function ImageService(dialog, http) {
+    function ImageService(dialog, http, authorService) {
         this.dialog = dialog;
         this.http = http;
+        this.authorService = authorService;
         // 选项卡索引
         this.tabIndex = 1;
         // 当前的类目id
@@ -3471,20 +3767,14 @@ var ImageService = /** @class */ (function () {
         this.hastNext = true; // 是否有下一页
         this.selectedImage = '';
         this.imageCallback = function (e) { };
-        this.goodsType = 'onsale';
-        this.goodsCategorys = [];
-        this.goodsList = [];
-        this.goodsPageNo = 1;
-        this.goodsPageSize = 20;
-        this.selectedGoods = '';
     }
     ImageService.prototype.openAuthorDialog = function () {
-        this.fetchImageSpaceCategory();
+        // this.fetchImageSpaceCategory();
     };
     // 获取图片空间类目
     ImageService.prototype.fetchImageSpaceCategory = function () {
         var _this = this;
-        this.http.get(_api_js__WEBPACK_IMPORTED_MODULE_4__["default"].getPictureCategory, {}).subscribe(function (e) {
+        this.http.get(_api_js__WEBPACK_IMPORTED_MODULE_3__["default"].getPictureCategory, {}).subscribe(function (e) {
             console.log(e);
             if (e['success']) {
                 var categoryList = e['data'];
@@ -3510,10 +3800,12 @@ var ImageService = /** @class */ (function () {
                 alert('获取图片空间类目失败');
             }
         }, function (err) {
-            console.log(err);
-            alert(err);
+            alert('获取图片空间类目失败(net)');
+            _this.authorService.checkAuthor(err, function () {
+                _this.fetchImageSpaceCategory();
+            });
             // 打开授权窗口
-            _this.dialog.open(_components_author_dialog_author_dialog_component__WEBPACK_IMPORTED_MODULE_2__["AuthorDialogComponent"]);
+            // this.dialog.open(AuthorDialogComponent);
         });
     };
     ImageService.prototype.imageCategoryGetChild = function (categoryList, list) {
@@ -3545,10 +3837,10 @@ var ImageService = /** @class */ (function () {
             pageSize: this.imagePageSize,
             currentPage: pageNo,
         };
-        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpParams"]().set('categoryId', req.categroyId.toString()).set('pageSize', req.pageSize.toString()).set('currentPage', req.currentPage.toString());
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set('categoryId', req.categroyId.toString()).set('pageSize', req.pageSize.toString()).set('currentPage', req.currentPage.toString());
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
         this.imagelastAction = 'loading';
-        this.http.post(_api_js__WEBPACK_IMPORTED_MODULE_4__["default"].getPictureItems, req, { headers: headers, params: params }).subscribe(function (res) {
+        this.http.post(_api_js__WEBPACK_IMPORTED_MODULE_3__["default"].getPictureItems, req, { headers: headers, params: params }).subscribe(function (res) {
             if (res['success']) {
                 _this.imageList = res['data'];
                 _this.hastNext = res['hastNext'];
@@ -3560,9 +3852,12 @@ var ImageService = /** @class */ (function () {
                 alert('获取图片失败');
                 _this.imagelastAction = 'error';
             }
-        }, function (res) {
+        }, function (err) {
             alert('获取图片失败（net）');
             _this.imagelastAction = 'error';
+            _this.authorService.checkAuthor(err, function () {
+                _this.fetchImage({ id: id, pageNo: pageNo });
+            });
         });
     };
     // 选择图片
@@ -3577,7 +3872,7 @@ var ImageService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _author_service__WEBPACK_IMPORTED_MODULE_4__["AuthorService"]])
     ], ImageService);
     return ImageService;
 }());

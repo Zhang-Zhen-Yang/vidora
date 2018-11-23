@@ -18,6 +18,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
+// pagination
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
 import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
@@ -41,6 +43,7 @@ import { TabToggleComponent } from './components/tab-toggle/tab-toggle.component
     MatTabsModule,
     MatMenuModule,
     HttpClientModule,
+    NgxPaginationModule,
   ],
   declarations: [
     DynamicFieldDirective,

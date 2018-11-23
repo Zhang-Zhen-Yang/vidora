@@ -34,7 +34,27 @@
   <table class="bottom-table">
     <tr>
       <td>
-        <pagination-simple [pageNo]="imageService.imagePageNo" [hasNext]="imageService.hastNext" (gotopage)="goTo($event)"></pagination-simple>
+        <pagination-simple
+          *ngIf="imageService.tabIndex == 0"
+          [pageNo]="imageService.imagePageNo"
+          [hasNext]="imageService.hastNext"
+          (gotopage)="goTo($event)"
+        ></pagination-simple>
+        <div class="list" 
+          *ngIf="imageService.tabIndex == 1"
+        >   
+            <!--{{ goodsService.pageSize }}-
+            {{ goodsService.pageNo }}-
+            {{ goodsService.count }}-->
+            <ul style="display: none;">
+              <li *ngFor="let item of collection | paginate: { itemsPerPage: goodsService.pageSize, currentPage: goodsService.pageNo, totalItems: goodsService.count || 1 }">{{ item }}</li>
+            </ul>
+            <pagination-controls
+              previousLabel="上一页"
+              nextLabel="下一页"
+              (pageChange)="goodsGoTo($event)"
+            ></pagination-controls>
+        </div>
       </td>
       <td>
         <button mat-button mat-dialog-close class="warn">取消</button>

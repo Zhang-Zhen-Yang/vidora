@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material';
 import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import api from './api.js';
+import {AuthorService} from './author.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,19 +25,14 @@ export class ImageService {
   selectedImage = '';
   imageCallback = (e)=>{};
 
-  goodsType: string = 'onsale';
-  goodsCategorys = [];
-  goodsList = [];
-  goodsPageNo: number = 1;
-  goodsPageSize: number = 20;
-  selectedGoods = '';
+  
 
 
-  constructor(private dialog: MatDialog, private http: HttpClient) { 
+  constructor(private dialog: MatDialog, private http: HttpClient, private authorService: AuthorService) { 
 
   }
   openAuthorDialog() {    
-    this.fetchImageSpaceCategory();
+    // this.fetchImageSpaceCategory();
   }
   // 获取图片空间类目
   fetchImageSpaceCategory() {
@@ -71,11 +67,13 @@ export class ImageService {
         }
       },
       (err) => {
-        console.log(err);
-        alert(err);
+        alert('获取图片空间类目失败(net)');
+        this.authorService.checkAuthor(err, ()=>{
+          this.fetchImageSpaceCategory();
+        });
 
         // 打开授权窗口
-        this.dialog.open(AuthorDialogComponent);
+        // this.dialog.open(AuthorDialogComponent);
       }
     )
   } 
@@ -125,9 +123,12 @@ export class ImageService {
           this.imagelastAction = 'error';
         }
       },
-      (res)=>{
+      (err)=>{
         alert('获取图片失败（net）');
         this.imagelastAction = 'error';
+        this.authorService.checkAuthor(err, ()=>{
+          this.fetchImage({id, pageNo});
+        })
       }
     )
   }
@@ -139,6 +140,8 @@ export class ImageService {
   setImageCallback(callback) {
     this.imageCallback = callback;
   }
+
+  
   
 } 
 

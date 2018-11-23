@@ -1,6 +1,7 @@
 // 图片选择
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../image.service';
+import { GoodsService } from '../../goods.service';
 
 @Component({
   selector: 'app-image-dialog',
@@ -9,7 +10,12 @@ import { ImageService } from '../../image.service';
 })
 export class ImageDialogComponent implements OnInit {
 
-  constructor(private imageService: ImageService) { }
+  collection = [];
+  constructor(private imageService: ImageService, private goodsService: GoodsService) {
+    for (let i = 1; i <= 100; i++) {
+      this.collection.push(`item ${i}`);
+    }
+  }
 
 
   ngOnInit() {
@@ -36,5 +42,7 @@ export class ImageDialogComponent implements OnInit {
   setIndex(index) {
     this.imageService.tabIndex = index;
   }
-
+  goodsGoTo(pageNo) {
+    this.goodsService.fetchGoods({pageNo});
+  }
 }
