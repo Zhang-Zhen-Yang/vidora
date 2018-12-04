@@ -10,7 +10,7 @@
   <script src="https://cdn.bootcss.com/tweenjs/1.0.2/tweenjs.js"></script>
   <script src="https://cdn.staticfile.org/PreloadJS/1.0.1/preloadjs.js"></script>
   <script>
-    let { desktopCapturer, ipcRenderer, remote, webFrame, clipboard} = require('electron');
+    let { desktopCapturer, ipcRenderer, remote, webFrame, clipboard, shell} = require('electron');
       window.desktopCapturer = desktopCapturer;
       window.ipcRenderer = ipcRenderer;
       window.remote = remote;
@@ -18,13 +18,18 @@
       window.clipboard = clipboard;
       window.child_process = require('child_process');
       window.exec = window.child_process.exec;
+      window.shell = shell;
       // window.glob = require('glob');
       window.path = require('path');
       window.fs = require('fs');
+      // 当前目录
       window.dirname = __dirname;
       // console.log(window.dirname);
+      // 音乐
       window.audioList = require('./audioList');
+      // 字体
       window.fontList = require('./font-list');
+      // 模板
       window.tempList = require('./tempList');
       // console.log(fontList);
       /* fontList.getFonts()
@@ -39,6 +44,17 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script>
+    const remoteUrl = './src/';
+  </script>
+  <!--
+    <script type="text/javascript" src="http://localhost:8081/runtime.js"></script>
+    <script type="text/javascript" src="http://localhost:8081/polyfills.js"></script>
+    <script type="text/javascript" src="http://localhost:8081/styles.js"></script>
+    <script type="text/javascript" src="http://localhost:8081/vendor.js"></script>
+    <script type="text/javascript" src="http://localhost:8081/main.js"></script>
+  -->
   <script type="text/javascript" src="./src/runtime.js"></script>
   <script type="text/javascript" src="./src/polyfills.js"></script>
   <script type="text/javascript" src="./src/styles.js"></script>

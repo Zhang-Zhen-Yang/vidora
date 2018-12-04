@@ -13,3 +13,7 @@ function checkHasGetAuthor() {
 }
 checkHasGetAuthor();
 
+/*setTimeout(()=>{
+	ipcRenderer.sendToHost('inited','dddddddd');
+}, 3000)*/
+

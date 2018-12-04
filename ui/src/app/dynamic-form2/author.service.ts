@@ -18,7 +18,7 @@ export class AuthorService {
         if(!this.aCS.dialogRef) {
           this.aCS.dialogRef = this.dialog.open(AuthorDialogComponent);
           this.aCS.dialogRef.afterClosed().subscribe(result => {
-            alert(this.aCS.callbackList.length);
+            // alert(this.aCS.callbackList.length);
             this.aCS.callbackList = [];
             this.aCS.dialogRef = null;
           });

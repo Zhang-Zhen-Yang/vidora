@@ -39,10 +39,61 @@
   </div>
   <div id="goods-contents">
     <ng-container *ngIf="goodsService.lastAction == 'success'" >
-      <div *ngFor="let item of goodsService.goodsList" style="display: inline-block;">
-        <img [src]="item.pic_url" alt="" style="width: 150px">
-        <div>{{item.title}}</div>
-        {{ item.num_iid }}
+      <!--宝贝列表-->
+      <div class="image-dialog-goods-item" *ngFor="let item of goodsService.goodsList" style="width: 100%;">
+        <table cellspacing="0" cellpadding="0" class="image-dialog-goods-table">
+          <tr>
+            <td>
+              <img [src]="item.pic_url" alt="" style="" >
+            </td>
+            <td>
+              <div>
+                <span class="goods-title" (click)="openExternal(item.num_iid)" [title]="item.num_iid">
+                  {{item.title}}
+                </span>
+                
+              </div>
+            </td>
+            <td>
+              <div class="goods-price">
+                  ¥{{ item.price }}
+              </div>
+              <!--
+              <div class="goods-num">
+                {{ item.num }}
+              </div>
+              -->
+            </td>
+            <td>
+              <span class="goods-show-more" (click)="showMore(item.num_iid)">更多</span>
+            </td>
+          </tr>
+        </table>
+        <div>
+          <div *ngIf="goodsService.goodsMainPics['n' +item.num_iid ]">
+            <!-- 加载成功 -->
+            <ng-container *ngIf="goodsService.goodsMainPics['n' +item.num_iid ].lastAction == 'success'">
+              <div
+                *ngFor="let item of goodsService.goodsMainPics['n' +item.num_iid ].list"
+                [ngClass]="{'goods-sub-img-block': true, 'active': item.url == goodsService.selectedGoods}"
+                (click)="setGoods(item.url)"
+              >
+                <img [src]="item.url" alt="">
+                <div class="checked-icon">
+                  <span class="iconfont">
+                      &#xe631;
+                  </span>
+                </div>
+              </div>
+            </ng-container>
+            <!-- 加载失败 -->
+            <ng-container *ngIf="goodsService.goodsMainPics['n' +item.num_iid ].lastAction == 'error'">
+                <div style="width: 100px;height:100px;text-align: center;color: red;">
+                  加载出错
+                </div>
+            </ng-container>
+          </div>
+        </div>
       </div>
     </ng-container>
     <content-notice

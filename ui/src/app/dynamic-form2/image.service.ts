@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import api from './api.js';
@@ -12,7 +12,7 @@ import {AuthorService} from './author.service';
 export class ImageService {
 
   // 选项卡索引
-  tabIndex: number = 1;
+  tabIndex: number = 0;
 
   // 当前的类目id
   categoryId = -1;
@@ -28,7 +28,7 @@ export class ImageService {
   
 
 
-  constructor(private dialog: MatDialog, private http: HttpClient, private authorService: AuthorService) { 
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar, private http: HttpClient, private authorService: AuthorService) { 
 
   }
   openAuthorDialog() {    
@@ -63,11 +63,21 @@ export class ImageService {
           this.imageCategory = result;
           console.log(result);
         } else {
-          alert('获取图片空间类目失败');
+          // alert('获取图片空间类目失败');
+          this.snackBar.open('获取图片空间类目失败','ok', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          });
         }
       },
       (err) => {
-        alert('获取图片空间类目失败(net)');
+        // alert('获取图片空间类目失败(net)');
+        this.snackBar.open('获取图片空间类目失败','ok', {
+          duration: 2000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
         this.authorService.checkAuthor(err, ()=>{
           this.fetchImageSpaceCategory();
         });
@@ -119,12 +129,22 @@ export class ImageService {
           this.selectedImage = '';
           this.imagelastAction = 'success';
         } else {  
-          alert('获取图片失败');
+          // alert('获取图片失败');
+          this.snackBar.open('获取图片失败','ok', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          });
           this.imagelastAction = 'error';
         }
       },
       (err)=>{
-        alert('获取图片失败（net）');
+        this.snackBar.open('获取图片失败','ok', {
+          duration: 2000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+        // alert('获取图片失败（net）');
         this.imagelastAction = 'error';
         this.authorService.checkAuthor(err, ()=>{
           this.fetchImage({id, pageNo});

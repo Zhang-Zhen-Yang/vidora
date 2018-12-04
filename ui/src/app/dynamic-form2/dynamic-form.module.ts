@@ -18,6 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 // pagination
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -33,6 +34,8 @@ import { CheckedIconComponent } from './components/checked-icon/checked-icon.com
 import { ImageDialogGoodsComponent } from './components/image-dialog-goods/image-dialog-goods.component';
 import { TabToggleComponent } from './components/tab-toggle/tab-toggle.component';
 
+// import { AuthorCallbackService } from './author-callback.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -42,6 +45,7 @@ import { TabToggleComponent } from './components/tab-toggle/tab-toggle.component
     MatProgressSpinnerModule,
     MatTabsModule,
     MatMenuModule,
+    MatSnackBarModule,
     HttpClientModule,
     NgxPaginationModule,
   ],
@@ -66,7 +70,10 @@ import { TabToggleComponent } from './components/tab-toggle/tab-toggle.component
     TabToggleComponent,
   ],
   exports: [
-    DynamicFormComponent
+    DynamicFormComponent,
+    ContentNoticeComponent,
+    AuthorDialogComponent,
+    // AuthorCallbackService,
   ],
   entryComponents: [
     FormButtonComponent,

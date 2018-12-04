@@ -70,3 +70,90 @@
 		border-radius:0 2px 2px 0;
 	}
 }
+.image-dialog-goods-item{
+	border-top: 1px solid #aaaaaa;
+}
+.image-dialog-goods-item:last-child{
+	border-bottom: 1px solid #aaaaaa;
+}
+
+.image-dialog-goods-table{
+	table-layout: fixed;
+	width: 100%;
+	img{
+		vertical-align: middle;
+		width: 100px;
+		height: 100px;
+		object-fit: contain;
+		object-position: center;
+	}
+	td{
+		padding: 8px;
+		text-align: left;
+	}
+	td:first-child{
+		width: 130px;
+	}
+	td:nth-child(3){
+		width: 150px;
+	}
+	td:nth-child(4){
+		width: 50px;
+	}
+	.goods-price{
+		color: #F40;
+		font-size: 16px;
+	}
+	.goods-title{
+		cursor: pointer;
+	}
+	.goods-title:hover{
+		cursor: pointer;
+		color: red;
+	}
+	.goods-show-more{
+		color: #3498DB;
+		cursor: pointer;
+	}
+}
+.checked-icon{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-top: 16px solid transparent;
+	border-left: 16px solid transparent;
+	border-right: 16px solid #3498DB;
+	border-bottom: 16px solid #3498DB;
+	line-height: 13px;
+	text-indent: -2px;
+}
+.iconfont{
+	color: white;
+	font-size: 16px;
+}
+.goods-sub-img-block{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin: 8px;
+	cursor: pointer;
+	border: 1px solid #aaaaaa;
+	position: relative;
+	img{
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+	.checked-icon{
+		display: none;
+	}
+}
+.goods-sub-img-block.active{
+	border: 1px solid #3498DB;
+	.checked-icon{
+		display: block;
+	}
+}

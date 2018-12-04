@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import { AuthorDialogComponent } from './components/author-dialog/author-dialog.component';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import api from './api.js';
@@ -23,7 +23,10 @@ export class GoodsService {
   pageSize = 10;
   categoryId = 'all';
   categoryName = '全部分类';
-  constructor(private dialog: MatDialog, private http: HttpClient, private authorService: AuthorService) {
+
+  // 宝贝主图
+  goodsMainPics = {};
+  constructor(private dialog: MatDialog, private snackBar: MatSnackBar,private http: HttpClient, private authorService: AuthorService) {
 
   }
 
@@ -40,11 +43,20 @@ export class GoodsService {
             return item;
           });
         } else {
-          
+          this.snackBar.open('获取宝贝类目失败','ok', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          });
         }
       },
       (err)=>{
-        alert('获取宝贝类目失败（net）');
+        this.snackBar.open('获取宝贝类目失败(net)','ok', {
+          duration: 2000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+        // alert('获取宝贝类目失败（net）');
         this.authorService.checkAuthor(err, ()=>{
           this.getSellerCats;
         })
@@ -85,8 +97,14 @@ export class GoodsService {
           this.count = res['totalCount'];
           this.pageNo = req.pageNo;
           this.lastAction = 'success';
+          this.selectedGoods = '';
         } else {
-          alert('获取宝贝列表出错');
+          // alert('获取宝贝列表出错');
+          this.snackBar.open('获取宝贝列表出错','ok', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          });
           this.lastAction = 'error';
           this.authorService.checkAuthor(res, ()=>{
             this.fetchGoods({pageNo});
@@ -94,13 +112,89 @@ export class GoodsService {
         }
       },
       (res)=>{
-        alert('获取宝贝列表出错');
+        this.snackBar.open('获取宝贝列表出错','ok', {
+          duration: 2000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+        // alert('获取宝贝列表出错');
         this.lastAction = 'error';
         this.authorService.checkAuthor(res, ()=>{
           this.fetchGoods({pageNo});
         });
       }
     )
+  }
+  // 获取宝贝详情
+  getItemInfo({num_iid}){
+    if(!num_iid){
+      return;
+    }
+    let goodsMainPicsData = this.goodsMainPics[`n${num_iid}`];
+    if(!goodsMainPicsData || (goodsMainPicsData && goodsMainPicsData.lastAction == 'error')) {
+      this.goodsMainPics[`n${num_iid}`] = goodsMainPicsData || { lastAction: 'loading' };
+      if(this.goodsMainPics[`n${num_iid}`].msg == '没有权限获取该商品信息') {
+        return;
+      }
+      let req = {
+        numIid: num_iid,
+        fields: 'pic_url,item_img,product_id',
+      }
+      this.goodsMainPics[`n${num_iid}`].lastAction = 'loading';
+     
+
+      let params = new HttpParams();
+      for(let i in req){
+        params = params.set(i, req[i])
+      }
+
+      this.http.post(api.getItemInfo,params).subscribe(
+        (res)=>{
+          console.log(res);
+          if(res['success']) {
+            
+            this.goodsMainPics[`n${num_iid}`] = {...this.goodsMainPics[`n${num_iid}`], lastAction: 'success', list: res['item'].itemImgs}
+          } else {
+            this.goodsMainPics[`n${num_iid}`].lastAction = 'error';
+            this.goodsMainPics[`n${num_iid}`].msg = res['msg'];
+          }
+
+        },
+        (res)=>{
+          this.snackBar.open('获取宝贝列表出错','ok', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          });
+          // alert('获取宝贝列表出错');
+          this.lastAction = 'error';
+          this.authorService.checkAuthor(res, ()=>{
+            this.getItemInfo({num_iid});
+          });
+        }
+      )
+
+
+
+      /* http.post(api.getItemInfo, req).then((res)=>{
+        if(res.status == 200) {
+          // console.log(res.data);
+          if(res.data.success) {
+            state.goodsMainPics[`n${num_iid}`] = {...state.goodsMainPics[`n${num_iid}`], lastAction: 'success', list: res.data.item.itemImgs}
+          } else {
+            state.goodsMainPics[`n${num_iid}`].lastAction = 'error';
+            state.goodsMainPics[`n${num_iid}`].msg = res.data.msg;
+          }
+          
+        } else {
+          state.goodsMainPics[`n${num_iid}`].lastAction = 'error';
+        }
+        Vue.set(state, 'goodsMainPics', {...state.goodsMainPics});
+      })*/
+    }
+  }
+  setSelectedGoods({pic_url}) {
+    this.selectedGoods = pic_url;
   }
 
 

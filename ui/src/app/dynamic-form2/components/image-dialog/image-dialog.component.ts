@@ -37,7 +37,12 @@ export class ImageDialogComponent implements OnInit {
     this.imageService.fetchImage({id: null, pageNo})
   }
   confirm() {
-    this.imageService.imageCallback(this.imageService.selectedImage);
+
+    if(this.imageService.tabIndex == 0) {
+      this.imageService.imageCallback(this.imageService.selectedImage);
+    } else {
+      this.imageService.imageCallback(this.goodsService.selectedGoods);
+    }
   }
   setIndex(index) {
     this.imageService.tabIndex = index;
